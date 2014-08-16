@@ -14,6 +14,7 @@ Command line interface for couchdb.
 * `config: config, conf`: Manage server configuration.
 * `restart: restart`: Restart a server.
 * `session`: Cookie-based session authentication.
+* `logout`: Logout of current session.
 
 ## Options
 
