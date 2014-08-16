@@ -14,12 +14,15 @@ Command line interface for couchdb.
 * `config: config, conf`: Manage server configuration.
 * `restart: restart`: Restart a server.
 * `session: session, sess`: Cookie-based session authentication.
+* `login`: Login to a server.
 * `logout`: Logout of current session.
 
 ## Options
 
 * `-s, --server [url]`: Database server.
 * `-o, --output [file]`: Write response to output file.
+* `-u, --username [name]`: Authentication username.
+* `-p, --password [pass]`: Authentication password.
 
 ### Database
 

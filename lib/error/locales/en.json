@@ -35,6 +35,16 @@
     "message": "unknown config value (section: %s, key: %s)"
   },
   {
+    "key": "EUSERNAME_REQUIRED",
+    "description": "Username not specified",
+    "message": "username is required"
+  },
+  {
+    "key": "EPASSWORD_REQUIRED",
+    "description": "Password not specified",
+    "message": "password is required"
+  },
+  {
     "key": "ECONFIG_SECTION_REQUIRED",
     "description": "Configuration section not specified",
     "message": "config section is required"
