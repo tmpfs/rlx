@@ -71,6 +71,27 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should ensure full commit', function(done){
+    var mock = config.file('database-commit.json');
+    var args = [
+      'db',
+      'commit',
+      '-d=' + database,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc.instance_start_time).to.be.a('string');
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should remove database', function(done){
     var mock = config.file('database-rm.json');
     var args = [

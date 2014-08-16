@@ -37,6 +37,7 @@ Commands for creating, deleting and modifying databases.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
+* `commit: commit`: Ensure full commit.
 
 ### Log
 
