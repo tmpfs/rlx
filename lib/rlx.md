@@ -12,6 +12,7 @@ Command line interface for couchdb.
 * `tasks: tasks`: Print active tasks. 
 * `log: log`: Print server log. 
 * `config: config, conf`: Manage server configuration.
+* `restart: restart`: Restart a server.
 
 ## Options
 
