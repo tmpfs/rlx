@@ -88,4 +88,23 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should remove config value', function(done){
+    var mock = config.file('server-config-rm-value.json');
+    var args = [
+      'config',
+      'rm',
+      'mock-section',
+      'mock-key',
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.a('string').to.eql("mock-value");
+      done();
+    })
+    def.parse(args);
+  });
 })
