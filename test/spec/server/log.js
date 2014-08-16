@@ -28,7 +28,7 @@ describe('rlx:', function() {
   it('should retrieve log data using offset and bytes', function(done){
     var offset = 128;
     var bytes = 128;
-    var mock = config.file('server-log.txt');
+    var mock = config.file('server-log-offset-bytes.txt');
     var args = [
       'log', '--no-color',
       '-s', config.server.default,
