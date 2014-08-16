@@ -17,6 +17,7 @@ Command line interface for couchdb.
 * `admin: admin`: Manage server administrators.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
+* `list: list, ls`: List databases.
 
 ## Options
 
@@ -32,7 +33,6 @@ Commands for listing, creating and deleting databases.
 
 #### Commands
 
-* `ls: ls`: List databases.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
 
