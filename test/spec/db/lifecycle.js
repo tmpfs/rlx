@@ -145,12 +145,33 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      console.dir(doc);
       expect(doc).to.be.a('number');
       done();
     })
     def.parse(args);
   });
+
+  it('should set revs limit', function(done){
+    var mock = config.file('database-limit-set.json');
+    var args = [
+      'db',
+      'limit',
+      '1000',
+      '-d=' + database,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc.ok).to.eql(true);
+      done();
+    })
+    def.parse(args);
+  });
+
 
   it('should remove database', function(done){
     var mock = config.file('database-rm.json');
