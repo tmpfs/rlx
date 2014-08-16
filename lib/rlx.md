@@ -18,6 +18,7 @@ Command line interface for couchdb.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 * `list: list, ls`: List databases.
+* `security: security, sec`: Get or set security document.
 
 ## Options
 
