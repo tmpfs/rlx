@@ -30,6 +30,16 @@
     "message": "invalid config command %s"
   },
   {
+    "key": "ESESSION_COMMAND",
+    "description": "Invalid session subcommand",
+    "message": "invalid session command %s"
+  },
+  {
+    "key": "EADMIN_COMMAND",
+    "description": "Invalid admin subcommand",
+    "message": "invalid admin command %s"
+  },
+  {
     "key": "EUNKNOWN_CONFIG_VALUE",
     "description": "Unknown configuration section or key",
     "message": "unknown config value (section: %s, key: %s)"

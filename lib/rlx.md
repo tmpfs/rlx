@@ -14,6 +14,7 @@ Command line interface for couchdb.
 * `config: config, conf`: Manage server configuration.
 * `restart: restart`: Restart a server.
 * `session: session, sess`: Cookie-based session authentication.
+* `admin: admin`: Manage server administrators.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 
@@ -62,3 +63,12 @@ Commands for listing, creating and deleting databases.
 * `get: get`: Get session authentication.
 * `set: set`: Authenticate a session.
 * `rm: rm`: Logout a session.
+
+### Admin
+
+#### Commands
+
+* `get: get`: Get administrator list.
+* `set: set`: Create an administrator.
+* `rm: rm`: Delete an administrator.
+
