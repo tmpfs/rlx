@@ -5,8 +5,23 @@
     "message": "connection refused to %s"
   },
   {
+    "key": "EUNKNOWN_DB_ERROR",
+    "description": "Unknown database error",
+    "message": "unknown database error %j"
+  },
+  {
     "key": "EDATABASE_COMMAND",
     "description": "Invalid database subcommand",
     "message": "invalid database command %s"
+  },
+  {
+    "key": "ECONFIG_COMMAND",
+    "description": "Invalid config subcommand",
+    "message": "invalid config command %s"
+  },
+  {
+    "key": "EUNKNOWN_CONFIG_VALUE",
+    "description": "Unknown configuration section or key",
+    "message": "unknown config value (section: %s, key: %s)"
   }
 ]
