@@ -1,0 +1,12 @@
+[
+  {
+    "key": "ECONNREFUSED",
+    "description": "Connection refused",
+    "message": "connection refused to %s"
+  },
+  {
+    "key": "EDATABASE_COMMAND",
+    "description": "Invalid database subcommand",
+    "message": "invalid database command %s"
+  }
+]

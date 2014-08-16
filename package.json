@@ -1,0 +1,69 @@
+{
+  "name": "rlx",
+  "version": "0.0.1",
+  "description": "Command line interface for couchdb",
+  "author": "muji <noop@xpm.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeformsystems/rlx-node"
+  },
+  "bugs": {
+    "url": "https://github.com/freeformsystems/rlx-node/issues"
+  },
+  "directories": {
+    "bin": "./bin",
+    "man": "./doc/man"
+  },
+  "dependencies": {
+    "circular": "^1.0.3",
+    "cli-command": "~0.8.97",
+    "cli-error": "~0.5.0",
+    "cli-interface": "~1.0.8",
+    "cli-logger": "~0.5.10",
+    "cli-rc": "~1.0.1",
+    "cli-util": "^1.1.13",
+    "request": "^2.40.0",
+    "ttycolor": "^0.8.10"
+  },
+  "devDependencies": {
+    "cli-manpage": "~0.0.8",
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0",
+    "istanbul": "~0.2.6"
+  },
+  "scripts": {
+    "docs": "npm run manual && npm run readme",
+    "clean-man": "rm -fv ./doc/man/*.1",
+    "manual": "npm run clean-man && manpage --output ./doc/man ./bin/rlx",
+    "readme": "mdp --force -v",
+    "pretest": "rm -rf ./target && mkdir ./target",
+    "test": "istanbul cover _mocha -- -u bdd --recursive --bail --reporter list -A test/spec/"
+  },
+  "mdp": {
+    "title": "rlx",
+    "pedantic": true,
+    "include": "doc/readme",
+    "require": "lib",
+    "links": "links.md",
+    "toc": "Table of Contents",
+    "base": "https://github.com/freeformsystems/rlx-node",
+    "partial": [
+      {
+        "inc": [
+          "introduction.md",
+          "install.md"
+        ]
+      },
+      {
+        "title": "Usage",
+        "bin": "rlx --help",
+        "type": "code"
+      },
+      {
+        "inc": [
+          "developer.md"
+        ]
+      }
+    ]
+  }
+}

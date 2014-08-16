@@ -1,0 +1,8 @@
+coverage
+target
+build
+package
+test
+*.bak
+*.log
+*.pid

@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var program = require('../lib/rlx');
+program(require('../package.json')).parse();
