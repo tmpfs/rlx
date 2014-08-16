@@ -10,6 +10,9 @@ var config = {
   server: {
     default: 'http://localhost:5984'
   },
+  database: {
+    default: 'mock-database'
+  },
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),
