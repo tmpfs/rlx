@@ -20,6 +20,11 @@
     "message": "database file %s exists"
   },
   {
+    "key": "EMISSING",
+    "description": "Database or document does not exist",
+    "message": "database or document %s does not exist"
+  },
+  {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
     "message": "database name %s is illegal"
