@@ -21,9 +21,10 @@ Command line interface for couchdb.
 ## Options
 
 * `-s, --server [url]`: Database server.
-* `-o, --output [file]`: Write response to output file.
+* `-d, --database [name]`: Database name.
 * `-u, --username [name]`: Authentication username.
 * `-p, --password [pass]`: Authentication password.
+* `-o, --output [file]`: Write response to output file.
 
 ### Database
 
