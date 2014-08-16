@@ -26,3 +26,10 @@ Commands for listing, creating and deleting databases.
 * `ls: ls`: List databases.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
+
+### Log
+
+#### Options
+
+* `offset: --offset [num]`: Offset in bytes for the log tail. 
+* `bytes: --bytes [num]`: Bytes to be returned, default is 1000.
