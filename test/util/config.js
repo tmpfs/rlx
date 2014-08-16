@@ -16,8 +16,21 @@ var config = {
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),
-    target: target
-  }
+    target: target,
+    fixtures: path.join(base, 'test', 'fixtures'),
+  },
+  fixtures: {}
+}
+
+var files = fs.readdirSync(config.paths.fixtures);
+for(var i = 0;i < files.length;i++) {
+  contents = '' + fs.readFileSync(path.join(config.paths.fixtures, files[i]));
+  config.fixtures[path.basename(files[i], '.json')] =
+    {
+      name: files[i],
+      doc: contents,
+      data: JSON.parse(contents)
+    }
 }
 
 config.file = function(name) {

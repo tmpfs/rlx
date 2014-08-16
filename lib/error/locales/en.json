@@ -50,6 +50,16 @@
     "message": "invalid database command %s"
   },
   {
+    "key": "ENO_SECURITY_COMMAND",
+    "description": "No security subcommand specified",
+    "message": "security requires a command"
+  },
+  {
+    "key": "ESECURITYCOMMAND",
+    "description": "Invalid security subcommand",
+    "message": "invalid security command %s"
+  },
+  {
     "key": "ECONFIG_COMMAND",
     "description": "Invalid config subcommand",
     "message": "invalid config command %s"

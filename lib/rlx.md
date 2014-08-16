@@ -27,6 +27,8 @@ Command line interface for couchdb.
 * `-u, --username [name]`: Authentication username.
 * `-p, --password [pass]`: Authentication password.
 * `-o, --output [file]`: Write response to output file.
+* `-f, --file [file]`: Read JSON input from file.
+* `-j, --json [json]`: JSON string literal (overrides --file).
 
 ### Database
 
@@ -79,3 +81,10 @@ Commands for creating, deleting and modifying databases.
 * `get: get`: Get administrator list.
 * `set: set`: Create an administrator.
 * `rm: rm`: Delete an administrator.
+
+### Security
+
+#### Commands
+
+* `get: get`: Get the security document.
+* `set: set`: Set the security document.
