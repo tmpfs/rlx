@@ -9,6 +9,7 @@ Command line interface for couchdb.
 * `database: database, db`: Manage databases.
 * `tasks: tasks`: Print active tasks. 
 * `log: log`: Print server log. 
+* `config: config, conf`: Manage server configuration.
 
 ## Options
 
@@ -18,8 +19,6 @@ Command line interface for couchdb.
 ### Database
 
 Commands for listing, creating and deleting databases.
-
-#### Options
 
 #### Commands
 
@@ -33,3 +32,12 @@ Commands for listing, creating and deleting databases.
 
 * `offset: --offset [num]`: Offset in bytes for the log tail. 
 * `bytes: --bytes [num]`: Bytes to be returned, default is 1000.
+
+### Config
+
+#### Commands
+
+* `get: get`: Get server configuration.
+* `set: set`: Set server configuration.
+* `rm: rm`: Delete server configuration.
+
