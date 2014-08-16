@@ -21,8 +21,10 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
+      var keys = Object.keys(doc);
       expect(doc).to.be.an('object');
-      expect(Object.keys(doc)).to.be.an('array');
+      expect(keys).to.be.an('array');
+      expect(keys.length).to.be.a('number').gt(0);
       done();
     })
     def.parse(args);
