@@ -19,7 +19,7 @@
     "cli-command": "~0.8.97",
     "cli-error": "~0.5.0",
     "cli-interface": "~1.0.8",
-    "cli-logger": "~0.5.10",
+    "cli-logger": "~0.5.13",
     "cli-rc": "~1.0.1",
     "cli-util": "^1.1.13",
     "request": "^2.40.0",
