@@ -7,6 +7,7 @@ Command line interface for couchdb.
 
 * `info: info`: Print server information.
 * `stats: stats`: Print server statistics.
+* `uuids: uuids`: Print list of uuids.
 * `database: database, db`: Manage databases.
 * `tasks: tasks`: Print active tasks. 
 * `log: log`: Print server log. 
@@ -42,3 +43,8 @@ Commands for listing, creating and deleting databases.
 * `set: set`: Set server configuration.
 * `rm: rm`: Delete server configuration.
 
+### Uuids
+
+#### Options
+
+* `count: --count [num]`: Number of uuids to fetch. 
