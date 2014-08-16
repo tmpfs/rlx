@@ -23,5 +23,20 @@
     "key": "EUNKNOWN_CONFIG_VALUE",
     "description": "Unknown configuration section or key",
     "message": "unknown config value (section: %s, key: %s)"
+  },
+  {
+    "key": "ECONFIG_SECTION_REQUIRED",
+    "description": "Configuration section not specified",
+    "message": "config section is required"
+  },
+  {
+    "key": "ECONFIG_KEY_REQUIRED",
+    "description": "Configuration key not specified",
+    "message": "config key is required"
+  },
+  {
+    "key": "ECONFIG_VALUE_REQUIRED",
+    "description": "Configuration value not specified",
+    "message": "config value is required"
   }
 ]
