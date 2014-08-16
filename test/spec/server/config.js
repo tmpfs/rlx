@@ -47,4 +47,23 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should retrieve config section value', function(done){
+    var mock = config.file('server-config-section-value.json');
+    var args = [
+      'config',
+      'get',
+      'uuids',
+      'algorithm',
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.a('string');
+      done();
+    })
+    def.parse(args);
+  });
 })
