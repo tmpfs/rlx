@@ -38,6 +38,7 @@ Commands for creating, deleting and modifying databases.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
 * `commit: commit`: Ensure full commit.
+* `compact: compact`: Compact database.
 
 ### Log
 

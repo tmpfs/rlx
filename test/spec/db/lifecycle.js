@@ -85,7 +85,28 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       expect(doc).to.be.an('object');
+      // NOTE: this is a string, but really couch should return a number
       expect(doc.instance_start_time).to.be.a('string');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should compact database', function(done){
+    var mock = config.file('database-compact.json');
+    var args = [
+      'db',
+      'compact',
+      '-d=' + database,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc.ok).to.eql(true);
       done();
     })
     def.parse(args);
