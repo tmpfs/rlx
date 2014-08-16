@@ -8,6 +8,7 @@ Command line interface for couchdb.
 * `info: info`: Print server information.
 * `database: database, db`: Manage databases.
 * `tasks: tasks`: Print active tasks. 
+* `log: log`: Print server log. 
 
 ## Options
 
