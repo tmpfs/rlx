@@ -13,6 +13,7 @@ Command line interface for couchdb.
 * `log: log`: Print server log. 
 * `config: config, conf`: Manage server configuration.
 * `restart: restart`: Restart a server.
+* `session`: Cookie-based session authentication.
 
 ## Options
 
@@ -49,3 +50,11 @@ Commands for listing, creating and deleting databases.
 #### Options
 
 * `count: --count [num]`: Number of uuids to fetch. 
+
+### Session
+
+#### Commands
+
+* `get: get`: Get session authentication.
+* `set: set`: Authenticate a session.
+* `rm: rm`: Logout a session.

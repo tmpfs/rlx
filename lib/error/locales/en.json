@@ -10,6 +10,11 @@
     "message": "unknown database error %j"
   },
   {
+    "key": "EUNAUTHORIZED",
+    "description": "Unauthorized request",
+    "message": "unauthorized request (authentication required)"
+  },
+  {
     "key": "EMETHOD_NOT_ALLOWED",
     "description": "HTTP method is not allowed",
     "message": "method not allowed %s"
