@@ -10,6 +10,16 @@
     "message": "unknown database error %j"
   },
   {
+    "key": "ENO_DB_FILE",
+    "description": "Database does not exist",
+    "message": "database %s does not exist"
+  },
+  {
+    "key": "EILLEGAL_DATABASE_NAME",
+    "description": "Illegal database name",
+    "message": "database name %s is illegal"
+  },
+  {
     "key": "EUNAUTHORIZED",
     "description": "Unauthorized request",
     "message": "unauthorized request (authentication required)"
@@ -18,6 +28,11 @@
     "key": "EMETHOD_NOT_ALLOWED",
     "description": "HTTP method is not allowed",
     "message": "method not allowed %s"
+  },
+  {
+    "key": "ENO_DATABASE_COMMAND",
+    "description": "No database subcommand specified",
+    "message": "db requires a command"
   },
   {
     "key": "EDATABASE_COMMAND",

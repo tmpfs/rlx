@@ -33,6 +33,8 @@ Commands for listing, creating and deleting databases.
 
 #### Commands
 
+* `info: info`: Get database information.
+* `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
 
@@ -72,4 +74,3 @@ Commands for listing, creating and deleting databases.
 * `get: get`: Get administrator list.
 * `set: set`: Create an administrator.
 * `rm: rm`: Delete an administrator.
-
