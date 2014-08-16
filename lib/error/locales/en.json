@@ -10,6 +10,11 @@
     "message": "unknown database error %j"
   },
   {
+    "key": "EMETHOD_NOT_ALLOWED",
+    "description": "HTTP method is not allowed",
+    "message": "method not allowed %s"
+  },
+  {
     "key": "EDATABASE_COMMAND",
     "description": "Invalid database subcommand",
     "message": "invalid database command %s"
