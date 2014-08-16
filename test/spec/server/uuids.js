@@ -28,4 +28,23 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should retrieve uuids using --count', function(done){
+    var mock = config.file('server-uuids-count.json');
+    var count = 10;
+    var args = [
+      'uuids',
+      '--count=' + count,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc.uuids).to.be.an('array').of.length(count);
+      done();
+    })
+    def.parse(args);
+  });
 })
