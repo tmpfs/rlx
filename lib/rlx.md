@@ -39,7 +39,8 @@ Commands for creating, deleting and modifying databases.
 * `rm: rm`: Remove a database.
 * `commit: commit`: Ensure full commit.
 * `compact: compact`: Compact database.
-* `cleanup: clenaup`: Remove stale view indices.
+* `cleanup: cleanup`: Remove stale view indices.
+* `limit: limit`: Get or set revisions limit.
 
 ### Log
 
