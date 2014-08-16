@@ -15,6 +15,11 @@
     "message": "database %s does not exist"
   },
   {
+    "key": "EFILE_EXISTS",
+    "description": "Database file already exists",
+    "message": "database file %s exists"
+  },
+  {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
     "message": "database name %s is illegal"

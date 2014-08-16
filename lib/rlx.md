@@ -29,7 +29,7 @@ Command line interface for couchdb.
 
 ### Database
 
-Commands for listing, creating and deleting databases.
+Commands for creating, deleting and modifying databases.
 
 #### Commands
 
