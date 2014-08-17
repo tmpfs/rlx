@@ -1,7 +1,0 @@
-{
-  "_id": "${id}",
-  "name": "${name}",
-  "password": "${password}",
-  "roles": "${roles}",
-  "type": "user"
-}

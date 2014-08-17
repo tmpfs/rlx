@@ -19,8 +19,8 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
       expect(doc).to.be.a('string');
-      expect(doc).match(/user/);
-      expect(doc).match(/new\.json/);
+      expect(doc).match(/user/g);
+      expect(doc).match(/new\.js/g);
       done();
     })
     def.parse(args);

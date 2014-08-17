@@ -47,4 +47,8 @@ config.text = function(file) {
   return '' + fs.readFileSync(file);
 }
 
+config.require = function(file) {
+  return require(file);
+}
+
 module.exports = config;
