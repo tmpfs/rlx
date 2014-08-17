@@ -15,6 +15,7 @@ Command line interface for couchdb.
 * `restart: restart`: Restart a server.
 * `session: session, sess`: Cookie-based session authentication.
 * `admin: admin`: Manage server administrators.
+* `user: user, usr`: Manage server users.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 * `list: list, ls`: List databases.
@@ -100,3 +101,9 @@ Commands for creating, deleting and modifying databases.
 * `ls: ls`: List templates.
 * `get: get`: Print template file.
 * `parse: parse`: Parse template file and print result.
+
+### User
+
+#### Commands
+
+* `ls: ls`: List users.

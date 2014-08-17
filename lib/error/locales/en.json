@@ -80,6 +80,11 @@
     "message": "invalid admin command %s"
   },
   {
+    "key": "EUSER_COMMAND",
+    "description": "Invalid user subcommand",
+    "message": "invalid user command %s"
+  },
+  {
     "key": "ETEMPLATE_COMMAND",
     "description": "Invalid template subcommand",
     "message": "invalid template command %s"
