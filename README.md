@@ -12,7 +12,7 @@ Table of Contents
 rlx
 ===
 
-Command line interface for [couchdb](http://couchdb.apache.org).
+Command line interface for [couchdb](http://couchdb.apache.org) designed for POSIX systems.
 
 Requires [node](http://nodejs.org) and [npm](http://www.npmjs.org).
 
@@ -29,23 +29,53 @@ Command line interface for couchdb.
 
 Usage: rlx <command> [-vh] [--color|--no-color] [--debug]
            [-v|--verbose] [-h|--help] [--version] [-s|--server=<url>]
-           <args>
+           [-d|--database=<name>] [-u|--username=<name>]
+           [-p|--password=<pass>] [-o|--output=<file>]
+           [-f|--file=<file>] [-j|--json=<json>]
+           [-t|--template=<name>] <args>
 
 Options:
 
-Command should be one of: info, database, help.
+Command should be one of: info, stats, uuids, database, tasks, log, config,
+restart, session, admin, login, logout, list, security, edit, template, help.
 
 Commands:
  info               Print server information.
+ stats              Print server statistics.
+ uuids              Print list of uuids.
  database, db       Manage databases.
+ tasks              Print active tasks.
+ log                Print server log.
+ config, conf       Manage server configuration.
+ restart            Restart a server.
+ session, sess      Cookie-based session authentication.
+ admin              Manage server administrators.
+ login              Login to a server.
+ logout             Logout of current session.
+ list, ls           List databases.
+ security, sec      Get or set security document.
+ edit               Edit a document.
+ template, tpl      Manage template files.
  help               Show help for commands.
 
 Arguments:
+ -p, --password=[pass]
+                    Authentication password.
+     --[no]-color   Enable or disable terminal colors.
  -v, --verbose      Print more information.
  -s, --server=[url] Database server.
- -h, --help         Display this help and exit.
-     --[no]-color   Enable or disable terminal colors.
+ -d, --database=[name]
+                    Database name.
+ -u, --username=[name]
+                    Authentication username.
      --debug        Enable debugging.
+ -o, --output=[file]
+                    Write response to output file.
+ -f, --file=[file]  Read JSON input from file.
+ -j, --json=[json]  JSON string literal (overrides --file).
+ -t, --template=[name]
+                    The name of a template file.
+ -h, --help         Display this help and exit.
      --version      Output version information and exit.
 
 Report bugs to https://github.com/freeformsystems/rlx-node/issues.
@@ -55,7 +85,7 @@ Report bugs to https://github.com/freeformsystems/rlx-node/issues.
 
 ### Test
 
-Tests require a clean [couchdb](http://couchdb.apache.org) installation.
+Tests require a clean [couchdb](http://couchdb.apache.org) installation running in *admin party* mode.
 
 ```
 npm test

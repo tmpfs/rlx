@@ -21,6 +21,7 @@ Command line interface for couchdb.
 * `security: security, sec`: Get or set security document.
 * `edit: edit`: Edit a document.
 * `template: template, tpl`: Manage template files.
+* `lint: lint`: Lint javascript and json.
 
 ## Options
 

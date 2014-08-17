@@ -138,5 +138,10 @@
     "key": "EFILE_REQUIRE",
     "description": "Could not require file as module",
     "message": "unable to require %s (%s)"
+  },
+  {
+    "key": "EFILE_OPTION",
+    "description": "File option not specified",
+    "message": "option --file is required"
   }
 ]

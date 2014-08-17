@@ -25,6 +25,7 @@
     "cli-logger": "~0.5.13",
     "cli-rc": "~1.0.1",
     "cli-util": "^1.1.13",
+    "jsonlint": "^1.6.2",
     "recursive-readdir": "^1.2.0",
     "request": "^2.40.0",
     "ttycolor": "^0.8.10"

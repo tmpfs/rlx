@@ -2,7 +2,7 @@
 
 ### Test
 
-Tests require a clean [couchdb][] installation.
+Tests require a clean [couchdb][] installation running in *admin party* mode.
 
 ```
 npm test
