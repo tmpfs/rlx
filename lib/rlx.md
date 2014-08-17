@@ -98,3 +98,4 @@ Commands for creating, deleting and modifying databases.
 
 * `ls: ls`: List templates.
 * `get: get`: Print template file.
+* `parse: parse`: Parse template file and print result.
