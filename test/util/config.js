@@ -38,7 +38,9 @@ config.file = function(name) {
 }
 
 config.json = function(file) {
-  return require(file);
+  var contents = config.text(file);
+  //console.log('contents: %s', contents);
+  return JSON.parse(contents);
 }
 
 config.text = function(file) {

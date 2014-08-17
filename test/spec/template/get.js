@@ -20,7 +20,12 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      console.dir(doc);
+      expect(doc).to.be.an('object');
+      expect(doc._id).to.be.a('string');
+      expect(doc.name).to.be.a('string');
+      expect(doc.password).to.be.a('string');
+      expect(doc.roles).to.be.a('string');
+      expect(doc.type).to.be.a('string');
       done();
     })
     def.parse(args);
