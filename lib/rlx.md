@@ -20,6 +20,7 @@ Command line interface for couchdb.
 * `list: list, ls`: List databases.
 * `security: security, sec`: Get or set security document.
 * `edit: edit`: Edit a document.
+* `template: template, tpl`: Manage template files.
 
 ## Options
 
@@ -30,6 +31,7 @@ Command line interface for couchdb.
 * `-o, --output [file]`: Write response to output file.
 * `-f, --file [file]`: Read JSON input from file.
 * `-j, --json [json]`: JSON string literal (overrides --file).
+* `-t, --template [name]`: The name of a template file.
 
 ### Database
 
@@ -89,3 +91,9 @@ Commands for creating, deleting and modifying databases.
 
 * `get: get`: Get the security document.
 * `set: set`: Set the security document.
+
+### Template
+
+#### Commands
+
+* `ls: ls`: List templates.
