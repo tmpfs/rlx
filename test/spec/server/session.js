@@ -7,9 +7,6 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  before(function(done) {
-    done();
-  })
   it('should get session document', function(done){
     var mock = config.file('session-get.json');
     var args = [

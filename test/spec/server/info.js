@@ -7,9 +7,6 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  before(function(done) {
-    done();
-  })
   it('should retrieve server information', function(done){
     var mock = config.file('server-info.json');
     var args = [

@@ -8,9 +8,6 @@ var database = config.database.default;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  before(function(done) {
-    done();
-  })
   it('should create database', function(done){
     var mock = config.file('database-add.json');
     var args = [

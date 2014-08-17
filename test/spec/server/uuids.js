@@ -7,9 +7,6 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  before(function(done) {
-    done();
-  })
   it('should retrieve uuids', function(done){
     var mock = config.file('server-uuids.json');
     var args = [

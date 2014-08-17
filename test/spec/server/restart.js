@@ -7,9 +7,6 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(10000);
-  before(function(done) {
-    done();
-  })
   it('should restart server', function(done){
     var mock = config.file('server-restart.json');
     var args = [
