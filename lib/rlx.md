@@ -97,3 +97,4 @@ Commands for creating, deleting and modifying databases.
 #### Commands
 
 * `ls: ls`: List templates.
+* `get: get`: Print template file.

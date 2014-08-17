@@ -60,7 +60,7 @@
     "message": "security requires a command"
   },
   {
-    "key": "ESECURITYCOMMAND",
+    "key": "ESECURITY_COMMAND",
     "description": "Invalid security subcommand",
     "message": "invalid security command %s"
   },
@@ -78,6 +78,26 @@
     "key": "EADMIN_COMMAND",
     "description": "Invalid admin subcommand",
     "message": "invalid admin command %s"
+  },
+  {
+    "key": "ETEMPLATE_COMMAND",
+    "description": "Invalid template subcommand",
+    "message": "invalid template command %s"
+  },
+  {
+    "key": "ETEMPLATE_OPTION",
+    "description": "Template option is required",
+    "message": "option --template is required"
+  },
+  {
+    "key": "EUNKNOWN_TEMPLATE",
+    "description": "Could not locate template by name",
+    "message": "unknown template %s"
+  },
+  {
+    "key": "EAMBIGUOUS_TEMPLATE",
+    "description": "Ambiguous template reference, should specify file extension",
+    "message": "ambiguous template name %s, please specify file extension (json or js)"
   },
   {
     "key": "EUNKNOWN_CONFIG_VALUE",
