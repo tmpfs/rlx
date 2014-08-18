@@ -122,6 +122,7 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
+* `add: add`: Create a document.
 * `rev: rev`: Get a document revision.
 
 ### Level
