@@ -35,7 +35,7 @@ Command line interface for couchdb.
 * `-o, --output [file]`: Write response to output file.
 * `-f, --file [file]`: Read JSON input from file.
 * `-j, --json [json]`: JSON string literal (overrides --file).
-* `-t, --template [name]`: The name of a template file.
+* `-t, --template [name]`: Name of a template file.
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
 

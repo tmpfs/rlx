@@ -79,7 +79,7 @@ Arguments:
  -f, --file=[file]  Read JSON input from file.
  -j, --json=[json]  JSON string literal (overrides --file).
  -t, --template=[name]
-                    The name of a template file.
+                    Name of a template file.
      --id=[id]      Document identifier.
      --rev=[rev]    Document revision.
  -h, --help         Display this help and exit.
