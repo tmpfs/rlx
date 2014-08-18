@@ -123,6 +123,7 @@ Commands for creating, deleting and modifying databases.
 #### Commands
 
 * `add: add`: Create a document.
+* `get: get`: Get a document.
 * `rm: rm`: Remove a document.
 * `rev: rev`: Get a document revision.
 
