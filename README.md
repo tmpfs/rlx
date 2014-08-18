@@ -32,12 +32,13 @@ Usage: rlx <command> [-vh] [--color|--no-color] [--debug]
            [-d|--database=<name>] [-u|--username=<name>]
            [-p|--password=<pass>] [-o|--output=<file>]
            [-f|--file=<file>] [-j|--json=<json>]
-           [-t|--template=<name>] <args>
+           [-t|--template=<name>] [--id=<id>] [--rev=<rev>] <args>
 
 Options:
 
 Command should be one of: info, stats, uuids, database, tasks, log, config,
-restart, session, admin, login, logout, list, security, edit, template, help.
+restart, session, admin, user, login, logout, list, security, edit, template,
+lint, document, help.
 
 Commands:
  info               Print server information.
@@ -50,17 +51,20 @@ Commands:
  restart            Restart a server.
  session, sess      Cookie-based session authentication.
  admin              Manage server administrators.
+ user, usr          Manage server users.
  login              Login to a server.
  logout             Logout of current session.
  list, ls           List databases.
  security, sec      Get or set security document.
  edit               Edit a document.
  template, tpl      Manage template files.
+ lint               Lint javascript and json.
+ document, doc      Manage documents.
  help               Show help for commands.
 
 Arguments:
- -p, --password=[pass]
-                    Authentication password.
+ -o, --output=[file]
+                    Write response to output file.
      --[no]-color   Enable or disable terminal colors.
  -v, --verbose      Print more information.
  -s, --server=[url] Database server.
@@ -68,13 +72,15 @@ Arguments:
                     Database name.
  -u, --username=[name]
                     Authentication username.
+ -p, --password=[pass]
+                    Authentication password.
      --debug        Enable debugging.
- -o, --output=[file]
-                    Write response to output file.
  -f, --file=[file]  Read JSON input from file.
  -j, --json=[json]  JSON string literal (overrides --file).
  -t, --template=[name]
                     The name of a template file.
+     --id=[id]      Document identifier.
+     --rev=[rev]    Document revision.
  -h, --help         Display this help and exit.
      --version      Output version information and exit.
 
@@ -90,6 +96,8 @@ Tests require a clean [couchdb](http://couchdb.apache.org) installation running 
 ```
 npm test
 ```
+
+Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
 
 ### Manual
 

@@ -8,6 +8,8 @@ Tests require a clean [couchdb][] installation running in *admin party* mode.
 npm test
 ```
 
+Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
+
 ### Manual
 
 To generate man pages run:
