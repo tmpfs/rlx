@@ -1,4 +1,7 @@
 {
   "server": "http://localhost:5984",
-  "indent": 2
+  "indent": 2,
+  "edit": {
+    "hash": "sha1"
+  }
 }
