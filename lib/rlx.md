@@ -112,6 +112,7 @@ Commands for creating, deleting and modifying databases.
 * `ls: ls`: List users.
 * `add: add`: Create a user.
 * `get: get`: Get a user document.
+* `edit: edit`: Edit a user document.
 * `rm: rm`: Remove a user document.
 * `passwd: passwd`: Set an existing user password.
 
