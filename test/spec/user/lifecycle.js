@@ -1,5 +1,3 @@
-var path = require('path');
-var fs = require('fs');
 var expect = require('chai').expect;
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
