@@ -19,6 +19,10 @@ var config = {
     pass: 'secret',
     id: userdb.prefix + 'mock-user'
   },
+  admin: {
+    name: 'mock-admin',
+    pass: 'secret'
+  },
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),
