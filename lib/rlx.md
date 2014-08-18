@@ -122,6 +122,7 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
+* `ls: ls`: List documents.
 * `add: add`: Create a document.
 * `get: get`: Get a document.
 * `rm: rm`: Remove a document.
