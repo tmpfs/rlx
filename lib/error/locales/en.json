@@ -170,6 +170,11 @@
     "message": "option --file is required"
   },
   {
+    "key": "EVALIDATE",
+    "description": "Document validation failed",
+    "message": "validation error: %s"
+  },
+  {
     "key": "EID_OPTION",
     "description": "Document identifier option not specified",
     "message": "option --id is required"
