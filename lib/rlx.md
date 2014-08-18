@@ -23,6 +23,7 @@ Command line interface for couchdb.
 * `edit: edit`: Edit a document.
 * `template: template, tpl`: Manage template files.
 * `lint: lint`: Lint javascript and json.
+* `document: document, doc`: Manage documents.
 
 ## Options
 
@@ -111,3 +112,9 @@ Commands for creating, deleting and modifying databases.
 * `ls: ls`: List users.
 * `get: get`: Get a user document.
 * `rm: rm`: Remove a user document.
+
+### Document
+
+#### Commands
+
+* `rev: rev`: Get a document revision.
