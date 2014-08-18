@@ -6,11 +6,15 @@ var pkg = config.paths.pkg;
 var program = config.program;
 var database = config.database.default;
 
-function assert(doc, name) {
+function assert(doc, name, len) {
   expect(doc).to.be.an('object');
   var keys = Object.keys(doc);
   expect(keys).to.be.an('array');
-  expect(keys.length).to.be.gt(0);
+  if(!len) {
+    expect(keys.length).to.be.gt(0);
+  }else{
+    expect(keys.length).to.eql(len);
+  }
   if(name) {
     expect(!!~keys.indexOf(name)).to.eql(true);
   }
@@ -54,6 +58,28 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should get admin', function(done){
+    var mock = config.file('admin-get.json');
+    var args = [
+      'admin',
+      'get',
+      config.admin.name,
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert(doc, config.admin.name, 1);
+      done();
+    })
+    def.parse(args);
+  });
 
   it('should remove admin', function(done){
     var mock = config.file('admin-rm.json');
