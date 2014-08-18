@@ -35,6 +35,11 @@
     "message": "bad request (%s)"
   },
   {
+    "key": "ECONFLICT",
+    "description": "Generic conflict error (409)",
+    "message": "conflict detected on %s/%s (%s)"
+  },
+  {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
     "message": "database name %s is illegal"

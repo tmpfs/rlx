@@ -110,3 +110,4 @@ Commands for creating, deleting and modifying databases.
 
 * `ls: ls`: List users.
 * `get: get`: Get a user document.
+* `rm: rm`: Remove a user document.
