@@ -58,6 +58,26 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should add alt admin', function(done){
+    var mock = config.file('admin-alt-add.json');
+    var args = [
+      'admin',
+      'add',
+      config.admin.alt.name,
+      config.admin.alt.pass,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert(doc, config.admin.alt.name);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should get admin', function(done){
     var mock = config.file('admin-get.json');
     var args = [
@@ -76,6 +96,29 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       assert(doc, config.admin.name, 1);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should remove alt admin', function(done){
+    var mock = config.file('admin-alt-rm.json');
+    var args = [
+      'admin',
+      'rm',
+      config.admin.alt.name,
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert(doc, config.admin.alt.name);
       done();
     })
     def.parse(args);

@@ -21,7 +21,11 @@ var config = {
   },
   admin: {
     name: 'mock-admin',
-    pass: 'secret'
+    pass: 'secret',
+    alt: {
+      name: 'mock-alt-admin',
+      pass: 'secret'
+    }
   },
   paths: {
     base: base,
