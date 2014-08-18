@@ -129,7 +129,7 @@ Commands for creating, deleting and modifying databases.
 #### Commands
 
 * `info: info`: Set log level to `info`.
-* `debug : debug`: Set log level to `debug`.
-* `error : error`: Set log level to `error`.
-* `warn : warn`: Set log level to `warning`.
+* `debug: debug`: Set log level to `debug`.
+* `error: error`: Set log level to `error`.
+* `warn: warn`: Set log level to `warning`.
 * `none: none`: Set log level to `none`.

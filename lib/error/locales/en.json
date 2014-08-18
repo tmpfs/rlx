@@ -85,6 +85,11 @@
     "message": "invalid config command %s"
   },
   {
+    "key": "ELEVEL_COMMAND",
+    "description": "Invalid level subcommand",
+    "message": "invalid level command %s"
+  },
+  {
     "key": "ESESSION_COMMAND",
     "description": "Invalid session subcommand",
     "message": "invalid session command %s"
