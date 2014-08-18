@@ -25,9 +25,9 @@
     "message": "database file %s exists"
   },
   {
-    "key": "EMISSING",
+    "key": "ENOT_FOUND",
     "description": "Database or document does not exist",
-    "message": "database or document %s does not exist"
+    "message": "%s does not exist"
   },
   {
     "key": "EILLEGAL_DATABASE_NAME",
@@ -148,5 +148,10 @@
     "key": "EFILE_OPTION",
     "description": "File option not specified",
     "message": "option --file is required"
+  },
+  {
+    "key": "EID_OPTION",
+    "description": "Document identifier option not specified",
+    "message": "option --id is required"
   }
 ]

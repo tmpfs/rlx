@@ -34,6 +34,8 @@ Command line interface for couchdb.
 * `-f, --file [file]`: Read JSON input from file.
 * `-j, --json [json]`: JSON string literal (overrides --file).
 * `-t, --template [name]`: The name of a template file.
+* `--id [id]`: Document identifier.
+* `--rev [rev]`: Document revision.
 
 ### Database
 
@@ -107,3 +109,4 @@ Commands for creating, deleting and modifying databases.
 #### Commands
 
 * `ls: ls`: List users.
+* `get: get`: Get a user document.
