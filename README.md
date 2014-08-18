@@ -38,7 +38,7 @@ Options:
 
 Command should be one of: info, stats, uuids, database, tasks, log, config,
 restart, session, admin, user, login, logout, list, security, edit, template,
-lint, document, help.
+lint, document, level, help.
 
 Commands:
  info               Print server information.
@@ -60,6 +60,7 @@ Commands:
  template, tpl      Manage template files.
  lint               Lint javascript and json.
  document, doc      Manage documents.
+ level, lvl         Get or set the server log level.
  help               Show help for commands.
 
 Arguments:
