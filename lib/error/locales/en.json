@@ -30,6 +30,11 @@
     "message": "%s does not exist"
   },
   {
+    "key": "EBAD_REQUEST",
+    "description": "Generic bad request error",
+    "message": "bad request (%s)"
+  },
+  {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
     "message": "database name %s is illegal"
