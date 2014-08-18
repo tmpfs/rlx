@@ -180,6 +180,11 @@
     "message": "option --id is required"
   },
   {
+    "key": "EID_USERNAME_OPTION",
+    "description": "Document identifier or username option not specified",
+    "message": "document id not specified, use --id or --username"
+  },
+  {
     "key": "EREV_OPTION",
     "description": "Document revision option not specified",
     "message": "option --rev is required"

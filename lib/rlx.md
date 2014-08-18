@@ -113,6 +113,7 @@ Commands for creating, deleting and modifying databases.
 * `add: add`: Create a user.
 * `get: get`: Get a user document.
 * `rm: rm`: Remove a user document.
+* `passwd: passwd`: Set an existing user password.
 
 ### Document
 
