@@ -3,6 +3,7 @@ var path = require('path');
 var base = path.normalize(path.join(__dirname, '..', '..'));
 var target = path.join(base, 'target')
 var program = require('../../lib/rlx');
+var userdb = require('../../lib/command/user/userdb');
 
 var config = {
   name: 'rlx-test-runner',
@@ -12,6 +13,11 @@ var config = {
   },
   database: {
     default: 'mock-database'
+  },
+  user: {
+    name: 'mock-user',
+    pass: 'secret',
+    id: userdb.prefix + 'mock-user'
   },
   paths: {
     base: base,
