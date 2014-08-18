@@ -86,8 +86,9 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
-* `get: get`: Get administrator list.
-* `set: set`: Create an administrator.
+* `ls: ls`: List administrators.
+* `get: get`: Get an administrator.
+* `add: add`: Create an administrator.
 * `rm: rm`: Delete an administrator.
 
 ### Security
