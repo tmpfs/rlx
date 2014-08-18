@@ -40,6 +40,11 @@
     "message": "conflict detected on %s/%s (%s)"
   },
   {
+    "key": "EDELETED",
+    "description": "Generic deleted error (404)",
+    "message": "%s/%s does not exist (deleted)"
+  },
+  {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
     "message": "database name %s is illegal"
@@ -163,5 +168,10 @@
     "key": "EID_OPTION",
     "description": "Document identifier option not specified",
     "message": "option --id is required"
+  },
+  {
+    "key": "EREV_OPTION",
+    "description": "Document revision option not specified",
+    "message": "option --rev is required"
   }
 ]
