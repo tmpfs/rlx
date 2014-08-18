@@ -17,7 +17,7 @@
   {
     "key": "EDATABASE",
     "description": "Database not specified",
-    "message": "database is required"
+    "message": "database is required (%s)"
   },
   {
     "key": "ENO_DB_FILE",
