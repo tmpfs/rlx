@@ -27,6 +27,15 @@ var config = {
       pass: 'secret'
     }
   },
+  document: {
+    id: 'mock-document',
+    bool: false,
+    int: 1024,
+    float: 1.67,
+    arr: [1,2,3],
+    str: 'value',
+    nil: null
+  },
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),
@@ -64,5 +73,7 @@ config.text = function(file) {
 config.require = function(file) {
   return require(file);
 }
+
+config.db = require('./db')(config);
 
 module.exports = config;
