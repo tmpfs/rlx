@@ -8,28 +8,85 @@ Command line interface for couchdb.
 
 .LT
  rlx <command> [\-vh] [\-\-color|\-\-no\-color] [\-\-debug] [\-v|\-\-verbose]
-     [\-h|\-\-help] [\-\-version] [\-s|\-\-server=<url>] <args>
+     [\-h|\-\-help] [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
+     [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
+     [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
+     [\-\-id=<id>] [\-\-rev=<rev>] <args>
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
 \fBinfo\fR: Print server information.
 .IP "\[ci]" 4
+\fBstats\fR: Print server statistics.
+.IP "\[ci]" 4
+\fBuuids\fR: Print list of uuids.
+.IP "\[ci]" 4
 \fBdatabase, db\fR: Manage databases.
+.IP "\[ci]" 4
+\fBtasks\fR: Print active tasks. 
+.IP "\[ci]" 4
+\fBlog\fR: Print server log. 
+.IP "\[ci]" 4
+\fBconfig, conf\fR: Manage server configuration.
+.IP "\[ci]" 4
+\fBrestart\fR: Restart a server.
+.IP "\[ci]" 4
+\fBsession, sess\fR: Cookie\-based session authentication.
+.IP "\[ci]" 4
+\fBadmin\fR: Manage server administrators.
+.IP "\[ci]" 4
+\fBuser, usr\fR: Manage server users.
+.IP "\[ci]" 4
+\fBlogin\fR: Login to a server.
+.IP "\[ci]" 4
+\fBlogout\fR: Logout of current session.
+.IP "\[ci]" 4
+\fBlist, ls\fR: List databases.
+.IP "\[ci]" 4
+\fBsecurity, sec\fR: Get or set security document.
+.IP "\[ci]" 4
+\fBedit\fR: Edit a document.
+.IP "\[ci]" 4
+\fBtemplate, tpl\fR: Manage template files.
+.IP "\[ci]" 4
+\fBlint\fR: Lint javascript and json.
+.IP "\[ci]" 4
+\fBdocument, doc\fR: Manage documents.
+.IP "\[ci]" 4
+\fBlevel, lvl\fR: Get or set the server log level.
 .IP "\[ci]" 4
 \fBhelp\fR: Show help for commands.
 .EL
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
+\fB\-o, \-\-output=[file]\fR: Write response to output file.
+.IP "\[ci]" 4
+\fB\-\-[no]\-color\fR: Enable or disable terminal colors.
+.IP "\[ci]" 4
 \fB\-v, \-\-verbose\fR: Print more information.
 .IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
-\fB\-h, \-\-help\fR: Display this help and exit.
+\fB\-d, \-\-database=[name]\fR: Database name.
 .IP "\[ci]" 4
-\fB\-\-[no]\-color\fR: Enable or disable terminal colors.
+\fB\-u, \-\-username=[name]\fR: Authentication username.
+.IP "\[ci]" 4
+\fB\-p, \-\-password=[pass]\fR: Authentication password.
 .IP "\[ci]" 4
 \fB\-\-debug\fR: Enable debugging.
+.IP "\[ci]" 4
+\fB\-f, \-\-file=[file]\fR: Read JSON input from file.
+.IP "\[ci]" 4
+\fB\-j, \-\-json=[json]\fR: JSON string literal (overrides \-\-file).
+.IP "\[ci]" 4
+\fB\-t, \-\-template=[name]\fR: The name of a template file.
+.IP "\[ci]" 4
+\fB\-\-id=[id]\fR: Document identifier.
+.IP "\[ci]" 4
+\fB\-\-rev=[rev]\fR: Document revision.
+.IP "\[ci]" 4
+\fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Output version information and exit.
 .EL

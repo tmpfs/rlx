@@ -3,7 +3,7 @@
 rlx-database -- Manage databases.
 .SH "DESCRIPTION"
 .PP
-Commands for listing, creating and deleting databases.
+Commands for creating, deleting and modifying databases.
 .SH "SYNOPSIS"
 
 .LT
@@ -12,11 +12,21 @@ Commands for listing, creating and deleting databases.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBls\fR: List databases.
+\fBinfo\fR: Get database information.
+.IP "\[ci]" 4
+\fBexists\fR: Check database existence.
 .IP "\[ci]" 4
 \fBadd\fR: Create a database.
 .IP "\[ci]" 4
 \fBrm\fR: Remove a database.
+.IP "\[ci]" 4
+\fBcommit\fR: Ensure full commit.
+.IP "\[ci]" 4
+\fBcompact\fR: Compact database.
+.IP "\[ci]" 4
+\fBcleanup\fR: Remove stale view indices.
+.IP "\[ci]" 4
+\fBlimit\fR: Get or set revisions limit.
 .EL
 .SH "BUGS"
 .PP
