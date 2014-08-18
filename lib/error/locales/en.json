@@ -185,9 +185,9 @@
     "message": "validation error: %s"
   },
   {
-    "key": "EID_OPTION",
-    "description": "Document identifier option not specified",
-    "message": "option --id is required"
+    "key": "EID",
+    "description": "Document identifier not specified",
+    "message": "document identifier is required (%s)"
   },
   {
     "key": "EID_USERNAME_OPTION",
@@ -195,8 +195,8 @@
     "message": "document id not specified, use --id or --username"
   },
   {
-    "key": "EREV_OPTION",
-    "description": "Document revision option not specified",
-    "message": "option --rev is required"
+    "key": "EREV",
+    "description": "Document revision not specified",
+    "message": "document revision is required (%s)"
   }
 ]
