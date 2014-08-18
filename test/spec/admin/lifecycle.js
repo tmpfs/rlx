@@ -6,12 +6,12 @@ var pkg = config.paths.pkg;
 var program = config.program;
 var database = config.database.default;
 
-function assert(doc, name, len) {
+function assert(doc, name, len, gt) {
   expect(doc).to.be.an('object');
   var keys = Object.keys(doc);
   expect(keys).to.be.an('array');
-  if(!len) {
-    expect(keys.length).to.be.gt(0);
+  if(!len || gt) {
+    expect(keys.length).to.be.gt(gt ? len : 0);
   }else{
     expect(keys.length).to.eql(len);
   }
@@ -33,11 +33,12 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
+      assert(doc, null, -1, true);
       done();
     })
     def.parse(args);
   });
+
   it('should add admin', function(done){
     var mock = config.file('admin-add.json');
     var args = [
@@ -73,6 +74,24 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       assert(doc, config.admin.alt.name);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list multiple admins', function(done){
+    var mock = config.file('admin-ls-multiple.json');
+    var args = [
+      'admin',
+      'ls',
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert(doc, null, 1, true);
       done();
     })
     def.parse(args);
