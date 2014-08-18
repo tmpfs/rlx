@@ -15,6 +15,11 @@
     "message": "unknown database error %j"
   },
   {
+    "key": "EDATABASE",
+    "description": "Database not specified",
+    "message": "database is required"
+  },
+  {
     "key": "ENO_DB_FILE",
     "description": "Database does not exist",
     "message": "database %s does not exist"
