@@ -24,6 +24,7 @@ Command line interface for couchdb.
 * `template: template, tpl`: Manage template files.
 * `lint: lint`: Lint javascript and json.
 * `document: document, doc`: Manage documents.
+* `level: level, lvl`: Get or set the server log level.
 
 ## Options
 
@@ -122,3 +123,13 @@ Commands for creating, deleting and modifying databases.
 #### Commands
 
 * `rev: rev`: Get a document revision.
+
+### Level
+
+#### Commands
+
+* `info: info`: Set log level to `info`.
+* `debug : debug`: Set log level to `debug`.
+* `error : error`: Set log level to `error`.
+* `warn : warn`: Set log level to `warning`.
+* `none: none`: Set log level to `none`.
