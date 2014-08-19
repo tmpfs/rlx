@@ -57,7 +57,7 @@
   {
     "key": "EILLEGAL_DATABASE_NAME",
     "description": "Illegal database name",
-    "message": "database name %s is illegal"
+    "message": "database name %s is illegal (only lowercase characters (a-z), digits (0-9), and any of the characters _, $, (, ), +, -, and / are allowed, must begin with a letter)"
   },
   {
     "key": "EUNAUTHORIZED",
