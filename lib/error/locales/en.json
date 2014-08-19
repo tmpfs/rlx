@@ -140,7 +140,7 @@
     "message": "validation error: %s"
   },
   {
-    "key": "EID",
+    "key": "EID_REQUIRED",
     "description": "Document identifier not specified",
     "message": "document identifier is required (%s)"
   },
