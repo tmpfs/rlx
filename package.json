@@ -46,7 +46,7 @@
     "manual": "npm run clean-man && manpage --output ./doc/man ./bin/rlx",
     "readme": "mdp --force -v",
     "pretest": "rm -rf ./target && mkdir ./target",
-    "test": "NODE_ENV=test mocha -u bdd --recursive --reporter list -A test/spec/"
+    "test": "NODE_ENV=test istanbul cover _mocha -- -u bdd --recursive --reporter list -A test/spec/"
   },
   "mdp": {
     "title": "rlx",
