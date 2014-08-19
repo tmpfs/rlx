@@ -137,7 +137,6 @@ describe('rlx:', function() {
       expect(revision).to.be.an('object');
       expect(revision.rev).to.be.a('string');
       expect(revision.status).to.be.a('string');
-      //console.dir(doc);
       done();
     })
     def.parse(args);
