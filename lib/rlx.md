@@ -86,6 +86,14 @@ Commands for creating, deleting and modifying databases.
 
 ### Admin
 
+#### Description
+
+To add an administrator specify a username and password after the `add` command:
+
+```
+$0 admin add <username> <password>
+```
+
 #### Commands
 
 * `ls: ls`: List administrators.

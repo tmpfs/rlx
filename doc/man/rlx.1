@@ -8,10 +8,10 @@ Command line interface for couchdb.
 
 .LT
  rlx <command> [\-vh] [\-\-color|\-\-no\-color] [\-\-debug] [\-v|\-\-verbose]
-     [\-h|\-\-help] [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
-     [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
-     [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
-     [\-\-id=<id>] [\-\-rev=<rev>] <args>
+     [\-\-force] [\-h|\-\-help] [\-\-version] [\-s|\-\-server=<url>]
+     [\-d|\-\-database=<name>] [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>]
+     [\-o|\-\-output=<file>] [\-f|\-\-file=<file>] [\-j|\-\-json=<json>]
+     [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>] <args>
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
@@ -60,7 +60,7 @@ Command line interface for couchdb.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-o, \-\-output=[file]\fR: Write response to output file.
+\fB\-f, \-\-file=[file]\fR: Read JSON input from file.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -74,13 +74,15 @@ Command line interface for couchdb.
 .IP "\[ci]" 4
 \fB\-p, \-\-password=[pass]\fR: Authentication password.
 .IP "\[ci]" 4
-\fB\-\-debug\fR: Enable debugging.
+\fB\-o, \-\-output=[file]\fR: Write response to output file.
 .IP "\[ci]" 4
-\fB\-f, \-\-file=[file]\fR: Read JSON input from file.
+\fB\-\-debug\fR: Enable debugging.
 .IP "\[ci]" 4
 \fB\-j, \-\-json=[json]\fR: JSON string literal (overrides \-\-file).
 .IP "\[ci]" 4
 \fB\-t, \-\-template=[name]\fR: Name of a template file.
+.IP "\[ci]" 4
+\fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
 \fB\-\-id=[id]\fR: Document identifier.
 .IP "\[ci]" 4
@@ -92,4 +94,4 @@ Command line interface for couchdb.
 .EL
 .SH "BUGS"
 .PP
-Report bugs to https://github.com/freeformsystems/rlx\-node/issues.
+Report bugs to https://github.com/freeformsystems/rlx/issues.
