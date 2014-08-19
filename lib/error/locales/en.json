@@ -70,51 +70,6 @@
     "message": "%s requires a command"
   },
   {
-    "key": "EDATABASE_COMMAND",
-    "description": "Invalid database subcommand",
-    "message": "invalid database command %s"
-  },
-  {
-    "key": "ESECURITY_COMMAND",
-    "description": "Invalid security subcommand",
-    "message": "invalid security command %s"
-  },
-  {
-    "key": "ECONFIG_COMMAND",
-    "description": "Invalid config subcommand",
-    "message": "invalid config command %s"
-  },
-  {
-    "key": "ELEVEL_COMMAND",
-    "description": "Invalid level subcommand",
-    "message": "invalid level command %s"
-  },
-  {
-    "key": "ESESSION_COMMAND",
-    "description": "Invalid session subcommand",
-    "message": "invalid session command %s"
-  },
-  {
-    "key": "EADMIN_COMMAND",
-    "description": "Invalid admin subcommand",
-    "message": "invalid admin command %s"
-  },
-  {
-    "key": "EUSER_COMMAND",
-    "description": "Invalid user subcommand",
-    "message": "invalid user command %s"
-  },
-  {
-    "key": "EDOC_COMMAND",
-    "description": "Invalid doc subcommand",
-    "message": "invalid doc command %s"
-  },
-  {
-    "key": "ETEMPLATE_COMMAND",
-    "description": "Invalid template subcommand",
-    "message": "invalid template command %s"
-  },
-  {
     "key": "ETEMPLATE_OPTION",
     "description": "Template option is required",
     "message": "option --template is required"
