@@ -56,8 +56,14 @@ for(var i = 0;i < files.length;i++) {
     }
 }
 
-config.file = function(name) {
-  return path.join(target, name);
+config.file = function(name, content) {
+  var file = path.join(target, name);
+  if(content) fs.writeFileSync(file, content);
+  return file;
+}
+
+config.rmfile = function(file) {
+  fs.unlinkSync(file);
 }
 
 config.json = function(file) {

@@ -17,7 +17,6 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.info(doc);
-      //console.dir(doc);
       done();
     })
     def.parse(args);
