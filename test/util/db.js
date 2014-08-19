@@ -9,6 +9,7 @@ module.exports = function(config) {
         'db',
         'add',
         '-d=' + database,
+        '--force',
         '--no-color',
         '-s', config.server.default,
         '-o', mock
@@ -25,6 +26,7 @@ module.exports = function(config) {
         'db',
         'rm',
         '-d=' + database,
+        '--force',
         '--no-color',
         '-s', config.server.default,
         '-o', mock
