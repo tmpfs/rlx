@@ -30,8 +30,119 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      //console.dir(err);
       assert.illegal(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/add (database required)', function(done){
+    var args = [
+      'db',
+      'add',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/cleanup (database required)', function(done){
+    var args = [
+      'db',
+      'cleanup',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/commit (database required)', function(done){
+    var args = [
+      'db',
+      'commit',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/compact (database required)', function(done){
+    var args = [
+      'db',
+      'compact',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/exists (database required)', function(done){
+    var args = [
+      'db',
+      'exists',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/info (database required)', function(done){
+    var args = [
+      'db',
+      'info',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/limit (database required)', function(done){
+    var args = [
+      'db',
+      'limit',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/rm (database required)', function(done){
+    var args = [
+      'db',
+      'rm',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.required(err, errors);
       done();
     })
     def.parse(args);
