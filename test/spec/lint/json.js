@@ -5,8 +5,8 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(10000);
-  it('should lint remote file', function(done){
-    var mock = config.file('lint-database-info.json');
+  it('should lint remote file (json)', function(done){
+    var mock = config.file('lint-remote.json');
     var args = [
       'lint',
       '-f=' + config.server.default,
@@ -16,8 +16,24 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      console.dir(doc);
       config.assert.info(doc);
+      //console.dir(doc);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should lint local file (json)', function(done){
+    var mock = config.file('lint-local.json');
+    var args = [
+      'lint',
+      '-f=' + pkg,
+      '--no-color',
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object').to.eql(require(pkg));
       done();
     })
     def.parse(args);
