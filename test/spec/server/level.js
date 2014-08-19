@@ -3,7 +3,7 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var couch = require('../../../lib/util/couch');
+var couch = require('cdb');
 var levels = couch.levels;
 
 describe('rlx:', function() {
