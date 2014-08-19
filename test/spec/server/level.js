@@ -3,8 +3,7 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var couch = require('cdb');
-var levels = couch.levels;
+var levels = require('cdb').log.levels;
 
 describe('rlx:', function() {
   this.timeout(5000);
