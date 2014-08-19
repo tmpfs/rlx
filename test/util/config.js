@@ -9,7 +9,7 @@ var config = {
   name: 'rlx-test-runner',
   program: program,
   server: {
-    default: 'http://localhost:5984'
+    default: process.env.rlx_test_server || 'http://localhost:5984'
   },
   database: {
     default: 'mock-database'
@@ -75,5 +75,6 @@ config.require = function(file) {
 }
 
 config.db = require('./db')(config);
+config.assert = require('./assert');
 
 module.exports = config;

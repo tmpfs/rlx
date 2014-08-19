@@ -4,17 +4,19 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
-  it('should retrieve server information', function(done){
-    var mock = config.file('server-info.json');
+  this.timeout(10000);
+  it('should lint remote file', function(done){
+    var mock = config.file('lint-database-info.json');
     var args = [
-      'info', '--no-color',
-      '-s', config.server.default,
+      'lint',
+      '-f=' + config.server.default,
+      '--no-color',
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
+      console.dir(doc);
       config.assert.info(doc);
       done();
     })
