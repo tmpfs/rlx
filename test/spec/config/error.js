@@ -73,4 +73,33 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should error on config/rm (missing section)', function(done){
+    var args = [
+      'config',
+      'rm',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.section(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on config/rm (missing key)', function(done){
+    var args = [
+      'config',
+      'rm',
+      'log',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.key(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
 })
