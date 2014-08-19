@@ -3,7 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-
 var assert = {};
 assert.username = function(err, errors) {
   var def = errors.EUSERNAME_REQUIRED;

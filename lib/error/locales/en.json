@@ -15,7 +15,7 @@
     "message": "unknown database error %j"
   },
   {
-    "key": "EDATABASE",
+    "key": "EDATABASE_REQUIRED",
     "description": "Database not specified",
     "message": "database is required (%s)"
   },
