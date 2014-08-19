@@ -5,17 +5,34 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  it('should error on missing username', function(done){
+  it('should error on admin/add (missing username)', function(done){
     var args = [
       'admin',
       'add',
-      '--no-color',
-      '-o=' + mock
+      '--no-color'
     ];
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EFS_FILE_EXISTS;
+      var def = errors.EUSERNAME_REQUIRED;
+      expect(def).to.be.an('object');
+      expect(err).to.be.instanceof(Error);
+      expect(err.key).to.eql(def.key);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on admin/add (missing password)', function(done){
+    var args = [
+      'admin',
+      'add',
+      config.admin.name,
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      var def = errors.EPASSWORD_REQUIRED;
       expect(def).to.be.an('object');
       expect(err).to.be.instanceof(Error);
       expect(err.key).to.eql(def.key);
