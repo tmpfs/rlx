@@ -6,10 +6,10 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeformsystems/rlx-node"
+    "url": "https://github.com/freeformsystems/rlx"
   },
   "bugs": {
-    "url": "https://github.com/freeformsystems/rlx-node/issues"
+    "url": "https://github.com/freeformsystems/rlx/issues"
   },
   "directories": {
     "bin": "./bin",
@@ -54,7 +54,7 @@
     "require": "lib",
     "links": "links.md",
     "toc": "Table of Contents",
-    "base": "https://github.com/freeformsystems/rlx-node",
+    "base": "https://github.com/freeformsystems/rlx",
     "partial": [
       {
         "inc": [
