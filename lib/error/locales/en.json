@@ -65,19 +65,14 @@
     "message": "method not allowed %s"
   },
   {
-    "key": "ENO_DATABASE_COMMAND",
-    "description": "No database subcommand specified",
-    "message": "db requires a command"
+    "key": "ENO_SUBCOMMAND",
+    "description": "No subcommand specified",
+    "message": "%s requires a command"
   },
   {
     "key": "EDATABASE_COMMAND",
     "description": "Invalid database subcommand",
     "message": "invalid database command %s"
-  },
-  {
-    "key": "ENO_SECURITY_COMMAND",
-    "description": "No security subcommand specified",
-    "message": "security requires a command"
   },
   {
     "key": "ESECURITY_COMMAND",
