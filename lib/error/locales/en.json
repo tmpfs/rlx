@@ -30,6 +30,11 @@
     "message": "database file %s exists"
   },
   {
+    "key": "EFS_FILE_EXISTS",
+    "description": "Output file exists",
+    "message": "file %s exists, use %s to overwrite"
+  },
+  {
     "key": "ENOT_FOUND",
     "description": "Database or document does not exist",
     "message": "%s does not exist"
