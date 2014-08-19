@@ -25,6 +25,12 @@ assert.dbfile = function(err, errors) {
   expect(err.key).to.eql(def.key);
 }
 
+assert.template = function(err, errors) {
+  var def = errors.EUNKNOWN_TEMPLATE;
+  expect(def).to.be.an('object');
+  expect(err).to.be.instanceof(Error);
+  expect(err.key).to.eql(def.key);
+}
 
 describe('rlx:', function() {
   this.timeout(5000);
@@ -170,6 +176,23 @@ describe('rlx:', function() {
     var errors = def.program.errors;
     def.program.on('error', function(err) {
       assert.id(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on doc/add (unknown template)', function(done){
+    var args = [
+      'doc',
+      'add',
+      '-d=' + config.database.default,
+      '--id=' + config.document.id,
+      '--template=unknown',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      assert.template(err, errors);
       done();
     })
     def.parse(args);
