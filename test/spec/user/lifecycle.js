@@ -77,8 +77,8 @@ describe('rlx:', function() {
     var args = [
       'user',
       'add',
-      '-u=' + config.user.name,
-      '-p=' + config.user.pass,
+      '@name=' + config.user.name,
+      '@password=' + config.user.pass,
       '--no-color',
       '-s', config.server.default,
       '-o', mock
@@ -114,8 +114,8 @@ describe('rlx:', function() {
     var args = [
       'user',
       'passwd',
-      '-u=' + config.user.name,
-      '-p=' + config.user.pass + '-update',
+      '--id=' + config.user.name,
+      config.user.pass + '-update',
       '--no-color',
       '-s', config.server.default,
       '-o', mock
@@ -134,7 +134,7 @@ describe('rlx:', function() {
     var args = [
       'user',
       'get',
-      '-u=' + config.user.name,
+      '--id=' + config.user.name,
       '--no-color',
       '-s', config.server.default,
       '-o', mock
@@ -153,7 +153,7 @@ describe('rlx:', function() {
     var args = [
       'user',
       'rm',
-      '-u=' + config.user.name,
+      '--id=' + config.user.name,
       '--no-color',
       '-s', config.server.default,
       '-o', mock
