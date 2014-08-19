@@ -116,6 +116,34 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should get document revs info', function(done){
+    var mock = config.file('document-revs-info.json');
+    var args = [
+      'doc',
+      'get',
+      '-d=' + database,
+      '--id=' + config.document.id + '?revs_info=true',
+      '--no-color',
+      '-s', config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc._revs_info).to.be.an('array');
+      expect(doc._revs_info.length).to.be.gt(0);
+      var revision = doc._revs_info[0];
+      expect(revision).to.be.an('object');
+      expect(revision.rev).to.be.a('string');
+      expect(revision.status).to.be.a('string');
+      //console.dir(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should remove document', function(done){
     var mock = config.file('document-rm.json');
     var args = [
