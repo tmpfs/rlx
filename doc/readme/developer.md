@@ -23,7 +23,7 @@ Generated man pages are in the [man][man] directory.
 To dynamically generate man pages set `NODE_ENV` to `devel` and execute a help command:
 
 ```
-NODE_ENV=devel ./bin/sdk help db
+NODE_ENV=devel ./bin/rlx help db
 ```
 
 ### Readme
