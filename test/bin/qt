@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var async = require('async');
+var path = require('path');
+var base = path.normalize(path.join(__dirname, '..', '..'));
+var exe = path.join(base, 'bin', 'rlx');
+var fixtures = require('../fixtures/qt');
+var exec = require('child_process').exec;
+//console.dir(fixtures);
+//
+async.eachSeries(fixtures, function(test, callback) {
+  var cmd = test.cmd.slice(0);
+  cmd.unshift(exe);
+  cmd = cmd.join(' ');
+  console.info('%s %s', path.basename(exe), cmd.slice(1));
+  exec(cmd, function(err, stdout, stderr) {
+    if(err) {
+      var e = new Error('quick test fixture failure');
+      e.err = err;
+      e.stdout = stdout;
+      e.stderr = stderr;
+      return callback(e);
+    }
+    callback();
+  })
+
+}, function(err) {
+  if(err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.info('quick test complete');
+  process.exit(0);
+})
