@@ -7,7 +7,13 @@ function err(key) {
     expect(def).to.be.an('object');
     expect(err).to.be.instanceof(Error);
     expect(err.key).to.eql(def.key);
+    function fn() {
+      throw err;
+    }
+    expect(fn).throws(Error);
   }
 }
+
+err.server = err('ESERVER_REQUIRED');
 
 module.exports = err;
