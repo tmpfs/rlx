@@ -9,6 +9,7 @@ describe('rlx:', function() {
     var args = [
       'admin',
       'add',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -24,6 +25,7 @@ describe('rlx:', function() {
       'admin',
       'add',
       config.admin.name,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -38,6 +40,7 @@ describe('rlx:', function() {
     var args = [
       'admin',
       'get',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -52,6 +55,7 @@ describe('rlx:', function() {
     var args = [
       'admin',
       'rm',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

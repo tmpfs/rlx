@@ -8,6 +8,7 @@ describe('rlx:', function() {
   it('should error on unknown command', function(done){
     var args = [
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

@@ -9,6 +9,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'add',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -23,6 +24,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'get',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -37,6 +39,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'ls',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -51,6 +54,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'rev',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -65,6 +69,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'rm',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -81,6 +86,7 @@ describe('rlx:', function() {
       'doc',
       'add',
       '-d=' + config.database.default,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -96,6 +102,7 @@ describe('rlx:', function() {
       'doc',
       'get',
       '-d=' + config.database.default,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -111,6 +118,7 @@ describe('rlx:', function() {
       'doc',
       'ls',
       '-d=' + config.database.default,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -126,6 +134,7 @@ describe('rlx:', function() {
       'doc',
       'rev',
       '-d=' + config.database.default,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -141,6 +150,7 @@ describe('rlx:', function() {
       'doc',
       'rm',
       '-d=' + config.database.default,
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -158,6 +168,7 @@ describe('rlx:', function() {
       '-d=' + config.database.default,
       '--id=' + config.document.id,
       '--template=unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

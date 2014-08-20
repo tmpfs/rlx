@@ -25,7 +25,7 @@ describe('rlx:', function() {
     var args = [
       'admin',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -45,7 +45,7 @@ describe('rlx:', function() {
       config.admin.name,
       config.admin.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -65,7 +65,7 @@ describe('rlx:', function() {
       config.admin.alt.name,
       config.admin.alt.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -83,7 +83,7 @@ describe('rlx:', function() {
       'admin',
       'ls',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -106,7 +106,7 @@ describe('rlx:', function() {
       '-p',
       config.admin.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -129,7 +129,7 @@ describe('rlx:', function() {
       '-p',
       config.admin.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -152,7 +152,7 @@ describe('rlx:', function() {
       '-p',
       config.admin.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

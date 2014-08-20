@@ -13,7 +13,7 @@ describe('rlx:', function() {
       'add',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -33,7 +33,7 @@ describe('rlx:', function() {
       'exists',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -53,7 +53,7 @@ describe('rlx:', function() {
       'info',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -73,7 +73,7 @@ describe('rlx:', function() {
       'commit',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -94,7 +94,7 @@ describe('rlx:', function() {
       'compact',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -114,7 +114,7 @@ describe('rlx:', function() {
       'cleanup',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -134,7 +134,7 @@ describe('rlx:', function() {
       'limit',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -154,7 +154,7 @@ describe('rlx:', function() {
       '1000',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -174,7 +174,7 @@ describe('rlx:', function() {
       'rm',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

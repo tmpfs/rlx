@@ -21,7 +21,7 @@ describe('rlx:', function() {
       'get',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -41,7 +41,7 @@ describe('rlx:', function() {
       '-d=' + database,
       '--json=' + config.fixtures.security.doc,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -61,7 +61,7 @@ describe('rlx:', function() {
       'get',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

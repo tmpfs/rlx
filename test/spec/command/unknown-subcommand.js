@@ -9,6 +9,7 @@ describe('rlx:', function() {
     var args = [
       'admin',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -23,6 +24,7 @@ describe('rlx:', function() {
     var args = [
       'config',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -37,6 +39,7 @@ describe('rlx:', function() {
     var args = [
       'database',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -51,6 +54,7 @@ describe('rlx:', function() {
     var args = [
       'document',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -65,6 +69,7 @@ describe('rlx:', function() {
     var args = [
       'level',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -79,6 +84,7 @@ describe('rlx:', function() {
     var args = [
       'security',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -93,6 +99,7 @@ describe('rlx:', function() {
     var args = [
       'session',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -107,6 +114,7 @@ describe('rlx:', function() {
     var args = [
       'template',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -121,6 +129,7 @@ describe('rlx:', function() {
     var args = [
       'user',
       'unknown',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

@@ -10,7 +10,7 @@ describe('rlx:', function() {
     var args = [
       'restart',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

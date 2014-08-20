@@ -17,6 +17,7 @@ describe('rlx:', function() {
   it('should error on existing file', function(done){
     var args = [
       'info',
+      '-s=' + config.server.default,
       '--no-color',
       '-o=' + mock
     ];
@@ -33,6 +34,7 @@ describe('rlx:', function() {
     var args = [
       'info',
       '--force',
+      '-s=' + config.server.default,
       '--no-color',
       '-o=' + mock
     ];

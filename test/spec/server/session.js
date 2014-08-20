@@ -11,7 +11,7 @@ describe('rlx:', function() {
       'session',
       'get',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -32,7 +32,7 @@ describe('rlx:', function() {
       'session',
       'rm',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

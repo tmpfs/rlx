@@ -10,7 +10,7 @@ describe('rlx:', function() {
     var args = [
       'uuids',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -30,7 +30,7 @@ describe('rlx:', function() {
       'uuids',
       '--count=' + count,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

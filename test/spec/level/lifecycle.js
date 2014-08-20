@@ -12,7 +12,7 @@ describe('rlx:', function() {
     var args = [
       'level',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -31,7 +31,7 @@ describe('rlx:', function() {
       'level',
       'warn',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -51,7 +51,7 @@ describe('rlx:', function() {
       'level',
       'error',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -71,7 +71,7 @@ describe('rlx:', function() {
       'level',
       'none',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -91,7 +91,7 @@ describe('rlx:', function() {
       'level',
       'debug',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -111,7 +111,7 @@ describe('rlx:', function() {
       'level',
       'info',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

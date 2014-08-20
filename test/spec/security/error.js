@@ -9,6 +9,7 @@ describe('rlx:', function() {
     var args = [
       'security',
       'get',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -23,6 +24,7 @@ describe('rlx:', function() {
     var args = [
       'security',
       'set',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

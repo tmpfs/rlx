@@ -11,7 +11,7 @@ module.exports = function(config) {
         '-d=' + database,
         '--force',
         '--no-color',
-        '-s', config.server.default,
+        '-s=' + config.server.default,
         '-o', mock
       ];
       var def = program(require(pkg), config.name)
@@ -28,7 +28,7 @@ module.exports = function(config) {
         '-d=' + database,
         '--force',
         '--no-color',
-        '-s', config.server.default,
+        '-s=' + config.server.default,
         '-o', mock
       ];
       var def = program(require(pkg), config.name)

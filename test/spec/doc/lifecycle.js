@@ -35,7 +35,7 @@ describe('rlx:', function() {
       '@str=' + config.document.str,
       '@nil=' + config.document.nil,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -54,7 +54,7 @@ describe('rlx:', function() {
       'ls',
       '-d=' + database,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -77,7 +77,7 @@ describe('rlx:', function() {
       '-d=' + database,
       '--id=' + config.document.id,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -102,7 +102,7 @@ describe('rlx:', function() {
       '-d=' + database,
       '--id=' + config.document.id,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -124,7 +124,7 @@ describe('rlx:', function() {
       '-d=' + database,
       '--id=' + config.document.id + '?revs_info=true',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -151,7 +151,7 @@ describe('rlx:', function() {
       '-d=' + database,
       '--id=' + config.document.id,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

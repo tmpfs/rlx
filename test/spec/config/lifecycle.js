@@ -10,7 +10,7 @@ describe('rlx:', function() {
     var args = [
       'config',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -31,7 +31,7 @@ describe('rlx:', function() {
       'get',
       'uuids',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -52,7 +52,7 @@ describe('rlx:', function() {
       'uuids',
       'algorithm',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -72,7 +72,7 @@ describe('rlx:', function() {
       'mock-key',
       'mock-value',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -91,7 +91,7 @@ describe('rlx:', function() {
       'mock-section',
       'mock-key',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)

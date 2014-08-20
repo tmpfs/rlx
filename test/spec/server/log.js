@@ -10,7 +10,7 @@ describe('rlx:', function() {
     var args = [
       'log',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -28,7 +28,7 @@ describe('rlx:', function() {
     var args = [
       'log',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock,
       '--offset=' + offset,
       '--bytes=' + bytes

@@ -9,6 +9,7 @@ describe('rlx:', function() {
     var args = [
       'config',
       'set',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -24,6 +25,7 @@ describe('rlx:', function() {
       'config',
       'set',
       'log',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -40,6 +42,7 @@ describe('rlx:', function() {
       'set',
       'log',
       'level',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -54,6 +57,7 @@ describe('rlx:', function() {
     var args = [
       'config',
       'rm',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -69,6 +73,7 @@ describe('rlx:', function() {
       'config',
       'rm',
       'log',
+      '-s=' + config.server.default,
       '--no-color'
     ];
     var def = program(require(pkg), config.name);

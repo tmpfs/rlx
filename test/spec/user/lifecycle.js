@@ -44,7 +44,7 @@ describe('rlx:', function() {
     var args = [
       'user',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -61,7 +61,7 @@ describe('rlx:', function() {
       'usr',
       'ls',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -80,7 +80,7 @@ describe('rlx:', function() {
       '@name=' + config.user.name,
       '@password=' + config.user.pass,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -97,7 +97,7 @@ describe('rlx:', function() {
     var args = [
       'usr',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -117,7 +117,7 @@ describe('rlx:', function() {
       '--id=' + config.user.name,
       config.user.pass + '-update',
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -136,7 +136,7 @@ describe('rlx:', function() {
       'get',
       '--id=' + config.user.name,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
@@ -155,7 +155,7 @@ describe('rlx:', function() {
       'rm',
       '--id=' + config.user.name,
       '--no-color',
-      '-s', config.server.default,
+      '-s=' + config.server.default,
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
