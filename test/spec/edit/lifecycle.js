@@ -23,11 +23,30 @@ describe('rlx:', function() {
     var args = [
       'edit',
       '-f=' + mock,
-      '--no-color'
+      '--force',
+      '--no-color',
+      '-o', mock
     ];
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
-      //config.error.document(err, errors);
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object').to.eql({});
+      done();
+    })
+    def.parse(args);
+  });
+  it('should edit remote file', function(done){
+    var mock = config.file('edit-remote-file.json');
+    var args = [
+      'edit',
+      '-f=' + config.server.default,
+      '--no-color',
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.info(doc);
       done();
     })
     def.parse(args);
