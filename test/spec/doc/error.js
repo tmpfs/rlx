@@ -4,33 +4,10 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 var assert = {};
-assert.id= function(err, errors) {
-  var def = errors.EID_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.db = function(err, errors) {
-  var def = errors.EDATABASE_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.dbfile = function(err, errors) {
-  var def = errors.ENO_DB_FILE;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.template = function(err, errors) {
-  var def = errors.EUNKNOWN_TEMPLATE;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
+assert.id = config.error('EID_REQUIRED');
+assert.db = config.error('EDATABASE_REQUIRED');
+assert.dbfile = config.error('ENO_DB_FILE');
+assert.template = config.error('EUNKNOWN_TEMPLATE');
 
 describe('rlx:', function() {
   this.timeout(5000);

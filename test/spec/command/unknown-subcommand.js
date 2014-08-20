@@ -3,6 +3,9 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = {};
+assert.subcommand = config.error('EUNKNOWN_SUBCOMMAND');
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should error on unknown admin command', function(done){
@@ -14,10 +17,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -31,10 +31,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -48,10 +45,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -65,10 +59,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -82,10 +73,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -99,10 +87,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -116,10 +101,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -133,10 +115,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -150,10 +129,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EUNKNOWN_SUBCOMMAND;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      assert.subcommand(err, errors);
       done();
     })
     def.parse(args);

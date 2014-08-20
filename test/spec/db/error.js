@@ -4,19 +4,8 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 var assert = {};
-assert.illegal = function(err, errors) {
-  var def = errors.EILLEGAL_DATABASE_NAME;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.required = function(err, errors) {
-  var def = errors.EDATABASE_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
+assert.illegal = config.error('EILLEGAL_DATABASE_NAME');
+assert.required = config.error('EDATABASE_REQUIRED');
 
 describe('rlx:', function() {
   this.timeout(5000);

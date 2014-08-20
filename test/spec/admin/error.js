@@ -4,19 +4,8 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 var assert = {};
-assert.username = function(err, errors) {
-  var def = errors.EUSERNAME_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.password = function(err, errors) {
-  var def = errors.EPASSWORD_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
+assert.username = config.error('EUSERNAME_REQUIRED');
+assert.password = config.error('EPASSWORD_REQUIRED');
 
 describe('rlx:', function() {
   this.timeout(5000);

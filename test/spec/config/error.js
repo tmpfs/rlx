@@ -4,26 +4,9 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 var assert = {};
-assert.section = function(err, errors) {
-  var def = errors.ECONFIG_SECTION_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.key = function(err, errors) {
-  var def = errors.ECONFIG_KEY_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
-
-assert.value = function(err, errors) {
-  var def = errors.ECONFIG_VALUE_REQUIRED;
-  expect(def).to.be.an('object');
-  expect(err).to.be.instanceof(Error);
-  expect(err.key).to.eql(def.key);
-}
+assert.section = config.error('ECONFIG_SECTION_REQUIRED');
+assert.key = config.error('ECONFIG_KEY_REQUIRED');
+assert.value = config.error('ECONFIG_VALUE_REQUIRED');
 
 describe('rlx:', function() {
   this.timeout(5000);

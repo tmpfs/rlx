@@ -80,7 +80,11 @@ config.require = function(file) {
   return require(file);
 }
 
+// helpers to perform common requests
 config.db = require('./db')(config);
+
+// assertion helpers
 config.assert = require('./assert');
+config.error = require('./error');
 
 module.exports = config;
