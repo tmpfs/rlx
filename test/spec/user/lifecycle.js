@@ -56,7 +56,7 @@ describe('rlx:', function() {
     def.parse(args);
   });
   it('should list with alias and explicit subcommand', function(done){
-    var mock = config.file('user-ls-alias.json');
+    var mock = config.file('user-ls-command-alias.json');
     var args = [
       'usr',
       'ls',
