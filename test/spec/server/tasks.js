@@ -8,7 +8,8 @@ describe('rlx:', function() {
   it('should retrieve active tasks', function(done){
     var mock = config.file('server-tasks.json');
     var args = [
-      'tasks', '--no-color',
+      'tasks',
+      '--no-color',
       '-s', config.server.default,
       '-o', mock
     ];

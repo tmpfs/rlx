@@ -15,6 +15,11 @@
     "message": "unknown database error %j"
   },
   {
+    "key": "ESERVER_REQUIRED",
+    "description": "Server not specified",
+    "message": "server is required (%s)"
+  },
+  {
     "key": "EDATABASE_REQUIRED",
     "description": "Database not specified",
     "message": "database is required (%s)"

@@ -8,7 +8,8 @@ describe('rlx:', function() {
   it('should retrieve log data', function(done){
     var mock = config.file('server-log.txt');
     var args = [
-      'log', '--no-color',
+      'log',
+      '--no-color',
       '-s', config.server.default,
       '-o', mock
     ];
@@ -25,7 +26,8 @@ describe('rlx:', function() {
     var bytes = 128;
     var mock = config.file('server-log-offset-bytes.txt');
     var args = [
-      'log', '--no-color',
+      'log',
+      '--no-color',
       '-s', config.server.default,
       '-o', mock,
       '--offset=' + offset,

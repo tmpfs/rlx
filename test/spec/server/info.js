@@ -8,7 +8,8 @@ describe('rlx:', function() {
   it('should retrieve server information', function(done){
     var mock = config.file('server-info.json');
     var args = [
-      'info', '--no-color',
+      'info',
+      '--no-color',
       '-s', config.server.default,
       '-o', mock
     ];
