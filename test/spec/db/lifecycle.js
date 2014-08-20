@@ -66,6 +66,26 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should get database changes', function(done){
+    var mock = config.file('database-changes.json');
+    var args = [
+      'db',
+      'changes',
+      '-d=' + database,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc.results).to.be.an('array');
+      expect(doc.last_seq).to.be.a('number');
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should ensure full commit', function(done){
     var mock = config.file('database-commit.json');
     var args = [

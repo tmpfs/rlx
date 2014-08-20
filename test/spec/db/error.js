@@ -196,6 +196,35 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should error on db/changes (server required)', function(done){
+    var args = [
+      'db',
+      'changes',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on db/changes (database required)', function(done){
+    var args = [
+      'db',
+      'changes',
+      '-s=' + config.server.default,
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.db(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
   it('should error on db/limit (server required)', function(done){
     var args = [
       'db',
