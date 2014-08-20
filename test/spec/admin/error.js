@@ -50,6 +50,20 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should error on admin/get (missing server)', function(done){
+    var args = [
+      'admin',
+      'get',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
   it('should error on admin/get (missing username)', function(done){
     var args = [
       'admin',
@@ -61,6 +75,20 @@ describe('rlx:', function() {
     var errors = def.program.errors;
     def.program.on('error', function(err) {
       config.error.username(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should error on admin/rm (missing server)', function(done){
+    var args = [
+      'admin',
+      'rm',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
       done();
     })
     def.parse(args);
