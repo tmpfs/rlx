@@ -5,7 +5,7 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  it('should error on admin/add (missing server)', function(done){
+  it('should error on admin/add (server required)', function(done){
     var args = [
       'admin',
       'add',
@@ -50,7 +50,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on admin/get (missing server)', function(done){
+  it('should error on admin/get (server required)', function(done){
     var args = [
       'admin',
       'get',
@@ -79,7 +79,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on admin/rm (missing server)', function(done){
+  it('should error on admin/rm (server required)', function(done){
     var args = [
       'admin',
       'rm',

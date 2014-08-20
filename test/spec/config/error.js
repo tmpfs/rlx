@@ -5,7 +5,7 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  it('should error on config/set (missing server)', function(done){
+  it('should error on config/set (server required)', function(done){
     var args = [
       'config',
       'set',
@@ -68,7 +68,7 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should error on config/get (missing server)', function(done){
+  it('should error on config/get (server required)', function(done){
     var args = [
       'config',
       'get',
@@ -83,7 +83,7 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should error on config/rm (missing server)', function(done){
+  it('should error on config/rm (server required)', function(done){
     var args = [
       'config',
       'rm',

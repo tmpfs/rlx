@@ -5,7 +5,7 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  it('should error on db/add (missing server)', function(done){
+  it('should error on db/add (server required)', function(done){
     var args = [
       'db',
       'add',
@@ -51,7 +51,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/cleanup (missing server)', function(done){
+  it('should error on db/cleanup (server required)', function(done){
     var args = [
       'db',
       'cleanup',
@@ -80,7 +80,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/commit (missing server)', function(done){
+  it('should error on db/commit (server required)', function(done){
     var args = [
       'db',
       'commit',
@@ -109,7 +109,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/compact (missing server)', function(done){
+  it('should error on db/compact (server required)', function(done){
     var args = [
       'db',
       'compact',
@@ -138,7 +138,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/exists (missing server)', function(done){
+  it('should error on db/exists (server required)', function(done){
     var args = [
       'db',
       'exists',
@@ -167,7 +167,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/info (missing server)', function(done){
+  it('should error on db/info (server required)', function(done){
     var args = [
       'db',
       'info',
@@ -196,7 +196,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/limit (missing server)', function(done){
+  it('should error on db/limit (server required)', function(done){
     var args = [
       'db',
       'limit',
@@ -225,7 +225,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/rm (missing server)', function(done){
+  it('should error on db/rm (server required)', function(done){
     var args = [
       'db',
       'rm',
