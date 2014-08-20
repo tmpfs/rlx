@@ -13,7 +13,8 @@ var config = {
     default: process.env.rlx_test_server || 'http://localhost:5984'
   },
   database: {
-    default: 'mock-database'
+    default: 'mock-database',
+    users: userdb.default
   },
   user: {
     name: 'mock-user',

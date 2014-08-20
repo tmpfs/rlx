@@ -127,6 +127,27 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should compact database design document', function(done){
+    var mock = config.file('database-compact-design.json');
+    var args = [
+      'db',
+      'compact',
+      '-s=' + config.server.default,
+      '-d=' + config.database.users,
+      '--ddoc=_auth',
+      '--no-color',
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.an('object');
+      expect(doc.ok).to.eql(true);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should cleanup view indices', function(done){
     var mock = config.file('database-cleanup.json');
     var args = [
