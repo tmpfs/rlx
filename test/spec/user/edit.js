@@ -10,7 +10,7 @@ describe('rlx:', function() {
   before(function(done) {
     editor = process.env.EDITOR;
     visual = process.env.VISUAL;
-    process.env.VISUAL = process.env.EDITOR = 'touch';
+    process.env.VISUAL = process.env.EDITOR = config.editor;
     config.db.add(function() {
       config.db.user.add(done);
     });
@@ -35,8 +35,10 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      console.dir(doc);
-      //expect(doc).to.be.an('object').to.eql({});
+      expect(doc).to.be.an('object');
+      expect(doc.ok).to.eql(true);
+      expect(doc.id).to.eql(config.user.id);
+      expect(doc.rev).to.be.a('string');
       done();
     })
     def.parse(args);

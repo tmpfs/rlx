@@ -10,7 +10,7 @@ describe('rlx:', function() {
   before(function(done) {
     editor = process.env.EDITOR;
     visual = process.env.VISUAL;
-    process.env.VISUAL = process.env.EDITOR = 'touch';
+    process.env.VISUAL = process.env.EDITOR = config.editor;
     done();
   })
   after(function(done) {
@@ -30,7 +30,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object').to.eql({});
+      expect(doc).to.be.an('object');
       done();
     })
     def.parse(args);

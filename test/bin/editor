@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var file = process.argv[2];
+var contents = fs.readFileSync(file);
+if(/\.json/.test(file)) {
+  contents = JSON.parse(contents);
+  contents.random = Math.random();
+  contents = JSON.stringify(contents);
+}
+fs.writeFileSync(file, contents);

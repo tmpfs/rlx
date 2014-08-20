@@ -8,6 +8,7 @@ var userdb = require('../../lib/command/user/userdb');
 var config = {
   name: 'rlx-test-runner',
   program: program,
+  editor: path.join(base, 'test', 'bin', 'editor'),
   server: {
     default: process.env.rlx_test_server || 'http://localhost:5984'
   },
