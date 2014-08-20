@@ -5,6 +5,20 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
+  it('should error on config/set (missing server)', function(done){
+    var args = [
+      'config',
+      'set',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
   it('should error on config/set (missing section)', function(done){
     var args = [
       'config',
@@ -49,6 +63,36 @@ describe('rlx:', function() {
     var errors = def.program.errors;
     def.program.on('error', function(err) {
       config.error.value(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on config/get (missing server)', function(done){
+    var args = [
+      'config',
+      'get',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on config/rm (missing server)', function(done){
+    var args = [
+      'config',
+      'rm',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
       done();
     })
     def.parse(args);
