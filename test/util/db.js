@@ -36,6 +36,47 @@ module.exports = function(config) {
         done();
       })
       def.parse(args);
+    },
+    user: {
+      add: function(done) {
+        var mock = config.file('mock-user-add.json');
+        var args = [
+          'user',
+          'add',
+          '@name=' + config.user.name,
+          '@password=' + config.user.pass,
+          '--force',
+          '--no-color',
+          '-s=' + config.server.default,
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      },
+      rm: function(done) {
+        var mock = config.file('mock-user-rm.json');
+        var args = [
+          'user',
+          'rm',
+          '--id=' + config.user.name,
+          '--force',
+          '--no-color',
+          '-s=' + config.server.default,
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      }
     }
   }
 }
+
+
+
+
