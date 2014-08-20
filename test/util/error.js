@@ -15,5 +15,24 @@ function err(key) {
 }
 
 err.server = err('ESERVER_REQUIRED');
+err.username = err('EUSERNAME_REQUIRED');
+err.password = err('EPASSWORD_REQUIRED');
+err.subcommand = err('EUNKNOWN_SUBCOMMAND');
+err.command = err('EUNKNOWN_COMMAND');
+
+
+err.section = err('ECONFIG_SECTION_REQUIRED');
+err.key = err('ECONFIG_KEY_REQUIRED');
+err.value = err('ECONFIG_VALUE_REQUIRED');
+
+err.illegal = err('EILLEGAL_DATABASE_NAME');
+err.db = err('EDATABASE_REQUIRED');
+
+
+err.id = err('EID_REQUIRED');
+err.dbfile = err('ENO_DB_FILE');
+err.template = err('EUNKNOWN_TEMPLATE');
+
+err.fsexists = err('EFS_FILE_EXISTS');
 
 module.exports = err;

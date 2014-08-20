@@ -3,9 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var assert = {};
-assert.db = config.error('EDATABASE_REQUIRED');
-
 describe('rlx:', function() {
   this.timeout(5000);
   it('should error on security/get (database required)', function(done){
@@ -17,7 +14,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -31,7 +28,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);

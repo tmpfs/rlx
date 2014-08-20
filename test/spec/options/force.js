@@ -23,10 +23,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      var def = errors.EFS_FILE_EXISTS;
-      expect(def).to.be.an('object');
-      expect(err).to.be.instanceof(Error);
-      expect(err.key).to.eql(def.key);
+      config.error.fsexists(err, errors);
       done();
     })
     def.parse(args);

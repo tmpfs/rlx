@@ -3,9 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var assert = {};
-assert.subcommand = config.error('EUNKNOWN_SUBCOMMAND');
-
 describe('rlx:', function() {
   this.timeout(5000);
   it('should error on unknown admin command', function(done){
@@ -17,7 +14,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -31,7 +28,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -45,7 +42,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -59,7 +56,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -73,7 +70,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -87,7 +84,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -101,7 +98,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -115,7 +112,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);
@@ -129,7 +126,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.subcommand(err, errors);
+      config.error.subcommand(err, errors);
       done();
     })
     def.parse(args);

@@ -3,11 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var assert = {};
-assert.section = config.error('ECONFIG_SECTION_REQUIRED');
-assert.key = config.error('ECONFIG_KEY_REQUIRED');
-assert.value = config.error('ECONFIG_VALUE_REQUIRED');
-
 describe('rlx:', function() {
   this.timeout(5000);
   it('should error on config/set (missing section)', function(done){
@@ -19,7 +14,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.section(err, errors);
+      config.error.section(err, errors);
       done();
     })
     def.parse(args);
@@ -34,7 +29,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.key(err, errors);
+      config.error.key(err, errors);
       done();
     })
     def.parse(args);
@@ -50,7 +45,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.value(err, errors);
+      config.error.value(err, errors);
       done();
     })
     def.parse(args);
@@ -64,7 +59,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.section(err, errors);
+      config.error.section(err, errors);
       done();
     })
     def.parse(args);
@@ -79,7 +74,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.key(err, errors);
+      config.error.key(err, errors);
       done();
     })
     def.parse(args);

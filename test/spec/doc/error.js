@@ -3,12 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var assert = {};
-assert.id = config.error('EID_REQUIRED');
-assert.db = config.error('EDATABASE_REQUIRED');
-assert.dbfile = config.error('ENO_DB_FILE');
-assert.template = config.error('EUNKNOWN_TEMPLATE');
-
 describe('rlx:', function() {
   this.timeout(5000);
   it('should error on doc/add (database required)', function(done){
@@ -20,7 +14,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -34,7 +28,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -48,7 +42,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -62,7 +56,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -76,7 +70,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.db(err, errors);
+      config.error.db(err, errors);
       done();
     })
     def.parse(args);
@@ -92,7 +86,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.id(err, errors);
+      config.error.id(err, errors);
       done();
     })
     def.parse(args);
@@ -107,7 +101,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.id(err, errors);
+      config.error.id(err, errors);
       done();
     })
     def.parse(args);
@@ -122,7 +116,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.dbfile(err, errors);
+      config.error.dbfile(err, errors);
       done();
     })
     def.parse(args);
@@ -137,7 +131,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.id(err, errors);
+      config.error.id(err, errors);
       done();
     })
     def.parse(args);
@@ -152,7 +146,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.id(err, errors);
+      config.error.id(err, errors);
       done();
     })
     def.parse(args);
@@ -169,7 +163,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      assert.template(err, errors);
+      config.error.template(err, errors);
       done();
     })
     def.parse(args);
