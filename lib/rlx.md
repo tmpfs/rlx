@@ -39,6 +39,7 @@ Command line interface for couchdb.
 * `--force`: Force file overwrite.
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
+* `--ddoc [name]`: Design document id.
 
 ### Database
 
