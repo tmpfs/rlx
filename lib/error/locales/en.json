@@ -85,9 +85,9 @@
     "message": "%s requires a command"
   },
   {
-    "key": "ETEMPLATE_OPTION",
+    "key": "ETEMPLATE_REQUIRED",
     "description": "Template option is required",
-    "message": "option --template is required"
+    "message": "template is required (%s)"
   },
   {
     "key": "EUNKNOWN_TEMPLATE",
