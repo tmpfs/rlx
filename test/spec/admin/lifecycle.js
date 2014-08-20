@@ -64,6 +64,10 @@ describe('rlx:', function() {
       'add',
       config.admin.alt.name,
       config.admin.alt.pass,
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock
