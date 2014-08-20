@@ -15,6 +15,8 @@ function err(key) {
 }
 
 err.server = err('ESERVER_REQUIRED');
+err.db = err('EDATABASE_REQUIRED');
+err.document = err('EDOCUMENT_REQUIRED');
 err.username = err('EUSERNAME_REQUIRED');
 err.password = err('EPASSWORD_REQUIRED');
 err.subcommand = err('EUNKNOWN_SUBCOMMAND');
@@ -26,7 +28,6 @@ err.key = err('ECONFIG_KEY_REQUIRED');
 err.value = err('ECONFIG_VALUE_REQUIRED');
 
 err.illegal = err('EILLEGAL_DATABASE_NAME');
-err.db = err('EDATABASE_REQUIRED');
 
 
 err.id = err('EID_REQUIRED');

@@ -25,6 +25,11 @@
     "message": "database is required (%s)"
   },
   {
+    "key": "EDOCUMENT_REQUIRED",
+    "description": "Input document not specified",
+    "message": "document is required (use %s or %s)"
+  },
+  {
     "key": "ENO_DB_FILE",
     "description": "Database does not exist",
     "message": "database %s does not exist"
