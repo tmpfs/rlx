@@ -50,6 +50,7 @@ Commands for creating, deleting and modifying databases.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
+* `changes: changes`: Get database changes.
 * `commit: commit`: Ensure full commit.
 * `compact: compact`: Compact database.
 * `cleanup: cleanup`: Remove stale view indices.
