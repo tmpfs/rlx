@@ -47,17 +47,6 @@ var config = {
   fixtures: {}
 }
 
-var files = fs.readdirSync(config.paths.fixtures);
-for(var i = 0;i < files.length;i++) {
-  contents = '' + fs.readFileSync(path.join(config.paths.fixtures, files[i]));
-  config.fixtures[path.basename(files[i], '.json')] =
-    {
-      name: files[i],
-      doc: contents,
-      data: JSON.parse(contents)
-    }
-}
-
 config.file = function(name, content) {
   var file = path.join(target, name);
   if(content) fs.writeFileSync(file, content);
@@ -88,5 +77,27 @@ config.db = require('./db')(config);
 // assertion helpers
 config.assert = require('./assert');
 config.error = require('./error');
+
+/**
+ *  Load test fixtures.
+ */
+function fixtures() {
+  var files = fs.readdirSync(config.paths.fixtures), file, key, pth, item;
+  for(var i = 0;i < files.length;i++) {
+    file = files[i];
+    key = path.basename(file, '.json');
+    pth = path.join(config.paths.fixtures, file);
+    contents = '' + fs.readFileSync(pth);
+    item = {
+      name: file,
+      path: pth,
+      doc: contents,
+      data: /\.json$/.test(file) ? JSON.parse(contents) : contents
+    }
+    config.fixtures[key] = item;
+  }
+}
+
+fixtures();
 
 module.exports = config;

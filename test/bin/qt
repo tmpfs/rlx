@@ -6,8 +6,7 @@ var base = path.normalize(path.join(__dirname, '..', '..'));
 var exe = path.join(base, 'bin', 'rlx');
 var fixtures = require('../fixtures/qt');
 var exec = require('child_process').exec;
-//console.dir(fixtures);
-//
+
 async.eachSeries(fixtures, function(test, callback) {
   var cmd = test.cmd.slice(0);
   console.info('%s %s', path.basename(exe), cmd.join(' '));
