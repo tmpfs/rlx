@@ -5,7 +5,7 @@
     "hash": "sha1"
   },
   "restart": {
-    "wait": true,
+    "poll": true,
     "interval": 2000,
     "max": 10
   }

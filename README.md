@@ -28,11 +28,11 @@ npm i -g rlx
 ```
 Command line interface for couchdb.
 
-Usage: rlx <command> [-h] [--color|--no-color] [--debug] [--force]
-           [-h|--help] [--version] [-s|--server=<url>]
-           [-d|--database=<name>] [-u|--username=<name>]
-           [-p|--password=<pass>] [-o|--output=<file>]
-           [-f|--file=<file>] [-j|--json=<json>]
+Usage: rlx <command> [-h] [--color|--no-color] [--force] [--trace]
+           [--debug] [--info] [--warn] [--error] [-h|--help]
+           [--version] [-s|--server=<url>] [-d|--database=<name>]
+           [-u|--username=<name>] [-p|--password=<pass>]
+           [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
            [--ddoc=<name>] <args>
 
@@ -66,9 +66,8 @@ Commands:
  help               Show help for commands.
 
 Arguments:
- -j, --json=[json]  JSON string literal (overrides --file).
+     --id=[id]      Document identifier.
      --[no]-color   Enable or disable terminal colors.
- -s, --server=[url] Database server.
  -d, --database=[name]
                     Database name.
  -u, --username=[name]
@@ -78,13 +77,18 @@ Arguments:
  -o, --output=[file]
                     Write response to output file.
  -f, --file=[file]  Read JSON input from file.
-     --debug        Enable debugging.
+ -j, --json=[json]  JSON string literal (overrides --file).
  -t, --template=[name]
                     Name of a template file.
      --force        Force file overwrite.
-     --id=[id]      Document identifier.
+ -s, --server=[url] Database server.
      --rev=[rev]    Document revision.
      --ddoc=[name]  Design document id.
+     --trace        Set log level to trace.
+     --debug        Set log level to debug.
+     --info         Set log level to info.
+     --warn         Set log level to warn.
+     --error        Set log level to error.
  -h, --help         Display this help and exit.
      --version      Output version information and exit.
 

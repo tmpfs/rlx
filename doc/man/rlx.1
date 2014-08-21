@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.10" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.23" "User Commands"
 .SH "NAME"
 rlx
 .SH "DESCRIPTION"
@@ -7,11 +7,12 @@ Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .LT
- rlx <command> [\-vh] [\-\-color|\-\-no\-color] [\-\-debug] [\-v|\-\-verbose]
-     [\-\-force] [\-h|\-\-help] [\-\-version] [\-s|\-\-server=<url>]
-     [\-d|\-\-database=<name>] [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>]
-     [\-o|\-\-output=<file>] [\-f|\-\-file=<file>] [\-j|\-\-json=<json>]
-     [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>] <args>
+ rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-trace] [\-\-debug]
+     [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
+     [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
+     [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
+     [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>]
+     [\-\-ddoc=<name>] <args>
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
@@ -60,13 +61,9 @@ Command line interface for couchdb.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-f, \-\-file=[file]\fR: Read JSON input from file.
+\fB\-\-id=[id]\fR: Document identifier.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
-.IP "\[ci]" 4
-\fB\-v, \-\-verbose\fR: Print more information.
-.IP "\[ci]" 4
-\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-d, \-\-database=[name]\fR: Database name.
 .IP "\[ci]" 4
@@ -76,7 +73,7 @@ Command line interface for couchdb.
 .IP "\[ci]" 4
 \fB\-o, \-\-output=[file]\fR: Write response to output file.
 .IP "\[ci]" 4
-\fB\-\-debug\fR: Enable debugging.
+\fB\-f, \-\-file=[file]\fR: Read JSON input from file.
 .IP "\[ci]" 4
 \fB\-j, \-\-json=[json]\fR: JSON string literal (overrides \-\-file).
 .IP "\[ci]" 4
@@ -84,9 +81,21 @@ Command line interface for couchdb.
 .IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
-\fB\-\-id=[id]\fR: Document identifier.
+\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-\-rev=[rev]\fR: Document revision.
+.IP "\[ci]" 4
+\fB\-\-ddoc=[name]\fR: Design document id.
+.IP "\[ci]" 4
+\fB\-\-trace\fR: Set log level to trace.
+.IP "\[ci]" 4
+\fB\-\-debug\fR: Set log level to debug.
+.IP "\[ci]" 4
+\fB\-\-info\fR: Set log level to info.
+.IP "\[ci]" 4
+\fB\-\-warn\fR: Set log level to warn.
+.IP "\[ci]" 4
+\fB\-\-error\fR: Set log level to error.
 .IP "\[ci]" 4
 \fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4

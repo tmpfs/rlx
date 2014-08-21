@@ -40,8 +40,6 @@ Command line interface for couchdb.
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
-* `-v, --verbose`: Set log level to debug.
-* `--silent`: Only print errors.
 
 ### Database
 
@@ -150,3 +148,13 @@ $0 admin add <username> <password>
 * `error: error`: Set log level to `error`.
 * `warn: warn`: Set log level to `warning`.
 * `none: none`: Set log level to `none`.
+
+### Restart
+
+#### Description
+
+Upon success (202 status code) by default this command will poll the server waiting for it to become available again. You can control this behaviour in the `restart` section of an rc file.
+
+* `poll`: Boolean indicating whether polling is enabled, default is `true`.
+* `interval`: Integer milliseconds between poll attempts, default is `2000`.
+* `max`: Integer indicating the maximum number of retry attempts, default is `10`.
