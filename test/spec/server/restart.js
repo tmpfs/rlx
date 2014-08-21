@@ -10,6 +10,7 @@ describe('rlx:', function() {
     var args = [
       'restart',
       '--no-color',
+      '--silent',
       '-s=' + config.server.default,
       '-o', mock
     ];

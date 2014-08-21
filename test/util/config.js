@@ -14,7 +14,8 @@ var config = {
   },
   database: {
     default: 'mock-database',
-    users: userdb.default
+    users: userdb.default,
+    unknown: 'mock-unknown-database'
   },
   user: {
     name: 'mock-user',

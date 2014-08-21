@@ -187,7 +187,7 @@ describe('rlx:', function() {
     var args = [
       'doc',
       'ls',
-      '-d=' + config.database.default,
+      '-d=' + config.database.unknown,
       '-s=' + config.server.default,
       '--no-color'
     ];

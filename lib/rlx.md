@@ -40,6 +40,7 @@ Command line interface for couchdb.
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
+* `--silent`: Only print errors.
 
 ### Database
 
