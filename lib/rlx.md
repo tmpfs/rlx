@@ -5,6 +5,8 @@ Command line interface for couchdb.
 
 Designed for parity with the couchdb HTTP API, run `help <cmd>` for more information on individual commands.
 
+<!--- top-level commands and options -->
+
 ## Commands
 
 * `info: info`: Print server information.
@@ -42,6 +44,8 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
+
+<!--- command definitions -->
 
 ### Database
 
@@ -160,6 +164,12 @@ Upon success (202 status code) by default this command will poll the server wait
 * `poll`: Boolean indicating whether polling is enabled, default is `true`.
 * `interval`: Integer milliseconds between poll attempts, default is `2000`.
 * `max`: Integer indicating the maximum number of retry attempts, default is `10`.
+
+<!--- custom sections -->
+
+## Log
+
+All log output is sent to `stderr`, response documents are printed to `stdout`.
 
 ## History
 

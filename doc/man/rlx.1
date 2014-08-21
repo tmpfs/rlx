@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.23" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.24" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -101,6 +101,9 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-version\fR: Output version information and exit.
 .EL
+.SH "LOG"
+.PP
+All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR.
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.
