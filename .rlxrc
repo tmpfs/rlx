@@ -3,5 +3,9 @@
   "indent": 2,
   "edit": {
     "hash": "sha1"
+  },
+  "restart": {
+    "interval": 2000,
+    "max": 10
   }
 }

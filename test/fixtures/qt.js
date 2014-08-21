@@ -72,6 +72,16 @@ var qt = [
       config.server.default
     ]
   },
+  {
+    api: [parameters.restart],
+    method: methods.post,
+    doc: docs.common,
+    cmd: [
+      'restart',
+      '-s',
+      config.server.default
+    ]
+  },
 ]
 
 for(var i = 0;i < qt.length;i++) {
