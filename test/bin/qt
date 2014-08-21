@@ -10,15 +10,15 @@ var exec = require('child_process').exec;
 //
 async.eachSeries(fixtures, function(test, callback) {
   var cmd = test.cmd.slice(0);
+  console.info('%s %s', path.basename(exe), cmd.join(' '));
   cmd.unshift(exe);
   cmd = cmd.join(' ');
-  console.info('%s %s', path.basename(exe), cmd.slice(1));
   exec(cmd, function(err, stdout, stderr) {
     if(err) {
       var e = new Error('quick test fixture failure');
       e.err = err;
-      e.stdout = stdout;
-      e.stderr = stderr;
+      e.stdout = stdout || '';
+      e.stderr = stderr || '';
       return callback(e);
     }
     callback();
@@ -26,7 +26,7 @@ async.eachSeries(fixtures, function(test, callback) {
 
 }, function(err) {
   if(err) {
-    console.error(err);
+    console.error(err.stderr.trim());
     process.exit(1);
   }
   console.info('quick test complete');
