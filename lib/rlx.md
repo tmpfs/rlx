@@ -3,6 +3,8 @@ $0
 
 Command line interface for couchdb.
 
+Designed for parity with the couchdb HTTP API, run `help <cmd>` for more information on individual commands.
+
 ## Commands
 
 * `info: info`: Print server information.

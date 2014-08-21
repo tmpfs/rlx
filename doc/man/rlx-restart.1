@@ -1,6 +1,9 @@
 .TH "RLX-RESTART" "1" "August 2014" "rlx-restart 0.1.23" "User Commands"
 .SH "NAME"
 rlx-restart -- Restart a server.
+.SH "SYNOPSIS"
+
+\fB rlx restart <args>\fR
 .SH "DESCRIPTION"
 .PP
 Upon success (202 status code) by default this command will poll the server waiting for it to become available again. You can control this behaviour in the \fBrestart\fR section of an rc file.
@@ -12,9 +15,6 @@ Upon success (202 status code) by default this command will poll the server wait
 .IP "\[ci]" 4
 \fBmax\fR: Integer indicating the maximum number of retry attempts, default is \fB10\fR.
 .EL
-.SH "SYNOPSIS"
-
-\fB rlx restart <args>\fR
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
