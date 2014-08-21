@@ -93,6 +93,8 @@ Report bugs to https://github.com/freeformsystems/rlx/issues.
 
 ## Developer
 
+Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
+
 ### Test
 
 Tests require a clean [couchdb](http://couchdb.apache.org) installation running in *admin party* mode.
@@ -101,7 +103,11 @@ Tests require a clean [couchdb](http://couchdb.apache.org) installation running 
 npm test
 ```
 
-Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
+Quick test executes all commands that should exit with a zero exit code but bypasses code coverage and test assertions:
+
+```
+npm run qt
+```
 
 #### Environment
 
