@@ -20,6 +20,10 @@ console.info(lines.join(EOL));
 
 async.eachSeries(fixtures, function(test, callback) {
   var cmd = test.cmd.slice(0);
+  if(test.enabled === false) {
+    console.warn(prefix + 'not yet implemented %s', test.req);
+    return callback();
+  }
   console.log(prefix + '%s %s', nm, cmd.join(' '));
   cmd.unshift(exe);
   cmd = cmd.join(' ');
