@@ -160,3 +160,17 @@ Upon success (202 status code) by default this command will poll the server wait
 * `poll`: Boolean indicating whether polling is enabled, default is `true`.
 * `interval`: Integer milliseconds between poll attempts, default is `2000`.
 * `max`: Integer indicating the maximum number of retry attempts, default is `10`.
+
+## History
+
+This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx-shell.
+
+Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non-trivial and it needed to rely on external languages for JSON support.
+
+The original implementation whilst almost feature complete was deprecated in
+favour of a pure javascript version. In addition the original implementation
+started from a pure interactive REPL perspective with a view to implementing
+non-interactive support later - it never happened.
+
+For the javascript program an inverse approach is taken, the REPL is the last
+feature to be implemented.
