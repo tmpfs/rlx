@@ -18,9 +18,7 @@ describe('rlx:', function() {
       var doc = config.json(mock);
       expect(doc).to.be.an('object');
       expect(doc.ok).to.eql(true);
-      setTimeout(function() {
-        done();
-      }, 2000);
+      done();
     })
     def.parse(args);
   });
