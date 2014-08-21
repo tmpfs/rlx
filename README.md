@@ -6,6 +6,7 @@ Table of Contents
   * [Usage](#usage)
   * [Developer](#developer)
     * [Test](#test)
+      * [Environment](#environment)
     * [Manual](#manual)
     * [Readme](#readme)
 
@@ -27,12 +28,13 @@ npm i -g rlx
 ```
 Command line interface for couchdb.
 
-Usage: rlx <command> [-vh] [--color|--no-color] [--debug]
-           [-v|--verbose] [--force] [-h|--help] [--version]
-           [-s|--server=<url>] [-d|--database=<name>]
-           [-u|--username=<name>] [-p|--password=<pass>]
-           [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
-           [-t|--template=<name>] [--id=<id>] [--rev=<rev>] <args>
+Usage: rlx <command> [-h] [--color|--no-color] [--debug] [--force]
+           [-h|--help] [--version] [-s|--server=<url>]
+           [-d|--database=<name>] [-u|--username=<name>]
+           [-p|--password=<pass>] [-o|--output=<file>]
+           [-f|--file=<file>] [-j|--json=<json>]
+           [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
+           [--ddoc=<name>] <args>
 
 Options:
 
@@ -64,9 +66,8 @@ Commands:
  help               Show help for commands.
 
 Arguments:
- -f, --file=[file]  Read JSON input from file.
+ -j, --json=[json]  JSON string literal (overrides --file).
      --[no]-color   Enable or disable terminal colors.
- -v, --verbose      Print more information.
  -s, --server=[url] Database server.
  -d, --database=[name]
                     Database name.
@@ -76,13 +77,14 @@ Arguments:
                     Authentication password.
  -o, --output=[file]
                     Write response to output file.
+ -f, --file=[file]  Read JSON input from file.
      --debug        Enable debugging.
- -j, --json=[json]  JSON string literal (overrides --file).
  -t, --template=[name]
                     Name of a template file.
      --force        Force file overwrite.
      --id=[id]      Document identifier.
      --rev=[rev]    Document revision.
+     --ddoc=[name]  Design document id.
  -h, --help         Display this help and exit.
      --version      Output version information and exit.
 
@@ -100,6 +102,10 @@ npm test
 ```
 
 Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
+
+#### Environment
+
+* `rlx_test_server` - Specify the server to run tests against, default is `http://localhost:5984`.
 
 ### Manual
 

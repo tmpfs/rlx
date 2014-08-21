@@ -10,6 +10,10 @@ npm test
 
 Developed against `couchdb@1.6.0`, behaviour in earlier versions is undefined.
 
+#### Environment
+
+* `rlx_test_server` - Specify the server to run tests against, default is `http://localhost:5984`.
+
 ### Manual
 
 To generate man pages run:
