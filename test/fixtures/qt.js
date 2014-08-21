@@ -3,7 +3,8 @@ var config = require('../util/config');
 var qt = [
   {
     cmd: [
-      "info"
+      "info",
+      '-s=' + config.server.default
     ]
   }
 ]
