@@ -82,6 +82,26 @@ var qt = [
       config.server.default
     ]
   },
+  {
+    api: [parameters.stats],
+    method: methods.get,
+    doc: docs.common,
+    cmd: [
+      'stats',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    api: [parameters.uuids],
+    method: methods.get,
+    doc: docs.common,
+    cmd: [
+      'uuids',
+      '-s',
+      config.server.default
+    ]
+  },
 ]
 
 for(var i = 0;i < qt.length;i++) {
