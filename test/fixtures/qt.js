@@ -11,6 +11,7 @@ var docs = {
 
 var qt = [
   {
+    id: 'info',
     api: ['/'],
     method: methods.get,
     doc: docs.common,
@@ -21,6 +22,7 @@ var qt = [
     ]
   },
   {
+    id: 'tasks',
     api: [parameters.tasks],
     method: methods.get,
     doc: docs.common,
@@ -31,6 +33,7 @@ var qt = [
     ]
   },
   {
+    id: 'dbs',
     api: [parameters.dbs],
     method: methods.get,
     doc: docs.common,
@@ -41,6 +44,7 @@ var qt = [
     ]
   },
   {
+    id: 'dbupdates',
     enabled: false,
     api: [parameters.dbupdates],
     method: methods.get,
@@ -52,6 +56,7 @@ var qt = [
     ]
   },
   {
+    id: 'log',
     api: [parameters.log],
     method: methods.get,
     doc: docs.common,
@@ -62,6 +67,7 @@ var qt = [
     ]
   },
   {
+    id: 'replicate',
     enabled: false,
     api: [parameters.replicate],
     method: methods.post,
@@ -73,6 +79,7 @@ var qt = [
     ]
   },
   {
+    id: 'restart',
     api: [parameters.restart],
     method: methods.post,
     doc: docs.common,
@@ -83,6 +90,7 @@ var qt = [
     ]
   },
   {
+    id: 'stats',
     api: [parameters.stats],
     method: methods.get,
     doc: docs.common,
@@ -93,6 +101,7 @@ var qt = [
     ]
   },
   {
+    id: 'uuids',
     api: [parameters.uuids],
     method: methods.get,
     doc: docs.common,
