@@ -10,6 +10,11 @@
     "message": "connection refused to %s"
   },
   {
+    "key": "ERESTART_LIMIT",
+    "description": "Server restart retry limit exceeded",
+    "message": "restart retry maximum limit exceeded"
+  },
+  {
     "key": "EUNKNOWN_DB_ERROR",
     "description": "Unknown database error",
     "message": "unknown database error %j"
