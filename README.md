@@ -103,7 +103,7 @@ Tests require a clean [couchdb](http://couchdb.apache.org) installation running 
 npm test
 ```
 
-Quick test executes all commands that should exit with a zero exit code but bypasses code coverage and test assertions:
+Quick test executes commands in series but bypasses code coverage and test assertions:
 
 ```
 npm run qt
