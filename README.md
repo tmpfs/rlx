@@ -39,7 +39,7 @@ Usage: rlx <command> [-h] [--color|--no-color] [--force] [--trace]
            [-u|--username=<name>] [-p|--password=<pass>]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
-           [--ddoc=<name>] <args>
+           [--ddoc=<name>] [--feed=<type>] <args>
 
 Command line interface for couchdb.
 
@@ -90,6 +90,7 @@ Arguments:
  -s, --server=[url] Database server.
      --rev=[rev]    Document revision.
      --ddoc=[name]  Design document id.
+     --feed=[type]  Poll feed type.
      --trace        Set log level to trace.
      --debug        Set log level to debug.
      --info         Set log level to info.

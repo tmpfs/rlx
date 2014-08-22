@@ -1,5 +1,5 @@
-' rlx <command> [-h] [--color|--no-color] [--force] [--trace] [--debug]\n     [--info] [--warn] [--error] [-h|--help] [--version]\n     [-s|--server=<url>] [-d|--database=<name>] [-u|--username=<name>]\n     [-p|--password=<pass>] [-o|--output=<file>] [-f|--file=<file>]\n     [-j|--json=<json>] [-t|--template=<name>] [--id=<id>] [--rev=<rev>]\n     [--ddoc=<name>] <args>'
-.TH "RLX" "1" "August 2014" "rlx 0.1.29" "User Commands"
+' rlx <command> [-h] [--color|--no-color] [--force] [--trace] [--debug]\n     [--info] [--warn] [--error] [-h|--help] [--version]\n     [-s|--server=<url>] [-d|--database=<name>] [-u|--username=<name>]\n     [-p|--password=<pass>] [-o|--output=<file>] [-f|--file=<file>]\n     [-j|--json=<json>] [-t|--template=<name>] [--id=<id>] [--rev=<rev>]\n     [--ddoc=<name>] [--feed=<type>] <args>'
+.TH "RLX" "1" "August 2014" "rlx 0.1.36" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -10,7 +10,7 @@ rlx -- Command line interface for couchdb.
      [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
      [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
      [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>]
-     [\-\-ddoc=<name>] <args>
+     [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -85,6 +85,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-\-rev=[rev]\fR: Document revision.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
+.IP "\[ci]" 4
+\fB\-\-feed=[type]\fR: Poll feed type. 
 .IP "\[ci]" 4
 \fB\-\-trace\fR: Set log level to trace.
 .IP "\[ci]" 4

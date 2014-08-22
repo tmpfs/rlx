@@ -60,19 +60,6 @@ var qt = [
     ]
   },
   {
-    id: 'dbupdates',
-    description: 'Get database updates',
-    enabled: false,
-    api: [parameters.dbupdates],
-    method: methods.get,
-    doc: docs.server + '#get--_db_updates',
-    cmd: [
-      'updates',
-      '-s',
-      config.server.default
-    ]
-  },
-  {
     id: 'log',
     description: 'Tail log file',
     api: [parameters.log],
@@ -584,6 +571,23 @@ var qt = [
       config.database.default
     ]
   },
+  {
+    id: 'db/updates',
+    description: 'Get database updates',
+    api: [parameters.dbupdates],
+    method: methods.get,
+    doc: docs.server + '#get--_db_updates',
+    parallel: ['db/add'],
+    after: ['db/rm'],
+    cmd: [
+      'db',
+      'updates',
+      '-s',
+      config.server.default,
+      '--feed',
+      config.cdb.feeds.longpoll
+    ]
+  },
 
   // SECURITY
   {
@@ -750,10 +754,15 @@ function update() {
     })
   }
 
-  // set up documentation urls etc.
+  // map by identifier
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
     map[item.id] = item;
+  }
+
+  // set up documentation urls, hooks etc.
+  for(i = 0;i < qt.length;i++) {
+    item = qt[i];
     item.req = item.method + ' /' + item.api.join('/') + (item.extra || '');
     item.url = api + '/' + item.doc
     if(Array.isArray(item.before)) {
@@ -761,6 +770,9 @@ function update() {
     }
     if(Array.isArray(item.after)) {
       hooks(item.after);
+    }
+    if(Array.isArray(item.parallel)) {
+      hooks(item.parallel);
     }
   }
 }

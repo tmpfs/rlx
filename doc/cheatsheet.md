@@ -5,7 +5,6 @@ Table of Contents
   * [Server](#server)
     * [GET /](#get-)
     * [GET /_active_tasks](#get-_active_tasks)
-    * [~~GET /_db_updates~~](#get-_db_updates)
     * [GET /_log](#get-_log)
     * [~~POST /_replicate~~](#post-_replicate)
     * [POST /_restart](#post-_restart)
@@ -47,6 +46,7 @@ Table of Contents
     * [GET /{db}/_revs_limit](#get-db_revs_limit)
     * [PUT /{db}/_revs_limit](#put-db_revs_limit)
     * [DELETE /{db}](#delete-db)
+    * [GET /](#get--1)
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
@@ -82,12 +82,6 @@ rlx tasks -s {server}
 ```
 
 Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
-
-### ~~GET /_db_updates~~
-
-Get database updates.
-
-Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
 
 ### GET /_log
 
@@ -442,6 +436,16 @@ rlx db rm -s {server} -d {db}
 ```
 
 Documentation: [database/common#delete-db](http://docs.couchdb.org/en/latest/api/database/common.html#delete--db)
+
+### GET /
+
+Get database updates:
+
+```
+rlx db updates -s {server} --feed longpoll
+```
+
+Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
 
 ## Security
 

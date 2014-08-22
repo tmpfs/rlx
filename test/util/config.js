@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var cdb = require('cdb');
 var base = path.normalize(path.join(__dirname, '..', '..'));
 var target = path.join(base, 'target')
 var program = require('../../lib/rlx');
@@ -9,6 +10,7 @@ var config = {
   name: 'rlx-test-runner',
   program: program,
   editor: path.join(base, 'test', 'bin', 'editor'),
+  cdb: cdb,
   server: {
     default: process.env.rlx_test_server || 'http://localhost:5984'
   },

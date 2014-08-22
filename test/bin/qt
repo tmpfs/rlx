@@ -59,6 +59,9 @@ function run(fixtures, hook, cb) {
     }
     var complete = !test.after ? callback : after;
     execute(complete);
+    if(test.parallel) {
+      run(test.parallel, '[parallel]', function(){});
+    }
   }, function(err) {
     if(cb) return cb(err);
     if(err) {
