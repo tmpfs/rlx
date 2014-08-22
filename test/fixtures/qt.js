@@ -334,7 +334,7 @@ var qt = [
     description: 'List databases',
     api: [parameters.dbs],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#all-dbs',
     cmd: [
       'db',
       'ls',
