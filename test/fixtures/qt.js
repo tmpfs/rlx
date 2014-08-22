@@ -21,6 +21,7 @@ var params = {
 
 var docs = {
   server: 'server/common.html',
+  auth: 'server/authn.html',
   database: 'database/common.html',
   config: 'server/configuration.html',
   security: 'database/security.html',
@@ -636,6 +637,62 @@ var qt = [
     ]
   },
 
+  // SESSION
+  {
+    id: 'session/set',
+    description: 'Login with cookie authentication',
+    api: [params.db, parameters.session],
+    method: methods.post,
+    doc: docs.auth + '#post--_session',
+    before: ['admin/add'],
+    cmd: [
+      'session',
+      'set',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'session/get',
+    description: 'Get user session',
+    api: [params.db, parameters.session],
+    method: methods.get,
+    doc: docs.auth + '#get--_session',
+    stdout: true,
+    cmd: [
+      'session',
+      'get',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'session/rm',
+    description: 'Logout of authenticated session',
+    api: [params.db, parameters.session],
+    method: methods.delete,
+    doc: docs.auth + '#delete--_session',
+    after: ['admin/rm'],
+    cmd: [
+      'session',
+      'rm',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+
 ]
 
 function find(id) {
@@ -688,6 +745,7 @@ function update() {
 
   function hooks(ids) {
     ids.forEach(function(id, index, arr) {
+      if(!map[id]) throw new Error('unknown hook ' + id);
       arr[index] = map[id];
     })
   }
