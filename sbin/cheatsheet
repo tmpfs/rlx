@@ -17,9 +17,9 @@ description += 'with a strikethrough.';
 var sections = {
   server: 'Server',
   conf: 'Configuration',
+  level: 'Log Level',
   admin: 'Administrators',
   db: 'Database',
-  level: 'Log Level'
 }
 
 var rules = [], st = '~~';
