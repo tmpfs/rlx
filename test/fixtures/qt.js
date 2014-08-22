@@ -43,7 +43,7 @@ var qt = [
     description: 'Get active tasks',
     api: [parameters.tasks],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#active-tasks',
     cmd: [
       'tasks',
       '-s',
@@ -56,7 +56,7 @@ var qt = [
     enabled: false,
     api: [parameters.dbupdates],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#db-updates',
     cmd: [
       'updates',
       '-s',
@@ -68,7 +68,7 @@ var qt = [
     description: 'Tail log file',
     api: [parameters.log],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#log',
     cmd: [
       'log',
       '-s',
@@ -81,7 +81,7 @@ var qt = [
     enabled: false,
     api: [parameters.replicate],
     method: methods.post,
-    doc: docs.server,
+    doc: docs.server + '#replicate',
     cmd: [
       'repl',
       '-s',
@@ -93,7 +93,7 @@ var qt = [
     description: 'Restart the server',
     api: [parameters.restart],
     method: methods.post,
-    doc: docs.server,
+    doc: docs.server + '#restart',
     cmd: [
       'restart',
       '-s',
@@ -105,7 +105,7 @@ var qt = [
     description: 'Get server statistics',
     api: [parameters.stats],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#stats',
     cmd: [
       'stats',
       '-s',
@@ -117,7 +117,7 @@ var qt = [
     description: 'Get uuids',
     api: [parameters.uuids],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#uuids',
     cmd: [
       'uuids',
       '-s',
@@ -133,7 +133,7 @@ var qt = [
       params.key
     ],
     method: methods.put,
-    doc: docs.config,
+    doc: docs.config + '#put--_config-section-key',
     cmd: [
       'conf',
       'set',
@@ -150,7 +150,7 @@ var qt = [
     api: [
       parameters.config],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config',
     cmd: [
       'conf',
       '-s',
@@ -165,7 +165,7 @@ var qt = [
       params.section
     ],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config-section',
     cmd: [
       'conf',
       'get',
@@ -183,7 +183,7 @@ var qt = [
       params.key
     ],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config-section-key',
     cmd: [
       'conf',
       'get',
@@ -202,7 +202,7 @@ var qt = [
       params.key
     ],
     method: methods.delete,
-    doc: docs.config,
+    doc: docs.config + '#delete--_config-section-key',
     cmd: [
       'conf',
       'rm',
@@ -220,7 +220,7 @@ var qt = [
       cdb.config.log.name,
       cdb.config.log.keys.level],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config-section-key',
     cmd: [
       'level',
       '-s',
@@ -238,7 +238,7 @@ var qt = [
       params.key
     ],
     method: methods.put,
-    doc: docs.config,
+    doc: docs.config + '#put--_config-section-key',
     cmd: [
       'admin',
       'add',
@@ -256,7 +256,7 @@ var qt = [
       cdb.config.admins.name
     ],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config-section',
     cmd: [
       'admin',
       'ls',
@@ -277,7 +277,7 @@ var qt = [
       params.key
     ],
     method: methods.get,
-    doc: docs.config,
+    doc: docs.config + '#config-section-key',
     cmd: [
       'admin',
       'get',
@@ -299,7 +299,7 @@ var qt = [
       params.key
     ],
     method: methods.delete,
-    doc: docs.config,
+    doc: docs.config + '#delete--_config-section-key',
     cmd: [
       'admin',
       'rm',
@@ -530,7 +530,7 @@ function update() {
         parameters.config,
         cdb.config.log.name, cdb.config.log.keys.level],
       method: methods.put,
-      doc: docs.config,
+      doc: docs.config + '#put--_config-section-key',
       cmd: [
         'level',
         k,
