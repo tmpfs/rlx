@@ -19,6 +19,7 @@ var sections = {
   conf: 'Configuration',
   admin: 'Administrators',
   db: 'Database',
+  level: 'Log Level'
 }
 
 var rules = [], st = '~~';
