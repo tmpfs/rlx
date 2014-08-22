@@ -24,6 +24,7 @@ var docs = {
   database: 'database/common.html',
   config: 'server/configuration.html',
   security: 'database/security.html',
+  bulk: 'database/bulk-api.html',
 }
 
 var qt = [
@@ -343,6 +344,22 @@ var qt = [
       'ls',
       '-s',
       config.server.default
+    ]
+  },
+  {
+    id: 'db/bulk',
+    enabled: false,
+    description: 'Bulk document modifications',
+    api: [params.db, parameters.bulk],
+    method: methods.post,
+    doc: docs.bulk + '#post--db-_bulk_docs',
+    cmd: [
+      'db',
+      'bulk',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
     ]
   },
   {
