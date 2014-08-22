@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var EOL = require('os').EOL;
+var path = require('path');
+var util = require('util');
+var base = path.normalize(path.join(__dirname, '..'));
+var qt = require('../test/fixtures/qt');
+var pkg = require('../package.json');
+var output = process.argv[2] || path.join(base, 'doc', 'cheatsheet.md');
+var heading = util.format('## %s cheatsheet', pkg.name);
+
+function build() {
+  var DNL = EOL + EOL;
+  var str = heading + DNL;
+  var i, item, exe = pkg.name, nm, cmds, cmd;
+  for(i = 0;i < qt.length;i++) {
+    item = qt[i];
+    //console.dir(item);
+    cmds = item.cmd.slice(0);
+    cmds.unshift(exe);
+    nm = item.cmd[0];
+    str += '### ' + item.req + DNL;
+    str += item.description + ':' + DNL;
+    str += '```' + EOL + cmds.join(' ') + EOL + '```' + DNL;
+  }
+
+  return str;
+}
+
+process.stdout.write(build());
+process.exit(0);

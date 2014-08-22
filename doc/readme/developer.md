@@ -20,6 +20,14 @@ npm run qt
 
 * `rlx_test_server` - Specify the server to run tests against, default is `http://localhost:5984`.
 
+### Documentation
+
+To generate all documentation (manual, readme, cheatsheet etc):
+
+```
+npm run docs
+```
+
 ### Manual
 
 To generate man pages run:
@@ -42,4 +50,12 @@ To build the readme file from the partial definitions (requires [mdp][]):
 
 ```
 npm run readme
+```
+
+### Cheatsheet
+
+To generate the cheatsheet:
+
+```
+npm run cheatsheet
 ```

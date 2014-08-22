@@ -25,7 +25,7 @@ var qt = [
   {
     id: 'info',
     description: 'Get server meta information',
-    api: ['/'],
+    api: [],
     method: methods.get,
     doc: docs.server,
     cmd: [
@@ -342,7 +342,7 @@ var qt = [
     id: 'db/changes',
     description: 'Get database changes',
     api: [params.db],
-    method: [methods.get, methods.post],
+    method: methods.get,
     doc: docs.database,
     cmd: [
       'db',
@@ -478,7 +478,7 @@ var qt = [
   },
   {
     id: 'db/rm',
-    description: 'Get database meta information',
+    description: 'Remove database',
     api: [params.db],
     method: methods.delete,
     doc: docs.database,
@@ -506,12 +506,6 @@ function find(id) {
 function update() {
   var i, k, ind, lvl, item;
   var lvls = {}, keys;
-
-  // set up documentation urls etc.
-  for(i = 0;i < qt.length;i++) {
-    qt[i].req = qt[i].method + ' ' + qt[i].api.join(' ');
-    qt[i].url = api + '/' + qt[i].doc
-  }
 
   // dynamically add log level set commands
   ind = find('level').index + 1;
@@ -542,6 +536,12 @@ function update() {
     }
     //qt.push(item);
     qt.splice(ind, 0, item);
+  }
+
+  // set up documentation urls etc.
+  for(i = 0;i < qt.length;i++) {
+    qt[i].req = qt[i].method + ' /' + qt[i].api.join('/');
+    qt[i].url = api + '/' + qt[i].doc
   }
 }
 

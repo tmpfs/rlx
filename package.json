@@ -41,9 +41,10 @@
     "istanbul": "~0.2.6"
   },
   "scripts": {
-    "docs": "npm run manual && npm run readme",
+    "docs": "npm run manual && npm run readme && npm run cheatsheet",
     "clean-man": "rm -fv ./doc/man/*.1",
     "manual": "npm run clean-man && manpage --output ./doc/man ./bin/rlx",
+    "cheatsheet": "./sbin/cheatsheet > doc/cheatsheet.md",
     "readme": "mdp --force -v",
     "pretest": "rm -rf ./target && mkdir -p ./target/qt",
     "test": "NODE_ENV=test istanbul cover _mocha -- -u bdd --recursive --reporter list -A test/spec/",
