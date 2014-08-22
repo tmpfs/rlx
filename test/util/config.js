@@ -12,6 +12,11 @@ var config = {
   server: {
     default: process.env.rlx_test_server || 'http://localhost:5984'
   },
+  conf: {
+    section: 'mock-config-section',
+    key: 'mock-config-key',
+    value: 'mock-config-value'
+  },
   database: {
     default: 'mock/database',
     users: userdb.default,

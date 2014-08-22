@@ -9,7 +9,9 @@ var methods = cdb.methods;
 var params = {
   db: '{db}',
   doc: '{doc}',
-  ddoc: '{ddoc}'
+  ddoc: '{ddoc}',
+  section: '{section}',
+  key: '{key}'
 }
 
 var docs = {
@@ -114,6 +116,94 @@ var qt = [
     doc: docs.server,
     cmd: [
       'uuids',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'conf/set',
+    description: 'Set server configuration value',
+    api: [
+      parameters.config,
+      params.section,
+      params.key
+    ],
+    method: methods.put,
+    doc: docs.config,
+    cmd: [
+      'conf',
+      'set',
+      config.conf.section,
+      config.conf.key,
+      config.conf.value,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'conf/get',
+    description: 'Get server configuration',
+    api: [
+      parameters.config],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'conf',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'conf/get/section',
+    description: 'Get server configuration section',
+    api: [
+      parameters.config,
+      params.section
+    ],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'conf',
+      'get',
+      config.conf.section,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'conf/get/section/key',
+    description: 'Get server configuration value',
+    api: [
+      parameters.config,
+      params.section,
+      params.key
+    ],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'conf',
+      'get',
+      config.conf.section,
+      config.conf.key,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'conf/rm',
+    description: 'Delete server configuration value',
+    api: [
+      parameters.config,
+      params.section,
+      params.key
+    ],
+    method: methods.delete,
+    doc: docs.config,
+    cmd: [
+      'conf',
+      'rm',
+      config.conf.section,
+      config.conf.key,
       '-s',
       config.server.default
     ]
@@ -347,11 +437,9 @@ function update() {
   keys = Object.keys(lvls);
   keys.push('info');
   keys.reverse();
-  //console.dir(keys);
   for(i = 0;i < keys.length;i++) {
     k = keys[i];
     lvl = levels[k];
-    //console.dir(lvl);
     item = {
       id: 'level/' + lvl,
       description: 'Set server log level to ' + lvl,
