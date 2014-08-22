@@ -9,7 +9,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ## Commands
 
-* `info: info`: Print server information.
+* `info: info, meta`: Print server information.
 * `stats: stats`: Print server statistics.
 * `uuids: uuids`: Print list of uuids.
 * `database: database, db`: Manage databases.
@@ -53,7 +53,7 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
-* `info: info`: Get database information.
+* `info: info, meta`: Get database information.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
