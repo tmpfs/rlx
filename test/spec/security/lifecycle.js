@@ -72,4 +72,23 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should remove security object', function(done){
+    var mock = config.file('database-security-rm.json');
+    var args = [
+      'security',
+      'rm',
+      '-d=' + database,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc.ok).to.eql(true);
+      done();
+    })
+    def.parse(args);
+  });
 })

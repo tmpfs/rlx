@@ -115,6 +115,7 @@ $0 admin add <username> <password>
 
 * `get: get`: Get the security document.
 * `set: set`: Set the security document.
+* `rm: rm`: Remove the security document.
 
 ### Template
 
