@@ -256,7 +256,7 @@ Get database meta information:
 rlx db info -s {server} -d {db}
 ```
 
-### GET /{db}
+### GET /{db}/_revs_limit
 
 Get database revisions limit:
 
@@ -264,7 +264,7 @@ Get database revisions limit:
 rlx db limit -s {server} -d {db}
 ```
 
-### PUT /{db}
+### PUT /{db}/_revs_limit
 
 Set database revisions limit:
 

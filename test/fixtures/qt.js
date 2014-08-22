@@ -452,7 +452,7 @@ var qt = [
   {
     id: 'db/limit/get',
     description: 'Get database revisions limit',
-    api: [params.db],
+    api: [params.db, parameters.limit],
     method: methods.get,
     doc: docs.database,
     cmd: [
@@ -467,7 +467,7 @@ var qt = [
   {
     id: 'db/limit/set',
     description: 'Set database revisions limit',
-    api: [params.db],
+    api: [params.db, parameters.limit],
     method: methods.put,
     doc: docs.database,
     cmd: [
