@@ -68,7 +68,7 @@ Set server configuration value:
 rlx conf set {section} {key} {value} -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### GET /_config
 
@@ -108,7 +108,7 @@ Delete server configuration value:
 rlx conf rm {section} {key} -s {server}
 ```
 
-Documentation: [server/configuration#delete--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+Documentation: [server/configuration#delete--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
 
 ### GET /_config/log/level
 
@@ -128,7 +128,7 @@ Set server log level to none:
 rlx level none -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### PUT /_config/log/level
 
@@ -138,7 +138,7 @@ Set server log level to error:
 rlx level error -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### PUT /_config/log/level
 
@@ -148,7 +148,7 @@ Set server log level to warning:
 rlx level warn -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### PUT /_config/log/level
 
@@ -158,7 +158,7 @@ Set server log level to debug:
 rlx level debug -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### PUT /_config/log/level
 
@@ -168,7 +168,7 @@ Set server log level to info:
 rlx level info -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### PUT /_config/admins/{key}
 
@@ -178,7 +178,7 @@ Add an administrator:
 rlx admin add {username} {password} -s {server}
 ```
 
-Documentation: [server/configuration#put--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [server/configuration#put--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### GET /_config/admins
 
@@ -208,7 +208,7 @@ Remove an administrator:
 rlx admin rm {username} -u {username} -p {password} -s {server}
 ```
 
-Documentation: [server/configuration#delete--_config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+Documentation: [server/configuration#delete--config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
 
 ### PUT /{db}
 

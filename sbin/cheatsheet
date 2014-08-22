@@ -32,6 +32,13 @@ function replace(str) {
   return str;
 }
 
+function tidy(u) {
+  u = u.replace(/\.html/, '');
+  u = u.replace(/_/g, '-');
+  u = u.replace(/-{2,}/g, '-');
+  return u;
+}
+
 function build() {
   var DNL = EOL + EOL;
   var str = heading + DNL;
@@ -47,7 +54,7 @@ function build() {
     str += item.description + ':' + DNL;
     str += '```' + EOL + replace(cmds.join(' ')) + EOL + '```' + DNL;
     str += 'Documentation: '
-      + util.format('[%s](%s)', item.doc.replace(/\.html/, ''), item.url) + DNL;
+      + util.format('[%s](%s)', tidy(item.doc), item.url) + DNL;
   }
   return str;
 }
