@@ -411,7 +411,7 @@ Documentation: [database/common#delete-db](http://docs.couchdb.org/en/latest/api
 Set security document:
 
 ```
-rlx security set -s {server} -d {db} --file /Users/cyberfunk/git/rlx/test/fixtures/security.json
+rlx security set -s {server} -d {db} --file {file}
 ```
 
 Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)

@@ -44,9 +44,15 @@ rules.push({src: config.conf.value, rep: qt.params.value});
 rules.push({src: config.admin.name, rep: qt.params.name});
 rules.push({src: config.admin.pass, rep: qt.params.pass});
 
+rules.push({src: /--file [^ ]+/, rep: '--file ' + qt.params.file});
+
 function replace(str) {
-  for(var i = 0;i < rules.length;i++) {
-    str = str.replace(new RegExp(rules[i].src, 'g'), rules[i].rep);
+  var i, rule, re;
+  for(i = 0;i < rules.length;i++) {
+    rule = rules[i];
+    re = (rule.src instanceof RegExp)
+      ? rule.src : new RegExp(rule.src, 'g');
+    str = str.replace(re, rule.rep);
   }
   return str;
 }

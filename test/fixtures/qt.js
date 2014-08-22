@@ -16,6 +16,7 @@ var params = {
   value: '{value}',
   name: '{username}',
   pass: '{password}',
+  file: '{file}',
 }
 
 var docs = {
