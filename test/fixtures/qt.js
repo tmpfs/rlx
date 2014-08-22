@@ -25,6 +25,7 @@ var docs = {
 }
 
 var qt = [
+
   // SERVER
   {
     id: 'info',
@@ -495,6 +496,29 @@ var qt = [
       config.database.default
     ]
   },
+
+
+  // SECURITY
+  {
+    id: 'security/set',
+    description: 'Set security document',
+    api: [params.db, parameters.security],
+    method: methods.put,
+    doc: docs.security + '#put--db-_security',
+    before: ['db/add'],
+    after: ['db/rm'],
+    cmd: [
+      'security',
+      'set',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--file',
+      config.paths.security
+    ]
+  },
+
 ]
 
 function find(id) {
@@ -506,6 +530,8 @@ function find(id) {
   }
   return null;
 }
+
+var map = {};
 
 function update() {
   var i, k, ind, lvl, item;
@@ -543,15 +569,30 @@ function update() {
     qt.splice(ind, 0, item);
   }
 
+  function hooks(ids) {
+    ids.forEach(function(id, index, arr) {
+      arr[index] = map[id];
+    })
+  }
+
   // set up documentation urls etc.
   for(i = 0;i < qt.length;i++) {
-    qt[i].req = qt[i].method + ' /' + qt[i].api.join('/') + (qt[i].extra || '');
-    qt[i].url = api + '/' + qt[i].doc
+    item = qt[i];
+    map[item.id] = item;
+    item.req = item.method + ' /' + item.api.join('/') + (item.extra || '');
+    item.url = api + '/' + item.doc
+    if(Array.isArray(item.before)) {
+      hooks(item.before);
+    }
+    if(Array.isArray(item.after)) {
+      hooks(item.after);
+    }
   }
 }
 
 update();
 
 qt.api = api;
+qt.map = map;
 qt.params = params;
 module.exports = qt;

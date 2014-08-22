@@ -96,6 +96,7 @@ function fixtures() {
     file = files[i];
     key = path.basename(file, '.json');
     pth = path.join(config.paths.fixtures, file);
+    config.paths[key] = pth;
     contents = '' + fs.readFileSync(pth);
     item = {
       name: file,

@@ -18,32 +18,51 @@ var lines = [
 
 console.info(lines.join(EOL));
 
-async.eachSeries(fixtures, function(test, callback) {
-  var cmd = test.cmd.slice(0);
-  if(test.enabled === false) {
-    console.warn(prefix + 'not yet implemented %s', test.req);
-    return callback(null, test, -1);
-  }
-  console.log(prefix + '%s %s', nm, cmd.join(' '));
-  cmd.unshift(exe);
-  cmd = cmd.join(' ');
-  exec(cmd, function(err, stdout, stderr) {
-    var code = err && err.code ? err.code : 0;
-    if(err && !test.fails) {
-      var e = new Error('quick test fixture failure');
-      e.err = err;
-      e.code = code;
-      e.stdout = stdout || '';
-      e.stderr = stderr || '';
-      return callback(e, test, code);
+function run(fixtures, cb) {
+  async.eachSeries(fixtures, function(test, callback) {
+    function execute(callback) {
+      var cmd = test.cmd.slice(0);
+      if(test.enabled === false) {
+        console.warn(prefix + 'not yet implemented %s', test.req);
+        return callback(null, test, -1);
+      }
+      console.log(prefix + '%s %s', nm, cmd.join(' '));
+      cmd.unshift(exe);
+      cmd = cmd.join(' ');
+      exec(cmd, function(err, stdout, stderr) {
+        var code = err && err.code ? err.code : 0;
+        if(err && !test.fails) {
+          var e = new Error('quick test fixture failure');
+          e.err = err;
+          e.code = code;
+          e.stdout = stdout || '';
+          e.stderr = stderr || '';
+          return callback(e, test, code);
+        }
+        callback(null, test, code);
+      })
     }
-    callback(null, test, code);
+    if(test.before) {
+      return run(test.before, function(err) {
+        var complete = !test.after ? callback : after;
+        if(err) return complete(err);
+        execute(complete);
+      });
+    }
+    function after(err) {
+      run(test.after, callback);
+    }
+    var complete = !test.after ? callback : after;
+    execute(complete);
+  }, function(err) {
+    if(cb) return cb(err);
+    if(err) {
+      console.error(err.stderr.trim());
+      process.exit(1);
+    }
+    console.info('[qt] ok');
+    process.exit(0);
   })
-}, function(err) {
-  if(err) {
-    console.error(err.stderr.trim());
-    process.exit(1);
-  }
-  console.info('[qt] ok');
-  process.exit(0);
-})
+}
+
+run(fixtures);
