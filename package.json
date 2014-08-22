@@ -62,7 +62,8 @@
       {
         "inc": [
           "introduction.md",
-          "install.md"
+          "install.md",
+          "documentation.md"
         ]
       },
       {

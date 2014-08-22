@@ -2,13 +2,13 @@ Table of Contents
 =================
 
 * [rlx](#rlx)
-  * [Documentation](#documentation)
   * [Install](#install)
+  * [Documentation](#documentation)
   * [Usage](#usage)
   * [Developer](#developer)
     * [Test](#test)
       * [Environment](#environment)
-    * [Documentation](#documentation)
+    * [Documentation](#documentation-1)
     * [Manual](#manual)
     * [Readme](#readme)
     * [Cheatsheet](#cheatsheet)
@@ -20,15 +20,15 @@ Command line interface for [couchdb](http://couchdb.apache.org) designed for POS
 
 Requires [node](http://nodejs.org) and [npm](http://www.npmjs.org).
 
-## Documentation
-
-The documentation for the program is available via the `help` command, for those familiar with [couchdb](http://couchdb.apache.org) the [cheatsheet](https://github.com/freeformsystems/rlx/blob/master/doc/cheatsheet.md) is a good place to start.
-
 ## Install
 
 ```
 npm i -g rlx
 ```
+
+## Documentation
+
+The documentation for the program is available via the `help` command, for those familiar with [couchdb](http://couchdb.apache.org) the [cheatsheet](https://github.com/freeformsystems/rlx/blob/master/doc/cheatsheet.md) is a good place to start.
 
 ## Usage
 
