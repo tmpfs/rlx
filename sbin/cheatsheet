@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
 var EOL = require('os').EOL;
+var DNL = EOL + EOL;
+var fs = require('fs');
 var path = require('path');
 var util = require('util');
 var base = path.normalize(path.join(__dirname, '..'));
@@ -9,9 +10,16 @@ var qt = require('../test/fixtures/qt');
 var config = require('../test/util/config');
 var pkg = require('../package.json');
 var output = process.argv[2] || path.join(base, 'doc', 'cheatsheet.md');
-var heading = util.format('## %s(1) cheatsheet', pkg.name);
+var heading = util.format('# %s(1) cheatsheet', pkg.name);
 var description = 'API methods yet to be implemented are marked '
 description += 'with a strikethrough.';
+
+var sections = {
+  server: 'Server',
+  conf: 'Configuration',
+  admin: 'Administrators',
+  db: 'Database',
+}
 
 var rules = [], st = '~~';
 rules.push({src: config.server.default, rep: qt.params.server});
@@ -42,12 +50,39 @@ function tidy(u) {
   return u;
 }
 
-function build() {
-  var DNL = EOL + EOL;
+function order() {
+  var out = [], headers = {};
+  var keys = Object.keys(sections), i, k, j, item, cmd;
+  for(i = 0;i < keys.length;i++) {
+    k = keys[i];
+    section = sections[k];
+    if(!headers[k]) {
+      out.push(sections[k] + DNL);
+      headers[k] = true;
+    }
+    for(j = 0;j < qt.length;j++) {
+      item = qt[j];
+      cmd = item.cmd[0];
+      if(k === 'server' && !sections[cmd]) {
+        out.push(item);
+      }else if(k === cmd && sections[cmd]) {
+        //console.log('got section on cmd %s', cmd);
+        out.push(item);
+      }
+    }
+  }
+  return out;
+}
+
+function build(qt) {
   var str = heading + DNL + description + DNL;
   var i, item, exe = pkg.name, nm, cmds, cmd, pre, post, disabled;
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
+    if(typeof item === 'string') {
+      str += '## ' + item;
+      continue;
+    }
     pre = post = '';
     disabled = item.enabled === false;
     if(disabled) {
@@ -68,5 +103,5 @@ function build() {
   return str;
 }
 
-process.stdout.write(build());
+process.stdout.write(build(order()));
 process.exit(0);

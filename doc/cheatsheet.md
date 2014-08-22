@@ -1,6 +1,8 @@
-## rlx(1) cheatsheet
+# rlx(1) cheatsheet
 
 API methods yet to be implemented are marked with a strikethrough.
+
+## Server
 
 ### GET /
 
@@ -74,56 +76,6 @@ rlx uuids -s {server}
 
 Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
 
-### PUT /_config/{section}/{key}
-
-Set server configuration value:
-
-```
-rlx conf set {section} {key} {value} -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### GET /_config
-
-Get server configuration:
-
-```
-rlx conf -s {server}
-```
-
-Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
-
-### GET /_config/{section}
-
-Get server configuration section:
-
-```
-rlx conf get {section} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
-
-### GET /_config/{section}/{key}
-
-Get server configuration value:
-
-```
-rlx conf get {section} {key} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-### DELETE /_config/{section}/{key}
-
-Delete server configuration value:
-
-```
-rlx conf rm {section} {key} -s {server}
-```
-
-Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
-
 ### GET /_config/log/level
 
 Get server log level:
@@ -184,6 +136,60 @@ rlx level info -s {server}
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
+## Configuration
+
+### PUT /_config/{section}/{key}
+
+Set server configuration value:
+
+```
+rlx conf set {section} {key} {value} -s {server}
+```
+
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+
+### GET /_config
+
+Get server configuration:
+
+```
+rlx conf -s {server}
+```
+
+Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
+
+### GET /_config/{section}
+
+Get server configuration section:
+
+```
+rlx conf get {section} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+
+### GET /_config/{section}/{key}
+
+Get server configuration value:
+
+```
+rlx conf get {section} {key} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+
+### DELETE /_config/{section}/{key}
+
+Delete server configuration value:
+
+```
+rlx conf rm {section} {key} -s {server}
+```
+
+Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+
+## Administrators
+
 ### PUT /_config/admins/{key}
 
 Add an administrator:
@@ -223,6 +229,8 @@ rlx admin rm {username} -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+
+## Database
 
 ### PUT /{db}
 
