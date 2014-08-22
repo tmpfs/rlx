@@ -574,7 +574,7 @@ var qt = [
   {
     id: 'db/updates',
     description: 'Get database updates',
-    api: [parameters.dbupdates],
+    api: [parameters.updates],
     method: methods.get,
     doc: docs.server + '#get--_db_updates',
     parallel: ['db/add'],

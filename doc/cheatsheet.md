@@ -46,7 +46,7 @@ Table of Contents
     * [GET /{db}/_revs_limit](#get-db_revs_limit)
     * [PUT /{db}/_revs_limit](#put-db_revs_limit)
     * [DELETE /{db}](#delete-db)
-    * [GET /](#get--1)
+    * [GET /_db_updates](#get-_db_updates)
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
@@ -437,7 +437,7 @@ rlx db rm -s {server} -d {db}
 
 Documentation: [database/common#delete-db](http://docs.couchdb.org/en/latest/api/database/common.html#delete--db)
 
-### GET /
+### GET /_db_updates
 
 Get database updates:
 
