@@ -1,11 +1,11 @@
-## rlx cheatsheet
+## rlx(1) cheatsheet
 
 ### GET /
 
 Get server meta information:
 
 ```
-rlx info -s http://localhost:5984
+rlx info -s {server}
 ```
 
 ### GET /_active_tasks
@@ -13,7 +13,7 @@ rlx info -s http://localhost:5984
 Get active tasks:
 
 ```
-rlx tasks -s http://localhost:5984
+rlx tasks -s {server}
 ```
 
 ### GET /_db_updates
@@ -21,7 +21,7 @@ rlx tasks -s http://localhost:5984
 Get database updates:
 
 ```
-rlx updates -s http://localhost:5984
+rlx updates -s {server}
 ```
 
 ### GET /_log
@@ -29,7 +29,7 @@ rlx updates -s http://localhost:5984
 Tail log file:
 
 ```
-rlx log -s http://localhost:5984
+rlx log -s {server}
 ```
 
 ### POST /_replicate
@@ -37,7 +37,7 @@ rlx log -s http://localhost:5984
 Replicate a database:
 
 ```
-rlx repl -s http://localhost:5984
+rlx repl -s {server}
 ```
 
 ### POST /_restart
@@ -45,7 +45,7 @@ rlx repl -s http://localhost:5984
 Restart the server:
 
 ```
-rlx restart -s http://localhost:5984
+rlx restart -s {server}
 ```
 
 ### GET /_stats
@@ -53,7 +53,7 @@ rlx restart -s http://localhost:5984
 Get server statistics:
 
 ```
-rlx stats -s http://localhost:5984
+rlx stats -s {server}
 ```
 
 ### GET /_uuids
@@ -61,7 +61,7 @@ rlx stats -s http://localhost:5984
 Get uuids:
 
 ```
-rlx uuids -s http://localhost:5984
+rlx uuids -s {server}
 ```
 
 ### PUT /_config/{section}/{key}
@@ -69,7 +69,7 @@ rlx uuids -s http://localhost:5984
 Set server configuration value:
 
 ```
-rlx conf set mock-config-section mock-config-key mock-config-value -s http://localhost:5984
+rlx conf set {section} {key} {value} -s {server}
 ```
 
 ### GET /_config
@@ -77,7 +77,7 @@ rlx conf set mock-config-section mock-config-key mock-config-value -s http://loc
 Get server configuration:
 
 ```
-rlx conf -s http://localhost:5984
+rlx conf -s {server}
 ```
 
 ### GET /_config/{section}
@@ -85,7 +85,7 @@ rlx conf -s http://localhost:5984
 Get server configuration section:
 
 ```
-rlx conf get mock-config-section -s http://localhost:5984
+rlx conf get {section} -s {server}
 ```
 
 ### GET /_config/{section}/{key}
@@ -93,7 +93,7 @@ rlx conf get mock-config-section -s http://localhost:5984
 Get server configuration value:
 
 ```
-rlx conf get mock-config-section mock-config-key -s http://localhost:5984
+rlx conf get {section} {key} -s {server}
 ```
 
 ### DELETE /_config/{section}/{key}
@@ -101,7 +101,7 @@ rlx conf get mock-config-section mock-config-key -s http://localhost:5984
 Delete server configuration value:
 
 ```
-rlx conf rm mock-config-section mock-config-key -s http://localhost:5984
+rlx conf rm {section} {key} -s {server}
 ```
 
 ### GET /_config/log/level
@@ -109,7 +109,7 @@ rlx conf rm mock-config-section mock-config-key -s http://localhost:5984
 Get server log level:
 
 ```
-rlx level -s http://localhost:5984
+rlx level -s {server}
 ```
 
 ### PUT /_config/log/level
@@ -117,7 +117,7 @@ rlx level -s http://localhost:5984
 Set server log level to none:
 
 ```
-rlx level none -s http://localhost:5984
+rlx level none -s {server}
 ```
 
 ### PUT /_config/log/level
@@ -125,7 +125,7 @@ rlx level none -s http://localhost:5984
 Set server log level to error:
 
 ```
-rlx level error -s http://localhost:5984
+rlx level error -s {server}
 ```
 
 ### PUT /_config/log/level
@@ -133,7 +133,7 @@ rlx level error -s http://localhost:5984
 Set server log level to warning:
 
 ```
-rlx level warn -s http://localhost:5984
+rlx level warn -s {server}
 ```
 
 ### PUT /_config/log/level
@@ -141,7 +141,7 @@ rlx level warn -s http://localhost:5984
 Set server log level to debug:
 
 ```
-rlx level debug -s http://localhost:5984
+rlx level debug -s {server}
 ```
 
 ### PUT /_config/log/level
@@ -149,7 +149,7 @@ rlx level debug -s http://localhost:5984
 Set server log level to info:
 
 ```
-rlx level info -s http://localhost:5984
+rlx level info -s {server}
 ```
 
 ### PUT /_config/admins/{key}
@@ -157,7 +157,7 @@ rlx level info -s http://localhost:5984
 Add an administrator:
 
 ```
-rlx admin add mock-admin secret -s http://localhost:5984
+rlx admin add {username} {password} -s {server}
 ```
 
 ### GET /_config/admins
@@ -165,7 +165,7 @@ rlx admin add mock-admin secret -s http://localhost:5984
 List administrators:
 
 ```
-rlx admin ls -u mock-admin -p secret -s http://localhost:5984
+rlx admin ls -u {username} -p {password} -s {server}
 ```
 
 ### GET /_config/admins/{key}
@@ -173,7 +173,7 @@ rlx admin ls -u mock-admin -p secret -s http://localhost:5984
 Get an administrator:
 
 ```
-rlx admin get mock-admin -u mock-admin -p secret -s http://localhost:5984
+rlx admin get {username} -u {username} -p {password} -s {server}
 ```
 
 ### DELETE /_config/admins/{key}
@@ -181,7 +181,7 @@ rlx admin get mock-admin -u mock-admin -p secret -s http://localhost:5984
 Remove an administrator:
 
 ```
-rlx admin rm mock-admin -u mock-admin -p secret -s http://localhost:5984
+rlx admin rm {username} -u {username} -p {password} -s {server}
 ```
 
 ### PUT /{db}
@@ -189,7 +189,7 @@ rlx admin rm mock-admin -u mock-admin -p secret -s http://localhost:5984
 Create a database:
 
 ```
-rlx db add -s http://localhost:5984 -d mock/database
+rlx db add -s {server} -d {db}
 ```
 
 ### GET /_all_dbs
@@ -197,7 +197,7 @@ rlx db add -s http://localhost:5984 -d mock/database
 List databases:
 
 ```
-rlx db ls -s http://localhost:5984
+rlx db ls -s {server}
 ```
 
 ### GET /{db}
@@ -205,7 +205,7 @@ rlx db ls -s http://localhost:5984
 Get database changes:
 
 ```
-rlx db changes -s http://localhost:5984 -d mock/database
+rlx db changes -s {server} -d {db}
 ```
 
 ### POST /{db}
@@ -213,7 +213,7 @@ rlx db changes -s http://localhost:5984 -d mock/database
 Clean view indices:
 
 ```
-rlx db cleanup -s http://localhost:5984 -d mock/database
+rlx db cleanup -s {server} -d {db}
 ```
 
 ### POST /{db}
@@ -221,7 +221,7 @@ rlx db cleanup -s http://localhost:5984 -d mock/database
 Ensure full commit:
 
 ```
-rlx db commit -s http://localhost:5984 -d mock/database
+rlx db commit -s {server} -d {db}
 ```
 
 ### POST /{db}
@@ -229,7 +229,7 @@ rlx db commit -s http://localhost:5984 -d mock/database
 Compact database:
 
 ```
-rlx db compact -s http://localhost:5984 -d mock/database
+rlx db compact -s {server} -d {db}
 ```
 
 ### POST /{db}
@@ -237,7 +237,7 @@ rlx db compact -s http://localhost:5984 -d mock/database
 Compact database design document:
 
 ```
-rlx db compact -s http://localhost:5984 -d _users --ddoc _auth
+rlx db compact -s {server} -d {db} --ddoc {ddoc}
 ```
 
 ### HEAD /{db}
@@ -245,7 +245,7 @@ rlx db compact -s http://localhost:5984 -d _users --ddoc _auth
 Check database existence:
 
 ```
-rlx db exists -s http://localhost:5984 -d mock/database
+rlx db exists -s {server} -d {db}
 ```
 
 ### GET /{db}
@@ -253,7 +253,7 @@ rlx db exists -s http://localhost:5984 -d mock/database
 Get database meta information:
 
 ```
-rlx db info -s http://localhost:5984 -d mock/database
+rlx db info -s {server} -d {db}
 ```
 
 ### GET /{db}
@@ -261,7 +261,7 @@ rlx db info -s http://localhost:5984 -d mock/database
 Get database revisions limit:
 
 ```
-rlx db limit -s http://localhost:5984 -d mock/database
+rlx db limit -s {server} -d {db}
 ```
 
 ### PUT /{db}
@@ -269,7 +269,7 @@ rlx db limit -s http://localhost:5984 -d mock/database
 Set database revisions limit:
 
 ```
-rlx db limit -s http://localhost:5984 -d mock/database 1000
+rlx db limit -s {server} -d {db} 1000
 ```
 
 ### DELETE /{db}
@@ -277,6 +277,6 @@ rlx db limit -s http://localhost:5984 -d mock/database 1000
 Remove database:
 
 ```
-rlx db rm -s http://localhost:5984 -d mock/database
+rlx db rm -s {server} -d {db}
 ```
 

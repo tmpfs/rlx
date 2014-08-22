@@ -7,11 +7,15 @@ var parameters = cdb.parameters;
 var methods = cdb.methods;
 
 var params = {
+  server: '{server}',
   db: '{db}',
   doc: '{doc}',
   ddoc: '{ddoc}',
   section: '{section}',
-  key: '{key}'
+  key: '{key}',
+  value: '{value}',
+  name: '{username}',
+  pass: '{password}',
 }
 
 var docs = {
@@ -548,4 +552,5 @@ function update() {
 update();
 
 qt.api = api;
+qt.params = params;
 module.exports = qt;

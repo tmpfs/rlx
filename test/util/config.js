@@ -35,6 +35,9 @@ var config = {
       pass: 'secret'
     }
   },
+  design: {
+    auth: '_auth'
+  },
   document: {
     id: 'mock-document',
     bool: false,

@@ -6,9 +6,31 @@ var path = require('path');
 var util = require('util');
 var base = path.normalize(path.join(__dirname, '..'));
 var qt = require('../test/fixtures/qt');
+var config = require('../test/util/config');
 var pkg = require('../package.json');
 var output = process.argv[2] || path.join(base, 'doc', 'cheatsheet.md');
-var heading = util.format('## %s cheatsheet', pkg.name);
+var heading = util.format('## %s(1) cheatsheet', pkg.name);
+
+var rules = [];
+rules.push({src: config.server.default, rep: qt.params.server});
+rules.push({src: config.database.default, rep: qt.params.db});
+rules.push({src: config.database.users, rep: qt.params.db});
+rules.push({src: config.design.auth, rep: qt.params.ddoc});
+
+
+rules.push({src: config.conf.section, rep: qt.params.section});
+rules.push({src: config.conf.key, rep: qt.params.key});
+rules.push({src: config.conf.value, rep: qt.params.value});
+
+rules.push({src: config.admin.name, rep: qt.params.name});
+rules.push({src: config.admin.pass, rep: qt.params.pass});
+
+function replace(str) {
+  for(var i = 0;i < rules.length;i++) {
+    str = str.replace(new RegExp(rules[i].src, 'g'), rules[i].rep);
+  }
+  return str;
+}
 
 function build() {
   var DNL = EOL + EOL;
@@ -22,9 +44,8 @@ function build() {
     nm = item.cmd[0];
     str += '### ' + item.req + DNL;
     str += item.description + ':' + DNL;
-    str += '```' + EOL + cmds.join(' ') + EOL + '```' + DNL;
+    str += '```' + EOL + replace(cmds.join(' ')) + EOL + '```' + DNL;
   }
-
   return str;
 }
 
