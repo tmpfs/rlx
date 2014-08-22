@@ -21,6 +21,7 @@ var sections = {
   admin: 'Administrators',
   db: 'Database',
   security: 'Security',
+  session: 'Session',
 }
 
 var ignore = [
