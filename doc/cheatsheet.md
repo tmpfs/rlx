@@ -50,7 +50,7 @@ Table of Contents
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
-    * [DELETE /{db}/_security](#delete-db_security)
+    * [PUT /{db}/_security](#put-db_security-1)
   * [Session](#session)
     * [POST /{db}/_session](#post-db_session)
     * [GET /{db}/_session](#get-db_session)
@@ -465,7 +465,7 @@ rlx security get -s {server} -d {db}
 
 Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
 
-### DELETE /{db}/_security
+### PUT /{db}/_security
 
 Reset security document:
 
@@ -473,7 +473,7 @@ Reset security document:
 rlx security rm -s {server} -d {db}
 ```
 
-Documentation: [database/security#delete-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#delete--db-_security)
+Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
 
 ## Session
 

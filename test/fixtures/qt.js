@@ -624,8 +624,8 @@ var qt = [
     id: 'security/rm',
     description: 'Reset security document',
     api: [params.db, parameters.security],
-    method: methods.delete,
-    doc: docs.security + '#delete--db-_security',
+    method: methods.put,
+    doc: docs.security + '#put--db-_security',
     after: ['db/rm'],
     cmd: [
       'security',
