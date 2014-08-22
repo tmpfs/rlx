@@ -36,6 +36,7 @@ function tidy(u) {
   u = u.replace(/\.html/, '');
   u = u.replace(/_/g, '-');
   u = u.replace(/-{2,}/g, '-');
+  u = u.replace(/-+$/, '');
   return u;
 }
 

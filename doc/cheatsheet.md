@@ -8,7 +8,7 @@ Get server meta information:
 rlx info -s {server}
 ```
 
-Documentation: [server/common](http://docs.couchdb.org/en/latest/api/server/common.html)
+Documentation: [server/common#get](http://docs.couchdb.org/en/latest/api/server/common.html#get--)
 
 ### GET /_active_tasks
 
@@ -18,7 +18,7 @@ Get active tasks:
 rlx tasks -s {server}
 ```
 
-Documentation: [server/common#active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#active-tasks)
+Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
 
 ### GET /_log
 
@@ -28,7 +28,7 @@ Tail log file:
 rlx log -s {server}
 ```
 
-Documentation: [server/common#log](http://docs.couchdb.org/en/latest/api/server/common.html#log)
+Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
 
 ### POST /_restart
 
@@ -38,7 +38,7 @@ Restart the server:
 rlx restart -s {server}
 ```
 
-Documentation: [server/common#restart](http://docs.couchdb.org/en/latest/api/server/common.html#restart)
+Documentation: [server/common#post-restart](http://docs.couchdb.org/en/latest/api/server/common.html#post--_restart)
 
 ### GET /_stats
 
@@ -48,7 +48,7 @@ Get server statistics:
 rlx stats -s {server}
 ```
 
-Documentation: [server/common#stats](http://docs.couchdb.org/en/latest/api/server/common.html#stats)
+Documentation: [server/common#get-stats](http://docs.couchdb.org/en/latest/api/server/common.html#get--_stats)
 
 ### GET /_uuids
 
@@ -58,7 +58,7 @@ Get uuids:
 rlx uuids -s {server}
 ```
 
-Documentation: [server/common#uuids](http://docs.couchdb.org/en/latest/api/server/common.html#uuids)
+Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
 
 ### PUT /_config/{section}/{key}
 
@@ -78,7 +78,7 @@ Get server configuration:
 rlx conf -s {server}
 ```
 
-Documentation: [server/configuration#config](http://docs.couchdb.org/en/latest/api/server/configuration.html#config)
+Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
 
 ### GET /_config/{section}
 
@@ -88,7 +88,7 @@ Get server configuration section:
 rlx conf get {section} -s {server}
 ```
 
-Documentation: [server/configuration#config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#config-section)
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
 
 ### GET /_config/{section}/{key}
 
@@ -98,7 +98,7 @@ Get server configuration value:
 rlx conf get {section} {key} -s {server}
 ```
 
-Documentation: [server/configuration#config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#config-section-key)
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
 ### DELETE /_config/{section}/{key}
 
@@ -118,7 +118,7 @@ Get server log level:
 rlx level -s {server}
 ```
 
-Documentation: [server/configuration#config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#config-section-key)
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
 ### PUT /_config/log/level
 
@@ -188,7 +188,7 @@ List administrators:
 rlx admin ls -u {username} -p {password} -s {server}
 ```
 
-Documentation: [server/configuration#config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#config-section)
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
 
 ### GET /_config/admins/{key}
 
@@ -198,7 +198,7 @@ Get an administrator:
 rlx admin get {username} -u {username} -p {password} -s {server}
 ```
 
-Documentation: [server/configuration#config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#config-section-key)
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
 ### DELETE /_config/admins/{key}
 

@@ -31,7 +31,7 @@ var qt = [
     description: 'Get server meta information',
     api: [],
     method: methods.get,
-    doc: docs.server,
+    doc: docs.server + '#get--',
     cmd: [
       'info',
       '-s',
@@ -43,7 +43,7 @@ var qt = [
     description: 'Get active tasks',
     api: [parameters.tasks],
     method: methods.get,
-    doc: docs.server + '#active-tasks',
+    doc: docs.server + '#get--_active_tasks',
     cmd: [
       'tasks',
       '-s',
@@ -56,7 +56,7 @@ var qt = [
     enabled: false,
     api: [parameters.dbupdates],
     method: methods.get,
-    doc: docs.server + '#db-updates',
+    doc: docs.server + '#get--_db_updates',
     cmd: [
       'updates',
       '-s',
@@ -68,7 +68,7 @@ var qt = [
     description: 'Tail log file',
     api: [parameters.log],
     method: methods.get,
-    doc: docs.server + '#log',
+    doc: docs.server + '#get--_log',
     cmd: [
       'log',
       '-s',
@@ -81,7 +81,7 @@ var qt = [
     enabled: false,
     api: [parameters.replicate],
     method: methods.post,
-    doc: docs.server + '#replicate',
+    doc: docs.server + '#post--_replicate',
     cmd: [
       'repl',
       '-s',
@@ -93,7 +93,7 @@ var qt = [
     description: 'Restart the server',
     api: [parameters.restart],
     method: methods.post,
-    doc: docs.server + '#restart',
+    doc: docs.server + '#post--_restart',
     cmd: [
       'restart',
       '-s',
@@ -105,7 +105,7 @@ var qt = [
     description: 'Get server statistics',
     api: [parameters.stats],
     method: methods.get,
-    doc: docs.server + '#stats',
+    doc: docs.server + '#get--_stats',
     cmd: [
       'stats',
       '-s',
@@ -117,7 +117,7 @@ var qt = [
     description: 'Get uuids',
     api: [parameters.uuids],
     method: methods.get,
-    doc: docs.server + '#uuids',
+    doc: docs.server + '#get--_uuids',
     cmd: [
       'uuids',
       '-s',
@@ -150,7 +150,7 @@ var qt = [
     api: [
       parameters.config],
     method: methods.get,
-    doc: docs.config + '#config',
+    doc: docs.config + '#get--_config',
     cmd: [
       'conf',
       '-s',
@@ -165,7 +165,7 @@ var qt = [
       params.section
     ],
     method: methods.get,
-    doc: docs.config + '#config-section',
+    doc: docs.config + '#get--_config-section',
     cmd: [
       'conf',
       'get',
@@ -183,7 +183,7 @@ var qt = [
       params.key
     ],
     method: methods.get,
-    doc: docs.config + '#config-section-key',
+    doc: docs.config + '#get--_config-section-key',
     cmd: [
       'conf',
       'get',
@@ -220,7 +220,7 @@ var qt = [
       cdb.config.log.name,
       cdb.config.log.keys.level],
     method: methods.get,
-    doc: docs.config + '#config-section-key',
+    doc: docs.config + '#get--_config-section-key',
     cmd: [
       'level',
       '-s',
@@ -256,7 +256,7 @@ var qt = [
       cdb.config.admins.name
     ],
     method: methods.get,
-    doc: docs.config + '#config-section',
+    doc: docs.config + '#get--_config-section',
     cmd: [
       'admin',
       'ls',
@@ -277,7 +277,7 @@ var qt = [
       params.key
     ],
     method: methods.get,
-    doc: docs.config + '#config-section-key',
+    doc: docs.config + '#get--_config-section-key',
     cmd: [
       'admin',
       'get',
