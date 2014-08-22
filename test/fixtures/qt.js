@@ -224,6 +224,91 @@ var qt = [
     ]
   },
 
+  // ADMIN
+  {
+    id: 'admin/add',
+    description: 'Add an administrator',
+    api: [
+      parameters.config,
+      cdb.config.admins.name,
+      params.key
+    ],
+    method: methods.put,
+    doc: docs.config,
+    cmd: [
+      'admin',
+      'add',
+      config.admin.name,
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'admin/ls',
+    description: 'List administrators',
+    api: [
+      parameters.config,
+      cdb.config.admins.name
+    ],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'admin',
+      'ls',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'admin/get',
+    description: 'Get an administrator',
+    api: [
+      parameters.config,
+      cdb.config.admins.name,
+      params.key
+    ],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'admin',
+      'get',
+      config.admin.name,
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'admin/rm',
+    description: 'Remove an administrator',
+    api: [
+      parameters.config,
+      cdb.config.admins.name,
+      params.key
+    ],
+    method: methods.delete,
+    doc: docs.config,
+    cmd: [
+      'admin',
+      'rm',
+      config.admin.name,
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+
   // DATABASE
   {
     id: 'db/add',
