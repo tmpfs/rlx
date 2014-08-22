@@ -31,6 +31,9 @@ function run(fixtures, cb) {
       cmd = cmd.join(' ');
       exec(cmd, function(err, stdout, stderr) {
         var code = err && err.code ? err.code : 0;
+        if(test.stdout) {
+          process.stdout.write(stdout);
+        }
         if(err && !test.fails) {
           var e = new Error('quick test fixture failure');
           e.err = err;

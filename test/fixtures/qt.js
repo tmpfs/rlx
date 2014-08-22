@@ -21,7 +21,8 @@ var params = {
 var docs = {
   server: 'server/common.html',
   database: 'database/common.html',
-  config: 'server/configuration.html'
+  config: 'server/configuration.html',
+  security: 'database/security.html',
 }
 
 var qt = [
@@ -497,7 +498,6 @@ var qt = [
     ]
   },
 
-
   // SECURITY
   {
     id: 'security/set',
@@ -506,7 +506,6 @@ var qt = [
     method: methods.put,
     doc: docs.security + '#put--db-_security',
     before: ['db/add'],
-    after: ['db/rm'],
     cmd: [
       'security',
       'set',
@@ -516,6 +515,38 @@ var qt = [
       config.database.default,
       '--file',
       config.paths.security
+    ]
+  },
+  {
+    id: 'security/get',
+    description: 'Get security document',
+    api: [params.db, parameters.security],
+    method: methods.get,
+    doc: docs.security + '#get--db-_security',
+    //stdout: true,
+    cmd: [
+      'security',
+      'get',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'security/rm',
+    description: 'Reset security document',
+    api: [params.db, parameters.security],
+    method: methods.delete,
+    doc: docs.security + '#delete--db-_security',
+    after: ['db/rm'],
+    cmd: [
+      'security',
+      'rm',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
     ]
   },
 
