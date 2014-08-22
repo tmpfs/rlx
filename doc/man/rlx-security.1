@@ -1,6 +1,6 @@
-.TH "RLX-SECURITY" "1" "August 2014" "rlx-security 0.1.27" "User Commands"
+.TH "RLX-SECURITY" "1" "August 2014" "rlx-security 0.1.28" "User Commands"
 .SH "NAME"
-rlx-security
+rlx-security -- Get or set security document.
 .SH "SYNOPSIS"
 
 .LT
@@ -8,13 +8,17 @@ rlx-security
  rlx sec <command> <args>
 .SH "DESCRIPTION"
 .PP
-Get or set security document.
+The \fBsecurity\fR commands modify the security document for a database. The \fBrm\fR subcommand is a slight misnomer as the document is not actually removed, it is shorthand for setting the security document to the empty object (\fB{}\fR) which removes all database level security.
+.PP
+The \fBrm\fR subcommand name was chosen for consistency with other subcommands and is more concise than \fBreset\fR.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
 \fBget\fR: Get the security document.
 .IP "\[ci]" 4
 \fBset\fR: Set the security document.
+.IP "\[ci]" 4
+\fBrm\fR: Reset the security document.
 .EL
 .SH "BUGS"
 .PP

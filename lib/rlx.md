@@ -111,11 +111,17 @@ $0 admin add <username> <password>
 
 ### Security
 
+#### Description
+
+The `security` commands modify the security document for a database. The `rm` subcommand is a slight misnomer as the document is not actually removed, it is shorthand for setting the security document to the empty object (`{}`) which removes all database level security.
+
+The `rm` subcommand name was chosen for consistency with other subcommands and is more concise than `reset`.
+
 #### Commands
 
 * `get: get`: Get the security document.
 * `set: set`: Set the security document.
-* `rm: rm`: Remove the security document.
+* `rm: rm`: Reset the security document.
 
 ### Template
 
