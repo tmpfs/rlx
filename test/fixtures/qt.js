@@ -12,6 +12,7 @@ var docs = {
 var qt = [
   {
     id: 'info',
+    description: 'Get server information',
     api: ['/'],
     method: methods.get,
     doc: docs.common,
@@ -23,6 +24,7 @@ var qt = [
   },
   {
     id: 'tasks',
+    description: 'Get active tasks',
     api: [parameters.tasks],
     method: methods.get,
     doc: docs.common,
@@ -34,6 +36,7 @@ var qt = [
   },
   {
     id: 'dbs',
+    description: 'List databases',
     api: [parameters.dbs],
     method: methods.get,
     doc: docs.common,
@@ -45,6 +48,7 @@ var qt = [
   },
   {
     id: 'dbupdates',
+    description: 'Get database updates',
     enabled: false,
     api: [parameters.dbupdates],
     method: methods.get,
@@ -57,6 +61,7 @@ var qt = [
   },
   {
     id: 'log',
+    description: 'Tail log file',
     api: [parameters.log],
     method: methods.get,
     doc: docs.common,
@@ -68,6 +73,7 @@ var qt = [
   },
   {
     id: 'replicate',
+    description: 'Replicate a database',
     enabled: false,
     api: [parameters.replicate],
     method: methods.post,
@@ -80,6 +86,7 @@ var qt = [
   },
   {
     id: 'restart',
+    description: 'Restart the server',
     api: [parameters.restart],
     method: methods.post,
     doc: docs.common,
@@ -91,6 +98,7 @@ var qt = [
   },
   {
     id: 'stats',
+    description: 'Get server statistics',
     api: [parameters.stats],
     method: methods.get,
     doc: docs.common,
@@ -102,6 +110,7 @@ var qt = [
   },
   {
     id: 'uuids',
+    description: 'Get uuids',
     api: [parameters.uuids],
     method: methods.get,
     doc: docs.common,

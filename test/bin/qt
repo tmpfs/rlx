@@ -22,7 +22,7 @@ async.eachSeries(fixtures, function(test, callback) {
   var cmd = test.cmd.slice(0);
   if(test.enabled === false) {
     console.warn(prefix + 'not yet implemented %s', test.req);
-    return callback();
+    return callback(null, test);
   }
   console.log(prefix + '%s %s', nm, cmd.join(' '));
   cmd.unshift(exe);
@@ -33,9 +33,9 @@ async.eachSeries(fixtures, function(test, callback) {
       e.err = err;
       e.stdout = stdout || '';
       e.stderr = stderr || '';
-      return callback(e);
+      return callback(e, test);
     }
-    callback();
+    callback(null, test);
   })
 
 }, function(err) {

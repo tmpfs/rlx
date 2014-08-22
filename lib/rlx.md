@@ -14,7 +14,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `uuids: uuids`: Print list of uuids.
 * `database: database, db`: Manage databases.
 * `tasks: tasks`: Print active tasks. 
-* `log: log`: Print server log. 
+* `log: log`: Tail server log file. 
 * `config: config, conf`: Manage server configuration.
 * `restart: restart`: Restart a server.
 * `session: session, sess`: Cookie-based session authentication.
