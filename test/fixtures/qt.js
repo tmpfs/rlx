@@ -2,6 +2,7 @@ var config = require('../util/config');
 
 var api = 'http://docs.couchdb.org/en/latest/api';
 var cdb = require('cdb');
+var levels = cdb.levels;
 var parameters = cdb.parameters;
 var methods = cdb.methods;
 
@@ -13,7 +14,8 @@ var params = {
 
 var docs = {
   server: 'server/common.html',
-  database: 'database/common.html'
+  database: 'database/common.html',
+  config: 'server/configuration.html'
 }
 
 var qt = [
@@ -301,10 +303,38 @@ var qt = [
   },
 ]
 
-for(var i = 0;i < qt.length;i++) {
-  qt[i].req = qt[i].method + ' ' + qt[i].api.join(' ');
-  qt[i].url = api + '/' + qt[i].doc
+function update() {
+  var i, k, lvl, item;
+
+  // set up documentation urls etc.
+  for(i = 0;i < qt.length;i++) {
+    qt[i].req = qt[i].method + ' ' + qt[i].api.join(' ');
+    qt[i].url = api + '/' + qt[i].doc
+  }
+
+  // dynamically add log level set commands
+  for(k in levels) {
+    lvl = levels[k];
+    item = {
+      id: 'level/' + lvl,
+      description: 'Set server log level to ' + lvl,
+      api: [
+        parameters.config,
+        cdb.config.log.name, cdb.config.log.keys.level],
+      method: methods.put,
+      doc: docs.config,
+      cmd: [
+        'level',
+        k,
+        '-s',
+        config.server.default
+      ]
+    }
+    qt.push(item);
+  }
 }
+
+update();
 
 qt.api = api;
 module.exports = qt;
