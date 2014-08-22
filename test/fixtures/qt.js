@@ -330,6 +330,7 @@ function find(id) {
 
 function update() {
   var i, k, ind, lvl, item;
+  var lvls = {}, keys;
 
   // set up documentation urls etc.
   for(i = 0;i < qt.length;i++) {
@@ -340,7 +341,17 @@ function update() {
   // dynamically add log level set commands
   ind = find('level').index + 1;
   for(k in levels) {
+    lvls[k] = levels[k];
+  }
+  delete lvls.info;
+  keys = Object.keys(lvls);
+  keys.push('info');
+  keys.reverse();
+  //console.dir(keys);
+  for(i = 0;i < keys.length;i++) {
+    k = keys[i];
     lvl = levels[k];
+    //console.dir(lvl);
     item = {
       id: 'level/' + lvl,
       description: 'Set server log level to ' + lvl,
