@@ -46,6 +46,8 @@ function build() {
     str += '### ' + item.req + DNL;
     str += item.description + ':' + DNL;
     str += '```' + EOL + replace(cmds.join(' ')) + EOL + '```' + DNL;
+    str += 'Documentation: '
+      + util.format('[%s](%s)', item.doc.replace(/\.html$/, ''), item.url) + DNL;
   }
   return str;
 }
