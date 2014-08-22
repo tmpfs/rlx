@@ -61,7 +61,7 @@ Commands for creating, deleting and modifying databases.
 * `commit: commit`: Ensure full commit.
 * `compact: compact`: Compact database.
 * `cleanup: cleanup`: Remove stale view indices.
-* `updates: updates`: Get database updates.
+* `updates: updates`: Poll for database updates.
 * `limit: limit`: Get or set revisions limit.
 
 ### Log
