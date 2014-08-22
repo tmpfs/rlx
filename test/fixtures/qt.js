@@ -160,6 +160,7 @@ var qt = [
       config.database.default
     ]
   },
+
   {
     id: 'db/rm',
     description: 'Get database meta information',
@@ -179,6 +180,7 @@ var qt = [
 
 for(var i = 0;i < qt.length;i++) {
   qt[i].req = qt[i].method + ' ' + qt[i].api.join(' ');
+  qt[i].url = api + '/' + qt[i].doc
 }
 
 qt.api = api;

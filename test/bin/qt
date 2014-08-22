@@ -13,7 +13,7 @@ var fixtures = require('../fixtures/qt');
 var exec = require('child_process').exec;
 var prefix = '[' + name + '] ';
 var lines = [
-  prefix + util.format('quick test started (commands: %s)', fixtures.length),
+  prefix + util.format('quick test started (tests: %s)', fixtures.length),
 ];
 
 console.info(lines.join(EOL));
