@@ -43,18 +43,6 @@ var qt = [
     ]
   },
   {
-    id: 'dbs',
-    description: 'List databases',
-    api: [parameters.dbs],
-    method: methods.get,
-    doc: docs.server,
-    cmd: [
-      'ls',
-      '-s',
-      config.server.default
-    ]
-  },
-  {
     id: 'dbupdates',
     description: 'Get database updates',
     enabled: false,
@@ -143,6 +131,19 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default
+    ]
+  },
+  {
+    id: 'db/list',
+    description: 'List databases',
+    api: [parameters.dbs],
+    method: methods.get,
+    doc: docs.server,
+    cmd: [
+      'db',
+      'ls',
+      '-s',
+      config.server.default
     ]
   },
   {
