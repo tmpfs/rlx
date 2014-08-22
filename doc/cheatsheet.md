@@ -12,11 +12,11 @@ Table of Contents
     * [GET /_stats](#get-_stats)
     * [GET /_uuids](#get-_uuids)
     * [GET /_config/log/level](#get-_configloglevel)
-    * [PUT /_config/log/level](#put-_configloglevel)
-    * [PUT /_config/log/level](#put-_configloglevel-1)
-    * [PUT /_config/log/level](#put-_configloglevel-2)
-    * [PUT /_config/log/level](#put-_configloglevel-3)
-    * [PUT /_config/log/level](#put-_configloglevel-4)
+    * [PUT /_config/log/level (none)](#put-_configloglevel-none)
+    * [PUT /_config/log/level (error)](#put-_configloglevel-error)
+    * [PUT /_config/log/level (warning)](#put-_configloglevel-warning)
+    * [PUT /_config/log/level (debug)](#put-_configloglevel-debug)
+    * [PUT /_config/log/level (info)](#put-_configloglevel-info)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -131,7 +131,7 @@ rlx level -s {server}
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
-### PUT /_config/log/level
+### PUT /_config/log/level (none)
 
 Set server log level to none:
 
@@ -141,7 +141,7 @@ rlx level none -s {server}
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
-### PUT /_config/log/level
+### PUT /_config/log/level (error)
 
 Set server log level to error:
 
@@ -151,7 +151,7 @@ rlx level error -s {server}
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
-### PUT /_config/log/level
+### PUT /_config/log/level (warning)
 
 Set server log level to warning:
 
@@ -161,7 +161,7 @@ rlx level warn -s {server}
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
-### PUT /_config/log/level
+### PUT /_config/log/level (debug)
 
 Set server log level to debug:
 
@@ -171,7 +171,7 @@ rlx level debug -s {server}
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
-### PUT /_config/log/level
+### PUT /_config/log/level (info)
 
 Set server log level to info:
 

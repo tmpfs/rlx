@@ -526,6 +526,7 @@ function update() {
     item = {
       id: 'level/' + lvl,
       description: 'Set server log level to ' + lvl,
+      extra: ' (' + lvl + ')',
       api: [
         parameters.config,
         cdb.config.log.name, cdb.config.log.keys.level],
@@ -544,7 +545,7 @@ function update() {
 
   // set up documentation urls etc.
   for(i = 0;i < qt.length;i++) {
-    qt[i].req = qt[i].method + ' /' + qt[i].api.join('/');
+    qt[i].req = qt[i].method + ' /' + qt[i].api.join('/') + (qt[i].extra || '');
     qt[i].url = api + '/' + qt[i].doc
   }
 }
