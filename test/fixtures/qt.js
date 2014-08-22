@@ -118,6 +118,21 @@ var qt = [
       config.server.default
     ]
   },
+  {
+    id: 'level',
+    description: 'Get server log level',
+    api: [
+      parameters.config,
+      cdb.config.log.name,
+      cdb.config.log.keys.level],
+    method: methods.get,
+    doc: docs.config,
+    cmd: [
+      'level',
+      '-s',
+      config.server.default
+    ]
+  },
 
   // DATABASE
   {
@@ -303,8 +318,18 @@ var qt = [
   },
 ]
 
+function find(id) {
+  for(var i = 0;i < qt.length;i++) {
+    if(qt[i].id === id) {
+      qt[i].index = i;
+      return qt[i];
+    }
+  }
+  return null;
+}
+
 function update() {
-  var i, k, lvl, item;
+  var i, k, ind, lvl, item;
 
   // set up documentation urls etc.
   for(i = 0;i < qt.length;i++) {
@@ -313,6 +338,7 @@ function update() {
   }
 
   // dynamically add log level set commands
+  ind = find('level').index + 1;
   for(k in levels) {
     lvl = levels[k];
     item = {
@@ -330,7 +356,8 @@ function update() {
         config.server.default
       ]
     }
-    qt.push(item);
+    //qt.push(item);
+    qt.splice(ind, 0, item);
   }
 }
 
