@@ -1,5 +1,7 @@
 ## rlx(1) cheatsheet
 
+API methods yet to be implemented are marked with a strikethrough.
+
 ### GET /
 
 Get server meta information:
@@ -20,6 +22,12 @@ rlx tasks -s {server}
 
 Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
 
+### ~~GET /_db_updates~~
+
+Get database updates.
+
+Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
+
 ### GET /_log
 
 Tail log file:
@@ -29,6 +37,12 @@ rlx log -s {server}
 ```
 
 Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
+
+### ~~POST /_replicate~~
+
+Replicate a database.
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
 
 ### POST /_restart
 
