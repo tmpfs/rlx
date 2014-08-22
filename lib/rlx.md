@@ -22,7 +22,6 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `user: user, usr`: Manage server users.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
-* `list: list, ls`: List databases.
 * `security: security, sec`: Get or set security document.
 * `edit: edit`: Edit a document.
 * `template: template, tpl`: Manage template files.
@@ -53,6 +52,7 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
+* `list: list, ls`: List databases.
 * `info: info, meta`: Get database information.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.

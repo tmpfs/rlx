@@ -8,6 +8,7 @@ describe('rlx:', function() {
   it('should retrieve database list', function(done){
     var mock = config.file('database-ls.json');
     var args = [
+      'db',
       'ls',
       '--no-color',
       '-s=' + config.server.default,
