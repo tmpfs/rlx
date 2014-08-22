@@ -22,6 +22,13 @@ var sections = {
   db: 'Database',
 }
 
+var ignore = [
+  'template',
+  'tpl',
+  'lint',
+  'edit'
+];
+
 var rules = [], st = '~~';
 rules.push({src: config.server.default, rep: qt.params.server});
 rules.push({src: config.database.default, rep: qt.params.db});
@@ -52,18 +59,19 @@ function tidy(u) {
 }
 
 function order() {
-  var out = [], headers = {};
+  var out = [];
   var keys = Object.keys(sections), i, k, j, item, cmd;
   for(i = 0;i < keys.length;i++) {
     k = keys[i];
     section = sections[k];
-    if(!headers[k]) {
+    //if(!headers[k]) {
       out.push(sections[k] + DNL);
-      headers[k] = true;
-    }
+      //headers[k] = true;
+    //}
     for(j = 0;j < qt.length;j++) {
       item = qt[j];
       cmd = item.cmd[0];
+      if(~ignore.indexOf(cmd)) continue;
       if(k === 'server' && !sections[cmd]) {
         out.push(item);
       }else if(k === cmd && sections[cmd]) {
