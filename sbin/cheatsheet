@@ -38,6 +38,7 @@ function build() {
   var i, item, exe = pkg.name, nm, cmds, cmd;
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
+    if(!item.enabled) continue;
     //console.dir(item);
     cmds = item.cmd.slice(0);
     cmds.unshift(exe);
