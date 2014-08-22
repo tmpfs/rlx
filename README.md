@@ -26,8 +26,6 @@ npm i -g rlx
 ## Usage
 
 ```
-Command line interface for couchdb.
-
 Usage: rlx <command> [-h] [--color|--no-color] [--force] [--trace]
            [--debug] [--info] [--warn] [--error] [-h|--help]
            [--version] [-s|--server=<url>] [-d|--database=<name>]
@@ -36,19 +34,21 @@ Usage: rlx <command> [-h] [--color|--no-color] [--force] [--trace]
            [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
            [--ddoc=<name>] <args>
 
+Command line interface for couchdb.
+
 Options:
 
 Command should be one of: info, stats, uuids, database, tasks, log, config,
-restart, session, admin, user, login, logout, list, security, edit, template,
-lint, document, level, help.
+restart, session, admin, user, login, logout, security, edit, template, lint,
+document, level, help.
 
 Commands:
- info               Print server information.
+ info, meta         Print server information.
  stats              Print server statistics.
  uuids              Print list of uuids.
  database, db       Manage databases.
  tasks              Print active tasks.
- log                Print server log.
+ log                Tail server log file.
  config, conf       Manage server configuration.
  restart            Restart a server.
  session, sess      Cookie-based session authentication.
@@ -56,7 +56,6 @@ Commands:
  user, usr          Manage server users.
  login              Login to a server.
  logout             Logout of current session.
- list, ls           List databases.
  security, sec      Get or set security document.
  edit               Edit a document.
  template, tpl      Manage template files.
@@ -91,6 +90,25 @@ Arguments:
      --error        Set log level to error.
  -h, --help         Display this help and exit.
      --version      Output version information and exit.
+
+Log:
+All log output is sent to `stderr`, response documents are printed to `stdout`.
+
+
+
+History:
+This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx-shell.
+
+Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non-trivial and it needed to rely on external languages for JSON support.
+
+The original implementation whilst almost feature complete was deprecated in
+favour of a pure javascript version. In addition the original implementation
+started from a pure interactive REPL perspective with a view to implementing
+non-interactive support later - it never happened.
+
+For the javascript program an inverse approach is taken, the REPL is the last
+feature to be implemented.
+
 
 Report bugs to https://github.com/freeformsystems/rlx/issues.
 ```

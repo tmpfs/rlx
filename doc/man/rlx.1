@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.24" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.27" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -16,7 +16,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBinfo\fR: Print server information.
+\fBinfo, meta\fR: Print server information.
 .IP "\[ci]" 4
 \fBstats\fR: Print server statistics.
 .IP "\[ci]" 4
@@ -26,7 +26,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fBtasks\fR: Print active tasks. 
 .IP "\[ci]" 4
-\fBlog\fR: Print server log. 
+\fBlog\fR: Tail server log file. 
 .IP "\[ci]" 4
 \fBconfig, conf\fR: Manage server configuration.
 .IP "\[ci]" 4
@@ -41,8 +41,6 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fBlogin\fR: Login to a server.
 .IP "\[ci]" 4
 \fBlogout\fR: Logout of current session.
-.IP "\[ci]" 4
-\fBlist, ls\fR: List databases.
 .IP "\[ci]" 4
 \fBsecurity, sec\fR: Get or set security document.
 .IP "\[ci]" 4
