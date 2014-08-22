@@ -240,7 +240,7 @@ rlx db changes -s {server} -d {db}
 
 Documentation: [database/common#get-db-changes](http://docs.couchdb.org/en/latest/api/database/common.html#get--db-_changes)
 
-### POST#post--db-_view_cleanup /{db}/_view_cleanup
+### POST /{db}/_view_cleanup
 
 Clean view indices:
 
@@ -248,9 +248,9 @@ Clean view indices:
 rlx db cleanup -s {server} -d {db}
 ```
 
-Documentation: [database/common](http://docs.couchdb.org/en/latest/api/database/common.html)
+Documentation: [database/common#post-db-view-cleanup](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_view_cleanup)
 
-### POST#post--db-_ensure_full_commit /{db}/_ensure_full_commit
+### POST /{db}/_ensure_full_commit
 
 Ensure full commit:
 
@@ -258,9 +258,9 @@ Ensure full commit:
 rlx db commit -s {server} -d {db}
 ```
 
-Documentation: [database/common](http://docs.couchdb.org/en/latest/api/database/common.html)
+Documentation: [database/common#post-db-ensure-full-commit](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_ensure_full_commit)
 
-### POST#post--db-_compact /{db}
+### POST /{db}
 
 Compact database:
 
@@ -268,9 +268,9 @@ Compact database:
 rlx db compact -s {server} -d {db}
 ```
 
-Documentation: [database/common](http://docs.couchdb.org/en/latest/api/database/common.html)
+Documentation: [database/common#post-db-compact](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_compact)
 
-### POST#post--db-_compact-ddoc /{db}
+### POST /{db}
 
 Compact database design document:
 
@@ -278,7 +278,7 @@ Compact database design document:
 rlx db compact -s {server} -d {db} --ddoc {ddoc}
 ```
 
-Documentation: [database/common](http://docs.couchdb.org/en/latest/api/database/common.html)
+Documentation: [database/common#post-db-compact-ddoc](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_compact-ddoc)
 
 ### HEAD /{db}
 
@@ -300,7 +300,7 @@ rlx db info -s {server} -d {db}
 
 Documentation: [database/common#get-db](http://docs.couchdb.org/en/latest/api/database/common.html#get--db)
 
-### GET#get--db-_revs_limit /{db}/_revs_limit
+### GET /{db}/_revs_limit
 
 Get database revisions limit:
 
@@ -308,7 +308,7 @@ Get database revisions limit:
 rlx db limit -s {server} -d {db}
 ```
 
-Documentation: [database/common](http://docs.couchdb.org/en/latest/api/database/common.html)
+Documentation: [database/common#get-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/common.html#get--db-_revs_limit)
 
 ### PUT /{db}/_revs_limit
 
