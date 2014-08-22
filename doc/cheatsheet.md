@@ -260,7 +260,7 @@ rlx db commit -s {server} -d {db}
 
 Documentation: [database/common#post-db-ensure-full-commit](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_ensure_full_commit)
 
-### POST /{db}
+### POST /{db}/_compact
 
 Compact database:
 
@@ -270,7 +270,7 @@ rlx db compact -s {server} -d {db}
 
 Documentation: [database/common#post-db-compact](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_compact)
 
-### POST /{db}
+### POST /{db}/_compact/{ddoc}
 
 Compact database design document:
 

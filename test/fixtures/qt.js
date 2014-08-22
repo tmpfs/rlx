@@ -390,7 +390,7 @@ var qt = [
   {
     id: 'db/compact',
     description: 'Compact database',
-    api: [params.db],
+    api: [params.db, parameters.compact],
     method: methods.post,
     doc: docs.database + '#post--db-_compact',
     cmd: [
@@ -405,7 +405,7 @@ var qt = [
   {
     id: 'db/compact/ddoc',
     description: 'Compact database design document',
-    api: [params.db],
+    api: [params.db, parameters.compact, params.ddoc],
     method: methods.post,
     doc: docs.database + '#post--db-_compact-ddoc',
     cmd: [
