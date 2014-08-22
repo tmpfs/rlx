@@ -22,22 +22,23 @@ async.eachSeries(fixtures, function(test, callback) {
   var cmd = test.cmd.slice(0);
   if(test.enabled === false) {
     console.warn(prefix + 'not yet implemented %s', test.req);
-    return callback(null, test);
+    return callback(null, test, -1);
   }
   console.log(prefix + '%s %s', nm, cmd.join(' '));
   cmd.unshift(exe);
   cmd = cmd.join(' ');
   exec(cmd, function(err, stdout, stderr) {
-    if(err) {
+    var code = err && err.code ? err.code : 0;
+    if(err && !test.fails) {
       var e = new Error('quick test fixture failure');
       e.err = err;
+      e.code = code;
       e.stdout = stdout || '';
       e.stderr = stderr || '';
-      return callback(e, test);
+      return callback(e, test, code);
     }
-    callback(null, test);
+    callback(null, test, code);
   })
-
 }, function(err) {
   if(err) {
     console.error(err.stderr.trim());
