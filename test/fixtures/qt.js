@@ -146,6 +146,98 @@ var qt = [
     ]
   },
   {
+    id: 'db/changes',
+    description: 'Get database changes',
+    api: [params.db],
+    method: [methods.get, methods.post],
+    doc: docs.database,
+    cmd: [
+      'db',
+      'changes',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/cleanup',
+    description: 'Clean view indices',
+    api: [params.db],
+    method: methods.post,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'cleanup',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/commit',
+    description: 'Ensure full commit',
+    api: [params.db],
+    method: methods.post,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'commit',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/compact',
+    description: 'Compact database',
+    api: [params.db],
+    method: methods.post,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'compact',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/compact/ddoc',
+    description: 'Compact database design document',
+    api: [params.db],
+    method: methods.post,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'compact',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.users,
+      '--ddoc',
+      '_auth'
+    ]
+  },
+  {
+    id: 'db/exists',
+    description: 'Check database existence',
+    api: [params.db],
+    method: methods.head,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'exists',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
     id: 'db/info',
     description: 'Get database meta information',
     api: [params.db],
@@ -160,7 +252,37 @@ var qt = [
       config.database.default
     ]
   },
-
+  {
+    id: 'db/limit/get',
+    description: 'Get database revisions limit',
+    api: [params.db],
+    method: methods.get,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'limit',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/limit/set',
+    description: 'Set database revisions limit',
+    api: [params.db],
+    method: methods.put,
+    doc: docs.database,
+    cmd: [
+      'db',
+      'limit',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      1000
+    ]
+  },
   {
     id: 'db/rm',
     description: 'Get database meta information',
