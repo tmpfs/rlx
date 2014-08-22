@@ -319,7 +319,7 @@ var qt = [
     description: 'Create a database',
     api: [params.db],
     method: methods.put,
-    doc: docs.database,
+    doc: docs.database + '#put--db',
     cmd: [
       'db',
       'add',
@@ -345,9 +345,9 @@ var qt = [
   {
     id: 'db/changes',
     description: 'Get database changes',
-    api: [params.db],
+    api: [params.db, parameters.changes],
     method: methods.get,
-    doc: docs.database,
+    doc: docs.database + '#get--db-_changes',
     cmd: [
       'db',
       'changes',
@@ -360,8 +360,8 @@ var qt = [
   {
     id: 'db/cleanup',
     description: 'Clean view indices',
-    api: [params.db],
-    method: methods.post,
+    api: [params.db, parameters.cleanup],
+    method: methods.post + '#post--db-_view_cleanup',
     doc: docs.database,
     cmd: [
       'db',
@@ -375,8 +375,8 @@ var qt = [
   {
     id: 'db/commit',
     description: 'Ensure full commit',
-    api: [params.db],
-    method: methods.post,
+    api: [params.db, parameters.commit],
+    method: methods.post + '#post--db-_ensure_full_commit',
     doc: docs.database,
     cmd: [
       'db',
@@ -391,7 +391,7 @@ var qt = [
     id: 'db/compact',
     description: 'Compact database',
     api: [params.db],
-    method: methods.post,
+    method: methods.post + '#post--db-_compact',
     doc: docs.database,
     cmd: [
       'db',
@@ -406,7 +406,7 @@ var qt = [
     id: 'db/compact/ddoc',
     description: 'Compact database design document',
     api: [params.db],
-    method: methods.post,
+    method: methods.post + '#post--db-_compact-ddoc',
     doc: docs.database,
     cmd: [
       'db',
@@ -424,7 +424,7 @@ var qt = [
     description: 'Check database existence',
     api: [params.db],
     method: methods.head,
-    doc: docs.database,
+    doc: docs.database + '#head--db',
     cmd: [
       'db',
       'exists',
@@ -439,7 +439,7 @@ var qt = [
     description: 'Get database meta information',
     api: [params.db],
     method: methods.get,
-    doc: docs.database,
+    doc: docs.database + '#get--db',
     cmd: [
       'db',
       'info',
@@ -453,7 +453,7 @@ var qt = [
     id: 'db/limit/get',
     description: 'Get database revisions limit',
     api: [params.db, parameters.limit],
-    method: methods.get,
+    method: methods.get + '#get--db-_revs_limit',
     doc: docs.database,
     cmd: [
       'db',
@@ -469,7 +469,7 @@ var qt = [
     description: 'Set database revisions limit',
     api: [params.db, parameters.limit],
     method: methods.put,
-    doc: docs.database,
+    doc: docs.database + '#put--db-_revs_limit',
     cmd: [
       'db',
       'limit',
@@ -485,7 +485,7 @@ var qt = [
     description: 'Remove database',
     api: [params.db],
     method: methods.delete,
-    doc: docs.database,
+    doc: docs.database + '#delete--db',
     cmd: [
       'db',
       'rm',
