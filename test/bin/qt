@@ -18,7 +18,8 @@ var lines = [
 
 console.info(lines.join(EOL));
 
-function run(fixtures, cb) {
+function run(fixtures, hook, cb) {
+  if(typeof hook === 'function') cb = hook;
   async.eachSeries(fixtures, function(test, callback) {
     function execute(callback) {
       var cmd = test.cmd.slice(0);
@@ -26,7 +27,8 @@ function run(fixtures, cb) {
         console.warn(prefix + 'not yet implemented %s', test.req);
         return callback(null, test, -1);
       }
-      console.log(prefix + '%s %s', nm, cmd.join(' '));
+      console.log(
+        prefix + (hook ? hook + ' ' : '') + '%s %s', nm, cmd.join(' '));
       cmd.unshift(exe);
       cmd = cmd.join(' ');
       exec(cmd, function(err, stdout, stderr) {
@@ -46,14 +48,14 @@ function run(fixtures, cb) {
       })
     }
     if(test.before) {
-      return run(test.before, function(err) {
+      return run(test.before, '[before]', function(err) {
         var complete = !test.after ? callback : after;
         if(err) return complete(err);
         execute(complete);
       });
     }
     function after(err) {
-      run(test.after, callback);
+      run(test.after, '[after]', callback);
     }
     var complete = !test.after ? callback : after;
     execute(complete);

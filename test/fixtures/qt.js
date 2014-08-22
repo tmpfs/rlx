@@ -24,7 +24,11 @@ var docs = {
   database: 'database/common.html',
   config: 'server/configuration.html',
   security: 'database/security.html',
+  compact: 'database/compact.html',
+  changes: 'database/changes.html',
   bulk: 'database/bulk-api.html',
+  temp : 'database/temp-views.html',
+  misc: 'database/misc.html',
 }
 
 var qt = [
@@ -363,11 +367,75 @@ var qt = [
     ]
   },
   {
+    id: 'db/temp',
+    enabled: false,
+    description: 'Temporary view execution',
+    api: [params.db, parameters.temp],
+    method: methods.post,
+    doc: docs.temp + '#post--db-_temp_view',
+    cmd: [
+      'db',
+      'temp',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/purge',
+    enabled: false,
+    description: 'Purge documents',
+    api: [params.db, parameters.purge],
+    method: methods.post,
+    doc: docs.misc + '#post--db-_purge',
+    cmd: [
+      'db',
+      'purge',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/missing',
+    enabled: false,
+    description: 'Find document revisions that do not exist',
+    api: [params.db, parameters.missing],
+    method: methods.post,
+    doc: docs.misc + '#post--db-_missing_revs',
+    cmd: [
+      'db',
+      'missing',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'db/diff',
+    enabled: false,
+    description: 'Get document revision diff',
+    api: [params.db, parameters.diff],
+    method: methods.post,
+    doc: docs.misc + '#post--db-_revs_diff',
+    cmd: [
+      'db',
+      'diff',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
     id: 'db/changes',
     description: 'Get database changes',
     api: [params.db, parameters.changes],
     method: methods.get,
-    doc: docs.database + '#get--db-_changes',
+    doc: docs.changes + '#get--db-_changes',
     cmd: [
       'db',
       'changes',
@@ -382,7 +450,7 @@ var qt = [
     description: 'Clean view indices',
     api: [params.db, parameters.cleanup],
     method: methods.post,
-    doc: docs.database + '#post--db-_view_cleanup',
+    doc: docs.compact + '#post--db-_view_cleanup',
     cmd: [
       'db',
       'cleanup',
@@ -397,7 +465,7 @@ var qt = [
     description: 'Ensure full commit',
     api: [params.db, parameters.commit],
     method: methods.post,
-    doc: docs.database + '#post--db-_ensure_full_commit',
+    doc: docs.compact + '#post--db-_ensure_full_commit',
     cmd: [
       'db',
       'commit',
@@ -412,7 +480,7 @@ var qt = [
     description: 'Compact database',
     api: [params.db, parameters.compact],
     method: methods.post,
-    doc: docs.database + '#post--db-_compact',
+    doc: docs.compact + '#post--db-_compact',
     cmd: [
       'db',
       'compact',
@@ -427,7 +495,7 @@ var qt = [
     description: 'Compact database design document',
     api: [params.db, parameters.compact, params.ddoc],
     method: methods.post,
-    doc: docs.database + '#post--db-_compact-ddoc',
+    doc: docs.compact + '#post--db-_compact-ddoc',
     cmd: [
       'db',
       'compact',
@@ -474,7 +542,7 @@ var qt = [
     description: 'Get database revisions limit',
     api: [params.db, parameters.limit],
     method: methods.get,
-    doc: docs.database + '#get--db-_revs_limit',
+    doc: docs.misc + '#get--db-_revs_limit',
     cmd: [
       'db',
       'limit',
@@ -489,7 +557,7 @@ var qt = [
     description: 'Set database revisions limit',
     api: [params.db, parameters.limit],
     method: methods.put,
-    doc: docs.database + '#put--db-_revs_limit',
+    doc: docs.misc + '#put--db-_revs_limit',
     cmd: [
       'db',
       'limit',

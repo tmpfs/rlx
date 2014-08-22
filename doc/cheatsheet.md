@@ -32,6 +32,11 @@ Table of Contents
   * [Database](#database)
     * [PUT /{db}](#put-db)
     * [GET /_all_dbs](#get-_all_dbs)
+    * [~~POST /{db}/_bulk_docs~~](#post-db_bulk_docs)
+    * [~~POST /{db}/_temp_view~~](#post-db_temp_view)
+    * [~~POST /{db}/_purge~~](#post-db_purge)
+    * [~~POST /{db}/_missing_revs~~](#post-db_missing_revs)
+    * [~~POST /{db}/_revs_diff~~](#post-db_revs_diff)
     * [GET /{db}/_changes](#get-db_changes)
     * [POST /{db}/_view_cleanup](#post-db_view_cleanup)
     * [POST /{db}/_ensure_full_commit](#post-db_ensure_full_commit)
@@ -304,6 +309,36 @@ rlx db ls -s {server}
 
 Documentation: [server/common#all-dbs](http://docs.couchdb.org/en/latest/api/server/common.html#all-dbs)
 
+### ~~POST /{db}/_bulk_docs~~
+
+Bulk document modifications.
+
+Documentation: [database/bulk-api#post-db-bulk-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#post--db-_bulk_docs)
+
+### ~~POST /{db}/_temp_view~~
+
+Temporary view execution.
+
+Documentation: [database/temp-views#post-db-temp-view](http://docs.couchdb.org/en/latest/api/database/temp-views.html#post--db-_temp_view)
+
+### ~~POST /{db}/_purge~~
+
+Purge documents.
+
+Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge)
+
+### ~~POST /{db}/_missing_revs~~
+
+Find document revisions that do not exist.
+
+Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs)
+
+### ~~POST /{db}/_revs_diff~~
+
+Get document revision diff.
+
+Documentation: [database/misc#post-db-revs-diff](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff)
+
 ### GET /{db}/_changes
 
 Get database changes:
@@ -312,7 +347,7 @@ Get database changes:
 rlx db changes -s {server} -d {db}
 ```
 
-Documentation: [database/common#get-db-changes](http://docs.couchdb.org/en/latest/api/database/common.html#get--db-_changes)
+Documentation: [database/changes#get-db-changes](http://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes)
 
 ### POST /{db}/_view_cleanup
 
@@ -322,7 +357,7 @@ Clean view indices:
 rlx db cleanup -s {server} -d {db}
 ```
 
-Documentation: [database/common#post-db-view-cleanup](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_view_cleanup)
+Documentation: [database/compact#post-db-view-cleanup](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_view_cleanup)
 
 ### POST /{db}/_ensure_full_commit
 
@@ -332,7 +367,7 @@ Ensure full commit:
 rlx db commit -s {server} -d {db}
 ```
 
-Documentation: [database/common#post-db-ensure-full-commit](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_ensure_full_commit)
+Documentation: [database/compact#post-db-ensure-full-commit](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_ensure_full_commit)
 
 ### POST /{db}/_compact
 
@@ -342,7 +377,7 @@ Compact database:
 rlx db compact -s {server} -d {db}
 ```
 
-Documentation: [database/common#post-db-compact](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_compact)
+Documentation: [database/compact#post-db-compact](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact)
 
 ### POST /{db}/_compact/{ddoc}
 
@@ -352,7 +387,7 @@ Compact database design document:
 rlx db compact -s {server} -d {db} --ddoc {ddoc}
 ```
 
-Documentation: [database/common#post-db-compact-ddoc](http://docs.couchdb.org/en/latest/api/database/common.html#post--db-_compact-ddoc)
+Documentation: [database/compact#post-db-compact-ddoc](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact-ddoc)
 
 ### HEAD /{db}
 
@@ -382,7 +417,7 @@ Get database revisions limit:
 rlx db limit -s {server} -d {db}
 ```
 
-Documentation: [database/common#get-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/common.html#get--db-_revs_limit)
+Documentation: [database/misc#get-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/misc.html#get--db-_revs_limit)
 
 ### PUT /{db}/_revs_limit
 
@@ -392,7 +427,7 @@ Set database revisions limit:
 rlx db limit -s {server} -d {db} 1000
 ```
 
-Documentation: [database/common#put-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/common.html#put--db-_revs_limit)
+Documentation: [database/misc#put-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/misc.html#put--db-_revs_limit)
 
 ### DELETE /{db}
 
