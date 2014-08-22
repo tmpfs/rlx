@@ -1,0 +1,13 @@
+{
+  "pedantic": false,
+  "include": "doc",
+  "toc": "Table of Contents",
+  "base": "https://github.com/freeformsystems/rlx",
+  "partial": [
+    {
+      "inc": [
+        "cheatsheet.md"
+      ]
+    }
+  ]
+}
