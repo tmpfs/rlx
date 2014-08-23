@@ -37,6 +37,39 @@ var docs = {
 
 var qt = [
 
+
+  // USER
+  {
+    id: 'user/add',
+    description: 'Create a user',
+    api: [cdb.user.db, params.docid],
+    method: methods.put,
+    doc: docs.document + '#put--db-docid',
+    cmd: [
+      'user',
+      'add',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name,
+      '@password=' + config.user.pass
+    ]
+  },
+
+  {
+    id: 'user/rm',
+    description: 'Remove a user',
+    api: [cdb.user.db, params.docid],
+    method: methods.delete,
+    doc: docs.document + '#delete--db-docid',
+    cmd: [
+      'user',
+      'rm',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name,
+    ]
+  },
+
   // DOCUMENT
   {
     id: 'doc/add',
