@@ -58,6 +58,8 @@ Table of Contents
     * [DELETE /{db}/{docid}](#delete-dbdocid)
   * [User](#user)
     * [PUT /_users/{docid}](#put-_usersdocid)
+    * [GET /_users/_all_docs](#get-_users_all_docs)
+    * [GET /_users/{docid}](#get-_usersdocid)
     * [DELETE /_users/{docid}](#delete-_usersdocid)
 
 rlx(1) cheatsheet
@@ -534,9 +536,30 @@ Create a user:
 
 ```
 rlx user add -s {server} @name={username} @password={password}
+rlx user passwd -s {server} @name={username} @password={password}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
+
+### GET /_users/_all_docs
+
+List users:
+
+```
+rlx user ls -s {server}
+```
+
+Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+
+### GET /_users/{docid}
+
+Get a user:
+
+```
+rlx user get -s {server} @name={username}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
 ### DELETE /_users/{docid}
 

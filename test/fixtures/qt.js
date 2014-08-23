@@ -54,7 +54,48 @@ var qt = [
       '@password=' + config.user.pass
     ]
   },
-
+  {
+    id: 'user/ls',
+    description: 'List users',
+    api: [cdb.user.db, parameters.docs],
+    method: methods.get,
+    doc: docs.bulk + '#get--db-_all_docs',
+    cmd: [
+      'user',
+      'ls',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'user/get',
+    description: 'Get a user',
+    api: [cdb.user.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'user',
+      'get',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name,
+    ]
+  },
+  {
+    id: 'user/passwd',
+    description: 'Change user password',
+    api: [cdb.user.db, params.docid],
+    method: methods.put,
+    doc: docs.document + '#put--db-docid',
+    cmd: [
+      'user',
+      'passwd',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name,
+      '@password=' + config.user.pass
+    ]
+  },
   {
     id: 'user/rm',
     description: 'Remove a user',
