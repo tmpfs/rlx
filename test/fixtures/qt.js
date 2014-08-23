@@ -82,6 +82,22 @@ var qt = [
     ]
   },
   {
+    id: 'user/edit',
+    description: 'Update a user',
+    api: [cdb.user.db, params.docid],
+    method: methods.put,
+    doc: docs.document + '#put--db-docid',
+    before: [config.edit.mock],
+    after: [config.edit.restore],
+    cmd: [
+      'user',
+      'edit',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name
+    ]
+  },
+  {
     id: 'user/passwd',
     description: 'Change user password',
     api: [cdb.user.db, params.docid],
@@ -96,20 +112,20 @@ var qt = [
       '@password=' + config.user.pass
     ]
   },
-  {
-    id: 'user/rm',
-    description: 'Remove a user',
-    api: [cdb.user.db, params.docid],
-    method: methods.delete,
-    doc: docs.document + '#delete--db-docid',
-    cmd: [
-      'user',
-      'rm',
-      '-s',
-      config.server.default,
-      '@name=' + config.user.name,
-    ]
-  },
+  //{
+    //id: 'user/rm',
+    //description: 'Remove a user',
+    //api: [cdb.user.db, params.docid],
+    //method: methods.delete,
+    //doc: docs.document + '#delete--db-docid',
+    //cmd: [
+      //'user',
+      //'rm',
+      //'-s',
+      //config.server.default,
+      //'@name=' + config.user.name,
+    //]
+  //},
 
   // DOCUMENT
   {
@@ -1020,8 +1036,10 @@ function update() {
 
   function hooks(ids) {
     ids.forEach(function(id, index, arr) {
-      if(!map[id]) throw new Error('unknown hook ' + id);
-      arr[index] = map[id];
+      if(!map[id] && typeof id === 'string') {
+        throw new Error('unknown hook ' + id);
+      }
+      arr[index] = typeof id === 'function' ? id : map[id];
     })
   }
 

@@ -21,17 +21,19 @@ console.info(lines.join(EOL));
 function run(fixtures, hook, cb) {
   if(typeof hook === 'function') cb = hook;
   async.eachSeries(fixtures, function(test, callback) {
+    if(typeof test === 'function') return test(callback);
     function execute(callback) {
       var cmd = test.cmd.slice(0);
       if(test.enabled === false) {
         console.warn(prefix + 'not yet implemented %s', test.req);
         return callback(null, test, -1);
       }
+      var opts = {env: process.env};
       console.log(
         prefix + (hook ? hook + ' ' : '') + '%s %s', nm, cmd.join(' '));
       cmd.unshift(exe);
       cmd = cmd.join(' ');
-      exec(cmd, function(err, stdout, stderr) {
+      exec(cmd, opts, function(err, stdout, stderr) {
         var code = err && err.code ? err.code : 0;
         if(test.stdout) {
           process.stdout.write(stdout);
