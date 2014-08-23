@@ -47,57 +47,53 @@ Options:
 
 Command should be one of: info, stats, uuids, database, tasks, log, config,
 restart, session, admin, user, login, logout, security, edit, template, lint,
-document, level, help.
+document, level, whoami, help.
 
 Commands:
- info, meta         Print server information.
- stats              Print server statistics.
- uuids              Print list of uuids.
- database, db       Manage databases.
- tasks              Print active tasks.
- log                Tail server log file.
- config, conf       Manage server configuration.
- restart            Restart a server.
- session, sess      Cookie-based session authentication.
- admin              Manage server administrators.
- user, usr          Manage server users.
- login              Login to a server.
- logout             Logout of current session.
- security, sec      Get or set security document.
- edit               Edit a document.
- template, tpl      Manage template files.
- lint               Lint javascript and json.
- document, doc      Manage documents.
- level, lvl         Get or set the server log level.
- help               Show help for commands.
+ info, meta             Print server information.
+ stats                  Print server statistics.
+ uuids                  Print list of uuids.
+ database, db           Manage databases.
+ tasks                  Print active tasks.
+ log                    Tail server log file.
+ config, conf           Manage server configuration.
+ restart                Restart a server.
+ session, sess          Cookie-based session authentication.
+ admin                  Manage server administrators.
+ user, usr              Manage server users.
+ login                  Login to a server.
+ logout                 Logout of current session.
+ security, sec          Get or set security document.
+ edit                   Edit a document.
+ template, tpl          Manage template files.
+ lint                   Lint javascript and json.
+ document, doc          Manage documents.
+ level, lvl             Get or set the server log level.
+ whoami                 Get current user information.
+ help                   Show help for commands.
 
 Arguments:
-     --id=[id]      Document identifier.
-     --[no]-color   Enable or disable terminal colors.
- -d, --database=[name]
-                    Database name.
- -u, --username=[name]
-                    Authentication username.
- -p, --password=[pass]
-                    Authentication password.
- -o, --output=[file]
-                    Write response to output file.
- -f, --file=[file]  Read JSON input from file.
- -j, --json=[json]  JSON string literal (overrides --file).
- -t, --template=[name]
-                    Name of a template file.
-     --force        Force file overwrite.
- -s, --server=[url] Database server.
-     --rev=[rev]    Document revision.
-     --ddoc=[name]  Design document id.
-     --feed=[type]  Poll feed type.
-     --trace        Set log level to trace.
-     --debug        Set log level to debug.
-     --info         Set log level to info.
-     --warn         Set log level to warn.
-     --error        Set log level to error.
- -h, --help         Display this help and exit.
-     --version      Output version information and exit.
+     --id=[id]          Document identifier.
+     --[no]-color       Enable or disable terminal colors.
+ -d, --database=[name]  Database name.
+ -u, --username=[name]  Authentication username.
+ -p, --password=[pass]  Authentication password.
+ -o, --output=[file]    Write response to output file.
+ -f, --file=[file]      Read JSON input from file.
+ -j, --json=[json]      JSON string literal (overrides --file).
+ -t, --template=[name]  Name of a template file.
+     --force            Force file overwrite.
+ -s, --server=[url]     Database server.
+     --rev=[rev]        Document revision.
+     --ddoc=[name]      Design document id.
+     --feed=[type]      Poll feed type.
+     --trace            Set log level to trace.
+     --debug            Set log level to debug.
+     --info             Set log level to info.
+     --warn             Set log level to warn.
+     --error            Set log level to error.
+ -h, --help             Display this help and exit.
+     --version          Output version information and exit.
 
 Report bugs to https://github.com/freeformsystems/rlx/issues.
 ```

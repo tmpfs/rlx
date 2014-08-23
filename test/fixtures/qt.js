@@ -112,20 +112,20 @@ var qt = [
       '@password=' + config.user.pass
     ]
   },
-  //{
-    //id: 'user/rm',
-    //description: 'Remove a user',
-    //api: [cdb.user.db, params.docid],
-    //method: methods.delete,
-    //doc: docs.document + '#delete--db-docid',
-    //cmd: [
-      //'user',
-      //'rm',
-      //'-s',
-      //config.server.default,
-      //'@name=' + config.user.name,
-    //]
-  //},
+  {
+    id: 'user/rm',
+    description: 'Remove a user',
+    api: [cdb.user.db, params.docid],
+    method: methods.delete,
+    doc: docs.document + '#delete--db-docid',
+    cmd: [
+      'user',
+      'rm',
+      '-s',
+      config.server.default,
+      '@name=' + config.user.name,
+    ]
+  },
 
   // DOCUMENT
   {

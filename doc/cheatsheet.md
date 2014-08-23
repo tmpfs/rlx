@@ -185,6 +185,7 @@ Create or update a user:
 
 ```
 rlx user add -s {server} @name={username} @password={password}
+rlx user edit -s {server} @name={username}
 rlx user passwd -s {server} @name={username} @password={password}
 ```
 
