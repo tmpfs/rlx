@@ -55,6 +55,7 @@ function run(fixtures, hook, cb) {
       });
     }
     function after(err) {
+      //console.log('running after tests');
       run(test.after, '[after]', callback);
     }
     var complete = !test.after ? callback : after;
