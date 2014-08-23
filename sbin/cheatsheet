@@ -58,7 +58,6 @@ function replace(str) {
     rule = rules[i];
     re = (rule.src instanceof RegExp)
       ? rule.src : new RegExp(rule.src, 'gm');
-    //console.log(rule.rep);
     str = str.replace(re, rule.rep);
   }
   return str;
@@ -79,15 +78,11 @@ function order() {
   for(i = 0;i < keys.length;i++) {
     k = keys[i];
     section = sections[k];
-    //if(!headers[k]) {
-      out.push(sections[k] + DNL);
-      //headers[k] = true;
-    //}
+    out.push(sections[k] + DNL);
     for(j = 0;j < qt.length;j++) {
       item = qt[j];
       cmd = item.cmd[0];
       if(~ignore.indexOf(cmd)) continue;
-      //console.log(item.req);
       if(k === 'server' && !sections[cmd]) {
         out.push(item);
       }else if(k === cmd && sections[cmd]) {
@@ -95,10 +90,8 @@ function order() {
         if(seen[section + ':' + item.req]) {
           exists = seen[section + ':' + item.req];
           exists.code = exists.code || [getCommand(exists)];
-          //console.log('already seen %s', item.req);
           exists.code.push(getCommand(item));
           item.duplicate = true;
-          //console.dir(exists.code);
           continue;
         }
 
@@ -132,7 +125,6 @@ function build(qt) {
     if(disabled) {
       pre = post = st;
     }
-    //console.dir(item);
     cmds = getCommand(item);
     str += '### ' + pre + item.req + post + DNL;
     str += item.description + (disabled ? '.' : ':') + DNL;
