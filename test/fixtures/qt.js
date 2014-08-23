@@ -614,7 +614,6 @@ var qt = [
     api: [params.db, parameters.security],
     method: methods.get,
     doc: docs.security + '#get--db-_security',
-    //stdout: true,
     cmd: [
       'security',
       'get',
@@ -666,7 +665,7 @@ var qt = [
     api: [params.db, parameters.session],
     method: methods.get,
     doc: docs.auth + '#get--_session',
-    stdout: true,
+    //stdout: true,
     cmd: [
       'session',
       'get',
