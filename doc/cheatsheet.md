@@ -2,7 +2,15 @@ Table of Contents
 =================
 
 * [rlx(1) cheatsheet](#rlx1-cheatsheet)
-  * [Administrators](#administrators)
+  * [Server](#server)
+    * [GET /](#get-)
+    * [GET /_active_tasks](#get-_active_tasks)
+    * [GET /_log](#get-_log)
+    * [~~POST /_replicate~~](#post-_replicate)
+    * [POST /_restart](#post-_restart)
+    * [GET /_stats](#get-_stats)
+    * [GET /_uuids](#get-_uuids)
+  * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
     * [GET /_config/admins](#get-_configadmins)
     * [GET /_config/admins/{key}](#get-_configadminskey)
@@ -16,20 +24,6 @@ Table of Contents
     * [POST /{db}/_session](#post-db_session)
     * [GET /{db}/_session](#get-db_session)
     * [DELETE /{db}/_session](#delete-db_session)
-  * [Server](#server)
-    * [GET /](#get-)
-    * [GET /_active_tasks](#get-_active_tasks)
-    * [GET /_log](#get-_log)
-    * [~~POST /_replicate~~](#post-_replicate)
-    * [POST /_restart](#post-_restart)
-    * [GET /_stats](#get-_stats)
-    * [GET /_uuids](#get-_uuids)
-  * [Configuration](#configuration)
-    * [PUT /_config/{section}/{key}](#put-_configsectionkey)
-    * [GET /_config](#get-_config)
-    * [GET /_config/{section}](#get-_configsection)
-    * [GET /_config/{section}/{key}](#get-_configsectionkey)
-    * [DELETE /_config/{section}/{key}](#delete-_configsectionkey)
   * [Database](#database)
     * [PUT /{db}](#put-db)
     * [GET /_all_dbs](#get-_all_dbs)
@@ -58,6 +52,12 @@ Table of Contents
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
+  * [Configuration](#configuration)
+    * [PUT /_config/{section}/{key}](#put-_configsectionkey)
+    * [GET /_config](#get-_config)
+    * [GET /_config/{section}](#get-_configsection)
+    * [GET /_config/{section}/{key}](#get-_configsectionkey)
+    * [DELETE /_config/{section}/{key}](#delete-_configsectionkey)
   * [Log Level](#log-level)
     * [GET /_config/log/level](#get-_configloglevel)
     * [PUT /_config/log/level](#put-_configloglevel)
@@ -67,7 +67,75 @@ rlx(1) cheatsheet
 
 API methods yet to be implemented are marked with a strikethrough.
 
-## Administrators
+## Server
+
+### GET /
+
+Get server meta information:
+
+```
+rlx info -s {server}
+```
+
+Documentation: [server/common#get](http://docs.couchdb.org/en/latest/api/server/common.html#get--)
+
+### GET /_active_tasks
+
+Get active tasks:
+
+```
+rlx tasks -s {server}
+```
+
+Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
+
+### GET /_log
+
+Tail log file:
+
+```
+rlx log -s {server}
+```
+
+Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
+
+### ~~POST /_replicate~~
+
+Replicate a database.
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
+
+### POST /_restart
+
+Restart the server:
+
+```
+rlx restart -s {server}
+```
+
+Documentation: [server/common#post-restart](http://docs.couchdb.org/en/latest/api/server/common.html#post--_restart)
+
+### GET /_stats
+
+Get server statistics:
+
+```
+rlx stats -s {server}
+```
+
+Documentation: [server/common#get-stats](http://docs.couchdb.org/en/latest/api/server/common.html#get--_stats)
+
+### GET /_uuids
+
+Get uuids:
+
+```
+rlx uuids -s {server}
+```
+
+Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
+
+## Administrator
 
 ### PUT /_config/admins/{key}
 
@@ -186,126 +254,6 @@ rlx logout -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
-
-## Server
-
-### GET /
-
-Get server meta information:
-
-```
-rlx info -s {server}
-```
-
-Documentation: [server/common#get](http://docs.couchdb.org/en/latest/api/server/common.html#get--)
-
-### GET /_active_tasks
-
-Get active tasks:
-
-```
-rlx tasks -s {server}
-```
-
-Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
-
-### GET /_log
-
-Tail log file:
-
-```
-rlx log -s {server}
-```
-
-Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
-
-### ~~POST /_replicate~~
-
-Replicate a database.
-
-Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
-
-### POST /_restart
-
-Restart the server:
-
-```
-rlx restart -s {server}
-```
-
-Documentation: [server/common#post-restart](http://docs.couchdb.org/en/latest/api/server/common.html#post--_restart)
-
-### GET /_stats
-
-Get server statistics:
-
-```
-rlx stats -s {server}
-```
-
-Documentation: [server/common#get-stats](http://docs.couchdb.org/en/latest/api/server/common.html#get--_stats)
-
-### GET /_uuids
-
-Get uuids:
-
-```
-rlx uuids -s {server}
-```
-
-Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
-
-## Configuration
-
-### PUT /_config/{section}/{key}
-
-Set server configuration value:
-
-```
-rlx conf set {section} {key} {value} -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### GET /_config
-
-Get server configuration:
-
-```
-rlx conf -s {server}
-```
-
-Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
-
-### GET /_config/{section}
-
-Get server configuration section:
-
-```
-rlx conf get {section} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
-
-### GET /_config/{section}/{key}
-
-Get server configuration value:
-
-```
-rlx conf get {section} {key} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-### DELETE /_config/{section}/{key}
-
-Delete server configuration value:
-
-```
-rlx conf rm {section} {key} -s {server}
-```
-
-Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
 
 ## Database
 
@@ -544,6 +492,58 @@ rlx doc rm -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Configuration
+
+### PUT /_config/{section}/{key}
+
+Set server configuration value:
+
+```
+rlx conf set {section} {key} {value} -s {server}
+```
+
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+
+### GET /_config
+
+Get server configuration:
+
+```
+rlx conf -s {server}
+```
+
+Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
+
+### GET /_config/{section}
+
+Get server configuration section:
+
+```
+rlx conf get {section} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+
+### GET /_config/{section}/{key}
+
+Get server configuration value:
+
+```
+rlx conf get {section} {key} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+
+### DELETE /_config/{section}/{key}
+
+Delete server configuration value:
+
+```
+rlx conf rm {section} {key} -s {server}
+```
+
+Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
 
 ## Log Level
 

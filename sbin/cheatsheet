@@ -16,14 +16,14 @@ var description = 'API methods yet to be implemented are marked '
 description += 'with a strikethrough.';
 
 var sections = {
-  admin: 'Administrators',
+  server: 'Server',
+  admin: 'Administrator',
   user: 'User',
   session: 'Session',
-  server: 'Server',
-  conf: 'Configuration',
   db: 'Database',
   security: 'Security',
   doc: 'Document',
+  conf: 'Configuration',
   level: 'Log Level',
 }
 
