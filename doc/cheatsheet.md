@@ -54,7 +54,7 @@ Table of Contents
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
     * [GET /{db}/_all_dbs](#get-db_all_dbs)
-    * [HEAD /{db}/_all_dbs](#head-db_all_dbs)
+    * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
 
 rlx(1) cheatsheet
@@ -499,11 +499,12 @@ rlx doc ls -s {server} -d {db}
 
 Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
 
-### HEAD /{db}/_all_dbs
+### HEAD /{db}/{docid}
 
 Get document revision:
 
 ```
+rlx doc head -s {server} -d {db} --id {docid}
 rlx doc rev -s {server} -d {db} --id {docid}
 ```
 

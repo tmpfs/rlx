@@ -93,7 +93,24 @@ var qt = [
   {
     id: 'doc/head',
     description: 'Get document revision',
-    api: [params.db, parameters.dbs],
+    api: [params.db, params.docid],
+    method: methods.head,
+    doc: docs.document + '#head--db-docid',
+    cmd: [
+      'doc',
+      'head',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/rev',
+    description: 'Get document revision',
+    api: [params.db, params.docid],
     method: methods.head,
     doc: docs.document + '#head--db-docid',
     cmd: [
