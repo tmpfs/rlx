@@ -18,11 +18,7 @@ Table of Contents
     * [DELETE /_config/{section}/{key}](#delete-_configsectionkey)
   * [Log Level](#log-level)
     * [GET /_config/log/level](#get-_configloglevel)
-    * [PUT /_config/log/level (none)](#put-_configloglevel-none)
-    * [PUT /_config/log/level (error)](#put-_configloglevel-error)
-    * [PUT /_config/log/level (warning)](#put-_configloglevel-warning)
-    * [PUT /_config/log/level (debug)](#put-_configloglevel-debug)
-    * [PUT /_config/log/level (info)](#put-_configloglevel-info)
+    * [PUT /_config/log/level](#put-_configloglevel)
   * [Administrators](#administrators)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
     * [GET /_config/admins](#get-_configadmins)
@@ -50,7 +46,6 @@ Table of Contents
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
-    * [PUT /{db}/_security](#put-db_security-1)
   * [Session](#session)
     * [POST /{db}/_session](#post-db_session)
     * [GET /{db}/_session](#get-db_session)
@@ -195,51 +190,15 @@ rlx level -s {server}
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
-### PUT /_config/log/level (none)
+### PUT /_config/log/level
 
 Set server log level to none:
 
 ```
 rlx level none -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### PUT /_config/log/level (error)
-
-Set server log level to error:
-
-```
 rlx level error -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### PUT /_config/log/level (warning)
-
-Set server log level to warning:
-
-```
 rlx level warn -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### PUT /_config/log/level (debug)
-
-Set server log level to debug:
-
-```
 rlx level debug -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### PUT /_config/log/level (info)
-
-Set server log level to info:
-
-```
 rlx level info -s {server}
 ```
 
@@ -457,6 +416,7 @@ Set security document:
 
 ```
 rlx security set -s {server} -d {db} --file {file}
+rlx security rm -s {server} -d {db}
 ```
 
 Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
@@ -470,16 +430,6 @@ rlx security get -s {server} -d {db}
 ```
 
 Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
-
-### PUT /{db}/_security
-
-Reset security document:
-
-```
-rlx security rm -s {server} -d {db}
-```
-
-Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
 
 ## Session
 

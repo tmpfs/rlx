@@ -9,8 +9,9 @@ var base = path.normalize(path.join(__dirname, '..'));
 var qt = require('../test/fixtures/qt');
 var config = require('../test/util/config');
 var pkg = require('../package.json');
+var exe = pkg.name;
 var output = process.argv[2] || path.join(base, 'doc', 'cheatsheet.md');
-var heading = util.format('# %s(1) cheatsheet', pkg.name);
+var heading = util.format('# %s(1) cheatsheet', exe);
 var description = 'API methods yet to be implemented are marked '
 description += 'with a strikethrough.';
 
@@ -72,7 +73,8 @@ function tidy(u) {
 
 function order() {
   var out = [];
-  var keys = Object.keys(sections), i, k, j, item, cmd;
+  var keys = Object.keys(sections), i, k, j, item, exists, cmds, cmd;
+  var seen = {};
   for(i = 0;i < keys.length;i++) {
     k = keys[i];
     section = sections[k];
@@ -84,23 +86,44 @@ function order() {
       item = qt[j];
       cmd = item.cmd[0];
       if(~ignore.indexOf(cmd)) continue;
+      //console.log(item.req);
       if(k === 'server' && !sections[cmd]) {
         out.push(item);
       }else if(k === cmd && sections[cmd]) {
+
+        if(seen[section + ':' + item.req]) {
+          exists = seen[section + ':' + item.req];
+          exists.code = exists.code || [getCommand(exists)];
+          //console.log('already seen %s', item.req);
+          exists.code.push(getCommand(item));
+          item.duplicate = true;
+          //console.dir(exists.code);
+          continue;
+        }
+
         out.push(item);
       }
+      seen[section + ':' + item.req] = item;
     }
   }
   return out;
 }
 
+function getCommand(item) {
+  var cmds = item.cmd.slice(0);
+  cmds.unshift(exe);
+  return replace(cmds.join(' '));
+}
+
 function build(qt) {
   var str = heading + DNL + description + DNL;
-  var i, item, exe = pkg.name, nm, cmds, cmd, pre, post, disabled;
+  var i, item, cmds, cmd, pre, post, disabled;
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
     if(typeof item === 'string') {
       str += '## ' + item;
+      continue;
+    }else if(item.duplicate) {
       continue;
     }
     pre = post = '';
@@ -109,13 +132,12 @@ function build(qt) {
       pre = post = st;
     }
     //console.dir(item);
-    cmds = item.cmd.slice(0);
-    cmds.unshift(exe);
-    nm = item.cmd[0];
+    cmds = getCommand(item);
     str += '### ' + pre + item.req + post + DNL;
     str += item.description + (disabled ? '.' : ':') + DNL;
     if(!disabled) {
-      str += '```' + EOL + replace(cmds.join(' ')) + EOL + '```' + DNL;
+      str += '```' + EOL
+        + (item.code ? item.code.join(EOL) : cmds) + EOL + '```' + DNL;
     }
     str += 'Documentation: '
       + util.format('[%s](%s)', tidy(item.doc), item.url) + DNL;
@@ -123,5 +145,6 @@ function build(qt) {
   return str;
 }
 
+//build(order());
 process.stdout.write(build(order()));
 process.exit(0);
