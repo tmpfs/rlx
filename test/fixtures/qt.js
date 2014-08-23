@@ -9,7 +9,8 @@ var methods = cdb.methods;
 var params = {
   server: '{server}',
   db: '{db}',
-  doc: '{doc}',
+  docid: '{docid}',
+  rev: '{rev}',
   ddoc: '{ddoc}',
   section: '{section}',
   key: '{key}',
@@ -17,6 +18,7 @@ var params = {
   name: '{username}',
   pass: '{password}',
   file: '{file}',
+  template: '{template}'
 }
 
 var docs = {
@@ -30,9 +32,33 @@ var docs = {
   bulk: 'database/bulk-api.html',
   temp : 'database/temp-views.html',
   misc: 'database/misc.html',
+  document: 'document/common.html',
 }
 
 var qt = [
+
+  // DOCUMENT
+  {
+    id: 'doc/add',
+    description: 'Create a document',
+    api: [params.db, params.docid],
+    method: methods.put,
+    doc: docs.document + '#put--db-docid',
+    before: ['db/add'],
+    after: ['db/rm'],
+    cmd: [
+      'doc',
+      'add',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-t',
+      'document/new',
+      '--id',
+      config.document.id
+    ]
+  },
 
   // TEMPLATE
   {
