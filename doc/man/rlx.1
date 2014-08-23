@@ -4,17 +4,17 @@ rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .SP
-rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-http] [\-\-trace]
+rlx <command> [\-ch] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
-    [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
+    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help]
 .br
-    [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
+    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
 .br
-    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
+    [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
 .br
-    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>]
+    [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
 .br
-    [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
+    [\-\-id=<id>] [\-\-rev=<rev>] [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -66,7 +66,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-rev=[rev]\fR: Document revision.
+\fB\-\-id=[id]\fR: Document identifier.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -84,11 +84,13 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-t, \-\-template=[name]\fR: Name of a template file.
 .IP "\[ci]" 4
+\fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
+.IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
-\fB\-\-id=[id]\fR: Document identifier.
-.IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
+.IP "\[ci]" 4
+\fB\-\-rev=[rev]\fR: Document revision.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
 .IP "\[ci]" 4

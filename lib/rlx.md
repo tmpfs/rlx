@@ -40,6 +40,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-f, --file [file]`: Read JSON input from file.
 * `-j, --json [json]`: JSON string literal (overrides --file).
 * `-t, --template [name]`: Name of a template file.
+* `-c, --compress`: Compact JSON output format (zero indent). 
 * `--force`: Force file overwrite.
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.

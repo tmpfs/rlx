@@ -3,7 +3,7 @@
 rlx-log
 .SH "SYNOPSIS"
 
-\fBrlx log [\-\-offset=<num>] [\-\-bytes=<num>] <args>\fR
+\fBrlx log [\-\-raw] [\-\-offset=<num>] [\-\-bytes=<num>] <args>\fR
 .SH "DESCRIPTION"
 .PP
 Tail server log file. 
@@ -13,6 +13,8 @@ Tail server log file.
 \fB\-\-offset=[num]\fR: Offset in bytes for the log tail. 
 .IP "\[ci]" 4
 \fB\-\-bytes=[num]\fR: Bytes to be returned, default is 1000.
+.IP "\[ci]" 4
+\fB\-\-raw\fR: Print log records as plain text.
 .EL
 .SH "BUGS"
 .PP

@@ -33,9 +33,9 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
-Usage: rlx <command> [-h] [--color|--no-color] [--force] [--http]
-           [--trace] [--debug] [--info] [--warn] [--error]
-           [-h|--help] [--version] [-s|--server=<url>]
+Usage: rlx <command> [-ch] [--color|--no-color] [-c|--compress]
+           [--force] [--http] [--trace] [--debug] [--info] [--warn]
+           [--error] [-h|--help] [--version] [-s|--server=<url>]
            [-d|--database=<name>] [-u|--username=<name>]
            [-p|--password=<pass>] [-o|--output=<file>]
            [-f|--file=<file>] [-j|--json=<json>]
@@ -74,7 +74,7 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
-     --rev=[rev]        Document revision.
+     --id=[id]          Document identifier.
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -u, --username=[name]  Authentication username.
@@ -83,9 +83,10 @@ Arguments:
  -f, --file=[file]      Read JSON input from file.
  -j, --json=[json]      JSON string literal (overrides --file).
  -t, --template=[name]  Name of a template file.
+ -c, --compress         Compact JSON output format (zero indent).
      --force            Force file overwrite.
-     --id=[id]          Document identifier.
  -s, --server=[url]     Database server.
+     --rev=[rev]        Document revision.
      --ddoc=[name]      Design document id.
      --feed=[type]      Poll feed type.
      --http             Enable HTTP logs.
