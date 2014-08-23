@@ -37,7 +37,9 @@ var ignore = [
   'template',
   'tpl',
   'lint',
-  'edit'
+  'edit',
+  '--version',
+  '--help'
 ];
 
 var rules = [], st = '~~';

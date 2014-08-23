@@ -73,6 +73,7 @@ Commands for creating, deleting and modifying databases.
 
 * `offset: --offset [num]`: Offset in bytes for the log tail. 
 * `bytes: --bytes [num]`: Bytes to be returned, default is 1000.
+* `raw: --raw`: Print log records as plain text.
 
 ### Config
 
