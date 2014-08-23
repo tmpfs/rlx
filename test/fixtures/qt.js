@@ -41,7 +41,7 @@ var qt = [
   // USER
   {
     id: 'user/add',
-    description: 'Create a user',
+    description: 'Create or update a user',
     api: [cdb.user.db, params.docid],
     method: methods.put,
     doc: docs.document + '#put--db-docid',

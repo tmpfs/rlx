@@ -2,6 +2,20 @@ Table of Contents
 =================
 
 * [rlx(1) cheatsheet](#rlx1-cheatsheet)
+  * [Administrators](#administrators)
+    * [PUT /_config/admins/{key}](#put-_configadminskey)
+    * [GET /_config/admins](#get-_configadmins)
+    * [GET /_config/admins/{key}](#get-_configadminskey)
+    * [DELETE /_config/admins/{key}](#delete-_configadminskey)
+  * [User](#user)
+    * [PUT /_users/{docid}](#put-_usersdocid)
+    * [GET /_users/_all_docs](#get-_users_all_docs)
+    * [GET /_users/{docid}](#get-_usersdocid)
+    * [DELETE /_users/{docid}](#delete-_usersdocid)
+  * [Session](#session)
+    * [POST /{db}/_session](#post-db_session)
+    * [GET /{db}/_session](#get-db_session)
+    * [DELETE /{db}/_session](#delete-db_session)
   * [Server](#server)
     * [GET /](#get-)
     * [GET /_active_tasks](#get-_active_tasks)
@@ -16,14 +30,6 @@ Table of Contents
     * [GET /_config/{section}](#get-_configsection)
     * [GET /_config/{section}/{key}](#get-_configsectionkey)
     * [DELETE /_config/{section}/{key}](#delete-_configsectionkey)
-  * [Log Level](#log-level)
-    * [GET /_config/log/level](#get-_configloglevel)
-    * [PUT /_config/log/level](#put-_configloglevel)
-  * [Administrators](#administrators)
-    * [PUT /_config/admins/{key}](#put-_configadminskey)
-    * [GET /_config/admins](#get-_configadmins)
-    * [GET /_config/admins/{key}](#get-_configadminskey)
-    * [DELETE /_config/admins/{key}](#delete-_configadminskey)
   * [Database](#database)
     * [PUT /{db}](#put-db)
     * [GET /_all_dbs](#get-_all_dbs)
@@ -46,26 +52,140 @@ Table of Contents
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
-  * [Session](#session)
-    * [POST /{db}/_session](#post-db_session)
-    * [GET /{db}/_session](#get-db_session)
-    * [DELETE /{db}/_session](#delete-db_session)
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
-  * [User](#user)
-    * [PUT /_users/{docid}](#put-_usersdocid)
-    * [GET /_users/_all_docs](#get-_users_all_docs)
-    * [GET /_users/{docid}](#get-_usersdocid)
-    * [DELETE /_users/{docid}](#delete-_usersdocid)
+  * [Log Level](#log-level)
+    * [GET /_config/log/level](#get-_configloglevel)
+    * [PUT /_config/log/level](#put-_configloglevel)
 
 rlx(1) cheatsheet
 =================
 
 API methods yet to be implemented are marked with a strikethrough.
+
+## Administrators
+
+### PUT /_config/admins/{key}
+
+Add an administrator:
+
+```
+rlx admin add {username} {password} -s {server}
+```
+
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+
+### GET /_config/admins
+
+List administrators:
+
+```
+rlx admin ls -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+
+### GET /_config/admins/{key}
+
+Get an administrator:
+
+```
+rlx admin get {username} -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+
+### DELETE /_config/admins/{key}
+
+Remove an administrator:
+
+```
+rlx admin rm {username} -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+
+## User
+
+### PUT /_users/{docid}
+
+Create or update a user:
+
+```
+rlx user add -s {server} @name={username} @password={password}
+rlx user passwd -s {server} @name={username} @password={password}
+```
+
+Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
+
+### GET /_users/_all_docs
+
+List users:
+
+```
+rlx user ls -s {server}
+```
+
+Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+
+### GET /_users/{docid}
+
+Get a user:
+
+```
+rlx user get -s {server} @name={username}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### DELETE /_users/{docid}
+
+Remove a user:
+
+```
+rlx user rm -s {server} @name={username}
+```
+
+Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Session
+
+### POST /{db}/_session
+
+Login with cookie authentication:
+
+```
+rlx session set -u {username} -p {password} -s {server}
+rlx login -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
+
+### GET /{db}/_session
+
+Get user session:
+
+```
+rlx session get -u {username} -p {password} -s {server}
+rlx whoami -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
+
+### DELETE /{db}/_session
+
+Logout of authenticated session:
+
+```
+rlx session rm -u {username} -p {password} -s {server}
+rlx logout -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
 
 ## Server
 
@@ -183,74 +303,6 @@ Delete server configuration value:
 
 ```
 rlx conf rm {section} {key} -s {server}
-```
-
-Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
-
-## Log Level
-
-### GET /_config/log/level
-
-Get server log level:
-
-```
-rlx level -s {server}
-```
-
-Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-### PUT /_config/log/level
-
-Set server log level:
-
-```
-rlx level none -s {server}
-rlx level error -s {server}
-rlx level warn -s {server}
-rlx level debug -s {server}
-rlx level info -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-## Administrators
-
-### PUT /_config/admins/{key}
-
-Add an administrator:
-
-```
-rlx admin add {username} {password} -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### GET /_config/admins
-
-List administrators:
-
-```
-rlx admin ls -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
-
-### GET /_config/admins/{key}
-
-Get an administrator:
-
-```
-rlx admin get {username} -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-### DELETE /_config/admins/{key}
-
-Remove an administrator:
-
-```
-rlx admin rm {username} -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
@@ -440,41 +492,6 @@ rlx security get -s {server} -d {db}
 
 Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
 
-## Session
-
-### POST /{db}/_session
-
-Login with cookie authentication:
-
-```
-rlx session set -u {username} -p {password} -s {server}
-rlx login -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
-
-### GET /{db}/_session
-
-Get user session:
-
-```
-rlx session get -u {username} -p {password} -s {server}
-rlx whoami -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
-
-### DELETE /{db}/_session
-
-Logout of authenticated session:
-
-```
-rlx session rm -u {username} -p {password} -s {server}
-rlx logout -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
-
 ## Document
 
 ### PUT /{db}/{docid}
@@ -528,48 +545,31 @@ rlx doc rm -s {server} -d {db} --id {docid}
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
 
-## User
+## Log Level
 
-### PUT /_users/{docid}
+### GET /_config/log/level
 
-Create a user:
-
-```
-rlx user add -s {server} @name={username} @password={password}
-rlx user passwd -s {server} @name={username} @password={password}
-```
-
-Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
-
-### GET /_users/_all_docs
-
-List users:
+Get server log level:
 
 ```
-rlx user ls -s {server}
+rlx level -s {server}
 ```
 
-Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
 
-### GET /_users/{docid}
+### PUT /_config/log/level
 
-Get a user:
-
-```
-rlx user get -s {server} @name={username}
-```
-
-Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
-
-### DELETE /_users/{docid}
-
-Remove a user:
+Set server log level:
 
 ```
-rlx user rm -s {server} @name={username}
+rlx level none -s {server}
+rlx level error -s {server}
+rlx level warn -s {server}
+rlx level debug -s {server}
+rlx level info -s {server}
 ```
 
-Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 Generated by [mdp(1)](https://github.com/freeformsystems/mdp).
 
