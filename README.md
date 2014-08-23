@@ -58,7 +58,7 @@ Commands:
  document, doc          Manage documents.
  login                  Login to a server.
  logout                 Logout of current session.
- session, sess          Cookie-based session authentication.
+ session, sess          Session authentication.
  config, conf           Manage server configuration.
  info, meta             Print server information.
  stats                  Print server statistics.

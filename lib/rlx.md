@@ -16,7 +16,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `document: document, doc`: Manage documents.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
-* `session: session, sess`: Cookie-based session authentication.
+* `session: session, sess`: Session authentication.
 * `config: config, conf`: Manage server configuration.
 * `info: info, meta`: Print server information.
 * `stats: stats`: Print server statistics.
