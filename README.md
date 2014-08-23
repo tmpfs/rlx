@@ -46,29 +46,29 @@ Command line interface for couchdb.
 
 Options:
 
-Command should be one of: info, stats, uuids, database, tasks, log, config,
-restart, session, admin, user, login, logout, security, edit, template, lint,
-document, level, whoami, help.
+Command should be one of: admin, user, database, security, document, login,
+logout, session, config, info, stats, tasks, log, restart, uuids, edit,
+template, lint, level, whoami, help.
 
 Commands:
- info, meta             Print server information.
- stats                  Print server statistics.
- uuids                  Print list of uuids.
- database, db           Manage databases.
- tasks                  Print active tasks.
- log                    Tail server log file.
- config, conf           Manage server configuration.
- restart                Restart a server.
- session, sess          Cookie-based session authentication.
  admin                  Manage server administrators.
  user, usr              Manage server users.
+ database, db           Manage databases.
+ security, sec          Get or set database security.
+ document, doc          Manage documents.
  login                  Login to a server.
  logout                 Logout of current session.
- security, sec          Get or set security document.
+ session, sess          Cookie-based session authentication.
+ config, conf           Manage server configuration.
+ info, meta             Print server information.
+ stats                  Print server statistics.
+ tasks                  Print active tasks.
+ log                    Tail server log file.
+ restart                Restart a server.
+ uuids                  Print list of uuids.
  edit                   Edit a document.
  template, tpl          Manage template files.
  lint                   Lint javascript and json.
- document, doc          Manage documents.
  level, lvl             Get or set the server log level.
  whoami                 Get current user information.
  help                   Show help for commands.

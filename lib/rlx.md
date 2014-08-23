@@ -9,24 +9,24 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ## Commands
 
-* `info: info, meta`: Print server information.
-* `stats: stats`: Print server statistics.
-* `uuids: uuids`: Print list of uuids.
-* `database: database, db`: Manage databases.
-* `tasks: tasks`: Print active tasks. 
-* `log: log`: Tail server log file. 
-* `config: config, conf`: Manage server configuration.
-* `restart: restart`: Restart a server.
-* `session: session, sess`: Cookie-based session authentication.
 * `admin: admin`: Manage server administrators.
 * `user: user, usr`: Manage server users.
+* `database: database, db`: Manage databases.
+* `security: security, sec`: Get or set database security.
+* `document: document, doc`: Manage documents.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
-* `security: security, sec`: Get or set security document.
+* `session: session, sess`: Cookie-based session authentication.
+* `config: config, conf`: Manage server configuration.
+* `info: info, meta`: Print server information.
+* `stats: stats`: Print server statistics.
+* `tasks: tasks`: Print active tasks. 
+* `log: log`: Tail server log file. 
+* `restart: restart`: Restart a server.
+* `uuids: uuids`: Print list of uuids.
 * `edit: edit`: Edit a document.
 * `template: template, tpl`: Manage template files.
 * `lint: lint`: Lint javascript and json.
-* `document: document, doc`: Manage documents.
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.
 
