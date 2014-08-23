@@ -6,17 +6,11 @@ var database = config.database.default;
 
 describe('rlx:', function() {
   this.timeout(10000);
-  var editor, visual;
   before(function(done) {
-    editor = process.env.EDITOR;
-    visual = process.env.VISUAL;
-    process.env.VISUAL = process.env.EDITOR = config.editor;
-    done();
+    config.edit.mock(done);
   })
   after(function(done) {
-    process.env.VISUAL = visual;
-    process.env.EDITOR = editor;
-    done();
+    config.edit.restore(done);
   })
   it('should edit local file', function(done){
     var mock = config.file('edit-local-file.json', '{}');

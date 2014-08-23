@@ -60,6 +60,21 @@ var config = {
   fixtures: {}
 }
 
+var editor, visual;
+config.edit = {};
+config.edit.mock = function(cb) {
+  editor = process.env.EDITOR;
+  visual = process.env.VISUAL;
+  process.env.VISUAL = process.env.EDITOR = config.editor;
+  cb();
+}
+
+config.edit.restore = function(cb) {
+  process.env.VISUAL = visual;
+  process.env.EDITOR = editor;
+  cb();
+}
+
 config.file = function(name, content) {
   var file = path.join(target, name);
   if(content) fs.writeFileSync(file, content);

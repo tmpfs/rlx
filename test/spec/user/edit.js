@@ -6,20 +6,18 @@ var database = config.database.default;
 
 describe('rlx:', function() {
   this.timeout(10000);
-  var editor, visual;
   before(function(done) {
-    editor = process.env.EDITOR;
-    visual = process.env.VISUAL;
-    process.env.VISUAL = process.env.EDITOR = config.editor;
-    config.db.add(function() {
-      config.db.user.add(done);
+    config.edit.mock(function() {
+      config.db.add(function() {
+        config.db.user.add(done);
+      });
     });
   })
   after(function(done) {
-    process.env.VISUAL = visual;
-    process.env.EDITOR = editor;
-    config.db.rm(function() {
-      config.db.user.rm(done);
+    config.edit.restore(function() {
+      config.db.rm(function() {
+        config.db.user.rm(done);
+      });
     });
   })
   it('should edit user document', function(done){
