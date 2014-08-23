@@ -45,7 +45,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
 * `--feed [type]`: Poll feed type. 
-* `--http`: Enable HTTP request logs.
+* `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
 

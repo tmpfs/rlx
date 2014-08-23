@@ -33,11 +33,12 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
-Usage: rlx <command> [-h] [--color|--no-color] [--force] [--trace]
-           [--debug] [--info] [--warn] [--error] [-h|--help]
-           [--version] [-s|--server=<url>] [-d|--database=<name>]
-           [-u|--username=<name>] [-p|--password=<pass>]
-           [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
+Usage: rlx <command> [-h] [--color|--no-color] [--force] [--http]
+           [--trace] [--debug] [--info] [--warn] [--error]
+           [-h|--help] [--version] [-s|--server=<url>]
+           [-d|--database=<name>] [-u|--username=<name>]
+           [-p|--password=<pass>] [-o|--output=<file>]
+           [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
            [--ddoc=<name>] [--feed=<type>] <args>
 
@@ -73,7 +74,7 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
-     --id=[id]          Document identifier.
+     --rev=[rev]        Document revision.
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -u, --username=[name]  Authentication username.
@@ -83,17 +84,18 @@ Arguments:
  -j, --json=[json]      JSON string literal (overrides --file).
  -t, --template=[name]  Name of a template file.
      --force            Force file overwrite.
+     --id=[id]          Document identifier.
  -s, --server=[url]     Database server.
-     --rev=[rev]        Document revision.
      --ddoc=[name]      Design document id.
      --feed=[type]      Poll feed type.
+     --http             Enable HTTP logs.
      --trace            Set log level to trace.
      --debug            Set log level to debug.
      --info             Set log level to info.
      --warn             Set log level to warn.
      --error            Set log level to error.
  -h, --help             Display this help and exit.
-     --version          Output version information and exit.
+     --version          Print version and exit.
 
 Report bugs to https://github.com/freeformsystems/rlx/issues.
 ```

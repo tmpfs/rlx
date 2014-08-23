@@ -1,12 +1,12 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.49" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.51" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .SP
-rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-trace] [\-\-debug]
+rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-http] [\-\-trace]
 .br
-    [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
+    [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
 .br
     [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
 .br
@@ -66,7 +66,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-id=[id]\fR: Document identifier.
+\fB\-\-rev=[rev]\fR: Document revision.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -86,13 +86,15 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
-\fB\-s, \-\-server=[url]\fR: Database server.
+\fB\-\-id=[id]\fR: Document identifier.
 .IP "\[ci]" 4
-\fB\-\-rev=[rev]\fR: Document revision.
+\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
 .IP "\[ci]" 4
 \fB\-\-feed=[type]\fR: Poll feed type. 
+.IP "\[ci]" 4
+\fB\-\-http\fR: Enable HTTP logs.
 .IP "\[ci]" 4
 \fB\-\-trace\fR: Set log level to trace.
 .IP "\[ci]" 4
@@ -106,7 +108,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-h, \-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
-\fB\-\-version\fR: Output version information and exit.
+\fB\-\-version\fR: Print version and exit.
 .EL
 .SH "LOG"
 .PP
