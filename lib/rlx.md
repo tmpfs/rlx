@@ -28,6 +28,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `lint: lint`: Lint javascript and json.
 * `document: document, doc`: Manage documents.
 * `level: level, lvl`: Get or set the server log level.
+* `whoami: whoami`: Get current user information.
 
 ## Options
 

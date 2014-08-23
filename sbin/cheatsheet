@@ -28,7 +28,8 @@ var sections = {
 
 var lookup = {
   login: 'session',
-  logout: 'session'
+  logout: 'session',
+  whoami: 'session'
 }
 
 var ignore = [
@@ -88,18 +89,12 @@ function order() {
       item = qt[j];
       cmd = item.cmd[0];
       if(lookup[cmd] && k === lookup[cmd]) {
-        //console.log('got lookup alias %s (%s)', section, cmd);
         section = lookup[cmd];
       }
-      //console.log('key: %s, cmd: %s', k, cmd);
-
-
       if(~ignore.indexOf(cmd)) continue;
       if(k === 'server' && !sections[cmd] && !lookup[cmd]) {
-        //console.log('add root');
         out.push(item);
       }else if(lookup[cmd] || k === cmd && sections[cmd]) {
-        //console.log('add cmd: %s', cmd)
         if(seen[section + ':' + item.req] && !item.duplicate) {
           exists = seen[section + ':' + item.req];
           exists.code = exists.code || [getCommand(exists)];

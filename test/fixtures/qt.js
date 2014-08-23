@@ -861,6 +861,22 @@ var qt = [
     ]
   },
   {
+    id: 'whoami',
+    description: 'Get user session',
+    api: [params.db, parameters.session],
+    method: methods.get,
+    doc: docs.auth + '#get--_session',
+    cmd: [
+      'whoami',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
     id: 'logout',
     description: 'Logout of authenticated session',
     api: [params.db, parameters.session],

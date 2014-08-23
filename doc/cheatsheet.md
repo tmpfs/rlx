@@ -454,6 +454,7 @@ Get user session:
 
 ```
 rlx session get -u {username} -p {password} -s {server}
+rlx whoami -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
