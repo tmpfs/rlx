@@ -3,14 +3,6 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
-var user = {
-  id: 'org.couchdb.user:mock-user',
-  name: 'Mock User',
-  password: 'secret',
-  roles: 'admin,user',
-  type: 'user'
-}
-
 describe('rlx:', function() {
   this.timeout(5000);
   it('should parse template file', function(done){
@@ -20,10 +12,10 @@ describe('rlx:', function() {
       'parse',
       '-t',
       'user/new',
-      '@id=' + user.id,
-      '@name=' + user.name,
-      '@password=' + user.password,
-      '@roles=' + user.roles,
+      '@id=' + config.user.id,
+      '@name=' + config.user.name,
+      '@password=' + config.user.pass,
+      '@roles=' + config.user.roles,
       '--no-color',
       '-o', mock
     ];
@@ -34,15 +26,15 @@ describe('rlx:', function() {
       expect(doc).to.be.an('object');
 
       expect(doc._id).to.be.a('string')
-        .to.eql(user.id);
+        .to.eql(config.user.id);
       expect(doc.name).to.be.a('string')
-        .to.eql(user.name);
+        .to.eql(config.user.name);
       expect(doc.password).to.be.a('string')
-        .to.eql(user.password);
+        .to.eql(config.user.pass);
       expect(doc.roles).to.be.an('array')
-        .to.eql(user.roles.split(','));
+        .to.eql(config.user.roles.split(','));
       expect(doc.type).to.be.a('string')
-        .to.eql(user.type);
+        .to.eql(config.user.type);
       done();
     })
     def.parse(args);

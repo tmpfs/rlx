@@ -27,7 +27,9 @@ var config = {
   user: {
     name: 'mock-user',
     pass: 'secret',
-    id: userdb.prefix + 'mock-user'
+    id: userdb.prefix + 'mock-user',
+    roles: 'admin,user',
+    type: 'user'
   },
   admin: {
     name: 'mock-admin',

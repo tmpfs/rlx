@@ -34,6 +34,46 @@ var docs = {
 
 var qt = [
 
+  // TEMPLATE
+  {
+    id: 'template/ls',
+    description: 'List templates',
+    api: null,
+    method: null,
+    cmd: [
+      'template',
+      'ls'
+    ]
+  },
+  {
+    id: 'template/get',
+    description: 'Get a template',
+    api: null,
+    method: null,
+    cmd: [
+      'template',
+      'get',
+      '-t',
+      'user/new'
+    ]
+  },
+  {
+    id: 'template/parse',
+    description: 'Parse a template',
+    api: null,
+    method: null,
+    cmd: [
+      'template',
+      'parse',
+      '-t',
+      'user/new',
+      '@id=' + config.user.id,
+      '@name=' + config.user.name,
+      '@password=' + config.user.pass,
+      '@roles=' + config.user.roles,
+    ]
+  },
+
   // SERVER
   {
     id: 'info',
@@ -665,7 +705,6 @@ var qt = [
     api: [params.db, parameters.session],
     method: methods.get,
     doc: docs.auth + '#get--_session',
-    //stdout: true,
     cmd: [
       'session',
       'get',
@@ -762,8 +801,10 @@ function update() {
   // set up documentation urls, hooks etc.
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
-    item.req = item.method + ' /' + item.api.join('/') + (item.extra || '');
-    item.url = api + '/' + item.doc
+    if(item.method && item.api && item.doc) {
+      item.req = item.method + ' /' + item.api.join('/') + (item.extra || '');
+      item.url = api + '/' + item.doc
+    }
     if(Array.isArray(item.before)) {
       hooks(item.before);
     }
