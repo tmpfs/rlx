@@ -30,15 +30,13 @@ npm run docs
 
 ### Manual
 
-To generate man pages run:
+To generate man pages run (requires [manpage][]):
 
 ```
 npm run manual
 ```
 
-Generated man pages are in the [man][man] directory.
-
-To dynamically generate man pages set `NODE_ENV` to `devel` and execute a help command:
+Generated man pages are in the [man][man] directory, to dynamically generate man pages set `NODE_ENV` to `devel` and execute the help command:
 
 ```
 NODE_ENV=devel ./bin/rlx help db
@@ -54,7 +52,7 @@ npm run readme
 
 ### Cheatsheet
 
-To generate the cheatsheet:
+To generate the cheatsheet (requires [mdp][]):
 
 ```
 npm run cheatsheet
