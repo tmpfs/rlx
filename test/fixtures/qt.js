@@ -45,7 +45,6 @@ var qt = [
     method: methods.put,
     doc: docs.document + '#put--db-docid',
     before: ['db/add'],
-    after: ['db/rm'],
     cmd: [
       'doc',
       'add',
@@ -55,6 +54,73 @@ var qt = [
       config.database.default,
       '-t',
       'document/new',
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/get',
+    description: 'Get a document',
+    api: [params.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'doc',
+      'get',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/ls',
+    description: 'List documents',
+    api: [params.db, parameters.dbs],
+    method: methods.get,
+    doc: docs.bulk + '#get--db-_all_docs',
+    cmd: [
+      'doc',
+      'ls',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+  {
+    id: 'doc/head',
+    description: 'Get document revision',
+    api: [params.db, parameters.dbs],
+    method: methods.head,
+    doc: docs.document + '#head--db-docid',
+    cmd: [
+      'doc',
+      'head',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/rm',
+    description: 'Remove a document',
+    api: [params.db, params.docid],
+    method: methods.delete,
+    doc: docs.document + '#delete--db-docid',
+    after: ['db/rm'],
+    cmd: [
+      'doc',
+      'rm',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
       '--id',
       config.document.id
     ]

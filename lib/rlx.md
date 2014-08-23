@@ -152,7 +152,7 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 * `add: add`: Create a document.
 * `get: get`: Get a document.
 * `rm: rm`: Remove a document.
-* `rev: rev`: Get a document revision.
+* `rev: rev, head`: Get a document revision.
 
 ### Level
 
