@@ -196,7 +196,7 @@ Documentation: [server/configuration#get-config-section-key](http://docs.couchdb
 
 ### PUT /_config/log/level
 
-Set server log level to none:
+Set server log level:
 
 ```
 rlx level none -s {server}
