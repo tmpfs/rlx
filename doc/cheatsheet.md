@@ -10,6 +10,8 @@ Table of Contents
     * [POST /_restart](#post-_restart)
     * [GET /_stats](#get-_stats)
     * [GET /_uuids](#get-_uuids)
+    * [POST /{db}/_session](#post-db_session)
+    * [DELETE /{db}/_session](#delete-db_session)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -47,9 +49,9 @@ Table of Contents
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
   * [Session](#session)
-    * [POST /{db}/_session](#post-db_session)
+    * [POST /{db}/_session](#post-db_session-1)
     * [GET /{db}/_session](#get-db_session)
-    * [DELETE /{db}/_session](#delete-db_session)
+    * [DELETE /{db}/_session](#delete-db_session-1)
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
@@ -129,6 +131,26 @@ rlx uuids -s {server}
 ```
 
 Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
+
+### POST /{db}/_session
+
+Login with cookie authentication:
+
+```
+rlx login -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
+
+### DELETE /{db}/_session
+
+Logout of authenticated session:
+
+```
+rlx logout -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
 
 ## Configuration
 

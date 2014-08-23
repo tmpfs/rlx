@@ -843,6 +843,40 @@ var qt = [
       config.server.default
     ]
   },
+  {
+    id: 'login',
+    description: 'Login with cookie authentication',
+    api: [params.db, parameters.session],
+    method: methods.post,
+    doc: docs.auth + '#post--_session',
+    before: ['admin/add'],
+    cmd: [
+      'login',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'logout',
+    description: 'Logout of authenticated session',
+    api: [params.db, parameters.session],
+    method: methods.delete,
+    doc: docs.auth + '#delete--_session',
+    after: ['admin/rm'],
+    cmd: [
+      'logout',
+      '-u',
+      config.admin.name,
+      '-p',
+      config.admin.pass,
+      '-s',
+      config.server.default
+    ]
+  },
 
 ]
 
