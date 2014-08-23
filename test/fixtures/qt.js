@@ -849,6 +849,7 @@ var qt = [
     api: [params.db, parameters.session],
     method: methods.post,
     doc: docs.auth + '#post--_session',
+    stdout: true,
     before: ['admin/add'],
     cmd: [
       'login',

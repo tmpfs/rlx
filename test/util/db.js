@@ -73,6 +73,45 @@ module.exports = function(config) {
         })
         def.parse(args);
       }
+    },
+    admin: {
+      add: function(done) {
+        var mock = config.file('mock-admin-add.json');
+        var args = [
+          'admin',
+          'add',
+          config.admin.name,
+          config.admin.pass,
+          '--no-color',
+          '-s=' + config.server.default,
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      },
+      rm: function(done) {
+        var mock = config.file('mock-admin-rm.json');
+        var args = [
+          'admin',
+          'rm',
+          config.admin.name,
+          '-u',
+          config.admin.name,
+          '-p',
+          config.admin.pass,
+          '--no-color',
+          '-s=' + config.server.default,
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      }
     }
   }
 }
