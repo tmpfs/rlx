@@ -98,7 +98,7 @@ var qt = [
     doc: docs.document + '#head--db-docid',
     cmd: [
       'doc',
-      'head',
+      'rev',
       '-s',
       config.server.default,
       '-d',

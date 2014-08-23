@@ -474,7 +474,7 @@ Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/a
 Create a document:
 
 ```
-rlx doc add -s {server} -d {db} -t {template} document/new --id {docid}
+rlx doc add -s {server} -d {db} -t {template} --id {docid}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
@@ -504,7 +504,7 @@ Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/la
 Get document revision:
 
 ```
-rlx doc head -s {server} -d {db} --id {docid}
+rlx doc rev -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#head-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#head--db-docid)

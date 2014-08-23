@@ -47,10 +47,10 @@ rules.push({src: config.conf.value, rep: qt.params.value});
 rules.push({src: config.admin.name, rep: qt.params.name});
 rules.push({src: config.admin.pass, rep: qt.params.pass});
 
-rules.push({src: /--file [^ ]+/, rep: '--file ' + qt.params.file});
+rules.push({src: /--file [^ ]+/gm, rep: '--file ' + qt.params.file});
 
 rules.push({src: config.document.id, rep: qt.params.docid});
-rules.push({src: /(-t|--template)/, rep: '$1 ' + qt.params.template});
+rules.push({src: /(-t|--template) ([^ ]*)/gm, rep: '$1 ' + qt.params.template});
 
 function replace(str) {
   var i, rule, re;
@@ -58,6 +58,7 @@ function replace(str) {
     rule = rules[i];
     re = (rule.src instanceof RegExp)
       ? rule.src : new RegExp(rule.src, 'g');
+    //console.log(rule.rep);
     str = str.replace(re, rule.rep);
   }
   return str;
