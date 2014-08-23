@@ -794,7 +794,6 @@ function update() {
     item = {
       id: 'level/' + lvl,
       description: 'Set server log level to ' + lvl,
-      extra: ' (' + lvl + ')',
       api: [
         parameters.config,
         cdb.config.log.name, cdb.config.log.keys.level],
