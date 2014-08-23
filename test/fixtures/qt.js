@@ -78,7 +78,7 @@ var qt = [
   {
     id: 'doc/ls',
     description: 'List documents',
-    api: [params.db, parameters.dbs],
+    api: [params.db, parameters.docs],
     method: methods.get,
     doc: docs.bulk + '#get--db-_all_docs',
     cmd: [

@@ -53,7 +53,7 @@ Table of Contents
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
-    * [GET /{db}/_all_dbs](#get-db_all_dbs)
+    * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
 
@@ -492,7 +492,7 @@ rlx doc get -s {server} -d {db} --id {docid}
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
-### GET /{db}/_all_dbs
+### GET /{db}/_all_docs
 
 List documents:
 
