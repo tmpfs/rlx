@@ -35,7 +35,6 @@
     "uuid": "^1.4.1"
   },
   "devDependencies": {
-    "cli-manpage": "~0.0.8",
     "mocha": "~1.17.1",
     "chai": "~1.9.0",
     "istanbul": "~0.2.6"

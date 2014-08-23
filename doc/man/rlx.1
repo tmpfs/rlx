@@ -1,16 +1,20 @@
-' rlx <command> [-h] [--color|--no-color] [--force] [--trace] [--debug]\n     [--info] [--warn] [--error] [-h|--help] [--version]\n     [-s|--server=<url>] [-d|--database=<name>] [-u|--username=<name>]\n     [-p|--password=<pass>] [-o|--output=<file>] [-f|--file=<file>]\n     [-j|--json=<json>] [-t|--template=<name>] [--id=<id>] [--rev=<rev>]\n     [--ddoc=<name>] [--feed=<type>] <args>'
-.TH "RLX" "1" "August 2014" "rlx 0.1.36" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.38" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
-.LT
- rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-trace] [\-\-debug]
-     [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
-     [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
-     [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
-     [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>]
-     [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
+.SP
+rlx <command> [\-h] [\-\-color|\-\-no\-color] [\-\-force] [\-\-trace] [\-\-debug]
+.br
+    [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help] [\-\-version]
+.br
+    [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-u|\-\-username=<name>]
+.br
+    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
+.br
+    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-id=<id>] [\-\-rev=<rev>]
+.br
+    [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -112,11 +116,15 @@ This program was originally implemented in bash shell script, see https://github
 Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non\-trivial and it needed to rely on external languages for JSON support.
 .PP
 The original implementation whilst almost feature complete was deprecated in
+.br
 favour of a pure javascript version. In addition the original implementation
+.br
 started from a pure interactive REPL perspective with a view to implementing
+.br
 non\-interactive support later \- it never happened.
 .PP
 For the javascript program an inverse approach is taken, the REPL is the last
+.br
 feature to be implemented.
 .SH "BUGS"
 .PP
