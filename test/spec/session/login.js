@@ -31,6 +31,7 @@ describe('rlx:', function() {
       expect(doc.ok).to.eql(true);
       expect(doc.userCtx).to.be.an('object');
       expect(doc.info).to.be.an('object');
+      console.dir(req.login);
       done();
     })
     def.parse(args);
