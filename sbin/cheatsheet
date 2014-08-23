@@ -57,7 +57,7 @@ function replace(str) {
   for(i = 0;i < rules.length;i++) {
     rule = rules[i];
     re = (rule.src instanceof RegExp)
-      ? rule.src : new RegExp(rule.src, 'g');
+      ? rule.src : new RegExp(rule.src, 'gm');
     //console.log(rule.rep);
     str = str.replace(re, rule.rep);
   }
