@@ -50,6 +50,7 @@ Table of Contents
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
     * [GET /{db}/{docid}?conflicts=true](#get-dbdocidconflictstrue)
+    * [GET /{db}/{docid}?deleted_conflicts=true](#get-dbdociddeleted_conflictstrue)
     * [GET /{db}/{docid}?revs=true](#get-dbdocidrevstrue)
     * [GET /{db}/{docid}?revsinfo=true](#get-dbdocidrevsinfotrue)
     * [GET /{db}/{docid}?meta=true](#get-dbdocidmetatrue)
@@ -473,6 +474,16 @@ Get a document with conflicts:
 
 ```
 rlx doc conflicts -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### GET /{db}/{docid}?deleted_conflicts=true
+
+Get a document with deleted conflicts:
+
+```
+rlx doc dc -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
