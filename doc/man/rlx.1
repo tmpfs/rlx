@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.59" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.61" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -122,7 +122,7 @@ Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR
 The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
 .BL
 .IP "\[ci]" 4
-Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fBPATH\fR.
+Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fB$PATH\fR.
 .IP "\[ci]" 4
 The \fBstdout\fR stream is not a \fBtty\fR (redirection).
 .IP "\[ci]" 4
@@ -132,7 +132,7 @@ The \fB\-\-no\-color\fR option is specified (disables all ANSI escape sequences)
 .IP "\[ci]" 4
 The rc file \fBhighlight\fR section is invalid (does not contain json and js objects).
 .IP "\[ci]" 4
-The output to print is neither JSON or javascript.
+The output to print is neither JSON or javascript (\-\-raw specified).
 .EL
 .SH "FILES"
 .PP

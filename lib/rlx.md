@@ -207,12 +207,12 @@ Enable logging of HTTP requests and responses by also specifiying `${opt_http_pi
 
 The program will attempt to syntax highlight JSON and javascript documents using either `source-highlight` or `pygmentize`. Document highlighting will not occur under the following conditions:
 
-* Neither `source-highlight` or `pygmentize` is in `PATH`.
+* Neither `source-highlight` or `pygmentize` is in `\$PATH`.
 * The `stdout` stream is not a `tty` (redirection).
 * The `${opt_output_pipe}` option is specified (output is a file).
 * The `${opt_color_no}` option is specified (disables all ANSI escape sequences).
 * The rc file `highlight` section is invalid (does not contain json and js objects).
-* The output to print is neither JSON or javascript.
+* The output to print is neither JSON or javascript (${opt_raw_long} specified).
 
 ## History
 
