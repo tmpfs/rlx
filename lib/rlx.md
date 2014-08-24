@@ -78,6 +78,7 @@ Commands for creating, deleting and modifying databases.
 * `get: get`: Get a document.
 * `rm: rm`: Remove a document.
 * `rev: rev, head`: Get a document revision.
+* `revsinfo: revsinfo`: Include revision information.
 
 ### Log
 

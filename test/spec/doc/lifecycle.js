@@ -98,14 +98,55 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  // TODO: implement shortcut command - revs
   it('should get document revs info', function(done){
     var mock = config.file('document-revs-info.json');
+    var args = [
+      'doc',
+      'revsinfo',
+      '-d=' + database,
+      '--id=' + config.document.id,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.doc.revsinfo(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should get document revs info (id query string)', function(done){
+    var mock = config.file('document-revs-info-query-string.json');
     var args = [
       'doc',
       'get',
       '-d=' + database,
       '--id=' + config.document.id + '?revs_info=true',
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.doc.revsinfo(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should get document revs info (query option)', function(done){
+    var mock = config.file('document-revs-info-query-option.json');
+    var args = [
+      'doc',
+      'get',
+      '-d=' + database,
+      '--id=' + config.document.id,
+      '--query',
+      'revs_info=true',
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock
