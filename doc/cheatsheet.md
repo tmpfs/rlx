@@ -459,6 +459,10 @@ Get a document:
 
 ```
 rlx doc get -s {server} -d {db} --id {docid}
+rlx doc revs -s {server} -d {db} --id {docid}
+rlx doc revs -s {server} -d {db} --id {docid}
+rlx doc revsinfo -s {server} -d {db} --id {docid}
+rlx doc meta -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)

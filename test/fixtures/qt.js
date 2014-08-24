@@ -166,6 +166,78 @@ var qt = [
     ]
   },
   {
+    id: 'doc/conflicts',
+    description: 'Get a document with conflicts',
+    api: [params.db, params.docid],
+    method: methods.get,
+    query: 'conflicts=true',
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'doc',
+      'conflicts',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/revs',
+    description: 'Get a document with revisions',
+    api: [params.db, params.docid],
+    method: methods.get,
+    query: 'revs=true',
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'doc',
+      'revs',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/revsinfo',
+    description: 'Get a document with revision information',
+    api: [params.db, params.docid],
+    method: methods.get,
+    query: 'revsinfo=true',
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'doc',
+      'revsinfo',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'doc/meta',
+    description: 'Get a document with meta information',
+    api: [params.db, params.docid],
+    method: methods.get,
+    query: 'meta=true',
+    doc: docs.document + '#get--db-docid',
+    cmd: [
+      'doc',
+      'meta',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
     id: 'doc/ls',
     description: 'List documents',
     api: [params.db, parameters.docs],
