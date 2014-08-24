@@ -39,7 +39,7 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
       // NOTE: a newline is added when the log does not end with a newline
-      // NOTE: so length may be bytes length exactly of bytes + 1
+      // NOTE: so length may be bytes length exactly or bytes + 1
       expect(doc).to.be.a('string').to.have.length.of.at.least(bytes);
       done();
     })
