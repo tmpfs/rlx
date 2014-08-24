@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var mock = require('../util/mock');
+var view = require('./view');
 
 function create(doc) {
   expect(doc).to.be.an('object');
@@ -8,6 +9,36 @@ function create(doc) {
   expect(doc.rev).to.be.a('string');
 }
 
+function get(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc._id).to.eql(mock.document.id);
+  for(var z in mock.document) {
+    if(z === 'id') continue;
+    expect(doc[z]).to.eql(mock.document[z]);
+  }
+}
+
+function rev(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.rev).to.be.a('string');
+  expect(doc.size).to.be.a('number');
+}
+
+function revsinfo(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc._revs_info).to.be.an('array');
+  expect(doc._revs_info.length).to.be.gt(0);
+  var revision = doc._revs_info[0];
+  expect(revision).to.be.an('object');
+  expect(revision.rev).to.be.a('string');
+  expect(revision.status).to.be.a('string');
+}
+
 module.exports = {
   create: create,
+  get: get,
+  rev: rev,
+  revsinfo: revsinfo,
+  rm: create,
+  list: view.result,
 }

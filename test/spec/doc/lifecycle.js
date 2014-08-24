@@ -1,4 +1,3 @@
-var expect = require('chai').expect;
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -53,10 +52,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc.total_rows).to.be.a('number');
-      expect(doc.offset).to.be.a('number');
-      expect(doc.rows).to.be.an('array');
-      expect(doc.rows.length).to.be.gt(0);
+      config.assert.doc.list(doc);
       done();
     })
     def.parse(args);
@@ -76,12 +72,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc._id).to.eql(config.document.id);
-      for(var z in config.document) {
-        if(z === 'id') continue;
-        expect(doc[z]).to.eql(config.document[z]);
-      }
+      config.assert.doc.get(doc);
       done();
     })
     def.parse(args);
@@ -101,9 +92,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.rev).to.be.a('string');
-      expect(doc.size).to.be.a('number');
+      config.assert.doc.rev(doc);
       done();
     })
     def.parse(args);
@@ -124,13 +113,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc._revs_info).to.be.an('array');
-      expect(doc._revs_info.length).to.be.gt(0);
-      var revision = doc._revs_info[0];
-      expect(revision).to.be.an('object');
-      expect(revision.rev).to.be.a('string');
-      expect(revision.status).to.be.a('string');
+      config.assert.doc.revsinfo(doc);
       done();
     })
     def.parse(args);
@@ -151,7 +134,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      assert(doc);
+      config.assert.doc.rm(doc);
       done();
     })
     def.parse(args);
