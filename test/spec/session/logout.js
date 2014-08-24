@@ -1,4 +1,3 @@
-var expect = require('chai').expect;
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -16,8 +15,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      config.assert.generic.ok(doc);
       done();
     })
     def.parse(args);

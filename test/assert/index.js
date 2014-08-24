@@ -8,4 +8,5 @@ module.exports = {
   db: require('./db'),
   level: require('./level'),
   log: require('./log'),
+  security: require('./security'),
 }

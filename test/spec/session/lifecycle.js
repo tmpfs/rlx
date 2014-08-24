@@ -17,10 +17,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
-      expect(doc.userCtx).to.be.an('object');
-      expect(doc.info).to.be.an('object');
+      config.assert.security.ctx(doc);
       done();
     })
     def.parse(args);
@@ -38,8 +35,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      config.assert.generic.ok(doc);
       done();
     })
     def.parse(args);
