@@ -3,4 +3,5 @@ module.exports = {
   generic: require('./generic'),
   admin: require('./admin'),
   server: require('./server'),
+  user: require('./user'),
 }

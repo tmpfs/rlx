@@ -4,6 +4,8 @@ var pkg = config.paths.pkg;
 var program = config.program;
 var database = config.database.default;
 
+var assert = config.assert.user.edit;
+
 describe('rlx:', function() {
   this.timeout(10000);
   before(function(done) {
@@ -33,10 +35,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
-      expect(doc.id).to.eql(config.user.id);
-      expect(doc.rev).to.be.a('string');
+      assert(doc, config.user.id);
       done();
     })
     def.parse(args);
