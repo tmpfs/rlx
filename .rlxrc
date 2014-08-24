@@ -10,7 +10,7 @@
     "max": 10
   },
   "highlight": {
-    "source-highlight": "-f esc -s json --style-file=\"%s\" --lang-def=\"%s\"",
+    "source-highlight": "-f esc -s json --style-file=%s --lang-def=%s",
     "pygmentize": "-l json"
   }
 }
