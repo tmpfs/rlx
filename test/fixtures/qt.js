@@ -37,6 +37,25 @@ var docs = {
 
 var qt = [
 
+  // VIEW
+  {
+    id: 'view/temp',
+    description: 'Execute a temporary view',
+    api: [params.db, parameters.temp],
+    method: methods.post,
+    doc: docs.temp + '#post--db-_temp_view',
+    before: ['db/add'],
+    after: ['db/rm'],
+    cmd: [
+      'view',
+      'temp',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default
+    ]
+  },
+
 
   // USER
   {
@@ -683,22 +702,7 @@ var qt = [
       config.database.default
     ]
   },
-  {
-    id: 'db/temp',
-    enabled: false,
-    description: 'Temporary view execution',
-    api: [params.db, parameters.temp],
-    method: methods.post,
-    doc: docs.temp + '#post--db-_temp_view',
-    cmd: [
-      'db',
-      'temp',
-      '-s',
-      config.server.default,
-      '-d',
-      config.database.default
-    ]
-  },
+
   {
     id: 'db/purge',
     enabled: false,
