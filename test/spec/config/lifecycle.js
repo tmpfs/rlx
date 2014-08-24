@@ -3,6 +3,8 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = config.assert.conf;
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should get config', function(done){
@@ -16,10 +18,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      var keys = Object.keys(doc);
-      expect(doc).to.be.an('object');
-      expect(keys).to.be.an('array');
-      expect(keys.length).to.be.a('number').gt(0);
+      assert.all(doc);
       done();
     })
     def.parse(args);
@@ -40,7 +39,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.a('string').to.eql("");
+      assert.set(doc);
       done();
     })
     def.parse(args);
@@ -59,9 +58,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc[config.conf.key]).to.be.a('string')
-        .to.eql(config.conf.value);
+      assert.section(doc);
       done();
     })
     def.parse(args);
@@ -80,8 +77,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.a('string')
-        .to.eql(config.conf.value);
+      assert.value(doc);
       done();
     })
     def.parse(args);
@@ -100,7 +96,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.a('string').to.eql(config.conf.value);
+      assert.rm(doc);
       done();
     })
     def.parse(args);
