@@ -25,7 +25,6 @@ var sections = {
   doc: 'Document',
   conf: 'Configuration',
   level: 'Log Level',
-  view: 'View',
 }
 
 // map these commands to different sections

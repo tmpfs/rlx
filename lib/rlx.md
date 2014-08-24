@@ -14,7 +14,6 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `database: database, db`: Manage databases.
 * `security: security, sec`: Get or set database security.
 * `document: document, doc`: Manage documents.
-* `view: view`: Manage database views.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 * `session: session, sess`: Session authentication.
@@ -65,6 +64,7 @@ If no subcommand is specified `ls` is invoked.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `rm: rm`: Remove a database.
+* `temp: temp`: Execute a temporary view.
 * `changes: changes`: Get database changes.
 * `commit: commit`: Ensure full commit.
 * `compact: compact`: Compact database.
@@ -90,16 +90,6 @@ If no subcommand is specified `ls` is invoked.
 * `revsinfo: revsinfo`: Get a document with revision information.
 * `conflicts: conflicts`: Get a document with conflicts information.
 * `dc: dc`: Get a document with deleted conflicts information.
-
-### View
-
-Commands for managing database views.
-
-If no subcommand is specified `temp` is invoked.
-
-#### Commands
-
-* `temp: temp`: Create and execute a temporary view.
 
 ### Log
 
