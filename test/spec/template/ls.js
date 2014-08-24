@@ -15,6 +15,7 @@ describe('rlx:', function() {
     var mock = config.file('template-ls.json');
     var args = [
       'tpl',
+      '--raw',
       '--no-color',
       '-o', mock
     ];
@@ -31,6 +32,7 @@ describe('rlx:', function() {
     var args = [
       'tpl',
       'ls',
+      '--raw',
       '--no-color',
       '-o', mock
     ];
