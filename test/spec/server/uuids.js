@@ -3,6 +3,8 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = config.assert.server.uuids;
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should retrieve uuids', function(done){
@@ -16,9 +18,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.uuids).to.be.an('array').of.length(1);
-      expect(doc.uuids[0]).to.be.a('string');
+      assert(doc);
       done();
     })
     def.parse(args);
@@ -36,8 +36,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.uuids).to.be.an('array').of.length(count);
+      assert(doc, count);
       done();
     })
     def.parse(args);

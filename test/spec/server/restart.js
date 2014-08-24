@@ -3,6 +3,8 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = config.assert.generic.ok;
+
 describe('rlx:', function() {
   this.timeout(10000);
   it('should restart server', function(done){
@@ -17,8 +19,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert(doc);
       done();
     })
     def.parse(args);

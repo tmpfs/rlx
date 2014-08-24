@@ -3,6 +3,8 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = config.assert.server.stats;
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should retrieve server statistics', function(done){
@@ -16,10 +18,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      var keys = Object.keys(doc);
-      expect(doc).to.be.an('object');
-      expect(keys).to.be.an('array');
-      expect(keys.length).to.be.gt(0);
+      assert(doc);
       done();
     })
     def.parse(args);

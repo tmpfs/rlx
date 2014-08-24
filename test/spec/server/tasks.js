@@ -3,6 +3,8 @@ var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
 
+var assert = config.assert.server.tasks;
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should retrieve active tasks', function(done){
@@ -16,7 +18,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('array').of.length(0);
+      assert(doc);
       done();
     })
     def.parse(args);

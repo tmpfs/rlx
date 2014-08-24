@@ -1,4 +1,6 @@
 module.exports = {
   error: require('./error'),
-  server: require('./server')
+  generic: require('./generic'),
+  admin: require('./admin'),
+  server: require('./server'),
 }
