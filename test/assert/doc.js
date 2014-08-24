@@ -24,6 +24,15 @@ function rev(doc) {
   expect(doc.size).to.be.a('number');
 }
 
+function revs(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc._revisions).to.be.an('object');
+  expect(doc._revisions.start).to.be.a('number')
+    .to.be.at.least(1);
+  expect(doc._revisions.ids)
+    .to.be.an('array').of.length.at.least(1);
+}
+
 function revsinfo(doc) {
   expect(doc).to.be.an('object');
   expect(doc._revs_info).to.be.an('array');
@@ -38,6 +47,7 @@ module.exports = {
   create: create,
   get: get,
   rev: rev,
+  revs: revs,
   revsinfo: revsinfo,
   rm: create,
   list: view.result,
