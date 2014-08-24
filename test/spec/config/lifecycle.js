@@ -24,53 +24,15 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should get config section', function(done){
-    var mock = config.file('server-config-section.json');
-    var args = [
-      'config',
-      'get',
-      'uuids',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
-    var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
-      var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.algorithm).to.be.a('string');
-      expect(doc.max_count).to.be.a('string');
-      done();
-    })
-    def.parse(args);
-  });
-  it('should get config section value', function(done){
-    var mock = config.file('server-config-section-value.json');
-    var args = [
-      'config',
-      'get',
-      'uuids',
-      'algorithm',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
-    var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
-      var doc = config.json(mock);
-      expect(doc).to.be.a('string');
-      done();
-    })
-    def.parse(args);
-  });
+
   it('should set config value', function(done){
     var mock = config.file('server-config-set-value.json');
     var args = [
       'config',
       'set',
-      'mock-section',
-      'mock-key',
-      'mock-value',
+      config.conf.section,
+      config.conf.key,
+      config.conf.value,
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock
@@ -83,13 +45,13 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should remove config value', function(done){
-    var mock = config.file('server-config-rm-value.json');
+
+  it('should get config section', function(done){
+    var mock = config.file('server-config-section.json');
     var args = [
       'config',
-      'rm',
-      'mock-section',
-      'mock-key',
+      'get',
+      config.conf.section,
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock
@@ -97,7 +59,48 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.a('string').to.eql("mock-value");
+      expect(doc).to.be.an('object');
+      expect(doc[config.conf.key]).to.be.a('string')
+        .to.eql(config.conf.value);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should get config section value', function(done){
+    var mock = config.file('server-config-section-value.json');
+    var args = [
+      'config',
+      'get',
+      config.conf.section,
+      config.conf.key,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.a('string')
+        .to.eql(config.conf.value);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should remove config value', function(done){
+    var mock = config.file('server-config-rm-value.json');
+    var args = [
+      'config',
+      'rm',
+      config.conf.section,
+      config.conf.key,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      expect(doc).to.be.a('string').to.eql(config.conf.value);
       done();
     })
     def.parse(args);

@@ -4,4 +4,5 @@ module.exports = {
   admin: require('./admin'),
   server: require('./server'),
   user: require('./user'),
+  conf: require('./conf'),
 }
