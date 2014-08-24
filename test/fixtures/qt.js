@@ -190,7 +190,6 @@ var qt = [
     method: methods.get,
     query: 'deleted_conflicts=true',
     doc: docs.document + '#get--db-docid',
-    stdout: true,
     cmd: [
       'doc',
       'dc',
