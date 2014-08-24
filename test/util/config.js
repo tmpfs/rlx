@@ -103,7 +103,8 @@ config.require = function(file) {
 config.db = require('./db')(config);
 
 // assertion helpers
-config.assert = require('./assert');
+//config.assert = require('./assert');
+config.assert = require('../assert');
 config.error = require('./error');
 
 /**

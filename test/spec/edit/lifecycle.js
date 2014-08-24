@@ -40,7 +40,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.info(doc);
+      config.assert.server.info(doc);
       done();
     })
     def.parse(args);
