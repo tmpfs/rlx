@@ -11,4 +11,5 @@ module.exports = {
   security: require('./security'),
   template: require('./template'),
   doc: require('./doc'),
+  view: require('./view'),
 }

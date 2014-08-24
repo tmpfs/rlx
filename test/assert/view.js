@@ -7,6 +7,12 @@ function result(doc) {
   expect(doc.rows.length).to.be.gt(0);
 }
 
+function temp(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.rows).to.be.an('array');
+}
+
 module.exports = {
   result: result,
+  temp: temp,
 }
