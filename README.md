@@ -40,7 +40,8 @@ Usage: rlx <command> [-ch] [--color|--no-color] [-c|--compress]
            [-p|--password=<pass>] [-o|--output=<file>]
            [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
-           [--ddoc=<name>] [--feed=<type>] <args>
+           [--ddoc=<name>] [-q|--query=<params...>] [--feed=<type>]
+           <args>
 
 Command line interface for couchdb.
 
@@ -74,7 +75,7 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
-     --id=[id]          Document identifier.
+     --rev=[rev]        Document revision.
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -u, --username=[name]  Authentication username.
@@ -85,9 +86,11 @@ Arguments:
  -t, --template=[name]  Name of a template file.
  -c, --compress         Compact JSON output format (zero indent).
      --force            Force file overwrite.
+     --id=[id]          Document identifier.
  -s, --server=[url]     Database server.
-     --rev=[rev]        Document revision.
      --ddoc=[name]      Design document id.
+ -q, --query=[params...]
+                        Query string parameters.
      --feed=[type]      Poll feed type.
      --http             Enable HTTP logs.
      --trace            Set log level to trace.

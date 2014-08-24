@@ -55,6 +55,8 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 Commands for creating, deleting and modifying databases.
 
+If no subcommand is specified `ls` is invoked.
+
 #### Commands
 
 * `ls: ls`: List databases.
@@ -70,6 +72,10 @@ Commands for creating, deleting and modifying databases.
 * `limit: limit`: Get or set revisions limit.
 
 ### Document
+
+Commands for creating, deleting, retrieving and modifying documents.
+
+If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
@@ -94,6 +100,8 @@ Commands for creating, deleting and modifying databases.
 
 ### Config
 
+If no subcommand is specified `get` is invoked.
+
 #### Commands
 
 * `get: get`: Get server configuration.
@@ -108,6 +116,8 @@ Commands for creating, deleting and modifying databases.
 
 ### Session
 
+If no subcommand is specified `get` is invoked.
+
 #### Commands
 
 * `get: get`: Get session authentication.
@@ -117,6 +127,8 @@ Commands for creating, deleting and modifying databases.
 ### Admin
 
 #### Description
+
+If no subcommand is specified `ls` is invoked.
 
 To add an administrator specify a username and password after the `add` command:
 
@@ -133,6 +145,8 @@ $0 admin add <username> <password>
 
 ### Security
 
+If no subcommand is specified `get` is invoked.
+
 #### Description
 
 The `security` commands modify the security document for a database. The `rm` subcommand is a slight misnomer as the document is not actually removed, it is shorthand for setting the security document to the empty object (`{}`) which removes all database level security.
@@ -147,6 +161,8 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 ### Template
 
+If no subcommand is specified `ls` is invoked.
+
 #### Commands
 
 * `ls: ls`: List templates.
@@ -154,6 +170,8 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 * `parse: parse`: Parse template file and print result.
 
 ### User
+
+If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
@@ -165,6 +183,8 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 * `passwd: passwd`: Set an existing user password.
 
 ### Level
+
+If no subcommand is specified `get` is invoked.
 
 #### Commands
 
