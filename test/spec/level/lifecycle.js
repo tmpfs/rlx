@@ -4,6 +4,7 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 var levels = require('cdb').log.levels;
+var assert = config.assert.level;
 
 describe('rlx:', function() {
   this.timeout(5000);
@@ -18,8 +19,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string');
+      assert.get(doc);
       done();
     })
     def.parse(args);
@@ -37,9 +37,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string').to.eql(levels.warn);
-      expect(doc.previous).to.be.a('string');
+      assert.set(doc, levels.warn);
       done();
     })
     def.parse(args);
@@ -57,9 +55,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string').to.eql(levels.error);
-      expect(doc.previous).to.be.a('string');
+      assert.set(doc, levels.error);
       done();
     })
     def.parse(args);
@@ -77,9 +73,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string').to.eql(levels.none);
-      expect(doc.previous).to.be.a('string');
+      assert.set(doc, levels.none);
       done();
     })
     def.parse(args);
@@ -97,9 +91,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string').to.eql(levels.debug);
-      expect(doc.previous).to.be.a('string');
+      assert.set(doc, levels.debug);
       done();
     })
     def.parse(args);
@@ -117,9 +109,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.level).to.be.a('string').to.eql(levels.info);
-      expect(doc.previous).to.be.a('string');
+      assert.set(doc, levels.info);
       done();
     })
     def.parse(args);

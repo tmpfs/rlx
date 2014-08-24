@@ -6,4 +6,5 @@ module.exports = {
   user: require('./user'),
   conf: require('./conf'),
   db: require('./db'),
+  level: require('./level'),
 }
