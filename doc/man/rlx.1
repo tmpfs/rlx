@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.58" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.59" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -117,6 +117,23 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
 .PP
 Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
+.SH "HIGHLIGHT"
+.PP
+The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
+.BL
+.IP "\[ci]" 4
+Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fBPATH\fR.
+.IP "\[ci]" 4
+The \fBstdout\fR stream is not a \fBtty\fR (redirection).
+.IP "\[ci]" 4
+The \fB\-o | \-\-output\fR option is specified (output is a file).
+.IP "\[ci]" 4
+The \fB\-\-no\-color\fR option is specified (disables all ANSI escape sequences).
+.IP "\[ci]" 4
+The rc file \fBhighlight\fR section is invalid (does not contain json and js objects).
+.IP "\[ci]" 4
+The output to print is neither JSON or javascript.
+.EL
 .SH "FILES"
 .PP
 Input files are read with the following precedence: \fBstdin\fR, \fB\-\-json\fR and \fB\-\-file\fR. 

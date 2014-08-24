@@ -203,6 +203,17 @@ All log output is sent to `stderr`, response documents are printed to `stdout`. 
 
 Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is `debug` then query string parameters will also be logged, if the `trace` level is specified then request and response headers are also printed.
 
+## Highlight
+
+The program will attempt to syntax highlight JSON and javascript documents using either `source-highlight` or `pygmentize`. Document highlighting will not occur under the following conditions:
+
+* Neither `source-highlight` or `pygmentize` is in `PATH`.
+* The `stdout` stream is not a `tty` (redirection).
+* The `${opt_output_pipe}` option is specified (output is a file).
+* The `${opt_color_no}` option is specified (disables all ANSI escape sequences).
+* The rc file `highlight` section is invalid (does not contain json and js objects).
+* The output to print is neither JSON or javascript.
+
 ## History
 
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx-shell.
