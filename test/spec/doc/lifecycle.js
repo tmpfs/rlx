@@ -98,6 +98,27 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should get document meta', function(done){
+    var mock = config.file('document-meta.json');
+    var args = [
+      'doc',
+      'meta',
+      '-d=' + database,
+      '--id=' + config.document.id,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      // NOTE: should at least have revs info
+      config.assert.doc.revsinfo(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should get document conflicts', function(done){
     var mock = config.file('document-conflicts.json');
     var args = [
