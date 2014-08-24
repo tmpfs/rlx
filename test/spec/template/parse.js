@@ -1,4 +1,3 @@
-var expect = require('chai').expect;
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -22,19 +21,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
-      expect(doc).to.be.an('object');
-
-      expect(doc._id).to.be.a('string')
-        .to.eql(config.user.id);
-      expect(doc.name).to.be.a('string')
-        .to.eql(config.user.name);
-      expect(doc.password).to.be.a('string')
-        .to.eql(config.user.pass);
-      expect(doc.roles).to.be.an('array')
-        .to.eql(config.user.roles.split(','));
-      expect(doc.type).to.be.a('string')
-        .to.eql(config.user.type);
+      config.assert.template.parse(doc);
       done();
     })
     def.parse(args);

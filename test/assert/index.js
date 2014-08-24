@@ -9,4 +9,6 @@ module.exports = {
   level: require('./level'),
   log: require('./log'),
   security: require('./security'),
+  template: require('./template'),
+  doc: require('./doc'),
 }
