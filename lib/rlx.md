@@ -57,7 +57,7 @@ Commands for creating, deleting and modifying databases.
 
 #### Commands
 
-* `list: ls`: List databases.
+* `ls: ls`: List databases.
 * `info: info, meta`: Get database information.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
