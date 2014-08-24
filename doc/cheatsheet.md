@@ -83,6 +83,8 @@ rlx info -s {server}
 ```
 
 Documentation: [server/common#get](http://docs.couchdb.org/en/latest/api/server/common.html#get--)
+Manual: `rlx help info`
+Help: `rlx --help info`
 
 ### GET /_active_tasks
 
@@ -93,6 +95,8 @@ rlx tasks -s {server}
 ```
 
 Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
+Manual: `rlx help tasks`
+Help: `rlx --help tasks`
 
 ### GET /_log
 
@@ -103,12 +107,16 @@ rlx log -s {server}
 ```
 
 Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
+Manual: `rlx help log`
+Help: `rlx --help log`
 
 ### ~~POST /_replicate~~
 
 Replicate a database.
 
 Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
+Manual: `rlx help repl`
+Help: `rlx --help repl`
 
 ### POST /_restart
 
@@ -119,6 +127,8 @@ rlx restart -s {server}
 ```
 
 Documentation: [server/common#post-restart](http://docs.couchdb.org/en/latest/api/server/common.html#post--_restart)
+Manual: `rlx help restart`
+Help: `rlx --help restart`
 
 ### GET /_stats
 
@@ -129,6 +139,8 @@ rlx stats -s {server}
 ```
 
 Documentation: [server/common#get-stats](http://docs.couchdb.org/en/latest/api/server/common.html#get--_stats)
+Manual: `rlx help stats`
+Help: `rlx --help stats`
 
 ### GET /_uuids
 
@@ -139,6 +151,8 @@ rlx uuids -s {server}
 ```
 
 Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
+Manual: `rlx help uuids`
+Help: `rlx --help uuids`
 
 ## Administrator
 
@@ -151,6 +165,8 @@ rlx admin add {username} {password} -s {server}
 ```
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Manual: `rlx help admin`
+Help: `rlx --help admin`
 
 ### GET /_config/admins
 
@@ -161,6 +177,8 @@ rlx admin ls -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+Manual: `rlx help admin`
+Help: `rlx --help admin`
 
 ### GET /_config/admins/{key}
 
@@ -171,6 +189,8 @@ rlx admin get {username} -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+Manual: `rlx help admin`
+Help: `rlx --help admin`
 
 ### DELETE /_config/admins/{key}
 
@@ -181,6 +201,8 @@ rlx admin rm {username} -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+Manual: `rlx help admin`
+Help: `rlx --help admin`
 
 ## User
 
@@ -195,6 +217,8 @@ rlx user passwd -s {server} @name={username} @password={password}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
+Manual: `rlx help user`
+Help: `rlx --help user`
 
 ### GET /_users/_all_docs
 
@@ -205,6 +229,8 @@ rlx user ls -s {server}
 ```
 
 Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+Manual: `rlx help user`
+Help: `rlx --help user`
 
 ### GET /_users/{docid}
 
@@ -215,6 +241,8 @@ rlx user get -s {server} @name={username}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help user`
+Help: `rlx --help user`
 
 ### DELETE /_users/{docid}
 
@@ -225,6 +253,8 @@ rlx user rm -s {server} @name={username}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+Manual: `rlx help user`
+Help: `rlx --help user`
 
 ## Session
 
@@ -238,6 +268,8 @@ rlx login -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
+Manual: `rlx help session`
+Help: `rlx --help session`
 
 ### GET /{db}/_session
 
@@ -249,6 +281,8 @@ rlx whoami -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
+Manual: `rlx help session`
+Help: `rlx --help session`
 
 ### DELETE /{db}/_session
 
@@ -260,6 +294,8 @@ rlx logout -u {username} -p {password} -s {server}
 ```
 
 Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
+Manual: `rlx help session`
+Help: `rlx --help session`
 
 ## Database
 
@@ -272,6 +308,8 @@ rlx db add -s {server} -d {db}
 ```
 
 Documentation: [database/common#put-db](http://docs.couchdb.org/en/latest/api/database/common.html#put--db)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### GET /_all_dbs
 
@@ -282,36 +320,48 @@ rlx db ls -s {server}
 ```
 
 Documentation: [server/common#all-dbs](http://docs.couchdb.org/en/latest/api/server/common.html#all-dbs)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### ~~POST /{db}/_bulk_docs~~
 
 Bulk document modifications.
 
 Documentation: [database/bulk-api#post-db-bulk-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#post--db-_bulk_docs)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### ~~POST /{db}/_temp_view~~
 
 Temporary view execution.
 
 Documentation: [database/temp-views#post-db-temp-view](http://docs.couchdb.org/en/latest/api/database/temp-views.html#post--db-_temp_view)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### ~~POST /{db}/_purge~~
 
 Purge documents.
 
 Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### ~~POST /{db}/_missing_revs~~
 
 Find document revisions that do not exist.
 
 Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### ~~POST /{db}/_revs_diff~~
 
 Get document revision diff.
 
 Documentation: [database/misc#post-db-revs-diff](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### GET /{db}/_changes
 
@@ -322,6 +372,8 @@ rlx db changes -s {server} -d {db}
 ```
 
 Documentation: [database/changes#get-db-changes](http://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### POST /{db}/_view_cleanup
 
@@ -332,6 +384,8 @@ rlx db cleanup -s {server} -d {db}
 ```
 
 Documentation: [database/compact#post-db-view-cleanup](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_view_cleanup)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### POST /{db}/_ensure_full_commit
 
@@ -342,6 +396,8 @@ rlx db commit -s {server} -d {db}
 ```
 
 Documentation: [database/compact#post-db-ensure-full-commit](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_ensure_full_commit)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### POST /{db}/_compact
 
@@ -352,6 +408,8 @@ rlx db compact -s {server} -d {db}
 ```
 
 Documentation: [database/compact#post-db-compact](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### POST /{db}/_compact/{ddoc}
 
@@ -362,6 +420,8 @@ rlx db compact -s {server} -d {db} --ddoc {ddoc}
 ```
 
 Documentation: [database/compact#post-db-compact-ddoc](http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact-ddoc)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### HEAD /{db}
 
@@ -372,6 +432,8 @@ rlx db exists -s {server} -d {db}
 ```
 
 Documentation: [database/common#head-db](http://docs.couchdb.org/en/latest/api/database/common.html#head--db)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### GET /{db}
 
@@ -382,6 +444,8 @@ rlx db info -s {server} -d {db}
 ```
 
 Documentation: [database/common#get-db](http://docs.couchdb.org/en/latest/api/database/common.html#get--db)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### GET /{db}/_revs_limit
 
@@ -392,6 +456,8 @@ rlx db limit -s {server} -d {db}
 ```
 
 Documentation: [database/misc#get-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/misc.html#get--db-_revs_limit)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### PUT /{db}/_revs_limit
 
@@ -402,6 +468,8 @@ rlx db limit -s {server} -d {db} 1000
 ```
 
 Documentation: [database/misc#put-db-revs-limit](http://docs.couchdb.org/en/latest/api/database/misc.html#put--db-_revs_limit)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### DELETE /{db}
 
@@ -412,6 +480,8 @@ rlx db rm -s {server} -d {db}
 ```
 
 Documentation: [database/common#delete-db](http://docs.couchdb.org/en/latest/api/database/common.html#delete--db)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ### GET /_db_updates
 
@@ -422,6 +492,8 @@ rlx db updates -s {server} --feed longpoll
 ```
 
 Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
+Manual: `rlx help db`
+Help: `rlx --help db`
 
 ## Security
 
@@ -435,6 +507,8 @@ rlx security rm -s {server} -d {db}
 ```
 
 Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
+Manual: `rlx help security`
+Help: `rlx --help security`
 
 ### GET /{db}/_security
 
@@ -445,6 +519,8 @@ rlx security get -s {server} -d {db}
 ```
 
 Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
+Manual: `rlx help security`
+Help: `rlx --help security`
 
 ## Document
 
@@ -457,6 +533,8 @@ rlx doc add -s {server} -d {db} -t {template} --id {docid}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}
 
@@ -467,6 +545,8 @@ rlx doc get -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}?conflicts=true
 
@@ -477,6 +557,8 @@ rlx doc conflicts -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}?deleted_conflicts=true
 
@@ -487,6 +569,8 @@ rlx doc dc -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}?revs=true
 
@@ -497,6 +581,8 @@ rlx doc revs -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}?revsinfo=true
 
@@ -507,6 +593,8 @@ rlx doc revsinfo -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/{docid}?meta=true
 
@@ -517,6 +605,8 @@ rlx doc meta -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### GET /{db}/_all_docs
 
@@ -527,6 +617,8 @@ rlx doc ls -s {server} -d {db}
 ```
 
 Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### HEAD /{db}/{docid}
 
@@ -538,6 +630,8 @@ rlx doc rev -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#head-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#head--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ### DELETE /{db}/{docid}
 
@@ -548,6 +642,8 @@ rlx doc rm -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+Manual: `rlx help doc`
+Help: `rlx --help doc`
 
 ## Configuration
 
@@ -560,6 +656,8 @@ rlx conf set {section} {key} {value} -s {server}
 ```
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Manual: `rlx help conf`
+Help: `rlx --help conf`
 
 ### GET /_config
 
@@ -570,6 +668,8 @@ rlx conf -s {server}
 ```
 
 Documentation: [server/configuration#get-config](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config)
+Manual: `rlx help conf`
+Help: `rlx --help conf`
 
 ### GET /_config/{section}
 
@@ -580,6 +680,8 @@ rlx conf get {section} -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+Manual: `rlx help conf`
+Help: `rlx --help conf`
 
 ### GET /_config/{section}/{key}
 
@@ -590,6 +692,8 @@ rlx conf get {section} {key} -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+Manual: `rlx help conf`
+Help: `rlx --help conf`
 
 ### DELETE /_config/{section}/{key}
 
@@ -600,6 +704,8 @@ rlx conf rm {section} {key} -s {server}
 ```
 
 Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+Manual: `rlx help conf`
+Help: `rlx --help conf`
 
 ## Log Level
 
@@ -612,6 +718,8 @@ rlx level -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+Manual: `rlx help level`
+Help: `rlx --help level`
 
 ### PUT /_config/log/level
 
@@ -626,6 +734,8 @@ rlx level info -s {server}
 ```
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Manual: `rlx help level`
+Help: `rlx --help level`
 
 Generated by [mdp(1)](https://github.com/freeformsystems/mdp).
 
