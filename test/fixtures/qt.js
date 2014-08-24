@@ -1125,7 +1125,8 @@ function update() {
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
     if(item.method && item.api && item.doc) {
-      item.req = item.method + ' /' + item.api.join('/');
+      item.req = item.method + ' /' + item.api.join('/')
+        + (item.query ? '?' + item.query : '');
       item.url = api + '/' + item.doc
     }
     if(Array.isArray(item.before)) {

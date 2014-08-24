@@ -49,6 +49,10 @@ Table of Contents
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
+    * [GET /{db}/{docid}?conflicts=true](#get-dbdocidconflictstrue)
+    * [GET /{db}/{docid}?revs=true](#get-dbdocidrevstrue)
+    * [GET /{db}/{docid}?revsinfo=true](#get-dbdocidrevsinfotrue)
+    * [GET /{db}/{docid}?meta=true](#get-dbdocidmetatrue)
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
@@ -459,9 +463,45 @@ Get a document:
 
 ```
 rlx doc get -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### GET /{db}/{docid}?conflicts=true
+
+Get a document with conflicts:
+
+```
+rlx doc conflicts -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### GET /{db}/{docid}?revs=true
+
+Get a document with revisions:
+
+```
 rlx doc revs -s {server} -d {db} --id {docid}
-rlx doc revs -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### GET /{db}/{docid}?revsinfo=true
+
+Get a document with revision information:
+
+```
 rlx doc revsinfo -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### GET /{db}/{docid}?meta=true
+
+Get a document with meta information:
+
+```
 rlx doc meta -s {server} -d {db} --id {docid}
 ```
 
