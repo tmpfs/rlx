@@ -9,12 +9,17 @@ function object(doc) {
   expect(doc).to.be.an('object');
 }
 
+function equal(doc, expected) {
+  expect(doc).to.be.an('object').to.eql(expected);
+}
+
 function empty(doc) {
-  expect(doc).to.be.an('object').to.eql({});
+  equal(doc, {});
 }
 
 module.exports = {
   ok: ok,
   object: object,
   empty: empty,
+  equal: equal,
 }

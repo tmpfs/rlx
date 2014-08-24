@@ -32,7 +32,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object').to.eql(require(pkg));
+      config.assert.generic.equal(doc, require(pkg));
       done();
     })
     def.parse(args);
