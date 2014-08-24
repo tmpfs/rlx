@@ -145,12 +145,12 @@ function build(qt) {
       str += '```' + EOL
         + (item.code ? item.code.join(EOL) : cmds) + EOL + '```' + DNL;
     }
-    str += 'Documentation: '
-      + util.format('[%s](%s)', tidy(item.doc), item.url) + EOL;
-    str += 'Manual: '
+    str += '* Manual: '
       + util.format('`%s %s %s`', exe, 'help', item.cmd[0]) + EOL;
-    str += 'Help: '
-      + util.format('`%s %s %s`', exe, '--help', item.cmd[0]) + DNL;
+    str += '* Help: '
+      + util.format('`%s %s %s`', exe, '--help', item.cmd[0]) + EOL;
+    str += '* Documentation: '
+      + util.format('[%s](%s)', tidy(item.doc), item.url) + DNL;
   }
   return str;
 }
