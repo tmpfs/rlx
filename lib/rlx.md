@@ -182,7 +182,9 @@ Upon success (202 status code) by default this command will poll the server wait
 
 ## Log
 
-All log output is sent to `stderr`, response documents are printed to `stdout`.
+All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
+
+Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is `debug` then query string parameters will also be logged, if the `trace` level is specified then request and response headers are also printed.
 
 ## History
 
@@ -190,10 +192,6 @@ This program was originally implemented in bash shell script, see https://github
 
 Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non-trivial and it needed to rely on external languages for JSON support.
 
-The original implementation whilst almost feature complete was deprecated in
-favour of a pure javascript version. In addition the original implementation
-started from a pure interactive REPL perspective with a view to implementing
-non-interactive support later - it never happened.
+The original implementation whilst almost feature complete was deprecated in favour of a pure javascript version. In addition the original implementation started from a pure interactive REPL perspective with a view to implementing non-interactive support later - it never happened.
 
-For the javascript program an inverse approach is taken, the REPL is the last
-feature to be implemented.
+For the javascript program an inverse approach is taken, the REPL is the last feature to be implemented.

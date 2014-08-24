@@ -114,24 +114,18 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .EL
 .SH "LOG"
 .PP
-All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR.
+All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
+.PP
+Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.
 .PP
 Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non\-trivial and it needed to rely on external languages for JSON support.
 .PP
-The original implementation whilst almost feature complete was deprecated in
-.br
-favour of a pure javascript version. In addition the original implementation
-.br
-started from a pure interactive REPL perspective with a view to implementing
-.br
-non\-interactive support later \- it never happened.
+The original implementation whilst almost feature complete was deprecated in favour of a pure javascript version. In addition the original implementation started from a pure interactive REPL perspective with a view to implementing non\-interactive support later \- it never happened.
 .PP
-For the javascript program an inverse approach is taken, the REPL is the last
-.br
-feature to be implemented.
+For the javascript program an inverse approach is taken, the REPL is the last feature to be implemented.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
