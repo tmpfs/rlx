@@ -77,11 +77,12 @@ Commands for creating, deleting and modifying databases.
 * `add: add`: Create a document.
 * `get: get`: Get a document.
 * `rm: rm`: Remove a document.
+* `rev: rev, head`: Get a document revision.
 * `revs: revs`: Get a document with all known revisions.
 * `meta: meta`: Get a document with meta information.
-* `conflicts: conflicts`: Get a document with conflicts information.
 * `revsinfo: revsinfo`: Get a document with revision information.
-* `rev: rev, head`: Get a document revision.
+* `conflicts: conflicts`: Get a document with conflicts information.
+* `dc: dc`: Get a document with deleted conflicts information.
 
 ### Log
 

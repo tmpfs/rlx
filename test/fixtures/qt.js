@@ -184,6 +184,25 @@ var qt = [
     ]
   },
   {
+    id: 'doc/dc',
+    description: 'Get a document with deleted conflicts',
+    api: [params.db, params.docid],
+    method: methods.get,
+    query: 'deleted_conflicts=true',
+    doc: docs.document + '#get--db-docid',
+    stdout: true,
+    cmd: [
+      'doc',
+      'dc',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
     id: 'doc/revs',
     description: 'Get a document with revisions',
     api: [params.db, params.docid],
