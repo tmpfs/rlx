@@ -4,6 +4,8 @@ var pkg = config.paths.pkg;
 var program = config.program;
 var database = config.database.default;
 
+var assert = config.assert.db;
+
 describe('rlx:', function() {
   this.timeout(5000);
   it('should create database', function(done){
@@ -19,8 +21,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.add(doc);
       done();
     })
     def.parse(args);
@@ -39,8 +40,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.exists(doc);
       done();
     })
     def.parse(args);
@@ -59,8 +59,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.db_name).to.eql(database);
+      assert.info(doc, database);
       done();
     })
     def.parse(args);
@@ -79,8 +78,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc.results).to.be.an('array');
-      expect(doc.last_seq).to.be.a('number');
+      assert.changes(doc);
       done();
     })
     def.parse(args);
@@ -99,9 +97,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      // NOTE: this is a string, but really couch should return a number
-      expect(doc.instance_start_time).to.be.a('string');
+      assert.commit(doc);
       done();
     })
     def.parse(args);
@@ -120,8 +116,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.compact(doc);
       done();
     })
     def.parse(args);
@@ -141,8 +136,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.compact(doc);
       done();
     })
     def.parse(args);
@@ -161,8 +155,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.cleanup(doc);
       done();
     })
     def.parse(args);
@@ -181,7 +174,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.a('number');
+      assert.getlimit(doc);
       done();
     })
     def.parse(args);
@@ -201,8 +194,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.setlimit(doc);
       done();
     })
     def.parse(args);
@@ -221,8 +213,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      expect(doc).to.be.an('object');
-      expect(doc.ok).to.eql(true);
+      assert.rm(doc);
       done();
     })
     def.parse(args);

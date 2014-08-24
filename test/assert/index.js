@@ -5,4 +5,5 @@ module.exports = {
   server: require('./server'),
   user: require('./user'),
   conf: require('./conf'),
+  db: require('./db'),
 }
