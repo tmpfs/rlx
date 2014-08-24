@@ -17,9 +17,14 @@ function empty(doc) {
   equal(doc, {});
 }
 
+function string(doc) {
+  expect(doc).to.be.a('string');
+}
+
 module.exports = {
   ok: ok,
   object: object,
   empty: empty,
   equal: equal,
+  string: string,
 }

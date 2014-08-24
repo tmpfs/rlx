@@ -7,4 +7,5 @@ module.exports = {
   conf: require('./conf'),
   db: require('./db'),
   level: require('./level'),
+  log: require('./log'),
 }
