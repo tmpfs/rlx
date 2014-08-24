@@ -117,6 +117,24 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
 .PP
 Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
+.SH "FILES"
+.PP
+Input files are read with the following precedence: \fBstdin\fR, \fB\-\-json\fR and \fB\-\-file\fR. 
+.PP
+To read from \fBstdin\fR the special option (\-) must be specified, if data is written to \fBstdin\fR it must be a JSON document or an error is reported. When the \fB\-\-json\fR option is specified it must be a valid JSON string literal, be sure to enclose in quotes to prevent shell errors.
+.PP
+If both the \fB\-\-json\fR and \fB\-\-file\fR options are specified the JSON literal is preferred.
+.PP
+Files specified using the \fB\-\-file\fR option may be a file system path or URL. Relative paths are resolved according to the current working directory. For example:
+
+.SP
+rlx lint \-f package.json
+.br
+rlx lint \-f http://registry.npmjs.org
+.br
+rlx lint \-j '{}'
+.br
+cat package.json | rlx \- lint
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.

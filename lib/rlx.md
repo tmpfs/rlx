@@ -180,6 +180,23 @@ Upon success (202 status code) by default this command will poll the server wait
 
 <!--- custom sections -->
 
+## Files
+
+Input files are read with the following precedence: `stdin`, `${opt_json_long}` and `${opt_file_long}`. 
+
+To read from `stdin` the special option (-) must be specified, if data is written to `stdin` it must be a JSON document or an error is reported. When the `${opt_json_long}` option is specified it must be a valid JSON string literal, be sure to enclose in quotes to prevent shell errors.
+
+If both the `${opt_json_long}` and `${opt_file_long}` options are specified the JSON literal is preferred.
+
+Files specified using the `${opt_file_long}` option may be a file system path or URL. Relative paths are resolved according to the current working directory. For example:
+
+```
+$0 ${cmd_lint_long} ${opt_file_short} package.json
+$0 ${cmd_lint_long} ${opt_file_short} http://registry.npmjs.org
+$0 ${cmd_lint_long} ${opt_json_short} '{}'
+cat package.json | $0 - ${cmd_lint_long}
+```
+
 ## Log
 
 All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
