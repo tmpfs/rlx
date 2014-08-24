@@ -163,5 +163,10 @@
     "key": "EREV",
     "description": "Document revision not specified",
     "message": "document revision is required (%s)"
+  },
+  {
+    "key": "ESTDIN_JSON_PARSE",
+    "description": "Could not parse stdin input as json",
+    "message": "stdin input is not valid json"
   }
 ]
