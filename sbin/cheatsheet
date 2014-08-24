@@ -89,7 +89,8 @@ function order() {
   for(i = 0;i < keys.length;i++) {
     k = keys[i];
     section = sections[k];
-    out.push(sections[k] + DNL);
+    section.cmd = k;
+    out.push({title: section, cmd: k === 'server' ? '' : k});
     for(j = 0;j < qt.length;j++) {
       item = qt[j];
       cmd = item.cmd[0];
@@ -127,8 +128,12 @@ function build(qt) {
   var i, item, cmds, cmd, pre, post, disabled;
   for(i = 0;i < qt.length;i++) {
     item = qt[i];
-    if(typeof item === 'string') {
-      str += '## ' + item;
+    if(typeof item.title === 'string') {
+      str += '## ' + item.title + DNL;
+      str += '* Manual: '
+        + util.format('`%s %s %s`', exe, 'help', item.cmd) + EOL;
+      str += '* Help: '
+        + util.format('`%s %s %s`', exe, '--help', item.cmd) + DNL;
       continue;
     }else if(item.duplicate) {
       continue;
@@ -145,9 +150,7 @@ function build(qt) {
       str += '```' + EOL
         + (item.code ? item.code.join(EOL) : cmds) + EOL + '```' + DNL;
     }
-    str += '* Manual: '
-      + util.format('`%s %s %s`', exe, 'help', item.cmd[0]) + EOL;
-    str += '* Documentation: '
+    str += 'Documentation: '
       + util.format('[%s](%s)', tidy(item.doc), item.url) + DNL;
   }
   return str;
