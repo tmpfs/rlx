@@ -69,6 +69,16 @@ Commands for creating, deleting and modifying databases.
 * `updates: updates`: Poll for database updates.
 * `limit: limit`: Get or set revisions limit.
 
+### Document
+
+#### Commands
+
+* `ls: ls`: List documents.
+* `add: add`: Create a document.
+* `get: get`: Get a document.
+* `rm: rm`: Remove a document.
+* `rev: rev, head`: Get a document revision.
+
 ### Log
 
 #### Options
@@ -148,16 +158,6 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 * `edit: edit`: Edit a user document.
 * `rm: rm`: Remove a user document.
 * `passwd: passwd`: Set an existing user password.
-
-### Document
-
-#### Commands
-
-* `ls: ls`: List documents.
-* `add: add`: Create a document.
-* `get: get`: Get a document.
-* `rm: rm`: Remove a document.
-* `rev: rev, head`: Get a document revision.
 
 ### Level
 

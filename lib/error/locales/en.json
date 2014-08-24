@@ -168,5 +168,10 @@
     "key": "ESTDIN_JSON_PARSE",
     "description": "Could not parse stdin input as json",
     "message": "stdin input is not valid json"
+  },
+  {
+    "key": "EQUERY_PARSE_ERROR",
+    "description": "Database could not parse a query string parameter",
+    "message": "query string parameter is invalid (%s)"
   }
 ]
