@@ -5,6 +5,16 @@ function ok(doc) {
   expect(doc.ok).to.eql(true);
 }
 
+function object(doc) {
+  expect(doc).to.be.an('object');
+}
+
+function empty(doc) {
+  expect(doc).to.be.an('object').to.eql({});
+}
+
 module.exports = {
-  ok: ok
+  ok: ok,
+  object: object,
+  empty: empty,
 }
