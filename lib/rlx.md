@@ -45,6 +45,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--id [id]`: Document identifier.
 * `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
+* `-q, --query: [params...]`: Query string parameters.
 * `--feed [type]`: Poll feed type. 
 * `--http`: Enable HTTP logs.
 

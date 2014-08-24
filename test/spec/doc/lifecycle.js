@@ -116,6 +116,7 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  // TODO: implement shortcut command - revs
   it('should get document revs info', function(done){
     var mock = config.file('document-revs-info.json');
     var args = [
