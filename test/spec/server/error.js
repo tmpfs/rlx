@@ -18,19 +18,6 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on list (server required)', function(done){
-    var args = [
-      'list',
-      '--no-color'
-    ];
-    var def = program(require(pkg), config.name);
-    var errors = def.program.errors;
-    def.program.on('error', function(err) {
-      config.error.server(err, errors);
-      done();
-    })
-    def.parse(args);
-  });
   it('should error on log (server required)', function(done){
     var args = [
       'log',

@@ -5,6 +5,20 @@ var program = config.program;
 
 describe('rlx:', function() {
   this.timeout(5000);
+  it('should error on db list (server required)', function(done){
+    var args = [
+      'db',
+      'ls',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.server(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
   it('should error on db/add (server required)', function(done){
     var args = [
       'db',
