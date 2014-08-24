@@ -8,5 +8,9 @@
     "poll": true,
     "interval": 2000,
     "max": 10
+  },
+  "highlight": {
+    "source-highlight": "-f esc -s json --style-file=\"%s\" --lang-def=\"%s\"",
+    "pygmentize": "-l json"
   }
 }
