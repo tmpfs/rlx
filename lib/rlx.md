@@ -204,6 +204,24 @@ Upon success (202 status code) by default this command will poll the server wait
 * `interval`: Integer milliseconds between poll attempts, default is `2000`.
 * `max`: Integer indicating the maximum number of retry attempts, default is `10`.
 
+### Whoami
+
+#### Description
+
+Alias for the `session get` command.
+
+### Login
+
+#### Description
+
+Alias for the `session set` command.
+
+### Logout
+
+#### Description
+
+Alias for the `session rm` command.
+
 <!--- custom sections -->
 
 ## Files
