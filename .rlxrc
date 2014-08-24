@@ -11,6 +11,10 @@
   },
   "highlight": {
     "source-highlight": "-f esc -s json --style-file=%s --lang-def=%s",
-    "pygmentize": "-l json"
+    "pygmentize": "-l json",
+    "javascript": {
+      "source-highlight": "-f esc -s javascript",
+      "pygmentize": "-l javascript"
+    }
   }
 }
