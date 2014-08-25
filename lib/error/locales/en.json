@@ -183,5 +183,10 @@
     "key": "EOUTPUT_DIRECTORY",
     "description": "Output option dirname is not a directory",
     "message": "output path %s is not a directory"
+  },
+  {
+    "key": "EOUTPUT_REQUIRED",
+    "description": "Output option is required",
+    "message": "output is required (%s)"
   }
 ]
