@@ -145,9 +145,9 @@
     "message": "unable to require %s (%s)"
   },
   {
-    "key": "EFILE_OPTION",
+    "key": "EFILE_REQUIRED",
     "description": "File option not specified",
-    "message": "option --file is required"
+    "message": "file is required (%s)"
   },
   {
     "key": "EVALIDATE",

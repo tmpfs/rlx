@@ -10,6 +10,12 @@ function up(doc) {
   expect(revseq).to.be.gt(1);
 }
 
+function dl(doc, contents) {
+  expect(doc).to.be.an('string');
+  expect(doc).to.eql(contents);
+}
+
 module.exports = {
   up: up,
+  dl: dl,
 }

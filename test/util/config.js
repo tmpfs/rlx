@@ -72,4 +72,6 @@ function fixtures() {
 
 fixtures();
 
+config.attachment = config.fixtures['mock-attachment.txt'];
+
 module.exports = config;
