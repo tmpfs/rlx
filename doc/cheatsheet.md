@@ -60,6 +60,7 @@ Table of Contents
   * [Attachment](#attachment)
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
+    * [GET /{db}/{docid}/{attname}](#get-dbdocidattname)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -601,6 +602,16 @@ rlx att up -s {server} -d {db} -i {docid} -f {file}
 ```
 
 Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#put--db-docid-attname)
+
+### GET /{db}/{docid}/{attname}
+
+Download document attachment:
+
+```
+rlx att dl -s {server} -d {db} -i {docid} -a mock-attachment.txt -o /Users/cyberfunk/git/rlx/target/mock-attachment.txt
+```
+
+Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#get--db-docid-attname)
 
 ## Configuration
 

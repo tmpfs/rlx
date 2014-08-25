@@ -351,7 +351,6 @@ var qt = [
     api: [params.db, params.docid, params.attname],
     method: methods.put,
     doc: docs.attachment + '#put--db-docid-attname',
-    after: ['doc/rm'],
     cmd: [
       'att',
       'up',
@@ -362,7 +361,29 @@ var qt = [
       '-i',
       config.document.id,
       '-f',
-      config.fixtures['mock-attachment.txt'].path,
+      config.attachment.path,
+    ]
+  },
+  {
+    id: 'att/dl',
+    description: 'Download document attachment',
+    api: [params.db, params.docid, params.attname],
+    method: methods.get,
+    doc: docs.attachment + '#get--db-docid-attname',
+    after: ['doc/rm'],
+    cmd: [
+      'att',
+      'dl',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '-a',
+      config.attachment.name,
+      '-o',
+      config.file(config.attachment.name),
     ]
   },
 
