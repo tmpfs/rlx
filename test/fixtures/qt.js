@@ -10,6 +10,7 @@ var params = {
   server: '{server}',
   db: '{db}',
   docid: '{docid}',
+  attname: '{attname}',
   rev: '{rev}',
   ddoc: '{ddoc}',
   section: '{section}',
@@ -331,7 +332,6 @@ var qt = [
     method: methods.get,
     doc: docs.document + '#get--db-docid',
     before: ['doc/add'],
-    after: ['doc/rm'],
     group: false,
     cmd: [
       'att',
@@ -340,11 +340,31 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
 
+  {
+    id: 'att/up',
+    description: 'Upload document attachment',
+    api: [params.db, params.docid, params.attname],
+    method: methods.put,
+    doc: docs.attachment + '#put--db-docid-attname',
+    after: ['doc/rm'],
+    cmd: [
+      'att',
+      'up',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '-f',
+      config.fixtures['mock-attachment.txt'].path,
+    ]
+  },
 
   // TEMPLATE
   {

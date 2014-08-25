@@ -59,6 +59,7 @@ Table of Contents
     * [DELETE /{db}/{docid}](#delete-dbdocid)
   * [Attachment](#attachment)
     * [GET /{db}/{docid}](#get-dbdocid-1)
+    * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -586,10 +587,20 @@ Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/late
 List document attachments:
 
 ```
-rlx att ls -s {server} -d {db} --id {docid}
+rlx att ls -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### PUT /{db}/{docid}/{attname}
+
+Upload document attachment:
+
+```
+rlx att up -s {server} -d {db} -i {docid} -f {file}
+```
+
+Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#put--db-docid-attname)
 
 ## Configuration
 
