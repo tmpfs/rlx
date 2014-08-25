@@ -171,7 +171,12 @@
   },
   {
     "key": "EQUERY_PARSE_ERROR",
-    "description": "Database could not parse a query string parameter",
+    "description": "Server could not parse a query string parameter",
     "message": "query string parameter is invalid (%s)"
+  },
+  {
+    "key": "EBAD_CONTENT_TYPE",
+    "description": "Server indicated a bad content type was specified",
+    "message": "bad content type (%s)"
   }
 ]
