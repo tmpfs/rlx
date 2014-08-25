@@ -59,16 +59,21 @@ rules.push({src: config.conf.value, rep: qt.params.value});
 rules.push({src: config.admin.name, rep: qt.params.name});
 rules.push({src: config.admin.pass, rep: qt.params.pass});
 
-rules.push({src: /--file [^ ]+/gm, rep: '--file ' + qt.params.file});
+rules.push({src: /(-f|--file|-o|--output) [^ ]+/gm,
+            rep: '$1 ' + qt.params.file});
+
+rules.push({src: /(-a|--attachment) [^ ]+/gm,
+            rep: '$1 ' + qt.params.attname});
 
 rules.push({src: config.document.id, rep: qt.params.docid});
 rules.push({src: /(-t|--template) ([^ ]*)/gm, rep: '$1 ' + qt.params.template});
 
 rules.push({src: config.user.name, rep: qt.params.name});
 
-for(var f in config.fixtures) {
-  rules.push({src: config.fixtures[f].path, rep: qt.params.file});
-}
+//for(var f in config.fixtures) {
+  //rules.push({src: config.fixtures[f].path, rep: qt.params.file});
+  //rules.push({src: config.fixtures[f].name, rep: qt.params.name});
+//}
 
 function replace(str) {
   var i, rule, re;

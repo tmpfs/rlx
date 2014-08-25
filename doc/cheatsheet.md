@@ -608,7 +608,7 @@ Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.o
 Download document attachment:
 
 ```
-rlx att dl -s {server} -d {db} -i {docid} -a mock-attachment.txt -o /Users/cyberfunk/git/rlx/target/mock-attachment.txt
+rlx att dl -s {server} -d {db} -i {docid} -a {attname} -o {file}
 ```
 
 Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#get--db-docid-attname)
