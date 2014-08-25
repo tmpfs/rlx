@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --abort_on_uncaught_exception
 
 process.stdin.resume();
 
