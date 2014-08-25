@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.83" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.90" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -8,15 +8,15 @@ rlx <command> [\-ch] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
     [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help]
 .br
-    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
+    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
 .br
-    [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
+    [\-a|\-\-attachment=<file>] [\-\-rev=<rev>] [\-u|\-\-username=<name>]
 .br
-    [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
+    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
 .br
-    [\-\-id=<id>] [\-\-rev=<rev>] [\-\-ddoc=<name>] [\-q|\-\-query=<params...>]
+    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-ddoc=<name>]
 .br
-    [\-\-feed=<type>] <args>
+    [\-q|\-\-query=<params...>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -70,11 +70,17 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-rev=[rev]\fR: Document revision.
+\fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
 \fB\-d, \-\-database=[name]\fR: Database name.
+.IP "\[ci]" 4
+\fB\-i, \-\-id=[id]\fR: Document identifier.
+.IP "\[ci]" 4
+\fB\-a, \-\-attachment=[file]\fR: Attachment file path.
+.IP "\[ci]" 4
+\fB\-\-rev=[rev]\fR: Document revision.
 .IP "\[ci]" 4
 \fB\-u, \-\-username=[name]\fR: Authentication username.
 .IP "\[ci]" 4
@@ -88,13 +94,9 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-t, \-\-template=[name]\fR: Name of a template file.
 .IP "\[ci]" 4
-\fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
+\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
-.IP "\[ci]" 4
-\fB\-\-id=[id]\fR: Document identifier.
-.IP "\[ci]" 4
-\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
 .IP "\[ci]" 4

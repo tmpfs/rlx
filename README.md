@@ -36,12 +36,12 @@ The documentation for the program is available via the `help` command, for those
 Usage: rlx <command> [-ch] [--color|--no-color] [-c|--compress]
            [--force] [--http] [--trace] [--debug] [--info] [--warn]
            [--error] [-h|--help] [--version] [-s|--server=<url>]
-           [-d|--database=<name>] [-u|--username=<name>]
-           [-p|--password=<pass>] [-o|--output=<file>]
-           [-f|--file=<file>] [-j|--json=<json>]
-           [-t|--template=<name>] [--id=<id>] [--rev=<rev>]
-           [--ddoc=<name>] [-q|--query=<params...>] [--feed=<type>]
-           <args>
+           [-d|--database=<name>] [-i|--id=<id>]
+           [-a|--attachment=<file>] [--rev=<rev>]
+           [-u|--username=<name>] [-p|--password=<pass>]
+           [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
+           [-t|--template=<name>] [--ddoc=<name>]
+           [-q|--query=<params...>] [--feed=<type>] <args>
 
 Command line interface for couchdb.
 
@@ -76,19 +76,21 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
-     --rev=[rev]        Document revision.
+ -c, --compress         Compact JSON output format (zero indent).
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
+ -i, --id=[id]          Document identifier.
+ -a, --attachment=[file]
+                        Attachment file path.
+     --rev=[rev]        Document revision.
  -u, --username=[name]  Authentication username.
  -p, --password=[pass]  Authentication password.
  -o, --output=[file]    Write response to output file.
  -f, --file=[file]      Read JSON input from file.
  -j, --json=[json]      JSON string literal (overrides --file).
  -t, --template=[name]  Name of a template file.
- -c, --compress         Compact JSON output format (zero indent).
-     --force            Force file overwrite.
-     --id=[id]          Document identifier.
  -s, --server=[url]     Database server.
+     --force            Force file overwrite.
      --ddoc=[name]      Design document id.
  -q, --query=[params...]
                         Query string parameters.
