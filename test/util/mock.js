@@ -42,7 +42,7 @@ var mock = {
     auth: '_auth'
   },
   document: {
-    id: 'mock-document',
+    id: 'mock/document',
     bool: false,
     int: 1024,
     float: 1.67,
