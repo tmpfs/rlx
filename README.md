@@ -47,8 +47,8 @@ Command line interface for couchdb.
 
 Options:
 
-Command should be one of: admin, user, database, security, document, login,
-logout, session, config, info, stats, tasks, log, restart, uuids, edit,
+Command should be one of: admin, user, database, security, document, attach,
+login, logout, session, config, info, stats, tasks, log, restart, uuids, edit,
 template, lint, level, whoami, help.
 
 Commands:
@@ -57,6 +57,7 @@ Commands:
  database, db           Manage databases.
  security, sec          Get or set database security.
  document, doc          Manage documents.
+ attach, att            Manage document attachments.
  login                  Login to a server.
  logout                 Logout of current session.
  session, sess          Session authentication.

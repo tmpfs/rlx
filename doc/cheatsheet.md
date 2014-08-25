@@ -48,7 +48,6 @@ Table of Contents
     * [GET /{db}/_security](#get-db_security)
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
-    * [GET /{db}/{docid}](#get-dbdocid)
     * [GET /{db}/{docid}?conflicts=true](#get-dbdocidconflictstrue)
     * [GET /{db}/{docid}?deleted_conflicts=true](#get-dbdociddeleted_conflictstrue)
     * [GET /{db}/{docid}?revs=true](#get-dbdocidrevstrue)
@@ -57,6 +56,8 @@ Table of Contents
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
+  * [Attachment](#attachment)
+    * [GET /{db}/{docid}](#get-dbdocid)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -483,16 +484,6 @@ rlx doc add -s {server} -d {db} -t {template} --id {docid}
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
 
-### GET /{db}/{docid}
-
-Get a document:
-
-```
-rlx doc get -s {server} -d {db} --id {docid}
-```
-
-Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
-
 ### GET /{db}/{docid}?conflicts=true
 
 Get a document with conflicts:
@@ -573,6 +564,22 @@ rlx doc rm -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Attachment
+
+* Manual: `rlx help att`
+* Help: `rlx --help att`
+
+### GET /{db}/{docid}
+
+List document attachments:
+
+```
+rlx att ls -s {server} -d {db} --id {docid}
+rlx doc get -s {server} -d {db} --id {docid}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
 ## Configuration
 

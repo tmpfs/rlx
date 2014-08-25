@@ -14,6 +14,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `database: database, db`: Manage databases.
 * `security: security, sec`: Get or set database security.
 * `document: document, doc`: Manage documents.
+* `attach: attach, att`: Manage document attachments.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 * `session: session, sess`: Session authentication.
@@ -90,6 +91,16 @@ If no subcommand is specified `ls` is invoked.
 * `revsinfo: revsinfo`: Get a document with revision information.
 * `conflicts: conflicts`: Get a document with conflicts information.
 * `dc: dc`: Get a document with deleted conflicts information.
+
+### Attach
+
+Commands for creating, deleting, retrieving and modifying document attachments.
+
+If no subcommand is specified `ls` is invoked.
+
+#### Commands
+
+* `ls: ls`: List document attachments.
 
 ### Log
 

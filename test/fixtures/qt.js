@@ -33,9 +33,31 @@ var docs = {
   temp : 'database/temp-views.html',
   misc: 'database/misc.html',
   document: 'document/common.html',
+  attachment: 'document/attachments.html',
 }
 
 var qt = [
+
+  // ATTACHMENTS
+  {
+    id: 'att/ls',
+    description: 'List document attachments',
+    api: [params.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    before: ['doc/add'],
+    after: ['doc/rm'],
+    cmd: [
+      'att',
+      'ls',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
 
   // USER
   {
@@ -681,9 +703,6 @@ var qt = [
       config.database.default
     ]
   },
-
-
-
   {
     id: 'db/bulk',
     enabled: false,

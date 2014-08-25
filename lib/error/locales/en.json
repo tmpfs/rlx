@@ -51,8 +51,8 @@
   },
   {
     "key": "ENOT_FOUND",
-    "description": "Database or document does not exist",
-    "message": "%s does not exist"
+    "description": "Document does not exist",
+    "message": "document %s does not exist"
   },
   {
     "key": "EBAD_REQUEST",
@@ -158,11 +158,6 @@
     "key": "EID_REQUIRED",
     "description": "Document identifier not specified",
     "message": "document identifier is required (%s)"
-  },
-  {
-    "key": "EREV",
-    "description": "Document revision not specified",
-    "message": "document revision is required (%s)"
   },
   {
     "key": "ESTDIN_JSON_PARSE",

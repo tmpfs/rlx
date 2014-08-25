@@ -23,6 +23,7 @@ var sections = {
   db: 'Database',
   security: 'Security',
   doc: 'Document',
+  att: 'Attachment',
   conf: 'Configuration',
   level: 'Log Level',
 }
@@ -31,6 +32,7 @@ var sections = {
 var lookup = {
   login: 'session',
   logout: 'session',
+  //logout: 'session',
   whoami: 'session'
 }
 

@@ -112,7 +112,51 @@ module.exports = function(config) {
         })
         def.parse(args);
       }
-    }
+    },
+    doc: {
+      add: function(done) {
+        var mock = config.file('mock-document-add.json');
+        var args = [
+          'doc',
+          'add',
+          '-s=' + config.server.default,
+          '-d=' + database,
+          '--id=' + config.document.id,
+          '@bool=' + config.document.bool,
+          '@int=' + config.document.int,
+          '@float=' + config.document.float,
+          '@arr=' + config.document.arr,
+          '@str=' + config.document.str,
+          '@nil=' + config.document.nil,
+          '--force',
+          '--no-color',
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      },
+      rm: function(done) {
+        var mock = config.file('mock-document-rm.json');
+        var args = [
+          'doc',
+          'rm',
+          '-s=' + config.server.default,
+          '-d=' + database,
+          '--id=' + config.document.id,
+          '--force',
+          '--no-color',
+          '-o', mock
+        ];
+        var def = program(require(pkg), config.name)
+        def.program.on('complete', function(req) {
+          done();
+        })
+        def.parse(args);
+      }
+    },
   }
 }
 
