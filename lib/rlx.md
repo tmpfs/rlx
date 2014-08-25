@@ -35,6 +35,9 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 * `-s, --server [url]`: Database server.
 * `-d, --database [name]`: Database name.
+* `-i, --id [id]`: Document identifier.
+* `-a, --attachment [file]`: Attachment file path.
+* `--rev [rev]`: Document revision.
 * `-u, --username [name]`: Authentication username.
 * `-p, --password [pass]`: Authentication password.
 * `-o, --output [file]`: Write response to output file.
@@ -43,8 +46,6 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-t, --template [name]`: Name of a template file.
 * `-c, --compress`: Compact JSON output format (zero indent). 
 * `--force`: Force file overwrite.
-* `--id [id]`: Document identifier.
-* `--rev [rev]`: Document revision.
 * `--ddoc [name]`: Design document id.
 * `-q, --query [params...]`: Query string parameters.
 * `--feed [type]`: Poll feed type. 
@@ -101,6 +102,7 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List document attachments.
+* `add: add`: Add an attachment.
 
 ### Log
 

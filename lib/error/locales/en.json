@@ -62,7 +62,7 @@
   {
     "key": "ECONFLICT",
     "description": "Generic conflict error (409)",
-    "message": "conflict detected on %s/%s (%s)"
+    "message": "conflict detected on %s (db: %s) (%s)"
   },
   {
     "key": "EDELETED",
@@ -158,6 +158,11 @@
     "key": "EID_REQUIRED",
     "description": "Document identifier not specified",
     "message": "document identifier is required (%s)"
+  },
+  {
+    "key": "EATTACHMENT_REQUIRED",
+    "description": "Document attachment not specified",
+    "message": "attachment is required (%s)"
   },
   {
     "key": "ESTDIN_JSON_PARSE",
