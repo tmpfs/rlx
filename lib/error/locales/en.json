@@ -178,5 +178,10 @@
     "key": "EBAD_CONTENT_TYPE",
     "description": "Server indicated a bad content type was specified",
     "message": "bad content type (%s)"
+  },
+  {
+    "key": "EOUTPUT_DIRECTORY",
+    "description": "Output option dirname is not a directory",
+    "message": "output path %s is not a directory"
   }
 ]
