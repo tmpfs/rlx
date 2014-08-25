@@ -93,6 +93,10 @@ If no subcommand is specified `ls` is invoked.
 
 ### Log
 
+This command attempts to parse the raw response text into an array of JSON log records. If you wish to print the raw log text specify the `${opt_raw_long}` option.
+
+The server will often respond with partial log records (incomplete lines) depending upon the state of the log file and the `${opt_offset_long}` and the `${opt_bytes_long}` options. When parsing to JSON these incomplete log records are ignored, to view these partial log records use the `${opt_raw_long}` option.
+
 #### Options
 
 * `offset: --offset [num]`: Offset in bytes for the log tail. 
