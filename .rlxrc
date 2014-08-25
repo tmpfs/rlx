@@ -18,5 +18,9 @@
       "source-highlight": "-f esc -s javascript",
       "pygmentize": "-l javascript"
     }
+  },
+  "progress": {
+    "upload": true,
+    "download": true
   }
 }
