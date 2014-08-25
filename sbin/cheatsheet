@@ -104,7 +104,8 @@ function order() {
       if(k === 'server' && !sections[cmd] && !lookup[cmd]) {
         out.push(item);
       }else if(lookup[cmd] || k === cmd && sections[cmd]) {
-        if(seen[section + ':' + item.req] && !item.duplicate) {
+        if((seen[section + ':' + item.req] && !item.duplicate)
+          && item.group === undefined) {
           exists = seen[section + ':' + item.req];
           exists.code = exists.code || [getCommand(exists)];
           exists.code.push(getCommand(item));

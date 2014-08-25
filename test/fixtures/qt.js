@@ -38,27 +38,6 @@ var docs = {
 
 var qt = [
 
-  // ATTACHMENTS
-  {
-    id: 'att/ls',
-    description: 'List document attachments',
-    api: [params.db, params.docid],
-    method: methods.get,
-    doc: docs.document + '#get--db-docid',
-    before: ['doc/add'],
-    after: ['doc/rm'],
-    cmd: [
-      'att',
-      'ls',
-      '-s',
-      config.server.default,
-      '-d',
-      config.database.default,
-      '--id',
-      config.document.id
-    ]
-  },
-
   // USER
   {
     id: 'user/add',
@@ -343,6 +322,29 @@ var qt = [
       config.document.id
     ]
   },
+
+  // ATTACHMENTS
+  {
+    id: 'att/ls',
+    description: 'List document attachments',
+    api: [params.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    before: ['doc/add'],
+    after: ['doc/rm'],
+    group: false,
+    cmd: [
+      'att',
+      'ls',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+
 
   // TEMPLATE
   {
