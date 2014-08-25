@@ -12,4 +12,5 @@ module.exports = {
   template: require('./template'),
   doc: require('./doc'),
   view: require('./view'),
+  attach: require('./attach'),
 }
