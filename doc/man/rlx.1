@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.101" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.102" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -10,7 +10,7 @@ rlx <command> [\-ch] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
     [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
 .br
-    [\-a|\-\-attachment=<file>] [\-\-rev=<rev>] [\-u|\-\-username=<name>]
+    [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>]
 .br
     [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
 .br
@@ -80,7 +80,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-a, \-\-attachment=[file]\fR: Attachment file path.
 .IP "\[ci]" 4
-\fB\-\-rev=[rev]\fR: Document revision.
+\fB\-r, \-\-rev=[rev]\fR: Document revision.
 .IP "\[ci]" 4
 \fB\-u, \-\-username=[name]\fR: Authentication username.
 .IP "\[ci]" 4
@@ -131,17 +131,19 @@ The \fBcouchdb\fR database server accepts many different query string parameters
 .PP
 To specify query string parameters use the \fB\-q | \-\-query\fR option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
 .PP
-Some options map to query string parameters (for example \fB\-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
+Some options map to query string parameters (for example \fB\-r | \-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
+.PP
+You may specify a leading \fB?\fR but it is unnecessary and not recommended.
 .PP
 To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
 
 \fBrlx doc revsinfo \-s {server} \-d {database} \-i {id}\fR
 .PP
-But you could also use \fB\-\-query\fR:
+But you could also use \fB\-q | \-\-query\fR:
 
 \fBrlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'\fR
 .PP
-You may specify a leading \fB?\fR but it is unnecessary and not recommended. An example of precedence:
+An example of precedence:
 
 \fBrlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'\fR
 .PP

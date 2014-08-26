@@ -276,19 +276,21 @@ To specify query string parameters use the `${opt_query_pipe}` option, this opti
 
 Some options map to query string parameters (for example `${opt_rev_pipe}`) if you specify an option that maps to a query string parameter and the same parameter using `${opt_query_long}` then the specific option value has precedence.
 
+You may specify a leading `?` but it is unnecessary and not recommended.
+
 To elucidate you can fetch document revision information with the `revsinfo` shortcut command:
 
 ```
 $0 doc revsinfo -s {server} -d {database} -i {id}
 ```
 
-But you could also use `${opt_query_long}`:
+But you could also use `${opt_query_pipe}`:
 
 ```
 $0 doc get -s {server} -d {database} -i {id} -q 'revsinfo=true'
 ```
 
-You may specify a leading `?` but it is unnecessary and not recommended. An example of precedence:
+An example of precedence:
 
 ```
 $0 doc get -s {server} -d {database} -i {id} -r {rev} -q 'rev={revision}'
