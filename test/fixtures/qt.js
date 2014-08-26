@@ -146,7 +146,7 @@ var qt = [
       config.database.default,
       '-t',
       'document/new',
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -163,7 +163,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -181,7 +181,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -199,7 +199,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -217,7 +217,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -235,7 +235,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -253,7 +253,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -285,7 +285,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -302,7 +302,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -320,7 +320,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -343,7 +343,7 @@ var qt = [
       config.database.default,
       '-t',
       'document/new',
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -360,7 +360,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },
@@ -378,7 +378,7 @@ var qt = [
       config.server.default,
       '-d',
       config.database.default,
-      '--id',
+      '-i',
       config.document.id
     ]
   },

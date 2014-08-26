@@ -488,7 +488,7 @@ Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/la
 Create a document:
 
 ```
-rlx doc add -s {server} -d {db} -t {template} --id {docid}
+rlx doc add -s {server} -d {db} -t {template} -i {docid}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
@@ -498,7 +498,7 @@ Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/
 Get a document:
 
 ```
-rlx doc get -s {server} -d {db} --id {docid}
+rlx doc get -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -508,7 +508,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Get a document with conflicts:
 
 ```
-rlx doc conflicts -s {server} -d {db} --id {docid}
+rlx doc conflicts -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -518,7 +518,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Get a document with deleted conflicts:
 
 ```
-rlx doc dc -s {server} -d {db} --id {docid}
+rlx doc dc -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -528,7 +528,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Get a document with revisions:
 
 ```
-rlx doc revs -s {server} -d {db} --id {docid}
+rlx doc revs -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -538,7 +538,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Get a document with revision information:
 
 ```
-rlx doc revsinfo -s {server} -d {db} --id {docid}
+rlx doc revsinfo -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -548,7 +548,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Get a document with meta information:
 
 ```
-rlx doc meta -s {server} -d {db} --id {docid}
+rlx doc meta -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
@@ -568,8 +568,8 @@ Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/la
 Get document revision:
 
 ```
-rlx doc head -s {server} -d {db} --id {docid}
-rlx doc rev -s {server} -d {db} --id {docid}
+rlx doc head -s {server} -d {db} -i {docid}
+rlx doc rev -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#head-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#head--db-docid)
@@ -579,7 +579,7 @@ Documentation: [document/common#head-db-docid](http://docs.couchdb.org/en/latest
 Remove a document:
 
 ```
-rlx doc rm -s {server} -d {db} --id {docid}
+rlx doc rm -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
@@ -594,7 +594,7 @@ Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/late
 Create a local document:
 
 ```
-rlx lcl add -s {server} -d {db} -t {template} --id {docid}
+rlx lcl add -s {server} -d {db} -t {template} -i {docid}
 ```
 
 Documentation: [local#put-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid)
@@ -604,7 +604,7 @@ Documentation: [local#put-db-local-docid](http://docs.couchdb.org/en/latest/api/
 Get a local document:
 
 ```
-rlx lcl get -s {server} -d {db} --id {docid}
+rlx lcl get -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [local#get-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#get--db-_local-docid)
@@ -614,7 +614,7 @@ Documentation: [local#get-db-local-docid](http://docs.couchdb.org/en/latest/api/
 Remove a local document:
 
 ```
-rlx lcl rm -s {server} -d {db} --id {docid}
+rlx lcl rm -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [local#delete-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#delete--db-_local-docid)

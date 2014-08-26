@@ -37,7 +37,7 @@ Usage: rlx <command> [-ch] [--color|--no-color] [-c|--compress]
            [--force] [--http] [--trace] [--debug] [--info] [--warn]
            [--error] [-h|--help] [--version] [-s|--server=<url>]
            [-d|--database=<name>] [-i|--id=<id>]
-           [-a|--attachment=<file>] [--rev=<rev>]
+           [-a|--attachment=<file>] [-r|--rev=<rev>]
            [-u|--username=<name>] [-p|--password=<pass>]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [--ddoc=<name>]
@@ -47,9 +47,9 @@ Command line interface for couchdb.
 
 Options:
 
-Command should be one of: admin, user, database, security, document, attach,
-login, logout, session, config, info, stats, tasks, log, restart, uuids, edit,
-template, lint, level, whoami, help.
+Command should be one of: admin, user, database, security, document, local,
+attach, login, logout, session, config, info, stats, tasks, log, restart, uuids,
+edit, template, lint, level, whoami, help.
 
 Commands:
  admin                  Manage server administrators.
@@ -57,6 +57,7 @@ Commands:
  database, db           Manage databases.
  security, sec          Get or set database security.
  document, doc          Manage documents.
+ local, lcl             Manage local documents.
  attach, att            Manage document attachments.
  login                  Login to a server.
  logout                 Logout of current session.
@@ -82,7 +83,7 @@ Arguments:
  -i, --id=[id]          Document identifier.
  -a, --attachment=[file]
                         Attachment file path.
-     --rev=[rev]        Document revision.
+ -r, --rev=[rev]        Document revision.
  -u, --username=[name]  Authentication username.
  -p, --password=[pass]  Authentication password.
  -o, --output=[file]    Write response to output file.
