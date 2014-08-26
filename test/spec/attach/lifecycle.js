@@ -68,7 +68,6 @@ describe('rlx:', function() {
 
 
   it('should download attachment', function(done){
-    //var mock = config.file('attachment-download.json');
     var mock = config.file(config.attachment.name);
     var args = [
       'att',
@@ -89,6 +88,32 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
       config.assert.attach.dl(doc, config.attachment.doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should download attachment information', function(done){
+    var mock = config.file('attachment-get.json');
+    var args = [
+      'att',
+      'get',
+      '-s',
+      config.server.default,
+      '-d',
+      database,
+      '-i',
+      config.document.id,
+      '-a',
+      config.attachment.name,
+      '-o',
+      mock,
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.attach.get(doc);
       done();
     })
     def.parse(args);

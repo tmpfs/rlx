@@ -15,7 +15,16 @@ function dl(doc, contents) {
   expect(doc).to.eql(contents);
 }
 
+function get(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.name).to.be.a('string');
+  expect(doc.size).to.be.a('number');
+  expect(doc.type).to.be.a('string');
+  expect(doc.md5).to.be.a('string');
+}
+
 module.exports = {
   up: up,
   dl: dl,
+  get: get,
 }
