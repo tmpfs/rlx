@@ -18,6 +18,24 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should error on template/parse (invalid variable)', function(done){
+    var args = [
+      'tpl',
+      'parse',
+      '-t',
+      'document/new',
+      '@foo',
+      'bar',
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.tplvar(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
   it('should error on template/get (template name required)', function(done){
     var args = [
       'tpl',

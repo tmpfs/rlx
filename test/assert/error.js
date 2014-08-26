@@ -22,6 +22,7 @@ err.db = err('EDATABASE_REQUIRED');
 err.id = err('EID_REQUIRED');
 err.document = err('EDOCUMENT_REQUIRED');
 err.tpl = err('ETEMPLATE_REQUIRED');
+err.tplvar = err('EVARIABLE_DECLARATION');
 
 err.username = err('EUSERNAME_REQUIRED');
 err.password = err('EPASSWORD_REQUIRED');
