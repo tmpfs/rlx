@@ -37,7 +37,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-d, --database [name]`: Database name.
 * `-i, --id [id]`: Document identifier.
 * `-a, --attachment [file]`: Attachment file path.
-* `--rev [rev]`: Document revision.
+* `-r, --rev [rev]`: Document revision.
 * `-u, --username [name]`: Authentication username.
 * `-p, --password [pass]`: Authentication password.
 * `-o, --output [file]`: Write response to output file.
@@ -267,6 +267,34 @@ cat package.json | $0 - ${cmd_lint_long}
 All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
 
 Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is `debug` then query string parameters will also be logged, if the `trace` level is specified then request and response headers are also printed.
+
+## Query String
+
+The `couchdb` database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
+
+To specify query string parameters use the `${opt_query_pipe}` option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
+
+Some options map to query string parameters (for example `${opt_rev_pipe}`) if you specify an option that maps to a query string parameter and the same parameter using `${opt_query_long}` then the specific option value has precedence.
+
+To elucidate you can fetch document revision information with the `revsinfo` shortcut command:
+
+```
+$0 doc revsinfo -s {server} -d {database} -i {id}
+```
+
+But you could also use `${opt_query_long}`:
+
+```
+$0 doc get -s {server} -d {database} -i {id} -q 'revsinfo=true'
+```
+
+You may specify a leading `?` but it is unnecessary and not recommended. An example of precedence:
+
+```
+$0 doc get -s {server} -d {database} -i {id} -r {rev} -q 'rev={revision}'
+```
+
+The value of `{rev}` will be used *not* `{revision}`.
 
 ## Highlight
 

@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.98" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.101" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -125,6 +125,27 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
 .PP
 Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
+.SH "QUERY STRING"
+.PP
+The \fBcouchdb\fR database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
+.PP
+To specify query string parameters use the \fB\-q | \-\-query\fR option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
+.PP
+Some options map to query string parameters (for example \fB\-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
+.PP
+To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
+
+\fBrlx doc revsinfo \-s {server} \-d {database} \-i {id}\fR
+.PP
+But you could also use \fB\-\-query\fR:
+
+\fBrlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'\fR
+.PP
+You may specify a leading \fB?\fR but it is unnecessary and not recommended. An example of precedence:
+
+\fBrlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'\fR
+.PP
+The value of \fB{rev}\fR will be used \fInot\fR \fB{revision}\fR.
 .SH "HIGHLIGHT"
 .PP
 The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
