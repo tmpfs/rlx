@@ -101,10 +101,11 @@ If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
-* `ls: ls`: List document attachments.
+* `ls: ls`: List attachments.
 * `up: up`: Upload an attachment.
 * `dl: dl`: Download an attachment.
 * `get: get`: Get attachment information.
+* `rm: rm`: Remove an attachment.
 
 ### Log
 

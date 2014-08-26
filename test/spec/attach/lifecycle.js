@@ -118,4 +118,30 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should remove attachment', function(done){
+    var mock = config.file('attachment-rm.json');
+    var args = [
+      'att',
+      'rm',
+      '-s',
+      config.server.default,
+      '-d',
+      database,
+      '-i',
+      config.document.id,
+      '-a',
+      config.attachment.name,
+      '-o',
+      mock,
+      '--no-color'
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.attach.rm(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

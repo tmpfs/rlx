@@ -27,4 +27,5 @@ module.exports = {
   up: up,
   dl: dl,
   get: get,
+  rm: up,
 }
