@@ -20,7 +20,7 @@
     "async": "^0.9.0",
     "async-validate": "^0.1.13",
     "cdb": "~0.0.13",
-    "circular": "^1.0.4",
+    "circular": "^1.0.5",
     "cli-command": "~0.8.130",
     "cli-error": "~0.5.0",
     "cli-interface": "~1.0.8",
