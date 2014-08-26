@@ -23,6 +23,7 @@ var sections = {
   db: 'Database',
   security: 'Security',
   doc: 'Document',
+  lcl: 'Local Document',
   att: 'Attachment',
   conf: 'Configuration',
   level: 'Log Level',

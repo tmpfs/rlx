@@ -35,6 +35,7 @@ var docs = {
   misc: 'database/misc.html',
   document: 'document/common.html',
   attachment: 'document/attachments.html',
+  local: 'local.html'
 }
 
 var qt = [
@@ -314,6 +315,64 @@ var qt = [
     after: ['db/rm'],
     cmd: [
       'doc',
+      'rm',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+
+
+  // LOCAL DOCUMENT
+  {
+    id: 'lcl/add',
+    description: 'Create a local document',
+    api: [params.db, parameters.local, params.docid],
+    method: methods.put,
+    doc: docs.local + '#put--db-_local-docid',
+    before: ['db/add'],
+    cmd: [
+      'lcl',
+      'add',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-t',
+      'document/new',
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'lcl/get',
+    description: 'Get a local document',
+    api: [params.db, parameters.local, params.docid],
+    method: methods.get,
+    doc: docs.local + '#get--db-_local-docid',
+    cmd: [
+      'lcl',
+      'get',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '--id',
+      config.document.id
+    ]
+  },
+  {
+    id: 'lcl/rm',
+    description: 'Remove a local document',
+    api: [params.db, parameters.local, params.docid],
+    method: methods.delete,
+    doc: docs.local + '#delete--db-_local-docid',
+    after: ['db/rm'],
+    cmd: [
+      'lcl',
       'rm',
       '-s',
       config.server.default,

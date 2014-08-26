@@ -57,6 +57,10 @@ Table of Contents
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
+  * [Local Document](#local-document)
+    * [PUT /{db}/_local/{docid}](#put-db_localdocid)
+    * [GET /{db}/_local/{docid}](#get-db_localdocid)
+    * [DELETE /{db}/_local/{docid}](#delete-db_localdocid)
   * [Attachment](#attachment)
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
@@ -579,6 +583,41 @@ rlx doc rm -s {server} -d {db} --id {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Local Document
+
+* Manual: `rlx help lcl`
+* Help: `rlx --help lcl`
+
+### PUT /{db}/_local/{docid}
+
+Create a local document:
+
+```
+rlx lcl add -s {server} -d {db} -t {template} --id {docid}
+```
+
+Documentation: [local#put-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid)
+
+### GET /{db}/_local/{docid}
+
+Get a local document:
+
+```
+rlx lcl get -s {server} -d {db} --id {docid}
+```
+
+Documentation: [local#get-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#get--db-_local-docid)
+
+### DELETE /{db}/_local/{docid}
+
+Remove a local document:
+
+```
+rlx lcl rm -s {server} -d {db} --id {docid}
+```
+
+Documentation: [local#delete-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#delete--db-_local-docid)
 
 ## Attachment
 
