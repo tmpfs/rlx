@@ -14,6 +14,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `database: database, db`: Manage databases.
 * `security: security, sec`: Get or set database security.
 * `document: document, doc`: Manage documents.
+* `local: local, lcl`: Manage local documents.
 * `attach: attach, att`: Manage document attachments.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
@@ -92,6 +93,18 @@ If no subcommand is specified `ls` is invoked.
 * `revsinfo: revsinfo`: Get a document with revision information.
 * `conflicts: conflicts`: Get a document with conflicts information.
 * `dc: dc`: Get a document with deleted conflicts information.
+
+### Local
+
+Commands for creating, deleting, retrieving and modifying `local` documents, it is not possible to list local documents, see the `couchdb` documentation.
+
+If no subcommand is specified an error is reported.
+
+#### Commands
+
+* `add: add`: Create a local document.
+* `get: get`: Get a local document.
+* `rm: rm`: Remove a local document.
 
 ### Attach
 
