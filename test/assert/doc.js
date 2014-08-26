@@ -1,17 +1,22 @@
 var expect = require('chai').expect;
 var mock = require('../util/mock');
 var view = require('./view');
+var parameters = require('cdb').parameters;
 
-function create(doc) {
+function create(doc, local) {
+  var id = mock.document.id
+  if(local) id = parameters.local + '/' + id;
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
-  expect(doc.id).to.eql(mock.document.id);
+  expect(doc.id).to.eql(id);
   expect(doc.rev).to.be.a('string');
 }
 
-function get(doc) {
+function get(doc, local) {
+  var id = mock.document.id
+  if(local) id = parameters.local + '/' + id;
   expect(doc).to.be.an('object');
-  expect(doc._id).to.eql(mock.document.id);
+  expect(doc._id).to.eql(id);
   for(var z in mock.document) {
     if(z === 'id') continue;
     expect(doc[z]).to.eql(mock.document[z]);
