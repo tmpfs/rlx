@@ -62,6 +62,7 @@ Table of Contents
     * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
     * [GET /{db}/{docid}/{attname}](#get-dbdocidattname)
     * [HEAD /{db}/{docid}/{attname}](#head-dbdocidattname)
+    * [DELETE /{db}/{docid}/{attname}](#delete-dbdocidattname)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -596,7 +597,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 
 ### PUT /{db}/{docid}/{attname}
 
-Upload document attachment:
+Upload attachment:
 
 ```
 rlx att up -s {server} -d {db} -i {docid} -f {file}
@@ -606,7 +607,7 @@ Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.o
 
 ### GET /{db}/{docid}/{attname}
 
-Download document attachment:
+Download attachment:
 
 ```
 rlx att dl -s {server} -d {db} -i {docid} -a {attname} -o {file}
@@ -616,13 +617,23 @@ Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.o
 
 ### HEAD /{db}/{docid}/{attname}
 
-Get document attachment information:
+Get attachment information:
 
 ```
 rlx att get -s {server} -d {db} -i {docid} -a {attname}
 ```
 
 Documentation: [document/attachments#head-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#head--db-docid-attname)
+
+### DELETE /{db}/{docid}/{attname}
+
+Remove an attachment:
+
+```
+rlx att rm -s {server} -d {db} -i {docid} -a {attname}
+```
+
+Documentation: [document/attachments#delete-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#delete--db-docid-attname)
 
 ## Configuration
 

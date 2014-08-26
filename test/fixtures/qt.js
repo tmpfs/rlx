@@ -347,7 +347,7 @@ var qt = [
 
   {
     id: 'att/up',
-    description: 'Upload document attachment',
+    description: 'Upload attachment',
     api: [params.db, params.docid, params.attname],
     method: methods.put,
     doc: docs.attachment + '#put--db-docid-attname',
@@ -366,7 +366,7 @@ var qt = [
   },
   {
     id: 'att/dl',
-    description: 'Download document attachment',
+    description: 'Download attachment',
     api: [params.db, params.docid, params.attname],
     method: methods.get,
     doc: docs.attachment + '#get--db-docid-attname',
@@ -387,14 +387,33 @@ var qt = [
   },
   {
     id: 'att/get',
-    description: 'Get document attachment information',
+    description: 'Get attachment information',
     api: [params.db, params.docid, params.attname],
     method: methods.head,
     doc: docs.attachment + '#head--db-docid-attname',
-    after: ['doc/rm'],
     cmd: [
       'att',
       'get',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '-a',
+      config.attachment.name
+    ]
+  },
+  {
+    id: 'att/rm',
+    description: 'Remove an attachment',
+    api: [params.db, params.docid, params.attname],
+    method: methods.delete,
+    doc: docs.attachment + '#delete--db-docid-attname',
+    after: ['doc/rm'],
+    cmd: [
+      'att',
+      'rm',
       '-s',
       config.server.default,
       '-d',
