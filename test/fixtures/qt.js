@@ -370,7 +370,6 @@ var qt = [
     api: [params.db, params.docid, params.attname],
     method: methods.get,
     doc: docs.attachment + '#get--db-docid-attname',
-    after: ['doc/rm'],
     cmd: [
       'att',
       'dl',
@@ -384,6 +383,26 @@ var qt = [
       config.attachment.name,
       '-o',
       config.file(config.attachment.name),
+    ]
+  },
+  {
+    id: 'att/get',
+    description: 'Get document attachment information',
+    api: [params.db, params.docid, params.attname],
+    method: methods.head,
+    doc: docs.attachment + '#head--db-docid-attname',
+    after: ['doc/rm'],
+    cmd: [
+      'att',
+      'get',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '-a',
+      config.attachment.name
     ]
   },
 

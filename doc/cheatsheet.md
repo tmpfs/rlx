@@ -61,6 +61,7 @@ Table of Contents
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
     * [GET /{db}/{docid}/{attname}](#get-dbdocidattname)
+    * [HEAD /{db}/{docid}/{attname}](#head-dbdocidattname)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -612,6 +613,16 @@ rlx att dl -s {server} -d {db} -i {docid} -a {attname} -o {file}
 ```
 
 Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#get--db-docid-attname)
+
+### HEAD /{db}/{docid}/{attname}
+
+Get document attachment information:
+
+```
+rlx att get -s {server} -d {db} -i {docid} -a {attname}
+```
+
+Documentation: [document/attachments#head-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#head--db-docid-attname)
 
 ## Configuration
 
