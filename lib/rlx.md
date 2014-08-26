@@ -46,9 +46,10 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-j, --json [json]`: JSON string literal (overrides --file).
 * `-t, --template [name]`: Name of a template file.
 * `-c, --compress`: Compact JSON output format (zero indent). 
+* `-q, --query [params...]`: Query string parameters.
+* `-h, --header [key: value...]`: Additional HTTP headers.
 * `--force`: Force file overwrite.
 * `--ddoc [name]`: Design document id.
-* `-q, --query [params...]`: Query string parameters.
 * `--feed [type]`: Poll feed type. 
 * `--http`: Enable HTTP logs.
 

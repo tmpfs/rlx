@@ -1,12 +1,12 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.103" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.105" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .SP
-rlx <command> [\-ch] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
+rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
-    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-h|\-\-help]
+    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help]
 .br
     [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
 .br
@@ -14,9 +14,9 @@ rlx <command> [\-ch] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
     [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
 .br
-    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-\-ddoc=<name>]
+    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
 .br
-    [\-q|\-\-query=<params...>] [\-\-feed=<type>] <args>
+    [\-h|\-\-header=<key:value...>] [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -72,7 +72,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
+\fB\-q, \-\-query=[params...]\fR: Query string parameters.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -96,13 +96,15 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-t, \-\-template=[name]\fR: Name of a template file.
 .IP "\[ci]" 4
+\fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
+.IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
+.IP "\[ci]" 4
+\fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
-.IP "\[ci]" 4
-\fB\-q, \-\-query=[params...]\fR: Query string parameters.
 .IP "\[ci]" 4
 \fB\-\-feed=[type]\fR: Poll feed type. 
 .IP "\[ci]" 4
@@ -118,7 +120,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-error\fR: Set log level to error.
 .IP "\[ci]" 4
-\fB\-h, \-\-help\fR: Display this help and exit.
+\fB\-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL

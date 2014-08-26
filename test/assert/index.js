@@ -13,4 +13,5 @@ module.exports = {
   doc: require('./doc'),
   view: require('./view'),
   attach: require('./attach'),
+  options: require('./options'),
 }
