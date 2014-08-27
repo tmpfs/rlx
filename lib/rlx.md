@@ -276,11 +276,28 @@ $0 ${cmd_lint_long} ${opt_json_short} '{}'
 cat package.json | $0 - ${cmd_lint_long}
 ```
 
+<!--  `this` is a quotation -->
+
 ## Log
 
 All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
 
 Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is `debug` then query string parameters will also be logged, if the `trace` level is specified then request and response headers are also printed.
+
+## Headers
+
+Similar to `curl(1)` arbitrary HTTP headers are accepted using the `${opt_header_pipe}` option (note the short version is lowercase), you may specify as many headers as you like although `Content-Type` and `Accept` are ignored, a warning is printed if you attempt to use them.
+
+If the value of the `${opt_header_long}` option is incorrect (bad syntax) an error is reported.
+
+Use the HTTP logging option to inspect the request headers:
+
+```
+$0 doc get -s {server} -d {database} -i {document} \
+  -h 'if-none-match: "{revision}"' --http --trace
+```
+
+The `${opt_rev_long}` would be more concise in the above example, however it illustrates the ability to set and inspect headers.
 
 ## Query String
 

@@ -1,4 +1,4 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.105" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.106" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -129,6 +129,20 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
 .PP
 Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
+.SH "HEADERS"
+.PP
+Similar to \fBcurl(1)\fR arbitrary HTTP headers are accepted using the \fB\-h | \-\-header\fR option (note the short version is lowercase), you may specify as many headers as you like although \fBContent\-Type\fR and \fBAccept\fR are ignored, a warning is printed if you attempt to use them.
+.PP
+If the value of the \fB\-\-header\fR option is incorrect (bad syntax) an error is reported.
+.PP
+Use the HTTP logging option to inspect the request headers:
+
+.SP
+rlx doc get \-s {server} \-d {database} \-i {document} \e
+.br
+  \-h 'if\-none\-match: "{revision}"' \-\-http \-\-trace
+.PP
+The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
 .SH "QUERY STRING"
 .PP
 The \fBcouchdb\fR database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
@@ -187,6 +201,8 @@ rlx lint \-f http://registry.npmjs.org
 rlx lint \-j '{}'
 .br
 cat package.json | rlx \- lint
+.PP
+\fBthis\fR is a quotation
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.
