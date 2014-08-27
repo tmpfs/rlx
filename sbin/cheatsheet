@@ -66,6 +66,7 @@ rules.push({src: /(-f|--file|-o|--output) [^ ]+/gm,
 rules.push({src: /(-a|--attachment) [^ ]+/gm,
             rep: '$1 ' + qt.params.attname});
 
+rules.push({src: config.copy.id, rep: qt.params.docid});
 rules.push({src: config.document.id, rep: qt.params.docid});
 rules.push({src: /(-t|--template) ([^ ]*)/gm, rep: '$1 ' + qt.params.template});
 

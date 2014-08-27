@@ -33,15 +33,16 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
-Usage: rlx <command> [-ch] [--color|--no-color] [-c|--compress]
+Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
            [--force] [--http] [--trace] [--debug] [--info] [--warn]
-           [--error] [-h|--help] [--version] [-s|--server=<url>]
+           [--error] [--help] [--version] [-s|--server=<url>]
            [-d|--database=<name>] [-i|--id=<id>]
            [-a|--attachment=<file>] [-r|--rev=<rev>]
            [-u|--username=<name>] [-p|--password=<pass>]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
-           [-t|--template=<name>] [--ddoc=<name>]
-           [-q|--query=<params...>] [--feed=<type>] <args>
+           [-t|--template=<name>] [-q|--query=<params...>]
+           [-h|--header=<key:value...>] [--destination=<url>]
+           [--ddoc=<name>] [--feed=<type>] <args>
 
 Command line interface for couchdb.
 
@@ -77,7 +78,8 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
- -c, --compress         Compact JSON output format (zero indent).
+ -q, --query=[params...]
+                        Query string parameters.
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -i, --id=[id]          Document identifier.
@@ -90,11 +92,14 @@ Arguments:
  -f, --file=[file]      Read JSON input from file.
  -j, --json=[json]      JSON string literal (overrides --file).
  -t, --template=[name]  Name of a template file.
+ -c, --compress         Compact JSON output format (zero indent).
  -s, --server=[url]     Database server.
+ -h, --header=[key:value...]
+                        Additional HTTP headers.
+     --destination=[url]
+                        Copy destination.
      --force            Force file overwrite.
      --ddoc=[name]      Design document id.
- -q, --query=[params...]
-                        Query string parameters.
      --feed=[type]      Poll feed type.
      --http             Enable HTTP logs.
      --trace            Set log level to trace.
@@ -102,7 +107,7 @@ Arguments:
      --info             Set log level to info.
      --warn             Set log level to warn.
      --error            Set log level to error.
- -h, --help             Display this help and exit.
+     --help             Display this help and exit.
      --version          Print version and exit.
 
 Report bugs to https://github.com/freeformsystems/rlx/issues.

@@ -16,7 +16,9 @@ rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
 .br
     [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
 .br
-    [\-h|\-\-header=<key:value...>] [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
+    [\-h|\-\-header=<key:value...>] [\-\-destination=<url>] [\-\-ddoc=<name>]
+.br
+    [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -101,6 +103,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
+.IP "\[ci]" 4
+\fB\-\-destination=[url]\fR: Copy destination.
 .IP "\[ci]" 4
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
@@ -201,8 +205,6 @@ rlx lint \-f http://registry.npmjs.org
 rlx lint \-j '{}'
 .br
 cat package.json | rlx \- lint
-.PP
-\fBthis\fR is a quotation
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.

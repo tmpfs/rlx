@@ -151,6 +151,25 @@ var qt = [
     ]
   },
   {
+    id: 'doc/cp',
+    description: 'Copy a document',
+    api: [params.db, params.docid],
+    method: methods.copy,
+    doc: docs.document + '#copy--db-docid',
+    cmd: [
+      'doc',
+      'cp',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '--destination',
+      config.copy.id
+    ]
+  },
+  {
     id: 'doc/get',
     description: 'Get a document',
     api: [params.db, params.docid],
@@ -345,6 +364,25 @@ var qt = [
       'document/new',
       '-i',
       config.document.id
+    ]
+  },
+  {
+    id: 'lcl/cp',
+    description: 'Copy a local document',
+    api: [params.db, parameters.local, params.docid],
+    method: methods.copy,
+    doc: docs.local + '#copy--db-_local-docid',
+    cmd: [
+      'lcl',
+      'cp',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '-i',
+      config.document.id,
+      '--destination',
+      config.copy.id
     ]
   },
   {

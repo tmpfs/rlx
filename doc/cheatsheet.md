@@ -48,6 +48,7 @@ Table of Contents
     * [GET /{db}/_security](#get-db_security)
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
+    * [COPY /{db}/{docid}](#copy-dbdocid)
     * [GET /{db}/{docid}](#get-dbdocid)
     * [GET /{db}/{docid}?conflicts=true](#get-dbdocidconflictstrue)
     * [GET /{db}/{docid}?deleted_conflicts=true](#get-dbdociddeleted_conflictstrue)
@@ -59,6 +60,7 @@ Table of Contents
     * [DELETE /{db}/{docid}](#delete-dbdocid)
   * [Local Document](#local-document)
     * [PUT /{db}/_local/{docid}](#put-db_localdocid)
+    * [COPY /{db}/_local/{docid}](#copy-db_localdocid)
     * [GET /{db}/_local/{docid}](#get-db_localdocid)
     * [DELETE /{db}/_local/{docid}](#delete-db_localdocid)
   * [Attachment](#attachment)
@@ -493,6 +495,16 @@ rlx doc add -s {server} -d {db} -t {template} -i {docid}
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
 
+### COPY /{db}/{docid}
+
+Copy a document:
+
+```
+rlx doc cp -s {server} -d {db} -i {docid} --destination {docid}
+```
+
+Documentation: [document/common#copy-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#copy--db-docid)
+
 ### GET /{db}/{docid}
 
 Get a document:
@@ -598,6 +610,16 @@ rlx lcl add -s {server} -d {db} -t {template} -i {docid}
 ```
 
 Documentation: [local#put-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid)
+
+### COPY /{db}/_local/{docid}
+
+Copy a local document:
+
+```
+rlx lcl cp -s {server} -d {db} -i {docid} --destination {docid}
+```
+
+Documentation: [local#copy-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#copy--db-_local-docid)
 
 ### GET /{db}/_local/{docid}
 
