@@ -165,6 +165,11 @@
     "message": "attachment is required (%s)"
   },
   {
+    "key": "EDESTINATION_REQUIRED",
+    "description": "Document copy destination is required",
+    "message": "destination is required (%s)"
+  },
+  {
     "key": "ESTDIN_JSON_PARSE",
     "description": "Could not parse stdin input as json",
     "message": "stdin input is not valid json"
