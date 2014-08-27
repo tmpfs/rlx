@@ -49,15 +49,12 @@ describe('rlx:', function() {
       '-i=' + config.document.id,
       '--destination',
       config.copy.id,
-      '--http',
-      '--trace',
       '--no-color',
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.doc.create(doc, false, config.copy.id);
       done();
     })
