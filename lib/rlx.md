@@ -103,6 +103,8 @@ Commands for creating, deleting, retrieving and modifying `local` documents, it 
 
 If no subcommand is specified an error is reported.
 
+When using the `${cmd_cp_long}` command to copy a document if `${opt_destination_long}` does not specify an absolute URL then the document is copied as a local document, ie, if you wish to copy a local document to a regular document you will need to use an absolute URL for the destination.
+
 #### Commands
 
 * `add: add`: Create a local document.

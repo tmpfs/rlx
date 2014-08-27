@@ -1,4 +1,4 @@
-.TH "RLX-LOCAL" "1" "August 2014" "rlx-local 0.1.106" "User Commands"
+.TH "RLX-LOCAL" "1" "August 2014" "rlx-local 0.1.107" "User Commands"
 .SH "NAME"
 rlx-local -- Manage local documents.
 .SH "SYNOPSIS"
@@ -12,6 +12,8 @@ rlx lcl <command> <args>
 Commands for creating, deleting, retrieving and modifying \fBlocal\fR documents, it is not possible to list local documents, see the \fBcouchdb\fR documentation.
 .PP
 If no subcommand is specified an error is reported.
+.PP
+When using the \fBcp\fR command to copy a document if \fB\-\-destination\fR does not specify an absolute URL then the document is copied as a local document, ie, if you wish to copy a local document to a regular document you will need to use an absolute URL for the destination.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
