@@ -3,8 +3,8 @@ var mock = require('../util/mock');
 var view = require('./view');
 var parameters = require('cdb').parameters;
 
-function create(doc, local) {
-  var id = mock.document.id
+function create(doc, local, id) {
+  id = id || mock.document.id
   if(local) id = parameters.local + '/' + id;
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
@@ -12,8 +12,8 @@ function create(doc, local) {
   expect(doc.rev).to.be.a('string');
 }
 
-function get(doc, local) {
-  var id = mock.document.id
+function get(doc, local, id) {
+  id = id || mock.document.id
   if(local) id = parameters.local + '/' + id;
   expect(doc).to.be.an('object');
   expect(doc._id).to.eql(id);

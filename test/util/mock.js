@@ -50,6 +50,9 @@ var mock = {
     str: 'value',
     nil: null
   },
+  copy: {
+    id: 'mock/document/copy'
+  },
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),

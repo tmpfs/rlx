@@ -39,6 +39,31 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should copy document', function(done){
+    var mock = config.file('document-copy.json');
+    var args = [
+      'doc',
+      'cp',
+      '-s=' + config.server.default,
+      '-d=' + database,
+      '-i=' + config.document.id,
+      '--destination',
+      config.copy.id,
+      '--http',
+      '--trace',
+      '--no-color',
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.doc.create(doc, false, config.copy.id);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should list documents', function(done){
     var mock = config.file('document-ls.json');
     var args = [
