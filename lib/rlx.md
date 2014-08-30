@@ -285,6 +285,41 @@ cat package.json | $0 - ${cmd_lint_long}
 
 <!--  `this` is a quotation -->
 
+## Templates
+
+Templates may be referenced using the `${opt_template_pipe}` option, the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
+
+Variables are declared with an `@` symbol and must include an assignment operator (`=`). For example, `@foo=bar` will set the template variable named `foo` to the string `bar`.
+
+Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: `@foo=bar,baz`.
+
+Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
+
+```
+module.exports = function template(req, cb){
+  return cb(null, {});
+}
+```
+
+They are invoked in the scope of the parsed variables object so if the template was parsed with `@id=foo` and the template looked like:
+
+```
+module.exports = function template(req, cb){
+  var doc = {
+    _id: this.id
+  }
+  return cb(null, doc);
+}
+```
+
+The result would be a JSON document such as:
+
+```
+{
+  "_id": "foo"
+}
+```
+
 ## Log
 
 All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
