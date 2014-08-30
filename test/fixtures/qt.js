@@ -916,34 +916,34 @@ var qt = [
   },
   {
     id: 'db/missing',
-    enabled: false,
     description: 'Find document revisions that do not exist',
     api: [params.db, parameters.missing],
     method: methods.post,
     doc: docs.misc + '#post--db-_missing_revs',
     cmd: [
       'db',
-      'missing',
+      'missingrevs',
       '-s',
       config.server.default,
       '-d',
-      config.database.default
+      config.database.default,
+      '@foo=1-0'
     ]
   },
   {
     id: 'db/diff',
-    enabled: false,
     description: 'Get document revision diff',
     api: [params.db, parameters.diff],
     method: methods.post,
     doc: docs.misc + '#post--db-_revs_diff',
     cmd: [
       'db',
-      'diff',
+      'revsdiff',
       '-s',
       config.server.default,
       '-d',
-      config.database.default
+      config.database.default,
+      '@foo=1-0'
     ]
   },
   {

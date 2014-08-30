@@ -30,8 +30,8 @@ Table of Contents
     * [GET /_all_dbs](#get-_all_dbs)
     * [POST /{db}/_temp_view](#post-db_temp_view)
     * [POST /{db}/_purge](#post-db_purge)
-    * [~~POST /{db}/_missing_revs~~](#post-db_missing_revs)
-    * [~~POST /{db}/_revs_diff~~](#post-db_revs_diff)
+    * [POST /{db}/_missing_revs](#post-db_missing_revs)
+    * [POST /{db}/_revs_diff](#post-db_revs_diff)
     * [GET /{db}/_changes](#get-db_changes)
     * [POST /{db}/_view_cleanup](#post-db_view_cleanup)
     * [POST /{db}/_ensure_full_commit](#post-db_ensure_full_commit)
@@ -340,15 +340,23 @@ rlx db purge -s {server} -d {db} @foo=1-0
 
 Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge)
 
-### ~~POST /{db}/_missing_revs~~
+### POST /{db}/_missing_revs
 
-Find document revisions that do not exist.
+Find document revisions that do not exist:
+
+```
+rlx db missingrevs -s {server} -d {db} @foo=1-0
+```
 
 Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs)
 
-### ~~POST /{db}/_revs_diff~~
+### POST /{db}/_revs_diff
 
-Get document revision diff.
+Get document revision diff:
+
+```
+rlx db revsdiff -s {server} -d {db} @foo=1-0
+```
 
 Documentation: [database/misc#post-db-revs-diff](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff)
 
