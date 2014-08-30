@@ -26,9 +26,9 @@ Table of Contents
     * [DELETE /{db}/_session](#delete-db_session)
   * [Database](#database)
     * [PUT /{db}](#put-db)
+    * [POST /_all_dbs/{db}](#post-_all_dbsdb)
     * [GET /_all_dbs](#get-_all_dbs)
     * [POST /{db}/_temp_view](#post-db_temp_view)
-    * [~~POST /{db}/_bulk_docs~~](#post-db_bulk_docs)
     * [~~POST /{db}/_purge~~](#post-db_purge)
     * [~~POST /{db}/_missing_revs~~](#post-db_missing_revs)
     * [~~POST /{db}/_revs_diff~~](#post-db_revs_diff)
@@ -300,6 +300,16 @@ rlx db add -s {server} -d {db}
 
 Documentation: [database/common#put-db](http://docs.couchdb.org/en/latest/api/database/common.html#put--db)
 
+### POST /_all_dbs/{db}
+
+Bulk insert/update:
+
+```
+rlx db bulk -s {server} -d {db} @docs=foo,bar
+```
+
+Documentation: [database/bulk-api#post-db-bulk-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#post--db-_bulk_docs)
+
 ### GET /_all_dbs
 
 List databases:
@@ -319,12 +329,6 @@ rlx db temp -s {server} -d {db}
 ```
 
 Documentation: [database/temp-views#post-db-temp-view](http://docs.couchdb.org/en/latest/api/database/temp-views.html#post--db-_temp_view)
-
-### ~~POST /{db}/_bulk_docs~~
-
-Bulk document modifications.
-
-Documentation: [database/bulk-api#post-db-bulk-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#post--db-_bulk_docs)
 
 ### ~~POST /{db}/_purge~~
 

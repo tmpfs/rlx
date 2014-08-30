@@ -854,6 +854,22 @@ var qt = [
     ]
   },
   {
+    id: 'db/bulk',
+    description: 'Bulk insert/update',
+    api: [parameters.dbs, params.db],
+    method: methods.post,
+    doc: docs.bulk + '#post--db-_bulk_docs',
+    cmd: [
+      'db',
+      'bulk',
+      '-s',
+      config.server.default,
+      '-d',
+      config.database.default,
+      '@docs=foo,bar'
+    ]
+  },
+  {
     id: 'db/list',
     description: 'List databases',
     api: [parameters.dbs],
@@ -875,22 +891,6 @@ var qt = [
     cmd: [
       'db',
       'temp',
-      '-s',
-      config.server.default,
-      '-d',
-      config.database.default
-    ]
-  },
-  {
-    id: 'db/bulk',
-    enabled: false,
-    description: 'Bulk document modifications',
-    api: [params.db, parameters.bulk],
-    method: methods.post,
-    doc: docs.bulk + '#post--db-_bulk_docs',
-    cmd: [
-      'db',
-      'bulk',
       '-s',
       config.server.default,
       '-d',
