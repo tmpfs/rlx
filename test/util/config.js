@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var config = require('./mock');
+var walk = require('recursive-readdir');
 
 var editor, visual;
 config.edit = {};
@@ -59,14 +60,17 @@ function fixtures() {
     key = path.basename(file, '.json');
     pth = path.join(config.paths.fixtures, file);
     config.paths[key] = pth;
-    contents = '' + fs.readFileSync(pth);
-    item = {
-      name: file,
-      path: pth,
-      doc: contents,
-      data: /\.json$/.test(file) ? JSON.parse(contents) : contents
+    var stats = fs.statSync(pth);
+    if(stats.isFile()) {
+      contents = '' + fs.readFileSync(pth);
+      item = {
+        name: file,
+        path: pth,
+        doc: contents,
+        data: /\.json$/.test(file) ? JSON.parse(contents) : contents
+      }
+      config.fixtures[key] = item;
     }
-    config.fixtures[key] = item;
   }
 }
 
