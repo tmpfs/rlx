@@ -145,7 +145,7 @@ var qt = [
       '-d',
       config.database.default,
       '-t',
-      'document/new',
+      'doc/new',
       '-i',
       config.document.id
     ]
@@ -361,7 +361,7 @@ var qt = [
       '-d',
       config.database.default,
       '-t',
-      'document/new',
+      'doc/new',
       '-i',
       config.document.id
     ]

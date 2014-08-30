@@ -23,7 +23,7 @@ describe('rlx:', function() {
       'tpl',
       'parse',
       '-t',
-      'document/new',
+      'doc/new',
       '@foo',
       'bar',
       '--no-color'
