@@ -78,4 +78,26 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should create mix template variable and files', function(done){
+    var mock = config.file('database-bulk-mixed.json');
+    var args = [
+      'db',
+      'bulk',
+      '--no-color',
+      '-s',
+      config.server.default,
+      '-d',
+      database,
+      '@docs=foo,bar',
+      path.join(config.paths.fixtures, 'bulk', 'id.js'),
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert.bulk(doc, 3);
+      done();
+    })
+    def.parse(args);
+  });
 })
