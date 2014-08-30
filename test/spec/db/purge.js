@@ -8,6 +8,7 @@ var assert = config.assert.db;
 
 describe('rlx:', function() {
   this.timeout(5000);
+  var revs = [];
   beforeEach(function(done) {
     config.db.add(function() {
       config.db.bulk(done);
@@ -34,7 +35,6 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.once('complete', function(req) {
       var doc = config.json(mock);
-      var revs = [];
       doc._revs_info.forEach(function(item) {
         revs.push(item.rev);
       });
@@ -60,6 +60,50 @@ describe('rlx:', function() {
       });
 
       def.parse(args);
+    })
+    def.parse(args);
+  });
+  it('should get revsdiff', function(done){
+    var mock = config.file('revsdiff.json');
+    var args = [
+      'db',
+      'revsdiff',
+      '--no-color',
+      '-s',
+      config.server.default,
+      '-d',
+      database,
+      '@foo=' + revs.join(','),
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.once('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.generic.empty(doc);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should get missingrevs', function(done){
+    var mock = config.file('missingrevs.json');
+    var args = [
+      'db',
+      'missingrevs',
+      '--no-color',
+      '-s',
+      config.server.default,
+      '-d',
+      database,
+      '@foo=' + revs.join(','),
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.once('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.db.missingrevs(doc);
+      done();
     })
     def.parse(args);
   });

@@ -32,6 +32,14 @@ function purge(doc, len) {
   }
 }
 
+function missingrevs(doc, len) {
+  expect(doc).to.be.an('object');
+  expect(doc.missing_revs).to.be.an('object');
+  if(len) {
+    expect(Object.keys(doc.missing_revs).length).to.eql(len);
+  }
+}
+
 function info(doc, name) {
   expect(doc).to.be.an('object');
   expect(doc.db_name).to.eql(name);
@@ -56,6 +64,7 @@ module.exports = {
   list: list,
   bulk: bulk,
   purge: purge,
+  missingrevs: missingrevs,
   info: info,
   changes: changes,
   commit: commit,

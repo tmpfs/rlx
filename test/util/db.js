@@ -42,13 +42,15 @@ module.exports = function(config) {
       var args = [
         'db',
         'bulk',
-        '--no-color',
         '-s',
         config.server.default,
         '-d',
         database,
         '@docs=foo,bar',
-        '-o', mock
+        '--no-color',
+        '--force',
+        '-o',
+        mock
       ];
       var def = program(require(pkg), config.name)
       def.program.on('complete', function(req) {

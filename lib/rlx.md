@@ -71,6 +71,8 @@ If no subcommand is specified `ls` is invoked.
 * `add: add`: Create a database.
 * `bulk: bulk`: Bulk insert/update.
 * `purge: purge`: Purge documents.
+* `missing-revs: missingrevs, mr`: Get document revisions that do not exist.
+* `revs-diff: revsdiff, rd`: Get document revisions diff.
 * `rm: rm`: Remove a database.
 * `temp: temp`: Execute a temporary view.
 * `changes: changes`: Get database changes.
