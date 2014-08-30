@@ -89,7 +89,7 @@ describe('rlx:', function() {
     var mock = config.file('missingrevs.json');
     var args = [
       'db',
-      'missingrevs',
+      'mrevs',
       '--no-color',
       '-s',
       config.server.default,

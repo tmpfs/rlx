@@ -345,7 +345,7 @@ Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/a
 Find document revisions that do not exist:
 
 ```
-rlx db missingrevs -s {server} -d {db} @foo=1-0
+rlx db mrevs -s {server} -d {db} @foo=1-0
 ```
 
 Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs)
@@ -355,7 +355,7 @@ Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/l
 Get document revision diff:
 
 ```
-rlx db revsdiff -s {server} -d {db} @foo=1-0
+rlx db rdiff -s {server} -d {db} @foo=1-0
 ```
 
 Documentation: [database/misc#post-db-revs-diff](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff)

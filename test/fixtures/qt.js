@@ -922,7 +922,7 @@ var qt = [
     doc: docs.misc + '#post--db-_missing_revs',
     cmd: [
       'db',
-      'missingrevs',
+      'mrevs',
       '-s',
       config.server.default,
       '-d',
@@ -938,7 +938,7 @@ var qt = [
     doc: docs.misc + '#post--db-_revs_diff',
     cmd: [
       'db',
-      'revsdiff',
+      'rdiff',
       '-s',
       config.server.default,
       '-d',
