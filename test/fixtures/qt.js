@@ -856,7 +856,7 @@ var qt = [
   {
     id: 'db/bulk',
     description: 'Bulk insert/update',
-    api: [parameters.dbs, params.db],
+    api: [params.db, parameters.bulk],
     method: methods.post,
     doc: docs.bulk + '#post--db-_bulk_docs',
     cmd: [

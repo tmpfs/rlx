@@ -1,24 +1,24 @@
-.TH "RLX" "1" "August 2014" "rlx 0.1.108" "User Commands"
+.TH "RLX" "1" "August 2014" "rlx 0.1.110" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .SP
-rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-force]
+rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-recursive]
 .br
-    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help]
+    [\-\-force] [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error]
 .br
-    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
+    [\-\-help] [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
 .br
-    [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>]
+    [\-i|\-\-id=<id>] [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>]
 .br
-    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
+    [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
 .br
-    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
+    [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
 .br
-    [\-h|\-\-header=<key:value...>] [\-\-destination=<url>] [\-\-ddoc=<name>]
+    [\-q|\-\-query=<params...>] [\-h|\-\-header=<key:value...>]
 .br
-    [\-\-feed=<type>] <args>
+    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -74,7 +74,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-q, \-\-query=[params...]\fR: Query string parameters.
+\fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -100,9 +100,11 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
 .IP "\[ci]" 4
+\fB\-q, \-\-query=[params...]\fR: Query string parameters.
+.IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
-\fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
+\fB\-\-recursive\fR: Read directories recursively.
 .IP "\[ci]" 4
 \fB\-\-destination=[url]\fR: Copy destination.
 .IP "\[ci]" 4

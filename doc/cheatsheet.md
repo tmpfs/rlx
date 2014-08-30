@@ -26,7 +26,7 @@ Table of Contents
     * [DELETE /{db}/_session](#delete-db_session)
   * [Database](#database)
     * [PUT /{db}](#put-db)
-    * [POST /_all_dbs/{db}](#post-_all_dbsdb)
+    * [POST /{db}/_bulk_docs](#post-db_bulk_docs)
     * [GET /_all_dbs](#get-_all_dbs)
     * [POST /{db}/_temp_view](#post-db_temp_view)
     * [~~POST /{db}/_purge~~](#post-db_purge)
@@ -300,7 +300,7 @@ rlx db add -s {server} -d {db}
 
 Documentation: [database/common#put-db](http://docs.couchdb.org/en/latest/api/database/common.html#put--db)
 
-### POST /_all_dbs/{db}
+### POST /{db}/_bulk_docs
 
 Bulk insert/update:
 

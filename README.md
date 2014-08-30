@@ -34,9 +34,9 @@ The documentation for the program is available via the `help` command, for those
 
 ```
 Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
-           [--force] [--http] [--trace] [--debug] [--info] [--warn]
-           [--error] [--help] [--version] [-s|--server=<url>]
-           [-d|--database=<name>] [-i|--id=<id>]
+           [--recursive] [--force] [--http] [--trace] [--debug]
+           [--info] [--warn] [--error] [--help] [--version]
+           [-s|--server=<url>] [-d|--database=<name>] [-i|--id=<id>]
            [-a|--attachment=<file>] [-r|--rev=<rev>]
            [-u|--username=<name>] [-p|--password=<pass>]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
@@ -78,8 +78,8 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
- -q, --query=[params...]
-                        Query string parameters.
+ -h, --header=[key:value...]
+                        Additional HTTP headers.
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -i, --id=[id]          Document identifier.
@@ -93,9 +93,10 @@ Arguments:
  -j, --json=[json]      JSON string literal (overrides --file).
  -t, --template=[name]  Name of a template file.
  -c, --compress         Compact JSON output format (zero indent).
+ -q, --query=[params...]
+                        Query string parameters.
  -s, --server=[url]     Database server.
- -h, --header=[key:value...]
-                        Additional HTTP headers.
+     --recursive        Read directories recursively.
      --destination=[url]
                         Copy destination.
      --force            Force file overwrite.
