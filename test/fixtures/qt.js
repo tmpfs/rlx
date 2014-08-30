@@ -900,7 +900,6 @@ var qt = [
 
   {
     id: 'db/purge',
-    enabled: false,
     description: 'Purge documents',
     api: [params.db, parameters.purge],
     method: methods.post,
@@ -911,7 +910,8 @@ var qt = [
       '-s',
       config.server.default,
       '-d',
-      config.database.default
+      config.database.default,
+      '@foo=1-0'
     ]
   },
   {

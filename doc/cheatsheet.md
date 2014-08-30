@@ -29,7 +29,7 @@ Table of Contents
     * [POST /{db}/_bulk_docs](#post-db_bulk_docs)
     * [GET /_all_dbs](#get-_all_dbs)
     * [POST /{db}/_temp_view](#post-db_temp_view)
-    * [~~POST /{db}/_purge~~](#post-db_purge)
+    * [POST /{db}/_purge](#post-db_purge)
     * [~~POST /{db}/_missing_revs~~](#post-db_missing_revs)
     * [~~POST /{db}/_revs_diff~~](#post-db_revs_diff)
     * [GET /{db}/_changes](#get-db_changes)
@@ -330,9 +330,13 @@ rlx db temp -s {server} -d {db}
 
 Documentation: [database/temp-views#post-db-temp-view](http://docs.couchdb.org/en/latest/api/database/temp-views.html#post--db-_temp_view)
 
-### ~~POST /{db}/_purge~~
+### POST /{db}/_purge
 
-Purge documents.
+Purge documents:
+
+```
+rlx db purge -s {server} -d {db} @foo=1-0
+```
 
 Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge)
 
