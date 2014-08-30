@@ -37,6 +37,25 @@ module.exports = function(config) {
       })
       def.parse(args);
     },
+    bulk: function(done) {
+      var mock = config.file('mock-bulk-docs.json');
+      var args = [
+        'db',
+        'bulk',
+        '--no-color',
+        '-s',
+        config.server.default,
+        '-d',
+        database,
+        '@docs=foo,bar',
+        '-o', mock
+      ];
+      var def = program(require(pkg), config.name)
+      def.program.on('complete', function(req) {
+        done();
+      })
+      def.parse(args);
+    },
     user: {
       add: function(done) {
         var mock = config.file('mock-user-add.json');

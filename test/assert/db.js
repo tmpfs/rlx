@@ -23,6 +23,15 @@ function bulk(doc, len) {
   list(doc, len, bulkitem);
 }
 
+function purge(doc, len) {
+  expect(doc).to.be.an('object');
+  expect(doc.purge_seq).to.be.a('number');
+  expect(doc.purged).to.be.an('object')
+  if(len) {
+    expect(Object.keys(doc.purged).length).to.eql(len);
+  }
+}
+
 function info(doc, name) {
   expect(doc).to.be.an('object');
   expect(doc.db_name).to.eql(name);
@@ -46,6 +55,7 @@ function getlimit(doc) {
 module.exports = {
   list: list,
   bulk: bulk,
+  purge: purge,
   info: info,
   changes: changes,
   commit: commit,
