@@ -60,12 +60,13 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Replicate
 
-Commands for starting and stopping database replications.
+Commands for starting, stopping and inspecting database replications.
 
-If no subcommand is specified `start` is invoked.
+If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
+* `ls: ls`: List active replications.
 * `start: start`: Start a replication.
 * `stop: stop`: Stop a replication.
 
