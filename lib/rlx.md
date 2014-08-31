@@ -16,6 +16,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `document: document, doc`: Manage documents.
 * `attach: attach, att`: Manage document attachments.
 * `replicate: replicate, repl`: Replicate a database.
+* `application: application, app`: Manage design document applications.
 * `local: local, lcl`: Manage local documents.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
@@ -57,6 +58,17 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
+
+### Application
+
+Commands for managing applications (design documents).
+
+If no subcommand is specified `ls` is invoked.
+
+#### Commands
+
+* `ls: ls`: List design documents.
+* `head: head`: Get minimal design document information.
 
 ### Replicate
 
