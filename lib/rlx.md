@@ -14,8 +14,9 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `database: database, db`: Manage databases.
 * `security: security, sec`: Get or set database security.
 * `document: document, doc`: Manage documents.
-* `local: local, lcl`: Manage local documents.
 * `attach: attach, att`: Manage document attachments.
+* `replicate: replicate, repl`: Replicate a database.
+* `local: local, lcl`: Manage local documents.
 * `login`: Login to a server.
 * `logout`: Logout of current session.
 * `session: session, sess`: Session authentication.
@@ -57,6 +58,17 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 <!--- command definitions -->
 
+### Replicate
+
+Commands for starting and stopping database replications.
+
+If no subcommand is specified `start` is invoked.
+
+#### Commands
+
+* `start: start`: Start a replication.
+* `stop: stop`: Stop a replication.
+
 ### Database
 
 Commands for creating, deleting and modifying databases.
@@ -70,9 +82,6 @@ If no subcommand is specified `ls` is invoked.
 * `exists: exists`: Check database existence.
 * `add: add`: Create a database.
 * `bulk: bulk`: Bulk insert/update.
-* `purge: purge`: Purge documents.
-* `missing-revs: missingrevs, mrevs`: Get document revisions that do not exist.
-* `revs-diff: revsdiff, rdiff`: Get document revisions diff.
 * `rm: rm`: Remove a database.
 * `temp: temp`: Execute a temporary view.
 * `changes: changes`: Get database changes.
@@ -81,6 +90,9 @@ If no subcommand is specified `ls` is invoked.
 * `cleanup: cleanup`: Remove stale view indices.
 * `updates: updates`: Poll for database updates.
 * `limit: limit`: Get or set revisions limit.
+* `purge: purge`: Purge documents.
+* `missing-revs: missingrevs, mrevs`: Get document revisions that do not exist.
+* `revs-diff: revsdiff, rdiff`: Get document revisions diff.
 
 ### Document
 
