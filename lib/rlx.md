@@ -68,7 +68,7 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List design documents.
-* `add: add`: Add a design document.
+* `push: push`: Push a design document.
 * `get: get`: Get a design document.
 * `info: info`: Get design document information.
 * `cp: cp`: Copy a design document.
