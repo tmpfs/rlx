@@ -10,6 +10,10 @@
     "max": 10
   },
   "highlight": {
+    "default": {
+      "source-highlight": "-f esc -s %s",
+      "pygmentize": "-l %s"
+    },
     "json": {
       "source-highlight": "-f esc -s json --style-file=%s --lang-def=%s",
       "pygmentize": "-l json"
