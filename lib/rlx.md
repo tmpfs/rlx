@@ -67,8 +67,8 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List active replications.
-* `start: start`: Start a replication.
-* `stop: stop`: Stop a replication.
+* `add: add`: Start a replication.
+* `rm: rm`: Stop a replication.
 
 ### Database
 
