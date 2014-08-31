@@ -43,6 +43,7 @@ Table of Contents
     * [DELETE /{db}](#delete-db)
     * [GET /_db_updates](#get-_db_updates)
   * [Replicate](#replicate)
+    * [GET /_active_tasks](#get-_active_tasks-1)
     * [POST /_replicate](#post-_replicate)
     * [POST /_replicate](#post-_replicate-1)
   * [Security](#security)
@@ -107,7 +108,6 @@ Get active tasks:
 
 ```
 rlx tasks -s {server}
-rlx repl ls -s {server}
 ```
 
 Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
@@ -471,6 +471,16 @@ Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/
 
 * Manual: `rlx help repl`
 * Help: `rlx --help repl`
+
+### GET /_active_tasks
+
+List active replications:
+
+```
+rlx repl ls -s {server}
+```
+
+Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
 
 ### POST /_replicate
 

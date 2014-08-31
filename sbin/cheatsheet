@@ -109,6 +109,7 @@ function order() {
     out.push({title: section, cmd: k === 'server' ? '' : k});
     for(j = 0;j < qt.length;j++) {
       item = qt[j];
+      //if(item.section)
       cmd = item.cmd[0];
       if(lookup[cmd] && k === lookup[cmd]) {
         section = lookup[cmd];

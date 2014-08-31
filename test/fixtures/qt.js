@@ -644,6 +644,7 @@ var qt = [
     method: methods.get,
     doc: docs.server + '#get--_active_tasks',
     before: ['doc/add'],
+    group: false,
     cmd: [
       'repl',
       'ls',
