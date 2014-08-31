@@ -180,6 +180,11 @@
     "message": "query string parameter is invalid (%s)"
   },
   {
+    "key": "EDB_NOT_FOUND",
+    "description": "Database not found",
+    "message": "database not found %s (%s)"
+  },
+  {
     "key": "EBAD_CONTENT_TYPE",
     "description": "Server indicated a bad content type was specified",
     "message": "bad content type (%s)"
