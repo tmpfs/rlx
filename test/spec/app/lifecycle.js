@@ -39,6 +39,7 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
   it('should get design document', function(done){
     var mock = config.file('app-get.json');
     var args = [
@@ -62,6 +63,32 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should head design document', function(done){
+    var mock = config.file('app-head.json');
+    var args = [
+      'app',
+      'head',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.head(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
     var args = [

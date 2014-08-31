@@ -2,6 +2,7 @@ var expect = require('chai').expect;
 var mock = require('../util/mock');
 var view = require('./view');
 var parameters = require('cdb').parameters;
+var head = require('./head');
 
 function identity(id) {
   id = id || mock.app.ddoc;
@@ -38,4 +39,5 @@ module.exports = {
   create: create,
   get: get,
   rm: create,
+  head: head,
 }
