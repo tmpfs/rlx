@@ -20,12 +20,16 @@ module.exports = function(config) {
       })
       def.parse(args);
     },
-    rm: function(done) {
+    rm: function(name, done) {
+      if(typeof name === 'function') {
+        done = name;
+        name = null;
+      }
       var mock = config.file('mock-database-rm.json');
       var args = [
         'db',
         'rm',
-        '-d=' + database,
+        '-d=' + (name || database),
         '--force',
         '--no-color',
         '-s=' + config.server.default,

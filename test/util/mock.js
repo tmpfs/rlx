@@ -23,6 +23,10 @@ var mock = {
     users: userdb.default,
     unknown: 'mock-unknown-database'
   },
+  repl: {
+    source: 'mock/database',
+    target: 'mock/database/copy'
+  },
   user: {
     name: 'mock-user',
     pass: 'secret',
