@@ -62,6 +62,53 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should copy design document', function(done){
+    var mock = config.file('app-cp.json');
+    var args = [
+      'app',
+      'cp',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      '--destination',
+      config.app.copy,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.create(doc, config.app.copy);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list multiple design documents', function(done){
+    var mock = config.file('app-ls-multiple.json');
+    var args = [
+      'app',
+      'ls',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.list(doc, null, 2);
+      done();
+    })
+    def.parse(args);
+  });
 
   it('should get design document', function(done){
     var mock = config.file('app-get.json');

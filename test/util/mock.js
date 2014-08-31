@@ -14,7 +14,8 @@ var mock = {
     default: process.env.rlx_test_server || 'http://localhost:5984'
   },
   app: {
-    ddoc: 'mock-design-document'
+    ddoc: 'mock-design-document',
+    copy: 'mock-design-document-copy'
   },
   conf: {
     section: 'mock-config-section',
