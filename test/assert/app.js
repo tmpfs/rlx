@@ -35,9 +35,18 @@ function get(doc, id) {
   //console.dir(doc);
 }
 
+function info(doc, id) {
+  id = id || mock.app.ddoc;
+  expect(doc).to.be.an('object');
+  expect(doc.name).to.eql(id);
+  expect(doc.view_index).to.be.an('object');
+  //console.dir(doc);
+}
+
 module.exports = {
   create: create,
   get: get,
   rm: create,
   head: head,
+  info: info,
 }

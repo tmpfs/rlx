@@ -88,6 +88,31 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should get design document info', function(done){
+    var mock = config.file('app-info.json');
+    var args = [
+      'app',
+      'info',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.app.info(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
 
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
