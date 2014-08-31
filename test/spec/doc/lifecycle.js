@@ -100,6 +100,26 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should head document', function(done){
+    var mock = config.file('document-head.json');
+    var args = [
+      'doc',
+      'head',
+      '-d=' + database,
+      '--id=' + config.document.id,
+      '--no-color',
+      '-s=' + config.server.default,
+      '-o', mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.doc.head(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should get document revision', function(done){
     var mock = config.file('document-rev.json');
     var args = [
