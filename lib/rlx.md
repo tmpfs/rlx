@@ -68,6 +68,7 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List design documents.
+* `get: get`: Get a design document.
 * `head: head`: Get minimal design document information.
 
 ### Replicate
