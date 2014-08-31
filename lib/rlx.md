@@ -71,6 +71,7 @@ If no subcommand is specified `ls` is invoked.
 * `get: get`: Get a design document.
 * `cp: cp`: Copy a design document.
 * `head: head`: Get minimal design document information.
+* `rm: rm`: Remove a design document.
 
 ### Replicate
 
