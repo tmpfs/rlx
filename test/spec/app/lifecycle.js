@@ -40,6 +40,29 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should list design documents', function(done){
+    var mock = config.file('app-ls.json');
+    var args = [
+      'app',
+      'ls',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.list(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should get design document', function(done){
     var mock = config.file('app-get.json');
     var args = [

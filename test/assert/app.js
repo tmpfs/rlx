@@ -43,10 +43,25 @@ function info(doc, id) {
   //console.dir(doc);
 }
 
+function list(doc, id, len) {
+  id = identity(id);
+  len = len || 1;
+  expect(doc).to.be.an('object');
+  expect(doc.total_rows).to.be.a('number');
+  expect(doc.offset).to.be.a('number');
+  expect(doc.rows).to.be.an('array');
+  expect(doc.rows.length).to.eql(len);
+  var ddoc = doc.rows[0];
+  expect(ddoc.id).to.eql(id);
+  expect(ddoc.key).to.eql(id);
+  //console.dir(doc);
+}
+
 module.exports = {
   create: create,
   get: get,
   rm: create,
   head: head,
   info: info,
+  list: list,
 }
