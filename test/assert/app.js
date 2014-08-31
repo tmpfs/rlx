@@ -37,4 +37,5 @@ function get(doc, id) {
 module.exports = {
   create: create,
   get: get,
+  rm: create,
 }

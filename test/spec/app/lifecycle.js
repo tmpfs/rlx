@@ -62,4 +62,27 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should remove design document', function(done){
+    var mock = config.file('app-rm.json');
+    var args = [
+      'app',
+      'rm',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      '--no-color',
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.rm(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })
