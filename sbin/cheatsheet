@@ -21,6 +21,7 @@ var sections = {
   user: 'User',
   session: 'Session',
   db: 'Database',
+  repl: 'Replicate',
   security: 'Security',
   doc: 'Document',
   lcl: 'Local Document',
@@ -33,7 +34,7 @@ var sections = {
 var lookup = {
   login: 'session',
   logout: 'session',
-  //logout: 'session',
+  //repl: 'repl',
   whoami: 'session'
 }
 
@@ -48,6 +49,7 @@ var ignore = [
 
 var rules = [], st = '~~';
 rules.push({src: config.server.default, rep: qt.params.server});
+rules.push({src: config.repl.target, rep: qt.params.db});
 rules.push({src: config.database.default, rep: qt.params.db});
 rules.push({src: config.database.users, rep: qt.params.db});
 rules.push({src: config.design.auth, rep: qt.params.ddoc});

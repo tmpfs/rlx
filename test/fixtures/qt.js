@@ -600,19 +600,6 @@ var qt = [
     ]
   },
   {
-    id: 'replicate',
-    description: 'Replicate a database',
-    enabled: false,
-    api: [parameters.replicate],
-    method: methods.post,
-    doc: docs.server + '#post--_replicate',
-    cmd: [
-      'repl',
-      '-s',
-      config.server.default
-    ]
-  },
-  {
     id: 'restart',
     description: 'Restart the server',
     api: [parameters.restart],
@@ -648,6 +635,61 @@ var qt = [
       config.server.default
     ]
   },
+
+  // REPLICATE
+  {
+    id: 'repl/ls',
+    description: 'List active replications',
+    api: [parameters.tasks],
+    method: methods.get,
+    doc: docs.server + '#get--_active_tasks',
+    before: ['doc/add'],
+    cmd: [
+      'repl',
+      'ls',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'repl/add',
+    description: 'Create a replication',
+    api: [parameters.replicate],
+    method: methods.post,
+    doc: docs.server + '#post--_replicate',
+    group: false,
+    cmd: [
+      'repl',
+      'add',
+      '-s',
+      config.server.default,
+      '@source=' + config.repl.source,
+      '@target=' + config.repl.target,
+      '@create_target=true',
+      '@continuous=true'
+    ]
+  },
+  {
+    id: 'repl/rm',
+    description: 'Remove a replication',
+    api: [parameters.replicate],
+    method: methods.post,
+    doc: docs.server + '#post--_replicate',
+    after: ['doc/rm', function(done){config.db.rm(config.repl.target, done)}],
+    group: false,
+    cmd: [
+      'repl',
+      'rm',
+      '-s',
+      config.server.default,
+      '@source=' + config.repl.source,
+      '@target=' + config.repl.target,
+      '@create_target=true',
+      '@continuous=true'
+    ]
+  },
+
+  // CONFIG
   {
     id: 'conf/set',
     description: 'Set server configuration value',

@@ -6,7 +6,6 @@ Table of Contents
     * [GET /](#get-)
     * [GET /_active_tasks](#get-_active_tasks)
     * [GET /_log](#get-_log)
-    * [~~POST /_replicate~~](#post-_replicate)
     * [POST /_restart](#post-_restart)
     * [GET /_stats](#get-_stats)
     * [GET /_uuids](#get-_uuids)
@@ -43,6 +42,9 @@ Table of Contents
     * [PUT /{db}/_revs_limit](#put-db_revs_limit)
     * [DELETE /{db}](#delete-db)
     * [GET /_db_updates](#get-_db_updates)
+  * [Replicate](#replicate)
+    * [POST /_replicate](#post-_replicate)
+    * [POST /_replicate](#post-_replicate-1)
   * [Security](#security)
     * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
@@ -105,6 +107,7 @@ Get active tasks:
 
 ```
 rlx tasks -s {server}
+rlx repl ls -s {server}
 ```
 
 Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
@@ -118,12 +121,6 @@ rlx log -s {server}
 ```
 
 Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
-
-### ~~POST /_replicate~~
-
-Replicate a database.
-
-Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
 
 ### POST /_restart
 
@@ -469,6 +466,31 @@ rlx db updates -s {server} --feed longpoll
 ```
 
 Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
+
+## Replicate
+
+* Manual: `rlx help repl`
+* Help: `rlx --help repl`
+
+### POST /_replicate
+
+Create a replication:
+
+```
+rlx repl add -s {server} @source={db} @target={db} @create_target=true @continuous=true
+```
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
+
+### POST /_replicate
+
+Remove a replication:
+
+```
+rlx repl rm -s {server} @source={db} @target={db} @create_target=true @continuous=true
+```
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
 
 ## Security
 
