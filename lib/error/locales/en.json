@@ -35,6 +35,21 @@
     "message": "document is required (use %s or %s)"
   },
   {
+    "key": "ENO_INPUT",
+    "description": "Source directory or file does not exist",
+    "message": "%s does not exist"
+  },
+  {
+    "key": "EDIRECTORY_REQUIRED",
+    "description": "Specified file is not a directory",
+    "message": "%s is not a directory"
+  },
+  {
+    "key": "ENO_APP_INDEX",
+    "description": "Application index file does not exist",
+    "message": "application index file %s does not exist"
+  },
+  {
     "key": "ENO_DB_FILE",
     "description": "Database does not exist",
     "message": "database %s does not exist"
