@@ -1,3 +1,5 @@
+var qt = require('../../fixtures/qt');
+
 var setup = require('../../util/setup');
 var teardown = require('../../util/teardown');
 
@@ -11,42 +13,18 @@ describe('rlx:', function() {
 
   before(function(done) {
     setup.db.add(function() {
-      setup.doc.add(done);
+      setup.ddoc.add(done);
     })
   })
 
   after(function(done) {
-    teardown.doc.rm(function() {
+    teardown.ddoc.rm(function() {
       teardown.db.rm(done);
     });
   })
 
-  it('should list attachments (empty)', function(done){
-    var mock = config.file('attachment-ls.json');
-    var args = [
-      'att',
-      'ls',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '--no-color',
-      '-o', mock
-    ];
-    var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
-      var doc = config.json(mock);
-      config.assert.generic.empty(doc);
-      done();
-    })
-    def.parse(args);
-  });
-
-
-  it('should upload attachment', function(done){
-    var mock = config.file('attachment-upload.json');
+  it('should upload attachment (design document)', function(done){
+    var mock = config.file('attachment-upload-ddoc.json');
     var args = [
       'att',
       'up',
@@ -54,8 +32,8 @@ describe('rlx:', function() {
       config.server.default,
       '-d',
       database,
-      '-i',
-      config.document.id,
+      '--ddoc',
+      config.app.ddoc,
       '-f',
       config.attachment.path,
       '--no-color',
@@ -64,15 +42,14 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
-      config.assert.attach.up(doc);
+      config.assert.attach.up(doc, '_design/' + config.app.ddoc);
       done();
     })
     def.parse(args);
   });
 
 
-  it('should download attachment', function(done){
+  it('should download attachment (design document)', function(done){
     var mock = config.file(config.attachment.name);
     var args = [
       'att',
@@ -81,14 +58,14 @@ describe('rlx:', function() {
       config.server.default,
       '-d',
       database,
-      '-i',
-      config.document.id,
+      '--ddoc',
+      config.app.ddoc,
       '-a',
       config.attachment.name,
       '-o',
       mock,
-      '--no-color',
-      '--force'
+      '--force',
+      '--no-color'
     ];
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
@@ -99,8 +76,8 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should download attachment information', function(done){
-    var mock = config.file('attachment-get.json');
+  it('should download attachment information (design document)', function(done){
+    var mock = config.file('attachment-get-ddoc.json');
     var args = [
       'att',
       'get',
@@ -108,8 +85,8 @@ describe('rlx:', function() {
       config.server.default,
       '-d',
       database,
-      '-i',
-      config.document.id,
+      '--ddoc',
+      config.app.ddoc,
       '-a',
       config.attachment.name,
       '-o',
@@ -125,8 +102,8 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should remove attachment', function(done){
-    var mock = config.file('attachment-rm.json');
+  it('should remove attachment (design document)', function(done){
+    var mock = config.file('attachment-rm-ddoc.json');
     var args = [
       'att',
       'rm',
@@ -134,8 +111,8 @@ describe('rlx:', function() {
       config.server.default,
       '-d',
       database,
-      '-i',
-      config.document.id,
+      '--ddoc',
+      config.app.ddoc,
       '-a',
       config.attachment.name,
       '-o',
@@ -145,7 +122,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.attach.rm(doc);
+      config.assert.attach.rm(doc, '_design/' + config.app.ddoc);
       done();
     })
     def.parse(args);
