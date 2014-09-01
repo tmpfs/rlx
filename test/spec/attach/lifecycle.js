@@ -1,3 +1,4 @@
+var qt = require('../../fixtures/qt');
 var setup = require('../../util/setup');
 var teardown = require('../../util/teardown');
 
@@ -23,18 +24,7 @@ describe('rlx:', function() {
 
   it('should list attachments (empty)', function(done){
     var mock = config.file('attachment-ls.json');
-    var args = [
-      'att',
-      'ls',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '--no-color',
-      '-o', mock
-    ];
+    var args = qt.getArguments('att/ls', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -47,20 +37,7 @@ describe('rlx:', function() {
 
   it('should upload attachment', function(done){
     var mock = config.file('attachment-upload.json');
-    var args = [
-      'att',
-      'up',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '-f',
-      config.attachment.path,
-      '--no-color',
-      '-o', mock
-    ];
+    var args = qt.getArguments('att/up', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -74,22 +51,7 @@ describe('rlx:', function() {
 
   it('should download attachment', function(done){
     var mock = config.file(config.attachment.name);
-    var args = [
-      'att',
-      'dl',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--no-color',
-      '--force'
-    ];
+    var args = qt.getArguments('att/dl');
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
@@ -101,21 +63,7 @@ describe('rlx:', function() {
 
   it('should download attachment information', function(done){
     var mock = config.file('attachment-get.json');
-    var args = [
-      'att',
-      'get',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--no-color'
-    ];
+    var args = qt.getArguments('att/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -127,21 +75,7 @@ describe('rlx:', function() {
 
   it('should remove attachment', function(done){
     var mock = config.file('attachment-rm.json');
-    var args = [
-      'att',
-      'rm',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '-i',
-      config.document.id,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--no-color'
-    ];
+    var args = qt.getArguments('att/rm', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
