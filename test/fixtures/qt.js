@@ -19,6 +19,7 @@ var params = {
   docid: '{docid}',
   attname: '{attname}',
   rev: '{rev}',
+  view: '{view}',
   ddoc: '{ddoc}',
   section: '{section}',
   key: '{key}',
@@ -1706,6 +1707,50 @@ var qt = [
       mock.app.shows.func,
       '-i',
       mock.app.shows.docid
+    ]
+  },
+  {
+    id: 'app/list',
+    description: 'Run a list function',
+    api: [
+      params.db, parameters.design,
+      params.ddoc, parameters.list, params.func, params.view],
+    method: methods.get,
+    doc: docs.render + '#get--db-_design-ddoc-_list-func-view',
+    cmd: [
+      'app',
+      'list',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.lists.func,
+      mock.app.views.all
+    ]
+  },
+  {
+    id: 'app/list/other',
+    description: 'Run a list function against another design document',
+    api: [
+      params.db, parameters.design,
+      params.ddoc, parameters.list, params.func, params.ddoc, params.view],
+    method: methods.get,
+    doc: docs.render + '#get--db-_design-ddoc-_list-func-view',
+    cmd: [
+      'app',
+      'list',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.lists.func,
+      mock.app.copy + '/' + mock.app.views.all
     ]
   },
   {

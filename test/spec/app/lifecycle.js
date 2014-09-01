@@ -201,6 +201,31 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should run list function', function(done){
+    var mock = config.file('app-list.json');
+    var args = qt.getArguments('app/list', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.listfunc(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should run list function (other design document)', function(done){
+    var mock = config.file('app-list-other.json');
+    var args = qt.getArguments('app/list/other', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.listfunc(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
     var args = qt.getArguments('app/rm', {output: mock});

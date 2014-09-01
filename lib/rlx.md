@@ -78,6 +78,7 @@ If no subcommand is specified `ls` is invoked.
 * `view: view`: Query a design document view.
 * `update: update`: Put a design document update.
 * `show: show`: Show a document.
+* `list: list`: Run a list function on a view.
 * `rm: rm`: Remove a design document.
 
 ### Replicate

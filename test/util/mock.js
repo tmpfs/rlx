@@ -33,6 +33,9 @@ var mock = {
     shows: {
       func: 'json',
       docid: 'foo'
+    },
+    lists: {
+      func: 'json'
     }
   },
   conf: {

@@ -97,6 +97,13 @@ function updated(doc) {
   }
 }
 
+function listfunc(doc, len, reduce) {
+  len = len || 1;
+  expect(doc).to.be.an('array');
+  expect(doc.length).to.eql(len);
+}
+
+
 module.exports = {
   create: create,
   get: get,
@@ -110,4 +117,5 @@ module.exports = {
   show: show,
   update: update,
   updated: updated,
+  listfunc: listfunc,
 }
