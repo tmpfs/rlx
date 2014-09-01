@@ -190,7 +190,7 @@ Documentation: [database/common#put-db](http://docs.couchdb.org/en/latest/api/da
 Bulk insert/update:
 
 ```
-rlx db bulk -s {server} -d {db} @docs=foo,bar
+rlx db bulk -s {server} -d {db} @docs={docid},bar
 ```
 
 Documentation: [database/bulk-api#post-db-bulk-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#post--db-_bulk_docs)
@@ -220,7 +220,7 @@ Documentation: [database/temp-views#post-db-temp-view](http://docs.couchdb.org/e
 Purge documents:
 
 ```
-rlx db purge -s {server} -d {db} @foo=1-0
+rlx db purge -s {server} -d {db} @{docid}=1-0
 ```
 
 Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_purge)
@@ -230,7 +230,7 @@ Documentation: [database/misc#post-db-purge](http://docs.couchdb.org/en/latest/a
 Find document revisions that do not exist:
 
 ```
-rlx db mrevs -s {server} -d {db} @foo=1-0
+rlx db mrevs -s {server} -d {db} @{docid}=1-0
 ```
 
 Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_missing_revs)
@@ -240,7 +240,7 @@ Documentation: [database/misc#post-db-missing-revs](http://docs.couchdb.org/en/l
 Get document revision diff:
 
 ```
-rlx db rdiff -s {server} -d {db} @foo=1-0
+rlx db rdiff -s {server} -d {db} @{docid}=1-0
 ```
 
 Documentation: [database/misc#post-db-revs-diff](http://docs.couchdb.org/en/latest/api/database/misc.html#post--db-_revs_diff)
@@ -612,7 +612,7 @@ Documentation: [ddoc/render#post-db-design-ddoc-update-func](http://docs.couchdb
 Put to design document update function:
 
 ```
-rlx app update -s {server} -d {db} --ddoc {ddoc} -n {func} -i foo -f {file}
+rlx app update -s {server} -d {db} --ddoc {ddoc} -n {func} -i {docid} -f {file}
 ```
 
 Documentation: [ddoc/render#put-db-design-ddoc-update-func-docid](http://docs.couchdb.org/en/latest/api/ddoc/render.html#put--db-_design-ddoc-_update-func-docid)

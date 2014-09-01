@@ -17,7 +17,6 @@ var params = {
   server: '{server}',
   db: '{db}',
   docid: '{docid}',
-  //name: '{name}',
   attname: '{attname}',
   rev: '{rev}',
   ddoc: '{ddoc}',
