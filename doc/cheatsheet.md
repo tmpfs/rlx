@@ -60,6 +60,7 @@ Table of Contents
     * [GET /{db}/_design/{ddoc}/_list/{func}/{view}](#get-db_designddoc_listfuncview)
     * [GET /{db}/_design/{ddoc}/_list/{func}/{ddoc}/{view}](#get-db_designddoc_listfuncddocview)
     * [ANY /{db}/_design/{ddoc}/_rewrite/{path}](#any-db_designddoc_rewritepath)
+    * [COPY /{db}/_design/{ddoc}](#copy-db_designddoc-1)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -671,6 +672,16 @@ rlx app rewrite -s {server} -d {db} --ddoc {ddoc} {path}
 ```
 
 Documentation: [ddoc/rewrites#any-db-design-ddoc-rewrite-path](http://docs.couchdb.org/en/latest/api/ddoc/rewrites.html#any--db-_design-ddoc-_rewrite-path)
+
+### COPY /{db}/_design/{ddoc}
+
+Deploy an application in a live environment:
+
+```
+rlx app deploy -s {server} -d {db} --ddoc {ddoc}
+```
+
+Documentation: [ddoc/common#copy-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#copy--db-_design-ddoc)
 
 ### DELETE /{db}/_design/{ddoc}
 

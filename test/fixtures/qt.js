@@ -1776,6 +1776,24 @@ var qt = [
     ]
   },
   {
+    id: 'app/deploy',
+    description: 'Deploy an application in a live environment',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.copy,
+    doc: docs.ddoc + '#copy--db-_design-ddoc',
+    group: false,
+    cmd: [
+      'app',
+      'deploy',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc
+    ]
+  },
+  {
     id: 'app/rm',
     description: 'Remove a design document',
     api: [params.db, parameters.design, params.ddoc],
@@ -1902,7 +1920,7 @@ function getArguments(id, opts) {
     args.push('-o', opts.output);
   }
   if(opts.common) {
-    args.push('--no-color', '--force');
+    args.push('--no-color', '--force', '--error');
   }
   return args;
 }

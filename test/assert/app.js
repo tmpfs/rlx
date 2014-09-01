@@ -109,6 +109,12 @@ function rewrite(doc, id) {
   expect(doc._id).to.eql(id);
 }
 
+function deploy(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.rev).to.be.a('string');
+}
+
 module.exports = {
   create: create,
   get: get,
@@ -124,4 +130,5 @@ module.exports = {
   updated: updated,
   listfunc: listfunc,
   rewrite: rewrite,
+  deploy: deploy,
 }
