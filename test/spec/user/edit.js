@@ -13,16 +13,14 @@ describe('rlx:', function() {
   before(function(done) {
     setup.edit.mock(function() {
       setup.db.add(function() {
-        // TODO
-        config.db.user.add(done);
+        setup.user.add(done);
       });
     });
   })
   after(function(done) {
     teardown.edit.restore(function() {
       teardown.db.rm(function() {
-        // TODO
-        config.db.user.rm(done);
+        teardown.user.rm(done);
       });
     });
   })

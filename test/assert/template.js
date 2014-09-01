@@ -14,7 +14,7 @@ function parse(doc) {
   expect(doc.name).to.be.a('string')
     .to.eql(mock.user.name);
   expect(doc.password).to.be.a('string')
-    .to.eql(mock.user.pass);
+    .to.eql(mock.user.password);
   expect(doc.roles).to.be.an('array')
     .to.eql(mock.user.roles.split(','));
   expect(doc.type).to.be.a('string')

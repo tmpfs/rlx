@@ -78,7 +78,7 @@ module.exports = function(config) {
           'user',
           'add',
           '@name=' + config.user.name,
-          '@password=' + config.user.pass,
+          '@password=' + config.user.password,
           '--force',
           '--no-color',
           '-s=' + config.server.default,

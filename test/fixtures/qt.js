@@ -1,4 +1,6 @@
 var config = require('../util/config');
+var setup = require('../util/setup');
+var teardown = require('../util/teardown');
 
 var api = 'http://docs.couchdb.org/en/latest/api';
 var cdb = require('cdb');
@@ -60,7 +62,7 @@ var qt = [
       '-s',
       config.server.default,
       '@name=' + config.user.name,
-      '@password=' + config.user.pass
+      '@password=' + config.user.password
     ]
   },
   {
@@ -96,8 +98,8 @@ var qt = [
     api: [cdb.user.db, params.docid],
     method: methods.put,
     doc: docs.document + '#put--db-docid',
-    before: [config.edit.mock],
-    after: [config.edit.restore],
+    before: [setup.edit.mock],
+    after: [teardown.edit.restore],
     cmd: [
       'user',
       'edit',
@@ -118,7 +120,7 @@ var qt = [
       '-s',
       config.server.default,
       '@name=' + config.user.name,
-      '@password=' + config.user.pass
+      '@password=' + config.user.password
     ]
   },
   {
@@ -564,7 +566,7 @@ var qt = [
       'user/new',
       '@id=' + config.user.id,
       '@name=' + config.user.name,
-      '@password=' + config.user.pass,
+      '@password=' + config.user.password,
       '@roles=' + config.user.roles,
     ]
   },

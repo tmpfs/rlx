@@ -46,7 +46,7 @@ describe('rlx:', function() {
       'user',
       'add',
       '@name=' + config.user.name,
-      '@password=' + config.user.pass,
+      '@password=' + config.user.password,
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock
@@ -83,7 +83,7 @@ describe('rlx:', function() {
       'user',
       'passwd',
       '--id=' + config.user.name,
-      config.user.pass + '-update',
+      config.user.password + '-update',
       '--no-color',
       '-s=' + config.server.default,
       '-o', mock

@@ -13,7 +13,7 @@ describe('rlx:', function() {
       'user/new',
       '@id=' + config.user.id,
       '@name=' + config.user.name,
-      '@password=' + config.user.pass,
+      '@password=' + config.user.password,
       '@roles=' + config.user.roles,
       '--no-color',
       '-o', mock

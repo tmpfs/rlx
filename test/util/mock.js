@@ -33,7 +33,7 @@ var mock = {
   },
   user: {
     name: 'mock-user',
-    pass: 'secret',
+    password: 'secret',
     id: userdb.prefix + 'mock-user',
     roles: 'admin,user',
     type: 'user'
