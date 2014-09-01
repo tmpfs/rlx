@@ -1,9 +1,14 @@
+var fs = require('fs');
 var path = require('path');
 var cdb = require('cdb');
 var base = path.normalize(path.join(__dirname, '..', '..'));
 var target = path.join(base, 'target')
 var program = require('../../lib/rlx');
 var userdb = require('../../lib/command/user/userdb');
+
+var attachment = {
+  name: 'mock-attachment.txt'
+}
 
 var mock = {
   name: 'rlx-test-runner',
@@ -61,13 +66,20 @@ var mock = {
   copy: {
     id: 'mock/document/copy'
   },
+  attachment: attachment,
   paths: {
     base: base,
     pkg: path.join(base, 'package.json'),
     target: target,
     fixtures: path.join(base, 'test', 'fixtures'),
+    security: path.join(base, 'test', 'fixtures', 'security.json'),
+    attachment: path.join(
+      base, 'test', 'fixtures', 'attachments', attachment.name)
   },
   fixtures: {}
 }
+
+attachment.path = mock.paths.attachment;
+attachment.doc = '' + fs.readFileSync(attachment.path);
 
 module.exports = mock;

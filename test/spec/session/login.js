@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -5,12 +8,10 @@ var program = config.program;
 describe('rlx:', function() {
   this.timeout(5000);
   before(function(done) {
-      // TODO
-    config.db.admin.add(done);
+    setup.admin.add(done);
   })
   after(function(done) {
-      // TODO
-    config.db.admin.rm(done);
+    teardown.admin.rm(done);
   })
 
   it('should set session document (login)', function(done){

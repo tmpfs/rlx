@@ -412,7 +412,7 @@ Documentation: [database/compact#post-db-compact-ddoc](http://docs.couchdb.org/e
 Check database existence:
 
 ```
-rlx db exists -s {server} -d {db}
+rlx db head -s {server} -d {db}
 ```
 
 Documentation: [database/common#head-db](http://docs.couchdb.org/en/latest/api/database/common.html#head--db)

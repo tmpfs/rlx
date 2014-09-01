@@ -1,34 +1,15 @@
 var fs = require('fs');
 var path = require('path');
-var config = require('./mock');
-var walk = require('recursive-readdir');
+var mock = require('./mock');
+var fsutil = require('./fsutil');
 
-config.file = function(name, content) {
-  var file = path.join(config.paths.target, name);
-  if(content) fs.writeFileSync(file, content);
-  return file;
+// mock data
+var config = mock;
+
+// file helpers
+for(var k in fsutil) {
+  config[k] = fsutil[k];
 }
-
-config.rmfile = function(file) {
-  fs.unlinkSync(file);
-}
-
-config.json = function(file) {
-  var contents = config.text(file);
-  //console.log('contents: %s', contents);
-  return JSON.parse(contents);
-}
-
-config.text = function(file) {
-  return '' + fs.readFileSync(file);
-}
-
-config.require = function(file) {
-  return require(file);
-}
-
-// helpers to perform common requests
-config.db = require('./db')(config);
 
 // assertion helpers
 var assert = require('../assert');
@@ -62,7 +43,5 @@ function fixtures() {
 }
 
 fixtures();
-
-config.attachment = config.fixtures['mock-attachment.txt'];
 
 module.exports = config;

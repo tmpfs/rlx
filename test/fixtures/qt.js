@@ -1,6 +1,7 @@
-var config = require('../util/config');
+var mock = require('../util/mock');
 var setup = require('../util/setup');
 var teardown = require('../util/teardown');
+var fsutil = require('../util/fsutil');
 
 var api = 'http://docs.couchdb.org/en/latest/api';
 var cdb = require('cdb');
@@ -8,12 +9,9 @@ var levels = cdb.levels;
 var parameters = cdb.parameters;
 var methods = cdb.methods;
 
-var setup = require('../util/setup');
-var teardown = require('../util/teardown');
-
-var database = config.database.default
-  , server = config.server.default
-  , ddoc = config.app.ddoc;
+var database = mock.database.default
+  , server = mock.server.default
+  , ddoc = mock.app.ddoc;
 
 var params = {
   server: '{server}',
@@ -60,9 +58,9 @@ var qt = [
       'user',
       'add',
       '-s',
-      config.server.default,
-      '@name=' + config.user.name,
-      '@password=' + config.user.password
+      mock.server.default,
+      '@name=' + mock.user.name,
+      '@password=' + mock.user.password
     ]
   },
   {
@@ -75,7 +73,7 @@ var qt = [
       'user',
       'ls',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -88,8 +86,8 @@ var qt = [
       'user',
       'get',
       '-s',
-      config.server.default,
-      '@name=' + config.user.name,
+      mock.server.default,
+      '@name=' + mock.user.name,
     ]
   },
   {
@@ -104,8 +102,8 @@ var qt = [
       'user',
       'edit',
       '-s',
-      config.server.default,
-      '@name=' + config.user.name
+      mock.server.default,
+      '@name=' + mock.user.name
     ]
   },
   {
@@ -118,9 +116,9 @@ var qt = [
       'user',
       'passwd',
       '-s',
-      config.server.default,
-      '@name=' + config.user.name,
-      '@password=' + config.user.password
+      mock.server.default,
+      '@name=' + mock.user.name,
+      '@password=' + mock.user.password
     ]
   },
   {
@@ -133,8 +131,8 @@ var qt = [
       'user',
       'rm',
       '-s',
-      config.server.default,
-      '@name=' + config.user.name,
+      mock.server.default,
+      '@name=' + mock.user.name,
     ]
   },
 
@@ -150,13 +148,13 @@ var qt = [
       'doc',
       'add',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-t',
       'doc/new',
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -169,13 +167,13 @@ var qt = [
       'doc',
       'cp',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '--destination',
-      config.copy.id
+      mock.copy.id
     ]
   },
   {
@@ -188,11 +186,11 @@ var qt = [
       'doc',
       'get',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -206,11 +204,11 @@ var qt = [
       'doc',
       'conflicts',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -224,11 +222,11 @@ var qt = [
       'doc',
       'dc',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -242,11 +240,11 @@ var qt = [
       'doc',
       'revs',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -260,11 +258,11 @@ var qt = [
       'doc',
       'revsinfo',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -278,11 +276,11 @@ var qt = [
       'doc',
       'meta',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -295,9 +293,9 @@ var qt = [
       'doc',
       'ls',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -310,11 +308,11 @@ var qt = [
       'doc',
       'head',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -327,11 +325,11 @@ var qt = [
       'doc',
       'rev',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -345,11 +343,11 @@ var qt = [
       'doc',
       'rm',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
 
@@ -366,13 +364,13 @@ var qt = [
       'lcl',
       'add',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-t',
       'doc/new',
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -385,13 +383,13 @@ var qt = [
       'lcl',
       'cp',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '--destination',
-      config.copy.id
+      mock.copy.id
     ]
   },
   {
@@ -404,11 +402,11 @@ var qt = [
       'lcl',
       'get',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
   {
@@ -422,11 +420,11 @@ var qt = [
       'lcl',
       'rm',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
 
@@ -443,11 +441,11 @@ var qt = [
       'att',
       'ls',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id
+      mock.document.id
     ]
   },
 
@@ -461,13 +459,13 @@ var qt = [
       'att',
       'up',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '-f',
-      config.attachment.path,
+      mock.attachment.path,
     ]
   },
   {
@@ -480,15 +478,15 @@ var qt = [
       'att',
       'dl',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '-a',
-      config.attachment.name,
+      mock.attachment.name,
       '-o',
-      config.file(config.attachment.name),
+      fsutil.file(mock.attachment.name),
     ]
   },
   {
@@ -501,13 +499,13 @@ var qt = [
       'att',
       'get',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '-a',
-      config.attachment.name
+      mock.attachment.name
     ]
   },
   {
@@ -521,13 +519,13 @@ var qt = [
       'att',
       'rm',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '-i',
-      config.document.id,
+      mock.document.id,
       '-a',
-      config.attachment.name
+      mock.attachment.name
     ]
   },
 
@@ -564,10 +562,10 @@ var qt = [
       'parse',
       '-t',
       'user/new',
-      '@id=' + config.user.id,
-      '@name=' + config.user.name,
-      '@password=' + config.user.password,
-      '@roles=' + config.user.roles,
+      '@id=' + mock.user.id,
+      '@name=' + mock.user.name,
+      '@password=' + mock.user.password,
+      '@roles=' + mock.user.roles,
     ]
   },
 
@@ -581,7 +579,7 @@ var qt = [
     cmd: [
       'info',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -593,7 +591,7 @@ var qt = [
     cmd: [
       'tasks',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -605,7 +603,7 @@ var qt = [
     cmd: [
       'log',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -617,7 +615,7 @@ var qt = [
     cmd: [
       'restart',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -629,7 +627,7 @@ var qt = [
     cmd: [
       'stats',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -641,7 +639,7 @@ var qt = [
     cmd: [
       'uuids',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
 
@@ -659,11 +657,11 @@ var qt = [
     cmd: [
       'conf',
       'set',
-      config.conf.section,
-      config.conf.key,
-      config.conf.value,
+      mock.conf.section,
+      mock.conf.key,
+      mock.conf.value,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -676,7 +674,7 @@ var qt = [
     cmd: [
       'conf',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -691,9 +689,9 @@ var qt = [
     cmd: [
       'conf',
       'get',
-      config.conf.section,
+      mock.conf.section,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -709,10 +707,10 @@ var qt = [
     cmd: [
       'conf',
       'get',
-      config.conf.section,
-      config.conf.key,
+      mock.conf.section,
+      mock.conf.key,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -728,10 +726,10 @@ var qt = [
     cmd: [
       'conf',
       'rm',
-      config.conf.section,
-      config.conf.key,
+      mock.conf.section,
+      mock.conf.key,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -746,7 +744,7 @@ var qt = [
     cmd: [
       'level',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
 
@@ -764,10 +762,10 @@ var qt = [
     cmd: [
       'admin',
       'add',
-      config.admin.name,
-      config.admin.pass,
+      mock.admin.name,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -783,11 +781,11 @@ var qt = [
       'admin',
       'ls',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -803,13 +801,13 @@ var qt = [
     cmd: [
       'admin',
       'get',
-      config.admin.name,
+      mock.admin.name,
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -825,13 +823,13 @@ var qt = [
     cmd: [
       'admin',
       'rm',
-      config.admin.name,
+      mock.admin.name,
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
 
@@ -846,9 +844,9 @@ var qt = [
       'db',
       'add',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -861,9 +859,9 @@ var qt = [
       'db',
       'bulk',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '@docs=foo,bar'
     ]
   },
@@ -877,7 +875,7 @@ var qt = [
       'db',
       'ls',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -890,9 +888,9 @@ var qt = [
       'db',
       'temp',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
 
@@ -906,9 +904,9 @@ var qt = [
       'db',
       'purge',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '@foo=1-0'
     ]
   },
@@ -922,9 +920,9 @@ var qt = [
       'db',
       'mrevs',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '@foo=1-0'
     ]
   },
@@ -938,9 +936,9 @@ var qt = [
       'db',
       'rdiff',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '@foo=1-0'
     ]
   },
@@ -954,9 +952,9 @@ var qt = [
       'db',
       'changes',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -969,9 +967,9 @@ var qt = [
       'db',
       'cleanup',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -984,9 +982,9 @@ var qt = [
       'db',
       'commit',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -999,9 +997,9 @@ var qt = [
       'db',
       'compact',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1014,9 +1012,9 @@ var qt = [
       'db',
       'compact',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.users,
+      mock.database.users,
       '--ddoc',
       '_auth'
     ]
@@ -1031,9 +1029,9 @@ var qt = [
       'db',
       'head',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1046,9 +1044,9 @@ var qt = [
       'db',
       'info',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1061,9 +1059,9 @@ var qt = [
       'db',
       'limit',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1076,9 +1074,9 @@ var qt = [
       'db',
       'limit',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       1000
     ]
   },
@@ -1092,9 +1090,9 @@ var qt = [
       'db',
       'rm',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1109,9 +1107,9 @@ var qt = [
       'db',
       'updates',
       '-s',
-      config.server.default,
+      mock.server.default,
       '--feed',
-      config.cdb.feeds.longpoll
+      mock.cdb.feeds.longpoll
     ]
   },
 
@@ -1128,7 +1126,7 @@ var qt = [
       'repl',
       'ls',
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1142,9 +1140,9 @@ var qt = [
       'repl',
       'add',
       '-s',
-      config.server.default,
-      '@source=' + config.repl.source,
-      '@target=' + config.repl.target,
+      mock.server.default,
+      '@source=' + mock.repl.source,
+      '@target=' + mock.repl.target,
       '@create_target=true',
       '@continuous=true'
     ]
@@ -1156,16 +1154,16 @@ var qt = [
     method: methods.post,
     doc: docs.server + '#post--_replicate',
     after: ['doc/rm', function(done){
-      teardown.db.rm({db: config.repl.target}, done);
+      teardown.db.rm({db: mock.repl.target}, done);
     }],
     group: false,
     cmd: [
       'repl',
       'rm',
       '-s',
-      config.server.default,
-      '@source=' + config.repl.source,
-      '@target=' + config.repl.target,
+      mock.server.default,
+      '@source=' + mock.repl.source,
+      '@target=' + mock.repl.target,
       '@create_target=true',
       '@continuous=true'
     ]
@@ -1183,11 +1181,11 @@ var qt = [
       'security',
       'set',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default,
+      mock.database.default,
       '--file',
-      config.paths.security
+      mock.paths.security
     ]
   },
   {
@@ -1200,9 +1198,9 @@ var qt = [
       'security',
       'get',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
   {
@@ -1216,9 +1214,9 @@ var qt = [
       'security',
       'rm',
       '-s',
-      config.server.default,
+      mock.server.default,
       '-d',
-      config.database.default
+      mock.database.default
     ]
   },
 
@@ -1234,11 +1232,11 @@ var qt = [
       'session',
       'set',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1251,11 +1249,11 @@ var qt = [
       'session',
       'get',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1269,11 +1267,11 @@ var qt = [
       'session',
       'rm',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1287,11 +1285,11 @@ var qt = [
     cmd: [
       'login',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1303,11 +1301,11 @@ var qt = [
     cmd: [
       'whoami',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
   {
@@ -1320,11 +1318,11 @@ var qt = [
     cmd: [
       'logout',
       '-u',
-      config.admin.name,
+      mock.admin.name,
       '-p',
-      config.admin.pass,
+      mock.admin.pass,
       '-s',
-      config.server.default
+      mock.server.default
     ]
   },
 
@@ -1370,7 +1368,7 @@ function update() {
         'level',
         k,
         '-s',
-        config.server.default
+        mock.server.default
       ]
     }
     //qt.push(item);
