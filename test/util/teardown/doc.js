@@ -2,7 +2,7 @@ var cdb = require('cdb');
 var dbh = new cdb();
 var mock = require('../mock');
 
-var db = {
+var doc = {
   rm: function(opts, cb){
     if(typeof opts === 'function') {
       cb = opts;
@@ -11,8 +11,9 @@ var db = {
     opts = opts || {};
     opts.server = opts.server || mock.server.default;
     opts.db = opts.db || mock.database.default;
-    dbh.db.rm(opts, cb);
+    opts.id = opts.id || mock.document.id;
+    dbh.doc.rm(opts, cb);
   }
 }
 
-module.exports = db;
+module.exports = doc;

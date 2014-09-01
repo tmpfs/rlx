@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var path = require('path');
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
@@ -9,10 +12,10 @@ var assert = config.assert.db;
 describe('rlx:', function() {
   this.timeout(5000);
   beforeEach(function(done) {
-    config.db.add(done);
+    setup.db.add(done);
   })
   afterEach(function(done) {
-    config.db.rm(done);
+    teardown.db.rm(done);
   })
   it('should create bulk documents from template', function(done){
     var mock = config.file('database-bulk-template.json');

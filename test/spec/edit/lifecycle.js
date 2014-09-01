@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -6,10 +9,10 @@ var database = config.database.default;
 describe('rlx:', function() {
   this.timeout(10000);
   before(function(done) {
-    config.edit.mock(done);
+    setup.edit.mock(done);
   })
   after(function(done) {
-    config.edit.restore(done);
+    teardown.edit.restore(done);
   })
   it('should edit local file', function(done){
     var mock = config.file('edit-local-file.json', '{}');

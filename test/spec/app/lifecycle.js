@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -9,10 +12,10 @@ describe('rlx:', function() {
   this.timeout(5000);
 
   before(function(done) {
-    config.db.add(done);
+    setup.db.add(done);
   })
   after(function(done) {
-    config.db.rm(done);
+    teardown.db.rm(done);
   })
 
   it('should push design document', function(done){

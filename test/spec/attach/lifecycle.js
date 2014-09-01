@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -7,15 +10,17 @@ describe('rlx:', function() {
   this.timeout(5000);
 
   before(function(done) {
-    config.db.add(function() {
-      config.db.doc.add(done);
-    });
+    setup.db.add(function() {
+      setup.doc.add(done);
+    })
   })
+
   after(function(done) {
-    config.db.doc.rm(function() {
-      config.db.rm(done);
+    teardown.doc.rm(function() {
+      teardown.db.rm(done);
     });
   })
+
   it('should list attachments (empty)', function(done){
     var mock = config.file('attachment-ls.json');
     var args = [

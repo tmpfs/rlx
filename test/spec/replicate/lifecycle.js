@@ -1,3 +1,6 @@
+var setup = require('../../util/setup');
+var teardown = require('../../util/teardown');
+
 var config = require('../../util/config')
   , pkg = config.paths.pkg
   , program = config.program
@@ -8,13 +11,15 @@ describe('rlx:', function() {
   this.timeout(5000);
 
   before(function(done) {
-    config.db.add(function() {
-      config.db.doc.add(done);
+    setup.db.add(function() {
+      setup.doc.add(done);
     });
   })
+
   after(function(done) {
-    config.db.rm(config.repl.target, function() {
-      config.db.rm(done);
+    teardown.db.rm({db: config.repl.target}, function(err) {
+      if(err) return done(err);
+      teardown.db.rm(done);
     });
   })
 

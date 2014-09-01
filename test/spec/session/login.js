@@ -5,9 +5,11 @@ var program = config.program;
 describe('rlx:', function() {
   this.timeout(5000);
   before(function(done) {
+      // TODO
     config.db.admin.add(done);
   })
   after(function(done) {
+      // TODO
     config.db.admin.rm(done);
   })
 
