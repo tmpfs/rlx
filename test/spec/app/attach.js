@@ -24,21 +24,7 @@ describe('rlx:', function() {
 
   it('should upload attachment (design document)', function(done){
     var mock = config.file('attachment-upload-ddoc.json');
-    var args = [
-      'app',
-      'att',
-      'up',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '--ddoc',
-      config.app.ddoc,
-      '-f',
-      config.attachment.path,
-      '--no-color',
-      '-o', mock
-    ];
+    var args = qt.getArguments('app/att/up', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -50,24 +36,8 @@ describe('rlx:', function() {
 
 
   it('should download attachment (design document)', function(done){
-    var mock = config.file(config.attachment.name);
-    var args = [
-      'app',
-      'att',
-      'dl',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '--ddoc',
-      config.app.ddoc,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--force',
-      '--no-color'
-    ];
+    var mock = config.file(config.attachment.ddoc);
+    var args = qt.getArguments('app/att/dl');
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
@@ -79,22 +49,7 @@ describe('rlx:', function() {
 
   it('should download attachment information (design document)', function(done){
     var mock = config.file('attachment-get-ddoc.json');
-    var args = [
-      'app',
-      'att',
-      'get',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '--ddoc',
-      config.app.ddoc,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--no-color'
-    ];
+    var args = qt.getArguments('app/att/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -106,22 +61,7 @@ describe('rlx:', function() {
 
   it('should remove attachment (design document)', function(done){
     var mock = config.file('attachment-rm-ddoc.json');
-    var args = [
-      'app',
-      'att',
-      'rm',
-      '-s',
-      config.server.default,
-      '-d',
-      database,
-      '--ddoc',
-      config.app.ddoc,
-      '-a',
-      config.attachment.name,
-      '-o',
-      mock,
-      '--no-color'
-    ];
+    var args = qt.getArguments('app/att/rm', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);

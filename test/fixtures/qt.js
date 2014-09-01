@@ -1434,6 +1434,90 @@ var qt = [
     ]
   },
   {
+    id: 'app/att/up',
+    description: 'Upload design document attachment',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.put,
+    doc: docs.ddoc + '#put--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'up',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-a',
+      mock.attachment.ddoc,
+      '-f',
+      mock.attachment.path
+    ]
+  },
+  {
+    id: 'app/att/dl',
+    description: 'Download design document attachment',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.get,
+    doc: docs.ddoc + '#get--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'dl',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-a',
+      mock.attachment.ddoc,
+      '-o',
+      fsutil.file(mock.attachment.ddoc)
+    ]
+  },
+  {
+    id: 'app/att/get',
+    description: 'Get design document attachment information',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.get,
+    doc: docs.ddoc + '#get--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'get',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-a',
+      mock.attachment.ddoc
+    ]
+  },
+  {
+    id: 'app/att/rm',
+    description: 'Remove design document attachment',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.delete,
+    doc: docs.ddoc + '#delete--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'rm',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-a',
+      mock.attachment.ddoc
+    ]
+  },
+  {
     id: 'app/rm',
     description: 'Remove a design document',
     api: [params.db, parameters.design, params.ddoc],

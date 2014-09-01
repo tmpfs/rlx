@@ -7,7 +7,8 @@ var program = require('../../lib/rlx');
 var userdb = require('../../lib/command/user/userdb');
 
 var attachment = {
-  name: 'mock-attachment.txt'
+  name: 'mock-attachment.txt',
+  ddoc: 'mock-design-document-attachment.txt'
 }
 
 var mock = {
