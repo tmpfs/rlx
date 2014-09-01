@@ -14,8 +14,7 @@ describe('rlx:', function() {
   var revs = [];
   beforeEach(function(done) {
     setup.db.add(function() {
-      // TODO
-      config.db.bulk(done);
+      setup.bulk.add(done);
     });
   })
   afterEach(function(done) {
