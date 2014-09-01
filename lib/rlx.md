@@ -70,6 +70,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `ls: ls`: List design documents.
 * `push: push`: Push a design document.
+* `deploy: deploy`: Deploy views in live environment.
 * `get: get`: Get a design document.
 * `info: info`: Get design document information.
 * `cp: cp`: Copy a design document.
