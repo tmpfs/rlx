@@ -6,6 +6,9 @@ var levels = cdb.levels;
 var parameters = cdb.parameters;
 var methods = cdb.methods;
 
+var setup = require('../util/setup');
+var teardown = require('../util/teardown');
+
 var database = config.database.default
   , server = config.server.default
   , ddoc = config.app.ddoc;
@@ -1151,8 +1154,7 @@ var qt = [
     method: methods.post,
     doc: docs.server + '#post--_replicate',
     after: ['doc/rm', function(done){
-      return done();
-      config.db.rm(config.repl.target, done)
+      teardown.db.rm({db: config.repl.target}, done);
     }],
     group: false,
     cmd: [
