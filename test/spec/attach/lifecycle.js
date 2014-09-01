@@ -61,13 +61,39 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should download attachment information', function(done){
+  it('should head attachment information', function(done){
+    var mock = config.file('attachment-head.json');
+    var args = qt.getArguments('att/head', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.attach.head(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should get attachment information', function(done){
     var mock = config.file('attachment-get.json');
     var args = qt.getArguments('att/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.attach.get(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list attachments', function(done){
+    var mock = config.file('attachment-ls-multi.json');
+    var args = qt.getArguments('att/ls', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.attach.list(doc, config.attachment.name);
       done();
     })
     def.parse(args);

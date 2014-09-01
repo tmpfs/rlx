@@ -491,11 +491,31 @@ var qt = [
     ]
   },
   {
-    id: 'att/get',
-    description: 'Get attachment information',
+    id: 'att/head',
+    description: 'Head attachment information',
     api: [params.db, params.docid, params.attname],
     method: methods.head,
     doc: docs.attachment + '#head--db-docid-attname',
+    cmd: [
+      'att',
+      'head',
+      '-s',
+      mock.server.default,
+      '-d',
+      mock.database.default,
+      '-i',
+      mock.document.id,
+      '-a',
+      mock.attachment.name
+    ]
+  },
+  {
+    id: 'att/get',
+    description: 'Get attachment information',
+    api: [params.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    group: false,
     cmd: [
       'att',
       'get',
@@ -1434,6 +1454,24 @@ var qt = [
     ]
   },
   {
+    id: 'app/att/ls',
+    description: 'List design document attachments',
+    api: [params.db, params.docid],
+    method: methods.get,
+    doc: docs.document + '#get--db-docid',
+    group: false,
+    cmd: [
+      'att',
+      'ls',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc
+    ]
+  },
+  {
     id: 'app/att/up',
     description: 'Upload design document attachment',
     api: [params.db, parameters.design, params.ddoc, params.attname],
@@ -1478,11 +1516,32 @@ var qt = [
     ]
   },
   {
+    id: 'app/att/head',
+    description: 'Head design document attachment information',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.head,
+    doc: docs.ddoc + '#head--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'head',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-a',
+      mock.attachment.ddoc
+    ]
+  },
+  {
     id: 'app/att/get',
     description: 'Get design document attachment information',
-    api: [params.db, parameters.design, params.ddoc, params.attname],
+    api: [params.db, params.docid],
     method: methods.get,
-    doc: docs.ddoc + '#get--db-_design-ddoc-attname',
+    doc: docs.document + '#get--db-docid',
+    group: false,
     cmd: [
       'app',
       'att',

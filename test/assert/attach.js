@@ -16,7 +16,7 @@ function dl(doc, contents) {
   expect(doc).to.eql(contents);
 }
 
-function get(doc) {
+function head(doc) {
   expect(doc).to.be.an('object');
   expect(doc.name).to.be.a('string');
   expect(doc.size).to.be.a('number');
@@ -24,9 +24,26 @@ function get(doc) {
   expect(doc.md5).to.be.a('string');
 }
 
+function get(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.revpos).to.be.a('number');
+  expect(doc.length).to.be.a('number');
+  expect(doc.stub).to.be.a('boolean');
+  expect(doc.content_type).to.be.a('string');
+  expect(doc.digest).to.be.a('string');
+}
+
+function list(doc, id) {
+  expect(doc).to.be.an('object');
+  var attachment = doc[id];
+  get(attachment);
+}
+
 module.exports = {
   up: up,
   dl: dl,
+  head: head,
   get: get,
   rm: up,
+  list: list,
 }

@@ -161,6 +161,7 @@ If no subcommand is specified `ls` is invoked.
 * `up: up`: Upload an attachment.
 * `dl: dl`: Download an attachment.
 * `get: get`: Get attachment information.
+* `head: head`: Head attachment information.
 * `rm: rm`: Remove an attachment.
 
 ### Log

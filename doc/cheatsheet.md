@@ -47,6 +47,11 @@ Table of Contents
     * [GET /{db}/_design/{ddoc}](#get-db_designddoc)
     * [HEAD /{db}/_design/{ddoc}](#head-db_designddoc)
     * [GET /{db}/_design/{ddoc}/_info](#get-db_designddoc_info)
+    * [PUT /{db}/_design/{ddoc}/{attname}](#put-db_designddocattname)
+    * [GET /{db}/_design/{ddoc}/{attname}](#get-db_designddocattname)
+    * [HEAD /{db}/_design/{ddoc}/{attname}](#head-db_designddocattname)
+    * [GET /{db}/{docid}](#get-dbdocid-1)
+    * [DELETE /{db}/_design/{ddoc}/{attname}](#delete-db_designddocattname)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -75,11 +80,13 @@ Table of Contents
     * [GET /{db}/_local/{docid}](#get-db_localdocid)
     * [DELETE /{db}/_local/{docid}](#delete-db_localdocid)
   * [Attachment](#attachment)
-    * [GET /{db}/{docid}](#get-dbdocid-1)
+    * [GET /{db}/{docid}](#get-dbdocid-2)
     * [PUT /{db}/{docid}/{attname}](#put-dbdocidattname)
     * [GET /{db}/{docid}/{attname}](#get-dbdocidattname)
     * [HEAD /{db}/{docid}/{attname}](#head-dbdocidattname)
+    * [GET /{db}/{docid}](#get-dbdocid-3)
     * [DELETE /{db}/{docid}/{attname}](#delete-dbdocidattname)
+    * [GET /{db}/{docid}](#get-dbdocid-4)
   * [Configuration](#configuration)
     * [PUT /_config/{section}/{key}](#put-_configsectionkey)
     * [GET /_config](#get-_config)
@@ -526,6 +533,56 @@ rlx app info -s {server} -d {db} -i {ddoc}
 
 Documentation: [ddoc/common#get-db-design-ddoc-info](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-_info)
 
+### PUT /{db}/_design/{ddoc}/{attname}
+
+Upload design document attachment:
+
+```
+rlx app att up -s {server} -d {db} --ddoc {ddoc} -a {attname} -f {file}
+```
+
+Documentation: [ddoc/common#put-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc-attname)
+
+### GET /{db}/_design/{ddoc}/{attname}
+
+Download design document attachment:
+
+```
+rlx app att dl -s {server} -d {db} --ddoc {ddoc} -a {attname} -o {file}
+```
+
+Documentation: [ddoc/common#get-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-attname)
+
+### HEAD /{db}/_design/{ddoc}/{attname}
+
+Head design document attachment information:
+
+```
+rlx app att head -s {server} -d {db} --ddoc {ddoc} -a {attname}
+```
+
+Documentation: [ddoc/common#head-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#head--db-_design-ddoc-attname)
+
+### GET /{db}/{docid}
+
+Get design document attachment information:
+
+```
+rlx app att get -s {server} -d {db} --ddoc {ddoc} -a {attname}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### DELETE /{db}/_design/{ddoc}/{attname}
+
+Remove design document attachment:
+
+```
+rlx app att rm -s {server} -d {db} --ddoc {ddoc} -a {attname}
+```
+
+Documentation: [ddoc/common#delete-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc-attname)
+
 ### DELETE /{db}/_design/{ddoc}
 
 Remove a design document:
@@ -809,13 +866,23 @@ Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.o
 
 ### HEAD /{db}/{docid}/{attname}
 
+Head attachment information:
+
+```
+rlx att head -s {server} -d {db} -i {docid} -a {attname}
+```
+
+Documentation: [document/attachments#head-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#head--db-docid-attname)
+
+### GET /{db}/{docid}
+
 Get attachment information:
 
 ```
 rlx att get -s {server} -d {db} -i {docid} -a {attname}
 ```
 
-Documentation: [document/attachments#head-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#head--db-docid-attname)
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
 ### DELETE /{db}/{docid}/{attname}
 
@@ -826,6 +893,16 @@ rlx att rm -s {server} -d {db} -i {docid} -a {attname}
 ```
 
 Documentation: [document/attachments#delete-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#delete--db-docid-attname)
+
+### GET /{db}/{docid}
+
+List design document attachments:
+
+```
+rlx att ls -s {server} -d {db} --ddoc {ddoc}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
 ## Configuration
 
