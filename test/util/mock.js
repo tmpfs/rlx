@@ -74,12 +74,14 @@ var mock = {
     fixtures: path.join(base, 'test', 'fixtures'),
     security: path.join(base, 'test', 'fixtures', 'security.json'),
     attachment: path.join(
-      base, 'test', 'fixtures', 'attachments', attachment.name)
+      base, 'test', 'fixtures', 'attachments', attachment.name),
+    app: path.join(base, 'test', 'fixtures', 'app'),
   },
   fixtures: {}
 }
 
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);
+mock.app.path = mock.paths.app;
 
 module.exports = mock;

@@ -42,7 +42,8 @@ var docs = {
   misc: 'database/misc.html',
   document: 'document/common.html',
   attachment: 'document/attachments.html',
-  local: 'local.html'
+  local: 'local.html',
+  ddoc: 'ddoc/common.html'
 }
 
 var qt = [
@@ -1326,6 +1327,130 @@ var qt = [
     ]
   },
 
+  // APPLICATION
+  {
+    id: 'app/push',
+    description: 'Push a design document',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.put,
+    doc: docs.ddoc + '#put--db-_design-ddoc',
+    before: ['db/add'],
+    cmd: [
+      'app',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      mock.app.path
+    ]
+  },
+  {
+    id: 'app/ls',
+    description: 'List design documents',
+    api: [params.db, parameters.docs],
+    method: methods.get,
+    doc: docs.bulk + '##get--db-_all_docs',
+    group: false,
+    cmd: [
+      'app',
+      'ls',
+      '-s',
+      server,
+      '-d',
+      database
+    ]
+  },
+  {
+    id: 'app/cp',
+    description: 'Copy a design document',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.copy,
+    doc: docs.ddoc + '#copy--db-_design-ddoc',
+    cmd: [
+      'app',
+      'cp',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc,
+      '--destination',
+      mock.app.copy
+    ]
+  },
+  {
+    id: 'app/get',
+    description: 'Get a design document',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.get,
+    doc: docs.ddoc + '#get--db-_design-ddoc',
+    cmd: [
+      'app',
+      'get',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc
+    ]
+  },
+  {
+    id: 'app/head',
+    description: 'Head a design document',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.head,
+    doc: docs.ddoc + '#head--db-_design-ddoc',
+    cmd: [
+      'app',
+      'head',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc
+    ]
+  },
+  {
+    id: 'app/info',
+    description: 'Get design document information',
+    api: [params.db, parameters.design, params.ddoc, parameters.info],
+    method: methods.get,
+    doc: docs.ddoc + '#get--db-_design-ddoc-_info',
+    cmd: [
+      'app',
+      'info',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc
+    ]
+  },
+  {
+    id: 'app/rm',
+    description: 'Remove a design document',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.delete,
+    doc: docs.ddoc + '#delete--db-_design-ddoc',
+    after: ['db/rm'],
+    cmd: [
+      'app',
+      'rm',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      ddoc
+    ]
+  },
 ]
 
 function find(id) {
