@@ -4,9 +4,9 @@ var mock = require('../mock');
 
 var doc = {
   docs: [
-    {_id: 'foo'},
-    {_id: 'bar'},
-    {_id: 'baz'}
+    {_id: 'foo', list: []},
+    {_id: 'bar', list: []},
+    {_id: 'baz', list: []}
   ]
 };
 

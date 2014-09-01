@@ -1594,7 +1594,7 @@ var qt = [
       database,
       '--ddoc',
       ddoc,
-      '-v',
+      '-n',
       mock.app.views.all
     ]
   },
@@ -1613,7 +1613,7 @@ var qt = [
       database,
       '--ddoc',
       ddoc,
-      '-v',
+      '-n',
       mock.app.views.all,
       '-q',
       'reduce=false&include_docs=true'

@@ -54,7 +54,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--destination [url]`: Copy destination.
 * `--force`: Force file overwrite.
 * `--ddoc [name]`: Design document id.
-* `-v, --view [name]`: Design document view name.
+* `nm:-n, --name [name]`: Design document (view|update|show|list) name.
 * `--feed [type]`: Poll feed type. 
 * `--http`: Enable HTTP logs.
 

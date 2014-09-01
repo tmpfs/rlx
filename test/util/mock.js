@@ -25,6 +25,9 @@ var mock = {
     views: {
       all: 'all',
       inline: 'inline'
+    },
+    updates: {
+      push: 'push'
     }
   },
   conf: {

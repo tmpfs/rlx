@@ -175,9 +175,9 @@
     "message": "document identifier is required (%s)"
   },
   {
-    "key": "EVIEW_REQUIRED",
-    "description": "View name not specified",
-    "message": "view name is required (%s)"
+    "key": "ENAME_REQUIRED",
+    "description": "View/show/list/update name not specified",
+    "message": "name is required (%s)"
   },
   {
     "key": "EATTACHMENT_REQUIRED",
