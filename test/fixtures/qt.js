@@ -1340,6 +1340,14 @@ function find(id) {
 
 var map = {};
 
+function find(id) {
+  for(var i = 0;i < qt.length;i++) {
+    if(qt[i].id === id) {
+      return qt[i];
+    }
+  }
+}
+
 function update() {
   var i, k, ind, lvl, item;
   var lvls = {}, keys;
@@ -1412,6 +1420,26 @@ function update() {
 
 update();
 
+function getArguments(id, opts) {
+  opts = opts || {common: true};
+  var args = [];
+  var item = find(id);
+  if(item) {
+    args = item.cmd.slice(0);
+  }
+  if(Array.isArray(opts.args)) {
+    args.concat(opts.args);
+  }
+  if(opts.output) {
+    args.push('-o', opts.output);
+  }
+  if(opts.common) {
+    args.push('--no-color', '--force');
+  }
+  return args;
+}
+
+qt.getArguments = getArguments;
 qt.api = api;
 qt.map = map;
 qt.params = params;
