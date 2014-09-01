@@ -151,10 +151,10 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/exists (server required)', function(done){
+  it('should error on db/head (server required)', function(done){
     var args = [
       'db',
-      'exists',
+      'head',
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -165,10 +165,10 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on db/exists (database required)', function(done){
+  it('should error on db/head (database required)', function(done){
     var args = [
       'db',
-      'exists',
+      'head',
       '-s=' + config.server.default,
       '--no-color'
     ];

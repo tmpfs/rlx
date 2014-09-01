@@ -44,10 +44,10 @@ describe('rlx:', function() {
   });
 
   it('should check database existence', function(done){
-    var mock = config.file('database-exists.json');
+    var mock = config.file('database-head.json');
     var args = [
       'db',
-      'exists',
+      'head',
       '-d=' + database,
       '--no-color',
       '-s=' + config.server.default,

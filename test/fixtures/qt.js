@@ -1020,14 +1020,14 @@ var qt = [
     ]
   },
   {
-    id: 'db/exists',
+    id: 'db/head',
     description: 'Check database existence',
     api: [params.db],
     method: methods.head,
     doc: docs.database + '#head--db',
     cmd: [
       'db',
-      'exists',
+      'head',
       '-s',
       config.server.default,
       '-d',
@@ -1168,7 +1168,6 @@ var qt = [
       '@continuous=true'
     ]
   },
-
 
   // SECURITY
   {

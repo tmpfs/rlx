@@ -97,7 +97,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `ls: ls`: List databases.
 * `info: info, meta`: Get database information.
-* `exists: exists`: Check database existence.
+* `head: head`: Check database existence.
 * `add: add`: Create a database.
 * `bulk: bulk`: Bulk insert/update.
 * `rm: rm`: Remove a database.

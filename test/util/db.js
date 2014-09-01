@@ -46,7 +46,6 @@ module.exports = function(config) {
         console.dir(err);
       })
       def.program.once('complete', function(req) {
-        console.dir('DB REMOVE COMPLETE');
         done();
       })
       def.parse(args);
