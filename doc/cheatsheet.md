@@ -52,6 +52,7 @@ Table of Contents
     * [HEAD /{db}/_design/{ddoc}/{attname}](#head-db_designddocattname)
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [DELETE /{db}/_design/{ddoc}/{attname}](#delete-db_designddocattname)
+    * [GET /{db}/_design/{ddoc}/_view/{view}](#get-db_designddoc_viewview)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -582,6 +583,17 @@ rlx app att rm -s {server} -d {db} --ddoc {ddoc} -a {attname}
 ```
 
 Documentation: [ddoc/common#delete-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc-attname)
+
+### GET /{db}/_design/{ddoc}/_view/{view}
+
+Query design document view:
+
+```
+rlx app view -s {server} -d {db} --ddoc {ddoc} -v {view}
+rlx app view -s {server} -d {db} --ddoc {ddoc} -v {view} -q 'reduce=false&include_docs=true'
+```
+
+Documentation: [ddoc/views#get-db-design-ddoc-view-view](http://docs.couchdb.org/en/latest/api/ddoc/views.html#get--db-_design-ddoc-_view-view)
 
 ### DELETE /{db}/_design/{ddoc}
 

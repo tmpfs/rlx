@@ -1,6 +1,5 @@
 var expect = require('chai').expect;
 var mock = require('../util/mock');
-var view = require('./view');
 var parameters = require('cdb').parameters;
 var head = require('./head');
 
@@ -57,6 +56,13 @@ function list(doc, id, len) {
   //console.dir(doc);
 }
 
+function view(doc, len) {
+  len = len || 1;
+  expect(doc).to.be.an('object');
+  expect(doc.rows).to.be.an('array');
+  expect(doc.rows.length).to.eql(len);
+}
+
 module.exports = {
   create: create,
   get: get,
@@ -64,4 +70,5 @@ module.exports = {
   head: head,
   info: info,
   list: list,
+  view: view,
 }

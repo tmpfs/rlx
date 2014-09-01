@@ -21,7 +21,11 @@ var mock = {
   },
   app: {
     ddoc: 'mock-design-document',
-    copy: 'mock-design-document-copy'
+    copy: 'mock-design-document-copy',
+    views: {
+      all: 'all',
+      inline: 'inline'
+    }
   },
   conf: {
     section: 'mock-config-section',

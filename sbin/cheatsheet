@@ -67,6 +67,12 @@ rules.push({src: config.admin.pass, rep: qt.params.pass});
 rules.push({src: /(-f|--file|-o|--output) [^ ]+/gm,
             rep: '$1 ' + qt.params.file});
 
+rules.push({src: /(-v|--view) [^ ]+/gm,
+            rep: '$1 ' + qt.params.view});
+
+rules.push({src: /(-q|--query) ([^ ]+)/gm,
+            rep: '$1 \'$2\''});
+
 rules.push({src: /(-a|--attachment) [^ ]+/gm,
             rep: '$1 ' + qt.params.attname});
 

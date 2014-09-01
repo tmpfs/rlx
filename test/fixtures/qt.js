@@ -17,6 +17,7 @@ var params = {
   server: '{server}',
   db: '{db}',
   docid: '{docid}',
+  view: '{view}',
   attname: '{attname}',
   rev: '{rev}',
   ddoc: '{ddoc}',
@@ -44,7 +45,8 @@ var docs = {
   document: 'document/common.html',
   attachment: 'document/attachments.html',
   local: 'local.html',
-  ddoc: 'ddoc/common.html'
+  ddoc: 'ddoc/common.html',
+  views: 'ddoc/views.html'
 }
 
 var qt = [
@@ -1575,6 +1577,46 @@ var qt = [
       ddoc,
       '-a',
       mock.attachment.ddoc
+    ]
+  },
+  {
+    id: 'app/view',
+    description: 'Query design document view',
+    api: [params.db, parameters.design, params.ddoc, parameters.view, params.view],
+    method: methods.get,
+    doc: docs.views + '#get--db-_design-ddoc-_view-view',
+    cmd: [
+      'app',
+      'view',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-v',
+      mock.app.views.all
+    ]
+  },
+  {
+    id: 'app/view/include',
+    description: 'Query design document view (include_docs)',
+    api: [params.db, parameters.design, params.ddoc, parameters.view, params.view],
+    method: methods.get,
+    doc: docs.views + '#get--db-_design-ddoc-_view-view',
+    cmd: [
+      'app',
+      'view',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-v',
+      mock.app.views.all,
+      '-q',
+      'reduce=false&include_docs=true'
     ]
   },
   {

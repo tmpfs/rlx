@@ -13,7 +13,9 @@ describe('rlx:', function() {
   this.timeout(5000);
 
   before(function(done) {
-    setup.db.add(done);
+    setup.db.add(function(){
+      setup.bulk.add(done);
+    });
   })
   after(function(done) {
     teardown.db.rm(done);
@@ -103,6 +105,17 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should query design document view', function(done){
+    var mock = config.file('app-view.json');
+    var args = qt.getArguments('app/view', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.view(doc);
+      done();
+    })
+    def.parse(args);
+  });
 
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
