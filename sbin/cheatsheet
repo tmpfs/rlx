@@ -86,11 +86,6 @@ rules.push({src: /(-t|--template) ([^ ]*)/gm, rep: '$1 ' + qt.params.template});
 
 rules.push({src: config.user.name, rep: qt.params.name});
 
-//for(var f in config.fixtures) {
-  //rules.push({src: config.fixtures[f].path, rep: qt.params.file});
-  //rules.push({src: config.fixtures[f].name, rep: qt.params.name});
-//}
-
 function replace(str) {
   var i, rule, re;
   for(i = 0;i < rules.length;i++) {
