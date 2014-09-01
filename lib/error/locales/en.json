@@ -175,6 +175,11 @@
     "message": "document identifier is required (%s)"
   },
   {
+    "key": "EVIEW_REQUIRED",
+    "description": "View name not specified",
+    "message": "view name is required (%s)"
+  },
+  {
     "key": "EATTACHMENT_REQUIRED",
     "description": "Document attachment not specified",
     "message": "attachment is required (%s)"

@@ -54,6 +54,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--destination [url]`: Copy destination.
 * `--force`: Force file overwrite.
 * `--ddoc [name]`: Design document id.
+* `-v, --view [name]`: Design document view name.
 * `--feed [type]`: Poll feed type. 
 * `--http`: Enable HTTP logs.
 
@@ -74,6 +75,7 @@ If no subcommand is specified `ls` is invoked.
 * `cp: cp`: Copy a design document.
 * `head: head`: Get minimal design document information.
 * `attach: attach, att`: Attachment commands for design documents.
+* `view: view`: Query a design document view.
 * `rm: rm`: Remove a design document.
 
 ### Replicate
