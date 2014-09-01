@@ -1421,7 +1421,8 @@ function update() {
 update();
 
 function getArguments(id, opts) {
-  opts = opts || {common: true};
+  opts = opts || {};
+  opts.common = opts.common !== undefined ? opts.common : true;
   var args = [];
   var item = find(id);
   if(item) {

@@ -1,3 +1,4 @@
+var qt = require('../../fixtures/qt');
 var setup = require('../../util/setup');
 var teardown = require('../../util/teardown');
 
