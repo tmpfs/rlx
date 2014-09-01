@@ -3,7 +3,7 @@ module.exports = function(doc, req) {
     return [null, {code: 400,
       json:
         {
-          error: 'missed',
+          error: 'missing',
           reason: 'no document to update'
         }
     }];

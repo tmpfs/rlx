@@ -177,6 +177,30 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should show null document', function(done){
+    var mock = config.file('app-show.json');
+    var args = qt.getArguments('app/show', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.nullshow(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should show document', function(done){
+    var mock = config.file('app-show-doc.json');
+    var args = qt.getArguments('app/show/doc', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.show(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
     var args = qt.getArguments('app/rm', {output: mock});

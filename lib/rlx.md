@@ -77,6 +77,7 @@ If no subcommand is specified `ls` is invoked.
 * `attach: attach, att`: Attachment commands for design documents.
 * `view: view`: Query a design document view.
 * `update: update`: Put a design document update.
+* `show: show`: Show a document.
 * `rm: rm`: Remove a design document.
 
 ### Replicate

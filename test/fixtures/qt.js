@@ -1665,6 +1665,50 @@ var qt = [
     ]
   },
   {
+    id: 'app/show',
+    description: 'Run a show function with no document',
+    api: [
+      params.db, parameters.design, params.ddoc, parameters.show, params.func],
+    method: methods.post,
+    doc: docs.render + '#post--db-_design-ddoc-_show-func',
+    cmd: [
+      'app',
+      'show',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.shows.func
+    ]
+  },
+  {
+    id: 'app/show/doc',
+    description: 'Run a document through a show function',
+    api: [
+      params.db,
+      parameters.design,
+      params.ddoc, parameters.show, params.func, params.docid],
+    method: methods.post,
+    doc: docs.render + '#post--db-_design-ddoc-_show-func',
+    cmd: [
+      'app',
+      'show',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.shows.func,
+      '-i',
+      mock.app.shows.docid
+    ]
+  },
+  {
     id: 'app/rm',
     description: 'Remove a design document',
     api: [params.db, parameters.design, params.ddoc],

@@ -55,6 +55,8 @@ Table of Contents
     * [GET /{db}/_design/{ddoc}/_view/](#get-db_designddoc_view)
     * [POST /{db}/_design/{ddoc}/_update/{func}](#post-db_designddoc_updatefunc)
     * [PUT /{db}/_design/{ddoc}/_update/{func}](#put-db_designddoc_updatefunc)
+    * [POST /{db}/_design/{ddoc}/_show/{func}](#post-db_designddoc_showfunc)
+    * [POST /{db}/_design/{ddoc}/_show/{func}/{docid}](#post-db_designddoc_showfuncdocid)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -616,6 +618,26 @@ rlx app update -s {server} -d {db} --ddoc {ddoc} -n {func} -i {docid} -f {file}
 ```
 
 Documentation: [ddoc/render#put-db-design-ddoc-update-func-docid](http://docs.couchdb.org/en/latest/api/ddoc/render.html#put--db-_design-ddoc-_update-func-docid)
+
+### POST /{db}/_design/{ddoc}/_show/{func}
+
+Run a show function with no document:
+
+```
+rlx app show -s {server} -d {db} --ddoc {ddoc} -n {func}
+```
+
+Documentation: [ddoc/render#post-db-design-ddoc-show-func](http://docs.couchdb.org/en/latest/api/ddoc/render.html#post--db-_design-ddoc-_show-func)
+
+### POST /{db}/_design/{ddoc}/_show/{func}/{docid}
+
+Run a document through a show function:
+
+```
+rlx app show -s {server} -d {db} --ddoc {ddoc} -n {func} -i {docid}
+```
+
+Documentation: [ddoc/render#post-db-design-ddoc-show-func](http://docs.couchdb.org/en/latest/api/ddoc/render.html#post--db-_design-ddoc-_show-func)
 
 ### DELETE /{db}/_design/{ddoc}
 

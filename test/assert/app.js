@@ -66,8 +66,21 @@ function view(doc, len, reduce) {
 
 function nullupdate(doc) {
   expect(doc).to.be.an('object');
-  expect(doc.error).to.eql('missed');
+  expect(doc.error).to.eql('missing');
   expect(doc.reason).to.eql('no document to update');
+}
+
+function nullshow(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.error).to.eql('missing');
+  expect(doc.reason).to.eql('no document to show');
+}
+
+function show(doc, id) {
+  id = id || mock.app.shows.docid;
+  expect(doc).to.be.an('object');
+  expect(doc._id).to.eql(id);
+  expect(doc.list).to.be.an('array');
 }
 
 function update(doc) {
@@ -93,6 +106,8 @@ module.exports = {
   list: list,
   view: view,
   nullupdate: nullupdate,
+  nullshow: nullshow,
+  show: show,
   update: update,
   updated: updated,
 }

@@ -29,6 +29,10 @@ var mock = {
     updates: {
       func: 'push',
       docid: 'foo'      // assumes bulk document setup has occured
+    },
+    shows: {
+      func: 'json',
+      docid: 'foo'
     }
   },
   conf: {
