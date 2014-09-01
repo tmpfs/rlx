@@ -26,6 +26,7 @@ describe('rlx:', function() {
   it('should upload attachment (design document)', function(done){
     var mock = config.file('attachment-upload-ddoc.json');
     var args = [
+      'app',
       'att',
       'up',
       '-s',
@@ -52,6 +53,7 @@ describe('rlx:', function() {
   it('should download attachment (design document)', function(done){
     var mock = config.file(config.attachment.name);
     var args = [
+      'app',
       'att',
       'dl',
       '-s',
@@ -79,6 +81,7 @@ describe('rlx:', function() {
   it('should download attachment information (design document)', function(done){
     var mock = config.file('attachment-get-ddoc.json');
     var args = [
+      'app',
       'att',
       'get',
       '-s',
@@ -105,6 +108,7 @@ describe('rlx:', function() {
   it('should remove attachment (design document)', function(done){
     var mock = config.file('attachment-rm-ddoc.json');
     var args = [
+      'app',
       'att',
       'rm',
       '-s',

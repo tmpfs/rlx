@@ -73,6 +73,7 @@ If no subcommand is specified `ls` is invoked.
 * `info: info`: Get design document information.
 * `cp: cp`: Copy a design document.
 * `head: head`: Get minimal design document information.
+* `attach: attach, att`: Attachment commands for design documents.
 * `rm: rm`: Remove a design document.
 
 ### Replicate
