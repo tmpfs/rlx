@@ -6,6 +6,10 @@ var levels = cdb.levels;
 var parameters = cdb.parameters;
 var methods = cdb.methods;
 
+var database = config.database.default
+  , server = config.server.default
+  , ddoc = config.app.ddoc;
+
 var params = {
   server: '{server}',
   db: '{db}',
@@ -636,60 +640,6 @@ var qt = [
     ]
   },
 
-  // REPLICATE
-  {
-    id: 'repl/ls',
-    description: 'List active replications',
-    api: [parameters.tasks],
-    method: methods.get,
-    doc: docs.server + '#get--_active_tasks',
-    before: ['doc/add'],
-    group: false,
-    cmd: [
-      'repl',
-      'ls',
-      '-s',
-      config.server.default
-    ]
-  },
-  {
-    id: 'repl/add',
-    description: 'Create a replication',
-    api: [parameters.replicate],
-    method: methods.post,
-    doc: docs.server + '#post--_replicate',
-    group: false,
-    cmd: [
-      'repl',
-      'add',
-      '-s',
-      config.server.default,
-      '@source=' + config.repl.source,
-      '@target=' + config.repl.target,
-      '@create_target=true',
-      '@continuous=true'
-    ]
-  },
-  {
-    id: 'repl/rm',
-    description: 'Remove a replication',
-    api: [parameters.replicate],
-    method: methods.post,
-    doc: docs.server + '#post--_replicate',
-    after: ['doc/rm', function(done){config.db.rm(config.repl.target, done)}],
-    group: false,
-    cmd: [
-      'repl',
-      'rm',
-      '-s',
-      config.server.default,
-      '@source=' + config.repl.source,
-      '@target=' + config.repl.target,
-      '@create_target=true',
-      '@continuous=true'
-    ]
-  },
-
   // CONFIG
   {
     id: 'conf/set',
@@ -1159,6 +1109,64 @@ var qt = [
       config.cdb.feeds.longpoll
     ]
   },
+
+  // REPLICATE
+  {
+    id: 'repl/ls',
+    description: 'List active replications',
+    api: [parameters.tasks],
+    method: methods.get,
+    doc: docs.server + '#get--_active_tasks',
+    before: ['doc/add'],
+    group: false,
+    cmd: [
+      'repl',
+      'ls',
+      '-s',
+      config.server.default
+    ]
+  },
+  {
+    id: 'repl/add',
+    description: 'Create a replication',
+    api: [parameters.replicate],
+    method: methods.post,
+    doc: docs.server + '#post--_replicate',
+    group: false,
+    cmd: [
+      'repl',
+      'add',
+      '-s',
+      config.server.default,
+      '@source=' + config.repl.source,
+      '@target=' + config.repl.target,
+      '@create_target=true',
+      '@continuous=true'
+    ]
+  },
+  {
+    id: 'repl/rm',
+    description: 'Remove a replication',
+    api: [parameters.replicate],
+    method: methods.post,
+    doc: docs.server + '#post--_replicate',
+    after: ['doc/rm', function(done){
+      return done();
+      config.db.rm(config.repl.target, done)
+    }],
+    group: false,
+    cmd: [
+      'repl',
+      'rm',
+      '-s',
+      config.server.default,
+      '@source=' + config.repl.source,
+      '@target=' + config.repl.target,
+      '@create_target=true',
+      '@continuous=true'
+    ]
+  },
+
 
   // SECURITY
   {

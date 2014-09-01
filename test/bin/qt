@@ -16,12 +16,19 @@ var lines = [
   prefix + util.format('quick test started (tests: %s)', fixtures.length),
 ];
 
+process.stdin.resume();
+
 console.info(lines.join(EOL));
 
 function run(fixtures, hook, cb) {
   if(typeof hook === 'function') cb = hook;
+  //console.dir(fixtures.length);
   async.eachSeries(fixtures, function(test, callback) {
-    if(typeof test === 'function') return test(callback);
+    //console.log('run test %j', test);
+    if(typeof test === 'function') {
+      //console.log('returning on test function %s', test);
+      return test(callback);
+    }
     function execute(callback) {
       var cmd = test.cmd.slice(0);
       if(test.enabled === false) {
@@ -57,7 +64,7 @@ function run(fixtures, hook, cb) {
       });
     }
     function after(err) {
-      //console.log('running after tests');
+      if(err) return callback(err);
       run(test.after, '[after]', callback);
     }
     var complete = !test.after ? callback : after;
@@ -68,8 +75,11 @@ function run(fixtures, hook, cb) {
       }, 500);
     }
   }, function(err) {
+    //console.log('completed function called %s' ,cb);
+    //console.log('completed err %s', err);
     if(cb) return cb(err);
     if(err) {
+      //console.error('show error');
       console.error(err.stderr.trim());
       process.exit(1);
     }

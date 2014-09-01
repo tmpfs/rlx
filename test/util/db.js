@@ -25,18 +25,28 @@ module.exports = function(config) {
         done = name;
         name = null;
       }
+      name = name || database;
+      //console.log('db.rm %s', name);
+      //console.log('db.rm done %s', done);
       var mock = config.file('mock-database-rm.json');
       var args = [
         'db',
         'rm',
-        '-d=' + (name || database),
+        '-s',
+        config.server.default,
+        '-d',
+        name,
         '--force',
         '--no-color',
-        '-s=' + config.server.default,
         '-o', mock
       ];
       var def = program(require(pkg), config.name)
-      def.program.on('complete', function(req) {
+      def.program.once('error', function(err) {
+        console.log('got db/rm error');
+        console.dir(err);
+      })
+      def.program.once('complete', function(req) {
+        console.dir('DB REMOVE COMPLETE');
         done();
       })
       def.parse(args);
