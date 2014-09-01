@@ -9,20 +9,6 @@ Table of Contents
     * [POST /_restart](#post-_restart)
     * [GET /_stats](#get-_stats)
     * [GET /_uuids](#get-_uuids)
-  * [Administrator](#administrator)
-    * [PUT /_config/admins/{key}](#put-_configadminskey)
-    * [GET /_config/admins](#get-_configadmins)
-    * [GET /_config/admins/{key}](#get-_configadminskey)
-    * [DELETE /_config/admins/{key}](#delete-_configadminskey)
-  * [User](#user)
-    * [PUT /_users/{docid}](#put-_usersdocid)
-    * [GET /_users/_all_docs](#get-_users_all_docs)
-    * [GET /_users/{docid}](#get-_usersdocid)
-    * [DELETE /_users/{docid}](#delete-_usersdocid)
-  * [Session](#session)
-    * [POST /{db}/_session](#post-db_session)
-    * [GET /{db}/_session](#get-db_session)
-    * [DELETE /{db}/_session](#delete-db_session)
   * [Database](#database)
     * [PUT /{db}](#put-db)
     * [POST /{db}/_bulk_docs](#post-db_bulk_docs)
@@ -42,13 +28,6 @@ Table of Contents
     * [PUT /{db}/_revs_limit](#put-db_revs_limit)
     * [DELETE /{db}](#delete-db)
     * [GET /_db_updates](#get-_db_updates)
-  * [Replicate](#replicate)
-    * [GET /_active_tasks](#get-_active_tasks-1)
-    * [POST /_replicate](#post-_replicate)
-    * [POST /_replicate](#post-_replicate-1)
-  * [Security](#security)
-    * [PUT /{db}/_security](#put-db_security)
-    * [GET /{db}/_security](#get-db_security)
   * [Document](#document)
     * [PUT /{db}/{docid}](#put-dbdocid)
     * [COPY /{db}/{docid}](#copy-dbdocid)
@@ -61,6 +40,35 @@ Table of Contents
     * [GET /{db}/_all_docs](#get-db_all_docs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
+  * [Design Document](#design-document)
+    * [PUT /{db}/_design/{ddoc}](#put-db_designddoc)
+    * [GET /{db}/_all_docs](#get-db_all_docs-1)
+    * [COPY /{db}/_design/{ddoc}](#copy-db_designddoc)
+    * [GET /{db}/_design/{ddoc}](#get-db_designddoc)
+    * [HEAD /{db}/_design/{ddoc}](#head-db_designddoc)
+    * [GET /{db}/_design/{ddoc}/_info](#get-db_designddoc_info)
+    * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
+  * [Administrator](#administrator)
+    * [PUT /_config/admins/{key}](#put-_configadminskey)
+    * [GET /_config/admins](#get-_configadmins)
+    * [GET /_config/admins/{key}](#get-_configadminskey)
+    * [DELETE /_config/admins/{key}](#delete-_configadminskey)
+  * [User](#user)
+    * [PUT /_users/{docid}](#put-_usersdocid)
+    * [GET /_users/_all_docs](#get-_users_all_docs)
+    * [GET /_users/{docid}](#get-_usersdocid)
+    * [DELETE /_users/{docid}](#delete-_usersdocid)
+  * [Security](#security)
+    * [PUT /{db}/_security](#put-db_security)
+    * [GET /{db}/_security](#get-db_security)
+  * [Session](#session)
+    * [POST /{db}/_session](#post-db_session)
+    * [GET /{db}/_session](#get-db_session)
+    * [DELETE /{db}/_session](#delete-db_session)
+  * [Replicate](#replicate)
+    * [GET /_active_tasks](#get-_active_tasks-1)
+    * [POST /_replicate](#post-_replicate)
+    * [POST /_replicate](#post-_replicate-1)
   * [Local Document](#local-document)
     * [PUT /{db}/_local/{docid}](#put-db_localdocid)
     * [COPY /{db}/_local/{docid}](#copy-db_localdocid)
@@ -81,14 +89,6 @@ Table of Contents
   * [Log Level](#log-level)
     * [PUT /_config/log/level](#put-_configloglevel)
     * [GET /_config/log/level](#get-_configloglevel)
-  * [Design Document (Application)](#design-document-application)
-    * [PUT /{db}/_design/{ddoc}](#put-db_designddoc)
-    * [GET /{db}/_all_docs](#get-db_all_docs-1)
-    * [COPY /{db}/_design/{ddoc}](#copy-db_designddoc)
-    * [GET /{db}/_design/{ddoc}](#get-db_designddoc)
-    * [HEAD /{db}/_design/{ddoc}](#head-db_designddoc)
-    * [GET /{db}/_design/{ddoc}/_info](#get-db_designddoc_info)
-    * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
 
 rlx(1) cheatsheet
 =================
@@ -159,136 +159,6 @@ rlx uuids -s {server}
 ```
 
 Documentation: [server/common#get-uuids](http://docs.couchdb.org/en/latest/api/server/common.html#get--_uuids)
-
-## Administrator
-
-* Manual: `rlx help admin`
-* Help: `rlx --help admin`
-
-### PUT /_config/admins/{key}
-
-Add an administrator:
-
-```
-rlx admin add {username} {password} -s {server}
-```
-
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### GET /_config/admins
-
-List administrators:
-
-```
-rlx admin ls -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
-
-### GET /_config/admins/{key}
-
-Get an administrator:
-
-```
-rlx admin get {username} -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-### DELETE /_config/admins/{key}
-
-Remove an administrator:
-
-```
-rlx admin rm {username} -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
-
-## User
-
-* Manual: `rlx help user`
-* Help: `rlx --help user`
-
-### PUT /_users/{docid}
-
-Create or update a user:
-
-```
-rlx user add -s {server} @name={username} @password={password}
-rlx user edit -s {server} @name={username}
-rlx user passwd -s {server} @name={username} @password={password}
-```
-
-Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
-
-### GET /_users/_all_docs
-
-List users:
-
-```
-rlx user ls -s {server}
-```
-
-Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
-
-### GET /_users/{docid}
-
-Get a user:
-
-```
-rlx user get -s {server} @name={username}
-```
-
-Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
-
-### DELETE /_users/{docid}
-
-Remove a user:
-
-```
-rlx user rm -s {server} @name={username}
-```
-
-Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
-
-## Session
-
-* Manual: `rlx help session`
-* Help: `rlx --help session`
-
-### POST /{db}/_session
-
-Login with cookie authentication:
-
-```
-rlx session set -u {username} -p {password} -s {server}
-rlx login -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
-
-### GET /{db}/_session
-
-Get user session:
-
-```
-rlx session get -u {username} -p {password} -s {server}
-rlx whoami -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
-
-### DELETE /{db}/_session
-
-Logout of authenticated session:
-
-```
-rlx session rm -u {username} -p {password} -s {server}
-rlx logout -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
 
 ## Database
 
@@ -475,67 +345,6 @@ rlx db updates -s {server} --feed longpoll
 
 Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates)
 
-## Replicate
-
-* Manual: `rlx help repl`
-* Help: `rlx --help repl`
-
-### GET /_active_tasks
-
-List active replications:
-
-```
-rlx repl ls -s {server}
-```
-
-Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
-
-### POST /_replicate
-
-Create a replication:
-
-```
-rlx repl add -s {server} @source={db} @target={db} @create_target=true @continuous=true
-```
-
-Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
-
-### POST /_replicate
-
-Remove a replication:
-
-```
-rlx repl rm -s {server} @source={db} @target={db} @create_target=true @continuous=true
-```
-
-Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
-
-## Security
-
-* Manual: `rlx help security`
-* Help: `rlx --help security`
-
-### PUT /{db}/_security
-
-Set security document:
-
-```
-rlx security set -s {server} -d {db} --file {file}
-rlx security rm -s {server} -d {db}
-```
-
-Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
-
-### GET /{db}/_security
-
-Get security document:
-
-```
-rlx security get -s {server} -d {db}
-```
-
-Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
-
 ## Document
 
 * Manual: `rlx help doc`
@@ -651,6 +460,272 @@ rlx doc rm -s {server} -d {db} -i {docid}
 ```
 
 Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Design Document
+
+* Manual: `rlx help app`
+* Help: `rlx --help app`
+
+### PUT /{db}/_design/{ddoc}
+
+Push a design document:
+
+```
+rlx app push -s {server} -d {db} -i {ddoc} /Users/cyberfunk/git/rlx/test/fixtures/app
+```
+
+Documentation: [ddoc/common#put-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc)
+
+### GET /{db}/_all_docs
+
+List design documents:
+
+```
+rlx app ls -s {server} -d {db}
+```
+
+Documentation: [database/bulk-api##get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html##get--db-_all_docs)
+
+### COPY /{db}/_design/{ddoc}
+
+Copy a design document:
+
+```
+rlx app cp -s {server} -d {db} -i {ddoc} --destination {ddoc}
+```
+
+Documentation: [ddoc/common#copy-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#copy--db-_design-ddoc)
+
+### GET /{db}/_design/{ddoc}
+
+Get a design document:
+
+```
+rlx app get -s {server} -d {db} -i {ddoc}
+```
+
+Documentation: [ddoc/common#get-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc)
+
+### HEAD /{db}/_design/{ddoc}
+
+Head a design document:
+
+```
+rlx app head -s {server} -d {db} -i {ddoc}
+```
+
+Documentation: [ddoc/common#head-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#head--db-_design-ddoc)
+
+### GET /{db}/_design/{ddoc}/_info
+
+Get design document information:
+
+```
+rlx app info -s {server} -d {db} -i {ddoc}
+```
+
+Documentation: [ddoc/common#get-db-design-ddoc-info](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-_info)
+
+### DELETE /{db}/_design/{ddoc}
+
+Remove a design document:
+
+```
+rlx app rm -s {server} -d {db} -i {ddoc}
+```
+
+Documentation: [ddoc/common#delete-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc)
+
+## Administrator
+
+* Manual: `rlx help admin`
+* Help: `rlx --help admin`
+
+### PUT /_config/admins/{key}
+
+Add an administrator:
+
+```
+rlx admin add {username} {password} -s {server}
+```
+
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+
+### GET /_config/admins
+
+List administrators:
+
+```
+rlx admin ls -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+
+### GET /_config/admins/{key}
+
+Get an administrator:
+
+```
+rlx admin get {username} -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
+
+### DELETE /_config/admins/{key}
+
+Remove an administrator:
+
+```
+rlx admin rm {username} -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/configuration#delete-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#delete--_config-section-key)
+
+## User
+
+* Manual: `rlx help user`
+* Help: `rlx --help user`
+
+### PUT /_users/{docid}
+
+Create or update a user:
+
+```
+rlx user add -s {server} @name={username} @password={password}
+rlx user edit -s {server} @name={username}
+rlx user passwd -s {server} @name={username} @password={password}
+```
+
+Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
+
+### GET /_users/_all_docs
+
+List users:
+
+```
+rlx user ls -s {server}
+```
+
+Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+
+### GET /_users/{docid}
+
+Get a user:
+
+```
+rlx user get -s {server} @name={username}
+```
+
+Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
+
+### DELETE /_users/{docid}
+
+Remove a user:
+
+```
+rlx user rm -s {server} @name={username}
+```
+
+Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#delete--db-docid)
+
+## Security
+
+* Manual: `rlx help security`
+* Help: `rlx --help security`
+
+### PUT /{db}/_security
+
+Set security document:
+
+```
+rlx security set -s {server} -d {db} --file {file}
+rlx security rm -s {server} -d {db}
+```
+
+Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
+
+### GET /{db}/_security
+
+Get security document:
+
+```
+rlx security get -s {server} -d {db}
+```
+
+Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
+
+## Session
+
+* Manual: `rlx help session`
+* Help: `rlx --help session`
+
+### POST /{db}/_session
+
+Login with cookie authentication:
+
+```
+rlx session set -u {username} -p {password} -s {server}
+rlx login -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#post-session](http://docs.couchdb.org/en/latest/api/server/authn.html#post--_session)
+
+### GET /{db}/_session
+
+Get user session:
+
+```
+rlx session get -u {username} -p {password} -s {server}
+rlx whoami -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#get-session](http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session)
+
+### DELETE /{db}/_session
+
+Logout of authenticated session:
+
+```
+rlx session rm -u {username} -p {password} -s {server}
+rlx logout -u {username} -p {password} -s {server}
+```
+
+Documentation: [server/authn#delete-session](http://docs.couchdb.org/en/latest/api/server/authn.html#delete--_session)
+
+## Replicate
+
+* Manual: `rlx help repl`
+* Help: `rlx --help repl`
+
+### GET /_active_tasks
+
+List active replications:
+
+```
+rlx repl ls -s {server}
+```
+
+Documentation: [server/common#get-active-tasks](http://docs.couchdb.org/en/latest/api/server/common.html#get--_active_tasks)
+
+### POST /_replicate
+
+Create a replication:
+
+```
+rlx repl add -s {server} @source={db} @target={db} @create_target=true @continuous=true
+```
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
+
+### POST /_replicate
+
+Remove a replication:
+
+```
+rlx repl rm -s {server} @source={db} @target={db} @create_target=true @continuous=true
+```
+
+Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate)
 
 ## Local Document
 
@@ -835,81 +910,6 @@ rlx level -s {server}
 ```
 
 Documentation: [server/configuration#get-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section-key)
-
-## Design Document (Application)
-
-* Manual: `rlx help app`
-* Help: `rlx --help app`
-
-### PUT /{db}/_design/{ddoc}
-
-Push a design document:
-
-```
-rlx app push -s {server} -d {db} -i {ddoc} /Users/cyberfunk/git/rlx/test/fixtures/app
-```
-
-Documentation: [ddoc/common#put-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc)
-
-### GET /{db}/_all_docs
-
-List design documents:
-
-```
-rlx app ls -s {server} -d {db}
-```
-
-Documentation: [database/bulk-api##get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html##get--db-_all_docs)
-
-### COPY /{db}/_design/{ddoc}
-
-Copy a design document:
-
-```
-rlx app cp -s {server} -d {db} -i {ddoc} --destination {ddoc}
-```
-
-Documentation: [ddoc/common#copy-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#copy--db-_design-ddoc)
-
-### GET /{db}/_design/{ddoc}
-
-Get a design document:
-
-```
-rlx app get -s {server} -d {db} -i {ddoc}
-```
-
-Documentation: [ddoc/common#get-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc)
-
-### HEAD /{db}/_design/{ddoc}
-
-Head a design document:
-
-```
-rlx app head -s {server} -d {db} -i {ddoc}
-```
-
-Documentation: [ddoc/common#head-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#head--db-_design-ddoc)
-
-### GET /{db}/_design/{ddoc}/_info
-
-Get design document information:
-
-```
-rlx app info -s {server} -d {db} -i {ddoc}
-```
-
-Documentation: [ddoc/common#get-db-design-ddoc-info](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-_info)
-
-### DELETE /{db}/_design/{ddoc}
-
-Remove a design document:
-
-```
-rlx app rm -s {server} -d {db} -i {ddoc}
-```
-
-Documentation: [ddoc/common#delete-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc)
 
 Generated by [mdp(1)](https://github.com/freeformsystems/mdp).
 

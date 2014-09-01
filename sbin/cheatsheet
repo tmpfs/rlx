@@ -17,18 +17,18 @@ description += 'with a strikethrough.';
 
 var sections = {
   server: 'Server',
+  db: 'Database',
+  doc: 'Document',
+  app: 'Design Document',
   admin: 'Administrator',
   user: 'User',
-  session: 'Session',
-  db: 'Database',
-  repl: 'Replicate',
   security: 'Security',
-  doc: 'Document',
+  session: 'Session',
+  repl: 'Replicate',
   lcl: 'Local Document',
   att: 'Attachment',
   conf: 'Configuration',
   level: 'Log Level',
-  app: 'Design Document (Application)'
 }
 
 // map these commands to different sections
