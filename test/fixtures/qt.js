@@ -26,6 +26,7 @@ var params = {
   name: '{username}',
   pass: '{password}',
   file: '{file}',
+  directory: '{dir}',
   template: '{template}'
 }
 

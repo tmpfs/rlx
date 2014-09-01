@@ -478,7 +478,7 @@ Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/late
 Push a design document:
 
 ```
-rlx app push -s {server} -d {db} -i {ddoc} /Users/cyberfunk/git/rlx/test/fixtures/app
+rlx app push -s {server} -d {db} -i {ddoc} {dir}
 ```
 
 Documentation: [ddoc/common#put-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc)
