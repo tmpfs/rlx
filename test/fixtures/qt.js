@@ -20,6 +20,7 @@ var params = {
   attname: '{attname}',
   rev: '{rev}',
   view: '{view}',
+  path: '{path}',
   ddoc: '{ddoc}',
   section: '{section}',
   key: '{key}',
@@ -48,7 +49,8 @@ var docs = {
   local: 'local.html',
   ddoc: 'ddoc/common.html',
   views: 'ddoc/views.html',
-  render: 'ddoc/render.html'
+  render: 'ddoc/render.html',
+  rewrites: 'ddoc/rewrites.html'
 }
 
 var qt = [
@@ -1751,6 +1753,26 @@ var qt = [
       '-n',
       mock.app.lists.func,
       mock.app.copy + '/' + mock.app.views.all
+    ]
+  },
+  {
+    id: 'app/rewrite',
+    description: 'Run a rewrite rule path',
+    api: [
+      params.db, parameters.design,
+      params.ddoc, parameters.rewrite, params.path],
+    method: 'ANY',
+    doc: docs.rewrites + '#any--db-_design-ddoc-_rewrite-path',
+    cmd: [
+      'app',
+      'rewrite',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      mock.app.rewrites.rule
     ]
   },
   {

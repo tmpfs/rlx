@@ -103,6 +103,11 @@ function listfunc(doc, len, reduce) {
   expect(doc.length).to.eql(len);
 }
 
+function rewrite(doc, id) {
+  id = id || mock.app.rewrites.docid;
+  expect(doc).to.be.an('object');
+  expect(doc._id).to.eql(id);
+}
 
 module.exports = {
   create: create,
@@ -118,4 +123,5 @@ module.exports = {
   update: update,
   updated: updated,
   listfunc: listfunc,
+  rewrite: rewrite,
 }

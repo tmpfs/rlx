@@ -49,6 +49,8 @@ var ignore = [
 ];
 
 var rules = [], st = '~~';
+rules.push({src: config.app.views.all, rep: qt.params.view});
+rules.push({src: config.app.rewrites.rule, rep: qt.params.path});
 rules.push({src: config.paths.app, rep: qt.params.directory});
 rules.push({src: config.server.default, rep: qt.params.server});
 rules.push({src: config.repl.target, rep: qt.params.db});

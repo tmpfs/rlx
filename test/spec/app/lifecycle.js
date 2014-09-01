@@ -225,6 +225,18 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should run rewrite rule', function(done){
+    var mock = config.file('app-rewrite.json');
+    var args = qt.getArguments('app/rewrite', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.app.rewrite(doc);
+      done();
+    })
+    def.parse(args);
+  });
 
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');

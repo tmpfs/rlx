@@ -79,6 +79,7 @@ If no subcommand is specified `ls` is invoked.
 * `update: update`: Put a design document update.
 * `show: show`: Show a document.
 * `list: list`: Run a list function on a view.
+* `rewrite: rewrite`: Run a rewrite rule path.
 * `rm: rm`: Remove a design document.
 
 ### Replicate

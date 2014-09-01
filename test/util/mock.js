@@ -36,6 +36,10 @@ var mock = {
     },
     lists: {
       func: 'json'
+    },
+    rewrites: {
+      rule: '/foo',
+      docid: 'bar'
     }
   },
   conf: {

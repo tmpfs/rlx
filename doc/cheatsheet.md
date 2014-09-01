@@ -52,11 +52,14 @@ Table of Contents
     * [HEAD /{db}/_design/{ddoc}/{attname}](#head-db_designddocattname)
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [DELETE /{db}/_design/{ddoc}/{attname}](#delete-db_designddocattname)
-    * [GET /{db}/_design/{ddoc}/_view/](#get-db_designddoc_view)
+    * [GET /{db}/_design/{ddoc}/_view/{view}](#get-db_designddoc_viewview)
     * [POST /{db}/_design/{ddoc}/_update/{func}](#post-db_designddoc_updatefunc)
     * [PUT /{db}/_design/{ddoc}/_update/{func}](#put-db_designddoc_updatefunc)
     * [POST /{db}/_design/{ddoc}/_show/{func}](#post-db_designddoc_showfunc)
     * [POST /{db}/_design/{ddoc}/_show/{func}/{docid}](#post-db_designddoc_showfuncdocid)
+    * [GET /{db}/_design/{ddoc}/_list/{func}/{view}](#get-db_designddoc_listfuncview)
+    * [GET /{db}/_design/{ddoc}/_list/{func}/{ddoc}/{view}](#get-db_designddoc_listfuncddocview)
+    * [ANY /{db}/_design/{ddoc}/_rewrite/{path}](#any-db_designddoc_rewritepath)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -588,7 +591,7 @@ rlx app att rm -s {server} -d {db} --ddoc {ddoc} -a {attname}
 
 Documentation: [ddoc/common#delete-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc-attname)
 
-### GET /{db}/_design/{ddoc}/_view/
+### GET /{db}/_design/{ddoc}/_view/{view}
 
 Query design document view:
 
@@ -638,6 +641,36 @@ rlx app show -s {server} -d {db} --ddoc {ddoc} -n {func} -i {docid}
 ```
 
 Documentation: [ddoc/render#post-db-design-ddoc-show-func](http://docs.couchdb.org/en/latest/api/ddoc/render.html#post--db-_design-ddoc-_show-func)
+
+### GET /{db}/_design/{ddoc}/_list/{func}/{view}
+
+Run a list function:
+
+```
+rlx app list -s {server} -d {db} --ddoc {ddoc} -n {func} {view}
+```
+
+Documentation: [ddoc/render#get-db-design-ddoc-list-func-view](http://docs.couchdb.org/en/latest/api/ddoc/render.html#get--db-_design-ddoc-_list-func-view)
+
+### GET /{db}/_design/{ddoc}/_list/{func}/{ddoc}/{view}
+
+Run a list function against another design document:
+
+```
+rlx app list -s {server} -d {db} --ddoc {ddoc} -n {func} {ddoc}/{view}
+```
+
+Documentation: [ddoc/render#get-db-design-ddoc-list-func-view](http://docs.couchdb.org/en/latest/api/ddoc/render.html#get--db-_design-ddoc-_list-func-view)
+
+### ANY /{db}/_design/{ddoc}/_rewrite/{path}
+
+Run a rewrite rule path:
+
+```
+rlx app rewrite -s {server} -d {db} --ddoc {ddoc} {path}
+```
+
+Documentation: [ddoc/rewrites#any-db-design-ddoc-rewrite-path](http://docs.couchdb.org/en/latest/api/ddoc/rewrites.html#any--db-_design-ddoc-_rewrite-path)
 
 ### DELETE /{db}/_design/{ddoc}
 
