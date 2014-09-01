@@ -52,7 +52,9 @@ Table of Contents
     * [HEAD /{db}/_design/{ddoc}/{attname}](#head-db_designddocattname)
     * [GET /{db}/{docid}](#get-dbdocid-1)
     * [DELETE /{db}/_design/{ddoc}/{attname}](#delete-db_designddocattname)
-    * [GET /{db}/_design/{ddoc}/_view/{view}](#get-db_designddoc_viewview)
+    * [GET /{db}/_design/{ddoc}/_view/](#get-db_designddoc_view)
+    * [POST /{db}/_design/{ddoc}/_update/{func}](#post-db_designddoc_updatefunc)
+    * [PUT /{db}/_design/{ddoc}/_update/{func}](#put-db_designddoc_updatefunc)
     * [DELETE /{db}/_design/{ddoc}](#delete-db_designddoc)
   * [Administrator](#administrator)
     * [PUT /_config/admins/{key}](#put-_configadminskey)
@@ -584,16 +586,36 @@ rlx app att rm -s {server} -d {db} --ddoc {ddoc} -a {attname}
 
 Documentation: [ddoc/common#delete-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#delete--db-_design-ddoc-attname)
 
-### GET /{db}/_design/{ddoc}/_view/{view}
+### GET /{db}/_design/{ddoc}/_view/
 
 Query design document view:
 
 ```
-rlx app view -s {server} -d {db} --ddoc {ddoc} -v {view}
-rlx app view -s {server} -d {db} --ddoc {ddoc} -v {view} -q 'reduce=false&include_docs=true'
+rlx app view -s {server} -d {db} --ddoc {ddoc} -n {func}
+rlx app view -s {server} -d {db} --ddoc {ddoc} -n {func} -q 'reduce=false&include_docs=true'
 ```
 
 Documentation: [ddoc/views#get-db-design-ddoc-view-view](http://docs.couchdb.org/en/latest/api/ddoc/views.html#get--db-_design-ddoc-_view-view)
+
+### POST /{db}/_design/{ddoc}/_update/{func}
+
+Post to design document update function:
+
+```
+rlx app update -s {server} -d {db} --ddoc {ddoc} -n {func}
+```
+
+Documentation: [ddoc/render#post-db-design-ddoc-update-func](http://docs.couchdb.org/en/latest/api/ddoc/render.html#post--db-_design-ddoc-_update-func)
+
+### PUT /{db}/_design/{ddoc}/_update/{func}
+
+Put to design document update function:
+
+```
+rlx app update -s {server} -d {db} --ddoc {ddoc} -n {func} -i foo -f {file}
+```
+
+Documentation: [ddoc/render#put-db-design-ddoc-update-func-docid](http://docs.couchdb.org/en/latest/api/ddoc/render.html#put--db-_design-ddoc-_update-func-docid)
 
 ### DELETE /{db}/_design/{ddoc}
 

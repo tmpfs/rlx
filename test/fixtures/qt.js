@@ -17,13 +17,14 @@ var params = {
   server: '{server}',
   db: '{db}',
   docid: '{docid}',
-  view: '{view}',
+  //name: '{name}',
   attname: '{attname}',
   rev: '{rev}',
   ddoc: '{ddoc}',
   section: '{section}',
   key: '{key}',
   value: '{value}',
+  func: '{func}',
   name: '{username}',
   pass: '{password}',
   file: '{file}',
@@ -46,7 +47,8 @@ var docs = {
   attachment: 'document/attachments.html',
   local: 'local.html',
   ddoc: 'ddoc/common.html',
-  views: 'ddoc/views.html'
+  views: 'ddoc/views.html',
+  render: 'ddoc/render.html'
 }
 
 var qt = [
@@ -1617,6 +1619,50 @@ var qt = [
       mock.app.views.all,
       '-q',
       'reduce=false&include_docs=true'
+    ]
+  },
+  {
+    id: 'app/update',
+    description: 'Post to design document update function',
+    api: [
+      params.db, parameters.design, params.ddoc, parameters.update, params.func],
+    method: methods.post,
+    doc: docs.render + '#post--db-_design-ddoc-_update-func',
+    cmd: [
+      'app',
+      'update',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.updates.func
+    ]
+  },
+  {
+    id: 'app/update/doc',
+    description: 'Put to design document update function',
+    api: [
+      params.db, parameters.design, params.ddoc, parameters.update, params.func],
+    method: methods.put,
+    doc: docs.render + '#put--db-_design-ddoc-_update-func-docid',
+    cmd: [
+      'app',
+      'update',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '-n',
+      mock.app.updates.func,
+      '-i',
+      mock.app.updates.docid,
+      '-f',
+      mock.app.updates.file
     ]
   },
   {

@@ -31,7 +31,6 @@ function get(doc, id) {
   expect(doc.lists).to.be.an('object');
   expect(doc.filters).to.be.an('object');
   expect(doc.module).to.be.a('string');
-  //console.dir(doc);
 }
 
 function info(doc, id) {
@@ -39,7 +38,6 @@ function info(doc, id) {
   expect(doc).to.be.an('object');
   expect(doc.name).to.eql(id);
   expect(doc.view_index).to.be.an('object');
-  //console.dir(doc);
 }
 
 function list(doc, id, len) {
@@ -53,7 +51,6 @@ function list(doc, id, len) {
   var ddoc = doc.rows[0];
   expect(ddoc.id).to.eql(id);
   expect(ddoc.key).to.eql(id);
-  //console.dir(doc);
 }
 
 function view(doc, len, reduce) {
@@ -67,6 +64,26 @@ function view(doc, len, reduce) {
   expect(doc.rows.length).to.eql(len);
 }
 
+function nullupdate(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.error).to.eql('missed');
+  expect(doc.reason).to.eql('no document to update');
+}
+
+function update(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+}
+
+function updated(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.list).to.be.an('array');
+  expect(doc.list.length).to.be.gt(0);
+  for(var i = 0;i < doc.list.length;i++) {
+    expect(doc.list[i].type).to.eql('item');
+  }
+}
+
 module.exports = {
   create: create,
   get: get,
@@ -75,4 +92,7 @@ module.exports = {
   info: info,
   list: list,
   view: view,
+  nullupdate: nullupdate,
+  update: update,
+  updated: updated,
 }

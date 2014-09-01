@@ -175,6 +175,11 @@
     "message": "document identifier is required (%s)"
   },
   {
+    "key": "EDDOC_REQUIRED",
+    "description": "Design document identifier not specified",
+    "message": "design document identifier is required (%s)"
+  },
+  {
     "key": "ENAME_REQUIRED",
     "description": "View/show/list/update name not specified",
     "message": "name is required (%s)"

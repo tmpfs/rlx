@@ -27,7 +27,8 @@ var mock = {
       inline: 'inline'
     },
     updates: {
-      push: 'push'
+      func: 'push',
+      docid: 'foo'      // assumes bulk document setup has occured
     }
   },
   conf: {
@@ -84,6 +85,7 @@ var mock = {
     attachment: path.join(
       base, 'test', 'fixtures', 'attachments', attachment.name),
     app: path.join(base, 'test', 'fixtures', 'app'),
+    updates: path.join(base, 'test', 'fixtures', 'updates'),
   },
   fixtures: {}
 }
@@ -91,5 +93,5 @@ var mock = {
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);
 mock.app.path = mock.paths.app;
-
+mock.app.updates.file = path.join(mock.paths.updates, 'mock-list-item.json');
 module.exports = mock;

@@ -118,12 +118,60 @@ describe('rlx:', function() {
   });
 
   it('should query design document view (include_docs)', function(done){
-    var mock = config.file('app-viewi-include.json');
+    var mock = config.file('app-view-include.json');
     var args = qt.getArguments('app/view/include', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.app.view(doc, 3, false);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should update null document (post)', function(done){
+    var mock = config.file('app-update.json');
+    var args = qt.getArguments('app/update', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.nullupdate(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should update with document (put)', function(done){
+    var mock = config.file('app-update-doc.json');
+    var args = qt.getArguments('app/update/doc', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.update(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should get updated document', function(done){
+    var mock = config.file('get-updated-doc.json');
+    // TODO: misc args list
+    var args = [
+      'doc',
+      'get',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      config.app.updates.docid,
+      '-o',
+      mock
+    ];
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.updated(doc);
       done();
     })
     def.parse(args);
