@@ -56,9 +56,13 @@ function list(doc, id, len) {
   //console.dir(doc);
 }
 
-function view(doc, len) {
+function view(doc, len, reduce) {
   len = len || 1;
   expect(doc).to.be.an('object');
+  if(reduce === false) {
+    expect(doc.total_rows).to.be.a('number');
+    expect(doc.offset).to.be.a('number');
+  }
   expect(doc.rows).to.be.an('array');
   expect(doc.rows.length).to.eql(len);
 }

@@ -42,7 +42,7 @@ Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [-q|--query=<params...>]
            [-h|--header=<key:value...>] [--destination=<url>]
-           [--ddoc=<name>] [--feed=<type>] <args>
+           [--ddoc=<name>] [-v|--view=<name>] [--feed=<type>] <args>
 
 Command line interface for couchdb.
 
@@ -103,6 +103,7 @@ Arguments:
                         Copy destination.
      --force            Force file overwrite.
      --ddoc=[name]      Design document id.
+ -v, --view=[name]      Design document view name.
      --feed=[type]      Poll feed type.
      --http             Enable HTTP logs.
      --trace            Set log level to trace.

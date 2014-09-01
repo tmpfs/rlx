@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.138" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.139" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -18,7 +18,9 @@ rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-recursive]
 .br
     [\-q|\-\-query=<params...>] [\-h|\-\-header=<key:value...>]
 .br
-    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-\-feed=<type>] <args>
+    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-v|\-\-view=<name>]
+.br
+    [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -115,6 +117,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-\-force\fR: Force file overwrite.
 .IP "\[ci]" 4
 \fB\-\-ddoc=[name]\fR: Design document id.
+.IP "\[ci]" 4
+\fB\-v, \-\-view=[name]\fR: Design document view name.
 .IP "\[ci]" 4
 \fB\-\-feed=[type]\fR: Poll feed type. 
 .IP "\[ci]" 4

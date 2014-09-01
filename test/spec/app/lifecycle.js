@@ -117,6 +117,18 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should query design document view (include_docs)', function(done){
+    var mock = config.file('app-viewi-include.json');
+    var args = qt.getArguments('app/view/include', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.view(doc, 2, false);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should remove design document', function(done){
     var mock = config.file('app-rm.json');
     var args = qt.getArguments('app/rm', {output: mock});
