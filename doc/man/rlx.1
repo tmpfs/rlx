@@ -18,9 +18,9 @@ rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-recursive]
 .br
     [\-q|\-\-query=<params...>] [\-h|\-\-header=<key:value...>]
 .br
-    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-n|\-\-name=<name>]
+    [\-g|\-\-glob=<pattern...>] [\-\-destination=<url>] [\-\-ddoc=<name>]
 .br
-    [\-\-feed=<type>] <args>
+    [\-n|\-\-name=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands.
@@ -80,7 +80,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
+\fB\-g, \-\-glob=[pattern...]\fR: File match pattern(s).
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -107,6 +107,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-c, \-\-compress\fR: Compact JSON output format (zero indent). 
 .IP "\[ci]" 4
 \fB\-q, \-\-query=[params...]\fR: Query string parameters.
+.IP "\[ci]" 4
+\fB\-h, \-\-header=[key:value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4

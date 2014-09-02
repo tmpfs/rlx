@@ -50,6 +50,11 @@
     "message": "file arguments expected (<files...>)"
   },
   {
+    "key": "ENO_FILES_FOUND",
+    "description": "Files were specified but none were found",
+    "message": "no files found (check paths and glob patterns)"
+  },
+  {
     "key": "ENO_APP_INDEX",
     "description": "Application index file does not exist",
     "message": "application index file %s does not exist"

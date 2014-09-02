@@ -50,6 +50,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-c, --compress`: Compact JSON output format (zero indent). 
 * `-q, --query [params...]`: Query string parameters.
 * `-h, --header [key: value...]`: Additional HTTP headers.
+* `-g, --glob [pattern...]`: File match pattern(s).
 * `--recursive`: Read directories recursively.
 * `--destination [url]`: Copy destination.
 * `--force`: Force file overwrite.

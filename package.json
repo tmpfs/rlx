@@ -30,6 +30,7 @@
     "couchdb-log-parse": "0.0.3",
     "jslint": "^0.6.2",
     "jsonlint": "^1.6.2",
+    "minimatch": "^1.0.0",
     "recursive-readdir": "^1.2.0",
     "request": "^2.40.0",
     "ttycolor": "^0.8.10",
