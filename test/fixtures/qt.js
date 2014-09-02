@@ -16,6 +16,7 @@ var database = mock.database.default
 var params = {
   server: '{server}',
   db: '{db}',
+  ptn: '{ptn}',
   docid: '{docid}',
   attname: '{attname}',
   rev: '{rev}',

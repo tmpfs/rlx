@@ -20,13 +20,13 @@ var sections = {
   db: 'Database',
   doc: 'Document',
   app: 'Design Document',
+  att: 'Attachment',
   admin: 'Administrator',
   user: 'User',
   security: 'Security',
   session: 'Session',
   repl: 'Replicate',
   lcl: 'Local Document',
-  att: 'Attachment',
   conf: 'Configuration',
   level: 'Log Level',
 }
@@ -53,6 +53,9 @@ rules.push({src: config.app.views.all, rep: qt.params.view});
 rules.push({src: config.app.rewrites.rule, rep: qt.params.path});
 rules.push({src: config.attachment.dir, rep: qt.params.directory});
 rules.push({src: config.paths.app, rep: qt.params.directory});
+rules.push({src: config.paths.attachment, rep: qt.params.file});
+
+rules.push({src: config.paths.target, rep: qt.params.directory});
 rules.push({src: config.server.default, rep: qt.params.server});
 rules.push({src: config.repl.target, rep: qt.params.db});
 rules.push({src: config.database.default, rep: qt.params.db});
@@ -81,6 +84,8 @@ rules.push({src: /(-a|--attachment) [^ ]+/gm,
 
 rules.push({src: config.app.copy, rep: qt.params.ddoc});
 rules.push({src: config.app.updates.docid, rep: qt.params.docid});
+rules.push({src: config.attachment.name, rep: qt.params.ptn});
+rules.push({src: config.attachment.ddoc, rep: qt.params.ptn});
 rules.push({src: config.app.ddoc, rep: qt.params.ddoc});
 
 rules.push({src: config.copy.id, rep: qt.params.docid});
