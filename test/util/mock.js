@@ -106,4 +106,5 @@ attachment.doc = '' + fs.readFileSync(attachment.path);
 attachment.dir = path.join(mock.paths.app, 'attachments');
 mock.app.path = mock.paths.app;
 mock.app.updates.file = path.join(mock.paths.updates, 'mock-list-item.json');
+mock.ptn = {wildcard: '**/**'};
 module.exports = mock;

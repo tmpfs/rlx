@@ -547,17 +547,20 @@ Documentation: [ddoc/common#get-db-design-ddoc-info](http://docs.couchdb.org/en/
 Upload design document attachment:
 
 ```
-rlx app att up -s {server} -d {db} --ddoc {ddoc} -a {attname} -f {file}
+rlx app att up -s {server} -d {db} --ddoc {ddoc} -a {attname} /Users/cyberfunk/git/rlx/test/fixtures/attachments/mock-attachment.txt
+rlx app att up -s {server} -d {db} -ddoc {ddoc} {dir}
+rlx app att up -s {server} -d {db} --ddoc {ddoc} --recursive {dir}
 ```
 
 Documentation: [ddoc/common#put-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc-attname)
 
 ### GET /{db}/_design/{ddoc}/{attname}
 
-Download design document attachment:
+Download design document attachment(s):
 
 ```
-rlx app att dl -s {server} -d {db} --ddoc {ddoc} -a {attname} -o {file}
+rlx app att dl -s {server} -d {db} --ddoc {ddoc} {ddoc}-attachment.txt /Users/cyberfunk/git/rlx/target
+rlx app att dl -s {server} -d {db} --ddoc {ddoc} **/** /Users/cyberfunk/git/rlx/target --force
 ```
 
 Documentation: [ddoc/common#get-db-design-ddoc-attname](http://docs.couchdb.org/en/latest/api/ddoc/common.html#get--db-_design-ddoc-attname)
@@ -949,7 +952,7 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 Upload attachment(s):
 
 ```
-rlx att up -s {server} -d {db} -i {docid} -f {file}
+rlx att up -s {server} -d {db} -i {docid} /Users/cyberfunk/git/rlx/test/fixtures/attachments/mock-attachment.txt
 rlx att up -s {server} -d {db} -i {docid} {dir}
 rlx att up -s {server} -d {db} -i {docid} --recursive {dir}
 ```
@@ -958,10 +961,11 @@ Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.o
 
 ### GET /{db}/{docid}/{attname}
 
-Download attachment:
+Download attachment(s):
 
 ```
-rlx att dl -s {server} -d {db} -i {docid} -a {attname} -o {file}
+rlx att dl -s {server} -d {db} -i {docid} mock-attachment.txt /Users/cyberfunk/git/rlx/target
+rlx att dl -s {server} -d {db} -i {docid} **/** /Users/cyberfunk/git/rlx/target --force
 ```
 
 Documentation: [document/attachments#get-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#get--db-docid-attname)

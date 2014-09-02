@@ -27,9 +27,23 @@ function rm(doc, id) {
   expect(doc.rev).to.be.a('string');
 }
 
-function dl(doc, contents) {
-  expect(doc).to.be.an('string');
-  expect(doc).to.eql(contents);
+function dlitem(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.code).to.eql(200);
+  expect(doc.id).to.be.a('string');
+  expect(doc.rev).to.be.a('string');
+  expect(doc.name).to.be.a('string');
+  expect(doc.file).to.be.a('string');
+  expect(doc.attachment).to.be.an('object');
+}
+
+function dl(doc, len) {
+  len = len || 1;
+  expect(doc).to.be.an('array');
+  expect(doc.length).to.eql(len);
+  doc.forEach(function(item) {
+    dlitem(item);
+  })
 }
 
 function head(doc) {

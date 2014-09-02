@@ -48,12 +48,12 @@ describe('rlx:', function() {
   });
 
   it('should download attachment', function(done){
-    var mock = config.file(config.attachment.name);
-    var args = qt.getArguments('att/dl');
+    var mock = config.file('attachment-download.json');
+    var args = qt.getArguments('att/dl', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
-      var doc = config.text(mock);
-      config.assert.attach.dl(doc, config.attachment.doc);
+      var doc = config.json(mock);
+      config.assert.attach.dl(doc);
       done();
     })
     def.parse(args);
@@ -117,6 +117,19 @@ describe('rlx:', function() {
       var doc = config.json(mock);
       //console.dir(doc);
       config.assert.attach.up(doc, null, 2);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should download multiple attachments', function(done){
+    var mock = config.file('attachment-download-multiple.json');
+    var args = qt.getArguments('att/dl/multiple', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.attach.dl(doc, 3);
       done();
     })
     def.parse(args);

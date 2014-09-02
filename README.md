@@ -41,8 +41,9 @@ Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
            [-u|--username=<name>] [-p|--password=<pass>]
            [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
            [-t|--template=<name>] [-q|--query=<params...>]
-           [-h|--header=<key:value...>] [--destination=<url>]
-           [--ddoc=<name>] [-n|--name=<name>] [--feed=<type>] <args>
+           [-h|--header=<key:value...>] [-g|--glob=<pattern...>]
+           [--destination=<url>] [--ddoc=<name>] [-n|--name=<name>]
+           [--feed=<type>] <args>
 
 Command line interface for couchdb.
 
@@ -80,8 +81,8 @@ Commands:
  help                   Show help for commands.
 
 Arguments:
- -h, --header=[key:value...]
-                        Additional HTTP headers.
+ -g, --glob=[pattern...]
+                        File match pattern(s).
      --[no]-color       Enable or disable terminal colors.
  -d, --database=[name]  Database name.
  -i, --id=[id]          Document identifier.
@@ -97,6 +98,8 @@ Arguments:
  -c, --compress         Compact JSON output format (zero indent).
  -q, --query=[params...]
                         Query string parameters.
+ -h, --header=[key:value...]
+                        Additional HTTP headers.
  -s, --server=[url]     Database server.
      --recursive        Read directories recursively.
      --destination=[url]

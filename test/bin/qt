@@ -40,6 +40,7 @@ function run(fixtures, hook, cb) {
         prefix + (hook ? hook + ' ' : '') + '%s %s', nm, cmd.join(' '));
       cmd.unshift(exe);
       cmd = cmd.join(' ');
+      cmd = cmd.replace('*', '\\*');
       exec(cmd, opts, function(err, stdout, stderr) {
         var code = err && err.code ? err.code : 0;
         if(test.stdout) {

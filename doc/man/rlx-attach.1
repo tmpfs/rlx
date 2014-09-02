@@ -1,4 +1,4 @@
-.TH "RLX-ATTACH" "1" "September 2014" "rlx-attach 0.1.151" "User Commands"
+.TH "RLX-ATTACH" "1" "September 2014" "rlx-attach 0.1.153" "User Commands"
 .SH "NAME"
 rlx-attach -- Manage document attachments.
 .SH "SYNOPSIS"
@@ -30,6 +30,16 @@ If no subcommand is specified \fBls\fR is invoked.
 .SH "UPLOAD"
 .PP
 This is some info about attachment uploads.
+.SS "Download"
+.SH "DOWNLOAD"
+.PP
+To download a single attachment use the file name as the pattern:
+
+\fB$0 att dl \-s {server} \-d {db} \-i {docid} file.txt ./target\fR
+.PP
+To download attachments specify a series of file glob patterns followed by an output directory:
+
+\fB$0 att dl \-s {server} \-d {db} \-i {docid} '**/**' ./target\fR
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

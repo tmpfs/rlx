@@ -514,7 +514,7 @@ var qt = [
   },
   {
     id: 'att/dl',
-    description: 'Download attachment',
+    description: 'Download attachment(s)',
     api: [params.db, params.docid, params.attname],
     method: methods.get,
     doc: docs.attachment + '#get--db-docid-attname',
@@ -527,10 +527,28 @@ var qt = [
       mock.database.default,
       '-i',
       mock.document.id,
-      '-a',
       mock.attachment.name,
-      '-o',
-      fsutil.file(mock.attachment.name),
+      mock.paths.target,
+    ]
+  },
+  {
+    id: 'att/dl/multiple',
+    description: 'Download attachment(s)',
+    api: [params.db, params.docid, params.attname],
+    method: methods.get,
+    doc: docs.attachment + '#get--db-docid-attname',
+    cmd: [
+      'att',
+      'dl',
+      '-s',
+      mock.server.default,
+      '-d',
+      mock.database.default,
+      '-i',
+      mock.document.id,
+      mock.ptn.wildcard,
+      mock.paths.target,
+      '--force'
     ]
   },
   {
@@ -1536,8 +1554,47 @@ var qt = [
     ]
   },
   {
+    id: 'app/att/up/multiple',
+    description: 'Upload multiple attachments',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.put,
+    doc: docs.ddoc + '#put--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'up',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-ddoc',
+      ddoc,
+      mock.attachment.dir
+    ]
+  },
+  {
+    id: 'app/att/up/multiple/recursive',
+    description: 'Upload multiple attachments recursively',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.put,
+    doc: docs.ddoc + '#put--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'up',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      '--recursive',
+      mock.attachment.dir
+    ]
+  },
+  {
     id: 'app/att/dl',
-    description: 'Download design document attachment',
+    description: 'Download design document attachment(s)',
     api: [params.db, parameters.design, params.ddoc, params.attname],
     method: methods.get,
     doc: docs.ddoc + '#get--db-_design-ddoc-attname',
@@ -1551,10 +1608,29 @@ var qt = [
       database,
       '--ddoc',
       ddoc,
-      '-a',
       mock.attachment.ddoc,
-      '-o',
-      fsutil.file(mock.attachment.ddoc)
+      mock.paths.target
+    ]
+  },
+  {
+    id: 'app/att/dl/multiple',
+    description: 'Download design document attachment(s)',
+    api: [params.db, parameters.design, params.ddoc, params.attname],
+    method: methods.get,
+    doc: docs.ddoc + '#get--db-_design-ddoc-attname',
+    cmd: [
+      'app',
+      'att',
+      'dl',
+      '-s',
+      server,
+      '-d',
+      database,
+      '--ddoc',
+      ddoc,
+      mock.ptn.wildcard,
+      mock.paths.target,
+      '--force'
     ]
   },
   {
@@ -1944,6 +2020,7 @@ function getArguments(id, opts) {
   opts = opts || {};
   opts.common = opts.common !== undefined ? opts.common : true;
   var args = [];
+  var force = '--force';
   var item = find(id);
   if(item) {
     args = item.cmd.slice(0);
@@ -1955,7 +2032,10 @@ function getArguments(id, opts) {
     args.push('-o', opts.output);
   }
   if(opts.common) {
-    args.push('--no-color', '--force', '--error');
+    if(!~args.indexOf(force)) {
+      args.push(force);
+    }
+    args.push('--no-color', '--error');
   }
   return args;
 }

@@ -176,6 +176,20 @@ If no subcommand is specified `ls` is invoked.
 
 This is some info about attachment uploads.
 
+#### Download
+
+To download a single attachment use the file name as the pattern:
+
+```
+$0 att dl -s {server} -d {db} -i {docid} file.txt ./target
+```
+
+To download attachments specify a series of file glob patterns followed by an output directory:
+
+```
+$0 att dl -s {server} -d {db} -i {docid} '**/**' ./target
+```
+
 ### Log
 
 This command attempts to parse the raw response text into an array of JSON log records. If you wish to print the raw log text specify the `${opt_raw_long}` option.
