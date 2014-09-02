@@ -47,7 +47,6 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-
   it('should download attachment', function(done){
     var mock = config.file(config.attachment.name);
     var args = qt.getArguments('att/dl');
@@ -93,6 +92,19 @@ describe('rlx:', function() {
       var doc = config.json(mock);
       //console.dir(doc);
       config.assert.attach.list(doc, config.attachment.name);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should upload multiple attachments', function(done){
+    var mock = config.file('attachment-upload-multiple.json');
+    var args = qt.getArguments('att/up/multiple', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.attach.up(doc, null, 2);
       done();
     })
     def.parse(args);

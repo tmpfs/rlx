@@ -477,6 +477,25 @@ var qt = [
     ]
   },
   {
+    id: 'att/up/multiple',
+    description: 'Upload multiple attachments',
+    api: [params.db, params.docid, params.attname],
+    method: methods.put,
+    doc: docs.attachment + '#put--db-docid-attname',
+    cmd: [
+      'att',
+      'up',
+      '-s',
+      mock.server.default,
+      '-d',
+      mock.database.default,
+      '-i',
+      mock.document.id,
+      '--recursive',
+      mock.attachment.dir
+    ]
+  },
+  {
     id: 'att/dl',
     description: 'Download attachment',
     api: [params.db, params.docid, params.attname],

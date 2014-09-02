@@ -1,19 +1,21 @@
 var expect = require('chai').expect;
 var mock = require('../util/mock');
 
-function up(doc, id) {
+function up(doc, id, len) {
   var item;
   id = id || mock.document.id;
   expect(doc).to.be.an('array');
-  expect(doc.length).to.be.gt(0);
+  if(!len) {
+    expect(doc.length).to.be.gt(0);
+  }else{
+    expect(doc.length).to.eql(len);
+  }
   for(var i = 0;i < doc.length;i++) {
     item = doc[i];
     expect(item).to.be.an('object');
     expect(item.ok).to.eql(true);
     expect(item.id).to.eql(id);
     expect(item.rev).to.be.a('string');
-    //var revseq = parseInt(item.rev.substr(0, 1))
-    //expect(revseq).to.be.gt(1);
   }
 }
 
