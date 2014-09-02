@@ -946,10 +946,12 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 
 ### PUT /{db}/{docid}/{attname}
 
-Upload attachment:
+Upload attachment(s):
 
 ```
 rlx att up -s {server} -d {db} -i {docid} -f {file}
+rlx att up -s {server} -d {db} -i {docid} {dir}/attachments
+rlx att up -s {server} -d {db} -i {docid} --recursive {dir}/attachments
 ```
 
 Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#put--db-docid-attname)

@@ -103,6 +103,18 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
+      config.assert.attach.up(doc, null, 1);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should upload multiple attachments (--recursive)', function(done){
+    var mock = config.file('attachment-upload-multiple-recursive.json');
+    var args = qt.getArguments('att/up/multiple/recursive', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
       //console.dir(doc);
       config.assert.attach.up(doc, null, 2);
       done();

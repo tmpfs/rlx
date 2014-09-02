@@ -459,7 +459,7 @@ var qt = [
 
   {
     id: 'att/up',
-    description: 'Upload attachment',
+    description: 'Upload attachment(s)',
     api: [params.db, params.docid, params.attname],
     method: methods.put,
     doc: docs.attachment + '#put--db-docid-attname',
@@ -479,6 +479,24 @@ var qt = [
   {
     id: 'att/up/multiple',
     description: 'Upload multiple attachments',
+    api: [params.db, params.docid, params.attname],
+    method: methods.put,
+    doc: docs.attachment + '#put--db-docid-attname',
+    cmd: [
+      'att',
+      'up',
+      '-s',
+      mock.server.default,
+      '-d',
+      mock.database.default,
+      '-i',
+      mock.document.id,
+      mock.attachment.dir
+    ]
+  },
+  {
+    id: 'att/up/multiple/recursive',
+    description: 'Upload multiple attachments recursively',
     api: [params.db, params.docid, params.attname],
     method: methods.put,
     doc: docs.attachment + '#put--db-docid-attname',
