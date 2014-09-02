@@ -171,6 +171,10 @@ If no subcommand is specified `ls` is invoked.
 * `head: head`: Head attachment information.
 * `rm: rm`: Remove an attachment.
 
+#### Upload
+
+This is some info about attachment uploads.
+
 ### Log
 
 This command attempts to parse the raw response text into an array of JSON log records. If you wish to print the raw log text specify the `${opt_raw_long}` option.

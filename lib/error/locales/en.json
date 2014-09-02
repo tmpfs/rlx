@@ -45,6 +45,11 @@
     "message": "%s is not a directory"
   },
   {
+    "key": "EFILES_REQUIRED",
+    "description": "Command expects <file...> arguments",
+    "message": "file arguments expected (<files...>)"
+  },
+  {
     "key": "ENO_APP_INDEX",
     "description": "Application index file does not exist",
     "message": "application index file %s does not exist"

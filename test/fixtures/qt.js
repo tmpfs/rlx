@@ -472,7 +472,6 @@ var qt = [
       mock.database.default,
       '-i',
       mock.document.id,
-      '-f',
       mock.attachment.path,
     ]
   },
@@ -1533,7 +1532,6 @@ var qt = [
       ddoc,
       '-a',
       mock.attachment.ddoc,
-      '-f',
       mock.attachment.path
     ]
   },
