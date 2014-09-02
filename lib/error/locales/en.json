@@ -75,6 +75,11 @@
     "message": "file %s exists, use %s to overwrite"
   },
   {
+    "key": "ETOO_FEW_ARGUMENTS",
+    "description": "Not enough arguments supplied to a command",
+    "message": "not enough arguments, requires %s"
+  },
+  {
     "key": "ENOT_FOUND",
     "description": "Requested resource does not exist",
     "message": "resource not found: %s does not exist"
