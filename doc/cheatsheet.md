@@ -950,8 +950,8 @@ Upload attachment(s):
 
 ```
 rlx att up -s {server} -d {db} -i {docid} -f {file}
-rlx att up -s {server} -d {db} -i {docid} {dir}/attachments
-rlx att up -s {server} -d {db} -i {docid} --recursive {dir}/attachments
+rlx att up -s {server} -d {db} -i {docid} {dir}
+rlx att up -s {server} -d {db} -i {docid} --recursive {dir}
 ```
 
 Documentation: [document/attachments#put-db-docid-attname](http://docs.couchdb.org/en/latest/api/document/attachments.html#put--db-docid-attname)
