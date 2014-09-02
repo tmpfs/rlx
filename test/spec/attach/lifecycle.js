@@ -41,7 +41,6 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.attach.up(doc);
       done();
     })

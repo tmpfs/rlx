@@ -2,13 +2,27 @@ var expect = require('chai').expect;
 var mock = require('../util/mock');
 
 function up(doc, id) {
+  var item;
+  id = id || mock.document.id;
+  expect(doc).to.be.an('array');
+  expect(doc.length).to.be.gt(0);
+  for(var i = 0;i < doc.length;i++) {
+    item = doc[i];
+    expect(item).to.be.an('object');
+    expect(item.ok).to.eql(true);
+    expect(item.id).to.eql(id);
+    expect(item.rev).to.be.a('string');
+    //var revseq = parseInt(item.rev.substr(0, 1))
+    //expect(revseq).to.be.gt(1);
+  }
+}
+
+function rm(doc, id) {
   id = id || mock.document.id;
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
   expect(doc.id).to.eql(id);
   expect(doc.rev).to.be.a('string');
-  var revseq = parseInt(doc.rev.substr(0, 1))
-  expect(revseq).to.be.gt(1);
 }
 
 function dl(doc, contents) {
@@ -44,6 +58,6 @@ module.exports = {
   dl: dl,
   head: head,
   get: get,
-  rm: up,
+  rm: rm,
   list: list,
 }
