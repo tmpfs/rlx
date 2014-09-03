@@ -1,4 +1,4 @@
-.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.156" "User Commands"
+.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.157" "User Commands"
 .SH "NAME"
 rlx-template -- Manage template files.
 .SH "SYNOPSIS"
@@ -9,16 +9,75 @@ rlx template <command> <args>
 rlx tpl <command> <args>
 .SH "DESCRIPTION"
 .PP
+These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document.
+.PP
+To refer to a file template just specify the relative path, eg: \fBuser/new\fR, to reference an application prefix the template name with \fBdesign/\fR, eg: \fBdesign/app\fR.
+.PP
+Templates may be referenced using the \fB\-t | \-\-template\fR option (or the first additional argument), the value may be a file system path or short reference, eg: \fBuser/new\fR. Short references are relative to the template directory and may or may not include the file extension.
+.PP
 If no subcommand is specified \fBls\fR is invoked.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBls\fR: List templates.
+\fBls\fR: List template files.
 .IP "\[ci]" 4
 \fBget\fR: Print template file.
 .IP "\[ci]" 4
 \fBparse\fR: Parse template file and print result.
 .EL
+.SH "LIST"
+.PP
+The \fBls\fR command may be used to list all template files as JSON, use the \fB\-\-raw\fR option to print a tree hierarchy of the template files, you may filter the list using the \fB\-g | \-\-glob\fR option.
+.SH "GET"
+.PP
+When using the \fBget\fR command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
+.PP
+The \fBget\fR and \fBparse\fR commands behave the same on application templates (they print the collated document) except \fBparse\fR will include additional information such as an attachment file list.
+.SH "VARIABLES"
+.PP
+Variables only apply to file templates for application templates they will be ignored.
+.PP
+Variables are declared with an \fB@\fR symbol and must include an assignment operator (\fB=\fR). For example, \fB@foo=bar\fR will set the template variable named \fBfoo\fR to the string \fBbar\fR.
+.PP
+Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: \fB@foo=bar,baz\fR.
+.PP
+Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
+
+.SP
+module.exports = function template(req, cb){
+.br
+  return cb(null, {});
+.br
+}
+.PP
+They are invoked in the scope of the parsed variables object so if the template was parsed with \fB@id=foo\fR and looked like:
+
+.SP
+module.exports = function template(req, cb){
+.br
+  var doc = {
+.br
+    _id: this.id
+.br
+  }
+.br
+  return cb(null, doc);
+.br
+}
+.PP
+The result would be a JSON document such as:
+
+.SP
+{
+.br
+  "_id": "foo"
+.br
+}
+.SH "FILES"
+.PP
+Files are read first from \fB~/.rlx/template\fR and then from the templates bundled with the program \fBlib/template\fR.
+.PP
+Application templates are read from the \fBdesign\fR sub\-directory.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

@@ -363,13 +363,71 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 ### Template
 
+These commands operate on two types of template, `file templates` that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and `application templates` which are directories that are collated to a design document.
+
+To refer to a file template just specify the relative path, eg: `user/new`, to reference an application prefix the template name with `design/`, eg: `design/app`.
+
+Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
+
 If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
-* `ls: ls`: List templates.
+* `ls: ls`: List template files.
 * `get: get`: Print template file.
 * `parse: parse`: Parse template file and print result.
+
+#### Files
+
+Files are read first from `~/.rlx/template` and then from the templates bundled with the program `lib/template`.
+
+Application templates are read from the `design` sub-directory.
+
+#### List
+
+The `${cmd_ls_long}` command may be used to list all template files as JSON, use the `${opt_raw_long}` option to print a tree hierarchy of the template files, you may filter the list using the `${opt_glob_pipe}` option.
+
+#### Get
+
+When using the `${cmd_get_long}` command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
+
+The `${cmd_get_long}` and `${cmd_parse_long}` commands behave the same on application templates (they print the collated document) except `${cmd_parse_long}` will include additional information such as an attachment file list.
+
+#### Variables
+
+Variables only apply to file templates for application templates they will be ignored.
+
+Variables are declared with an `@` symbol and must include an assignment operator (`=`). For example, `@foo=bar` will set the template variable named `foo` to the string `bar`.
+
+Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: `@foo=bar,baz`.
+
+Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
+
+```
+module.exports = function template(req, cb){
+  return cb(null, {});
+}
+```
+
+They are invoked in the scope of the parsed variables object so if the template was parsed with `@id=foo` and looked like:
+
+```
+module.exports = function template(req, cb){
+  var doc = {
+    _id: this.id
+  }
+  return cb(null, doc);
+}
+```
+
+The result would be a JSON document such as:
+
+```
+{
+  "_id": "foo"
+}
+```
+
 
 ### User
 
@@ -444,41 +502,6 @@ cat package.json | $0 - ${cmd_lint_long}
 ```
 
 <!--  `this` is a quotation -->
-
-## Templates
-
-Templates may be referenced using the `${opt_template_pipe}` option, the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
-
-Variables are declared with an `@` symbol and must include an assignment operator (`=`). For example, `@foo=bar` will set the template variable named `foo` to the string `bar`.
-
-Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: `@foo=bar,baz`.
-
-Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
-
-```
-module.exports = function template(req, cb){
-  return cb(null, {});
-}
-```
-
-They are invoked in the scope of the parsed variables object so if the template was parsed with `@id=foo` and the template looked like:
-
-```
-module.exports = function template(req, cb){
-  var doc = {
-    _id: this.id
-  }
-  return cb(null, doc);
-}
-```
-
-The result would be a JSON document such as:
-
-```
-{
-  "_id": "foo"
-}
-```
 
 ## Log
 

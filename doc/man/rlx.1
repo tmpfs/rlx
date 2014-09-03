@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.156" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.157" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -140,46 +140,6 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
-.SH "TEMPLATES"
-.PP
-Templates may be referenced using the \fB\-t | \-\-template\fR option, the value may be a file system path or short reference, eg: \fBuser/new\fR. Short references are relative to the template directory and may or may not include the file extension.
-.PP
-Variables are declared with an \fB@\fR symbol and must include an assignment operator (\fB=\fR). For example, \fB@foo=bar\fR will set the template variable named \fBfoo\fR to the string \fBbar\fR.
-.PP
-Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: \fB@foo=bar,baz\fR.
-.PP
-Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
-
-.SP
-module.exports = function template(req, cb){
-.br
-  return cb(null, {});
-.br
-}
-.PP
-They are invoked in the scope of the parsed variables object so if the template was parsed with \fB@id=foo\fR and the template looked like:
-
-.SP
-module.exports = function template(req, cb){
-.br
-  var doc = {
-.br
-    _id: this.id
-.br
-  }
-.br
-  return cb(null, doc);
-.br
-}
-.PP
-The result would be a JSON document such as:
-
-.SP
-{
-.br
-  "_id": "foo"
-.br
-}
 .SH "LOG"
 .PP
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
