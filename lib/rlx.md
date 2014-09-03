@@ -376,6 +376,7 @@ If no subcommand is specified `ls` is invoked.
 * `ls: ls`: List template files.
 * `get: get`: Print template file.
 * `parse: parse`: Parse template file and print result.
+* `init: init`: Copy system templates.
 
 #### Files
 
