@@ -22,7 +22,7 @@ function get(doc, id) {
   expect(doc._id).to.eql(id);
   expect(doc._rev).to.be.a('string');
   expect(doc.language).to.be.a('string');
-  expect(doc.validate_doc_update).to.be.a('string');
+  //expect(doc.validate_doc_update).to.be.a('string');
   expect(doc.options).to.be.an('object');
   expect(doc.views).to.be.an('object');
   expect(doc.lib).to.be.an('object');
@@ -41,16 +41,18 @@ function info(doc, id) {
 }
 
 function list(doc, id, len) {
-  id = identity(id);
-  len = len || 1;
+  //id = identity(id);
+  len = len || 0;
   expect(doc).to.be.an('object');
   expect(doc.total_rows).to.be.a('number');
   expect(doc.offset).to.be.a('number');
   expect(doc.rows).to.be.an('array');
   expect(doc.rows.length).to.eql(len);
-  var ddoc = doc.rows[0];
-  expect(ddoc.id).to.eql(id);
-  expect(ddoc.key).to.eql(id);
+  if(len && id) {
+    var ddoc = doc.rows[0];
+    expect(ddoc.id).to.eql(id);
+    expect(ddoc.key).to.eql(id);
+  }
 }
 
 function view(doc, len, reduce) {

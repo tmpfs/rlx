@@ -49,6 +49,7 @@ var ignore = [
 ];
 
 var rules = [], st = '~~';
+rules.push({src: config.app.tpl.minimal.ddoc, rep: qt.params.ddoc});
 rules.push({src: config.app.views.all, rep: qt.params.view});
 rules.push({src: config.app.rewrites.rule, rep: qt.params.path});
 rules.push({src: config.attachment.dir, rep: qt.params.directory});
@@ -124,6 +125,7 @@ function order() {
     out.push({title: section, cmd: k === 'server' ? '' : k});
     for(j = 0;j < qt.length;j++) {
       item = qt[j];
+      if(!item.api) continue;
       //if(item.section)
       cmd = item.cmd[0];
       if(lookup[cmd] && k === lookup[cmd]) {

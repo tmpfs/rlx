@@ -40,6 +40,12 @@ var mock = {
     rewrites: {
       rule: '/foo',
       docid: 'bar'
+    },
+    tpl: {
+      minimal: {name: 'minimal', ddoc: 'minimal-ddoc'},
+      validate: {name: 'validate', ddoc: 'validate-ddoc'},
+      view: {name: 'view', ddoc: 'view-ddoc'},
+      app: {name: 'app', ddoc: 'app-ddoc'},
     }
   },
   conf: {

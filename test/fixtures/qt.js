@@ -1430,6 +1430,73 @@ var qt = [
     ]
   },
   {
+    id: 'app/push/minimal',
+    description: 'Push a design document by template (minimal)',
+    api: [params.db, parameters.design, params.ddoc],
+    method: methods.put,
+    doc: docs.ddoc + '#put--db-_design-ddoc',
+    cmd: [
+      'app',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      mock.app.tpl.minimal.ddoc,
+      '-t',
+      mock.app.tpl.minimal.name
+    ]
+  },
+  {
+    id: 'app/push/validate',
+    description: 'Push a design document by template (validate)',
+    cmd: [
+      'app',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      mock.app.tpl.validate.ddoc,
+      '-t',
+      mock.app.tpl.validate.name
+    ]
+  },
+  {
+    id: 'app/push/view',
+    description: 'Push a design document by template (view)',
+    cmd: [
+      'app',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      mock.app.tpl.view.ddoc,
+      '-t',
+      mock.app.tpl.view.name
+    ]
+  },
+  {
+    id: 'app/push/app',
+    description: 'Push a design document by template (app)',
+    cmd: [
+      'app',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database,
+      '-i',
+      mock.app.tpl.app.ddoc,
+      '-t',
+      mock.app.tpl.app.name
+    ]
+  },
+  {
     id: 'app/ls',
     description: 'List design documents',
     api: [params.db, parameters.docs],

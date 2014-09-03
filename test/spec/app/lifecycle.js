@@ -21,6 +21,18 @@ describe('rlx:', function() {
     teardown.db.rm(done);
   })
 
+  it('should list design documents', function(done){
+    var mock = config.file('app-ls.json');
+    var args = qt.getArguments('app/ls', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.list(doc, 0);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should push design document', function(done){
     var mock = config.file('app-push.json');
     var args = qt.getArguments('app/push', {output: mock});
@@ -33,13 +45,61 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should list design documents', function(done){
-    var mock = config.file('app-ls.json');
+  it('should push design document (minimal)', function(done){
+    var mock = config.file('app-push-minimal.json');
+    var args = qt.getArguments('app/push/minimal', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.create(doc, config.app.tpl.minimal.ddoc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should push design document (validate)', function(done){
+    var mock = config.file('app-push-validate.json');
+    var args = qt.getArguments('app/push/validate', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.create(doc, config.app.tpl.validate.ddoc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should push design document (view)', function(done){
+    var mock = config.file('app-push-view.json');
+    var args = qt.getArguments('app/push/view', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.create(doc, config.app.tpl.view.ddoc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should push design document (app)', function(done){
+    var mock = config.file('app-push-app.json');
+    var args = qt.getArguments('app/push/app', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.app.create(doc, config.app.tpl.app.ddoc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list multiple design documents', function(done){
+    var mock = config.file('app-ls-multiple.json');
     var args = qt.getArguments('app/ls', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.app.list(doc);
+      config.assert.app.list(doc, null, 5);
       done();
     })
     def.parse(args);
@@ -52,18 +112,6 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.app.create(doc, config.app.copy);
-      done();
-    })
-    def.parse(args);
-  });
-
-  it('should list multiple design documents', function(done){
-    var mock = config.file('app-ls-multiple.json');
-    var args = qt.getArguments('app/ls', {output: mock});
-    var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
-      var doc = config.json(mock);
-      config.assert.app.list(doc, null, 2);
       done();
     })
     def.parse(args);

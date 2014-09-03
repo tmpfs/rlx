@@ -488,6 +488,7 @@ Push a design document:
 
 ```
 rlx app push -s {server} -d {db} -i {ddoc} {dir}
+rlx app push -s {server} -d {db} -i {ddoc} -t {template}
 ```
 
 Documentation: [ddoc/common#put-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc)
