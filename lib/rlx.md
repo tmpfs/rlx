@@ -84,6 +84,30 @@ If no subcommand is specified `ls` is invoked.
 * `rewrite: rewrite`: Run a rewrite rule path.
 * `rm: rm`: Remove a design document.
 
+#### Identifiers
+
+Most subcommands allow `${opt_id_long}` and `${opt_ddoc_long}` to be used interchangeably (they always refer to a design document id), however the commands `${cmd_show_long}`, `${cmd_list_long}` and `${cmd_update_long}` distinguish between a design document id (`${opt_ddoc_long}`) and a document id (`${opt_id_long}`) as they accept a document to use during execution.
+
+#### Attachments
+
+The `${cmd_attach_short}` subcommand is provided as a convenience for attaching to design documents, it defers to the top-level `${cmd_attach_short}` command with the `${opt_ddoc_long}` option specified, see `${cmd_help_long} ${cmd_attach_short}` for more information.
+
+#### Deploy
+
+Typically during development you would use the `${cmd_push_long}` command to upload the design document, it is then your responsibility to query a view to update the view indices for the design document. In a live environment the correct procedure involves a few document copies, waiting for view index updates to complete and cleaning stale views.
+
+The `${cmd_deploy_long}` command will follow the steps:
+
+1. Delete any existing backup or new design documents.
+2. Check design document for existence, if it does not exist it is saved.
+3. Copy the existing design document to a backup.
+4. Upload the new design document with a new name.
+5. Query a view on the new design document.
+6. Wait for view index generation to complete.
+7. Copy the new design document to the existing design document.
+8. Delete the backup and new design document.
+9. Clean up stale view indices for the database.
+
 ### Replicate
 
 Commands for starting, stopping and inspecting database replications.
