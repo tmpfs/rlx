@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.153" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.155" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -211,15 +211,15 @@ You may specify a leading \fB?\fR but it is unnecessary and not recommended.
 .PP
 To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
 
-\fBrlx doc revsinfo \-s {server} \-d {database} \-i {id}\fR
+  rlx doc revsinfo \-s {server} \-d {database} \-i {id}
 .PP
 But you could also use \fB\-q | \-\-query\fR:
 
-\fBrlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'\fR
+  rlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'
 .PP
 An example of precedence:
 
-\fBrlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'\fR
+  rlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'
 .PP
 The value of \fB{rev}\fR will be used \fInot\fR \fB{revision}\fR.
 .SH "HIGHLIGHT"

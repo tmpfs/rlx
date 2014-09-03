@@ -172,23 +172,65 @@ If no subcommand is specified `ls` is invoked.
 * `head: head`: Head attachment information.
 * `rm: rm`: Remove an attachment.
 
+#### Design Documents
+
+You can operate on attachments for a design document by specifying the `${opt_ddoc_long}` option. If `${opt_id_long}` and `${opt_ddoc_pipe}` are combined the attachment operation is performed on a design document.
+
+#### File Names
+
+File names for uploaded and downloaded attachments are determined automatically based on either the file system path or the name of an attachment. It is possible to set the name of an attachment for single files using the `${opt_attachment_pipe}` option.
+
+When uploading files a relative path is included to prevent file name collision as best as possible, however if you specify multiple directories with relative paths that collide the last file in the list will be the final attachment.
+
 #### Upload
 
-This is some info about attachment uploads.
+The `${cmd_up_long}` command accepts file arguments in the form `<files...>`. An error is reported if no files are specified.
+
+To upload attachment(s) specify files (or directories) to the `${cmd_up_long}` command:
+
+```
+$0 att up -s {server} -d {db} -i {docid} {file}
+```
+
+If one of the target files is a directory then all files in that directory (but not sub-directories) are uploaded. To also upload files in sub-directories use the `${opt_recursive_long}` option:
+
+```
+$0 att up -s {server} -d {db} -i {docid} --recursive {dir}
+```
+
+It is possible to specify the name for an uploaded attachment but only if a single file is being attached:
+
+```
+$0 att up -s {server} -d {db} -i {docid} -a {attname} {file}
+```
+
+You can filter the files to be uploaded by specifying `${opt_glob_pipe}` option(s):
+
+```
+$0 att up -s {server} -d {db} -i {docid} --recursive -g '*.txt' {dir}
+```
+
+When glob pattern(s) are specified the file will be included in the list if one of the glob patterns matches the file path.
 
 #### Download
 
-To download a single attachment use the file name as the pattern:
+The `${cmd_dl_long}` command accepts file arguments in the form `<pattern...> <dir>`. An error is reported if an output directory is not specified (or is not a directory) or if no glob patterns are specified.
+
+The download logic first fetches the document so that patterns can be matched against the known existing attachments for the document. This means that `${cmd_dl_long}` incurs an additional request prior to downloading attachments.
+
+To download a single attachment use the attachment name as the pattern:
 
 ```
 $0 att dl -s {server} -d {db} -i {docid} file.txt ./target
 ```
 
-To download attachments specify a series of file glob patterns followed by an output directory:
+To download multiple attachments specify a series of file glob patterns followed by an output directory:
 
 ```
 $0 att dl -s {server} -d {db} -i {docid} '**/**' ./target
 ```
+
+Attachment downloads respect the `${opt_force_long}` option, the program will report an error if the target file already exists and `${opt_force_long}` has not been specified.
 
 ### Log
 
