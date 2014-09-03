@@ -1,4 +1,4 @@
-.TH "RLX-APPLICATION" "1" "September 2014" "rlx-application 0.1.155" "User Commands"
+.TH "RLX-APPLICATION" "1" "September 2014" "rlx-application 0.1.156" "User Commands"
 .SH "NAME"
 rlx-application -- Manage design document applications.
 .SH "SYNOPSIS"
@@ -43,6 +43,48 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fBrm\fR: Remove a design document.
 .EL
+.SH "TERMINOLOGY"
+.PP
+The terms \fBapp\fR, \fBapplication\fR and \fBdesign document\fR are used interchangeably, for all intents and purposes an application \fIis\fR a design document except it is represented on the file system as a series of files rather than a single JSON document with attachments.
+.SH "FILESYSTEM LAYOUT"
+.PP
+The layout for an application at it's simplest just includes an \fBindex.json\fR file which indicates the language for a design document. However without any additional files it is an empty design document, a simple application might look like:
+
+.SP
+app/
+.br
+├── index.json
+.br
+└── validate_doc_update.js
+.PP
+A complete application layout looks like:
+
+.SP
+app/
+.br
+├── attachments
+.br
+├── docs
+.br
+├── filters
+.br
+├── index.json
+.br
+├── lib
+.br
+├── lists
+.br
+├── rewrites.js
+.br
+├── shows
+.br
+├── updates
+.br
+├── validate_doc_update.js
+.br
+└── views
+.br
+    └── lib
 .SH "IDENTIFIERS"
 .PP
 Most subcommands allow \fB\-\-id\fR and \fB\-\-ddoc\fR to be used interchangeably (they always refer to a design document id), however the commands \fBshow\fR, \fBlist\fR and \fBupdate\fR distinguish between a design document id (\fB\-\-ddoc\fR) and a document id (\fB\-\-id\fR) as they accept a document to use during execution.

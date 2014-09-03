@@ -84,6 +84,38 @@ If no subcommand is specified `ls` is invoked.
 * `rewrite: rewrite`: Run a rewrite rule path.
 * `rm: rm`: Remove a design document.
 
+#### Terminology
+
+The terms `app`, `application` and `design document` are used interchangeably, for all intents and purposes an application *is* a design document except it is represented on the file system as a series of files rather than a single JSON document with attachments.
+
+#### Filesystem Layout
+
+The layout for an application at it's simplest just includes an `index.json` file which indicates the language for a design document. However without any additional files it is an empty design document, a simple application might look like:
+
+```
+app/
+├── index.json
+└── validate_doc_update.js
+```
+
+A complete application layout looks like:
+
+```
+app/
+├── attachments
+├── docs
+├── filters
+├── index.json
+├── lib
+├── lists
+├── rewrites.js
+├── shows
+├── updates
+├── validate_doc_update.js
+└── views
+    └── lib
+```
+
 #### Identifiers
 
 Most subcommands allow `${opt_id_long}` and `${opt_ddoc_long}` to be used interchangeably (they always refer to a design document id), however the commands `${cmd_show_long}`, `${cmd_list_long}` and `${cmd_update_long}` distinguish between a design document id (`${opt_ddoc_long}`) and a document id (`${opt_id_long}`) as they accept a document to use during execution.
