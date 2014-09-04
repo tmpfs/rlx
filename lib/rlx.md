@@ -377,6 +377,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `ls: ls`: List template files.
 * `get: get`: Print template.
+* `dir: dir`: Print template search path array.
 * `parse: parse`: Parse template and print result.
 * `init: init`: Copy templates.
 
@@ -384,6 +385,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `--system`: Only search system templates.
 * `--user`: Only search user templates (overrides --system).
+* `--search-path [dir...]`: Add template directories to the search path.
 
 #### Files
 

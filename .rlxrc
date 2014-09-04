@@ -26,5 +26,10 @@
   "progress": {
     "upload": true,
     "download": true
+  },
+  "search": {
+    "paths": {
+      "template": []
+    }
   }
 }
