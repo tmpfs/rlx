@@ -1992,6 +1992,9 @@ var qt = [
   },
 ]
 
+var tpl = require('./template');
+qt = tpl.concat(qt);
+
 function find(id) {
   for(var i = 0;i < qt.length;i++) {
     if(qt[i].id === id) {

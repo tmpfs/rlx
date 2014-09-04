@@ -104,8 +104,16 @@ var mock = {
     app: path.join(base, 'test', 'fixtures', 'app'),
     updates: path.join(base, 'test', 'fixtures', 'updates'),
   },
-  fixtures: {}
+  fixtures: {},
+  usr: {},
+  template: {
+    name: 'user/new',
+    file: 'user/new.js',
+    design: 'design/app'
+  }
 }
+
+mock.usr.home = path.join(target, 'usr');
 
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);

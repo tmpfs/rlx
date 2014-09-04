@@ -21,7 +21,14 @@ function parse(doc) {
     .to.eql(mock.user.type);
 }
 
+function initall(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.file).to.be.a('string');
+}
+
 module.exports = {
   text: text,
   parse: parse,
+  initall: initall,
 }

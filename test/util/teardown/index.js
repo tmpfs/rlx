@@ -4,5 +4,6 @@ module.exports = {
   ddoc: require('./ddoc'),
   doc: require('./doc'),
   edit: require('./edit'),
+  home: require('./home'),
   user: require('./user'),
 }

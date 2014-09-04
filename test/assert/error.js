@@ -38,7 +38,6 @@ err.template = err('EUNKNOWN_TEMPLATE');
 
 err.fsexists = err('EFS_FILE_EXISTS');
 
-
 err.header = err('EHEADER_PARSE');
 
 module.exports = err;
