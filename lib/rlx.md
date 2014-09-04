@@ -384,6 +384,18 @@ Files are read first from `~/.rlx/template` and then from the templates bundled 
 
 Application templates are read from the `design` sub-directory.
 
+#### Init
+
+The `${cmd_init_long}` command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied from the system templates directory to the current working directory.
+
+To import a particular template from the system directory to the user directory specify the output directory:
+
+```
+$0 tpl init design/app ~/.rlx/template
+```
+
+If the destination already exists an error is reported unless the `${opt_force_long}` option has been specified.
+
 #### List
 
 The `${cmd_ls_long}` command may be used to list all template files as JSON, use the `${opt_raw_long}` option to print a tree hierarchy of the template files, you may filter the list using the `${opt_glob_pipe}` option.

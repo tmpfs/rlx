@@ -1,4 +1,4 @@
-.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.162" "User Commands"
+.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.163" "User Commands"
 .SH "NAME"
 rlx-template -- Manage template files.
 .SH "SYNOPSIS"
@@ -27,6 +27,15 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fBinit\fR: Copy system templates.
 .EL
+.SH "INIT"
+.PP
+The \fBinit\fR command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied from the system templates directory to the current working directory.
+.PP
+To import a particular template from the system directory to the user directory specify the output directory:
+
+  rlx tpl init design/app ~/.rlx/template
+.PP
+If the destination already exists an error is reported unless the \fB\-\-force\fR option has been specified.
 .SH "LIST"
 .PP
 The \fBls\fR command may be used to list all template files as JSON, use the \fB\-\-raw\fR option to print a tree hierarchy of the template files, you may filter the list using the \fB\-g | \-\-glob\fR option.
