@@ -66,6 +66,31 @@ var fixtures = [
     ]
   },
   {
+    id: 'tpl/init/fs/file',
+    description: 'Copy file from a filesystem file reference',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'tpl',
+      'init',
+      mock.template.fs.file,
+      mock.paths.target
+    ]
+  },
+  {
+    id: 'tpl/init/fs/app',
+    description: 'Copy directory from a filesystem directory reference',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'tpl',
+      'init',
+      '-t',
+      mock.template.fs.design,
+      mock.paths.target
+    ]
+  },
+  {
     id: 'tpl/raw',
     description: 'List raw templates (no subcommand)',
     cmd: [

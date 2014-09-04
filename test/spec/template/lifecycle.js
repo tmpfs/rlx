@@ -86,13 +86,35 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.template.initapp(doc);
       done();
     })
     def.parse(args);
   });
 
+  it('should init fs file template', function(done){
+    var mock = config.file('template-init-fs-file.json');
+    var args = qt.getArguments('tpl/init/fs/file', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.initfile(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should init fs application template', function(done){
+    var mock = config.file('template-init-fs-app.json');
+    var args = qt.getArguments('tpl/init/fs/app', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.initapp(doc);
+      done();
+    })
+    def.parse(args);
+  });
 
   it('should list raw templates', function(done){
     var mock = config.file('template-ls.json');

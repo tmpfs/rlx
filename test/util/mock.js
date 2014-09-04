@@ -109,11 +109,13 @@ var mock = {
   template: {
     name: 'user/new',
     file: 'user/new.js',
-    design: 'design/app'
+    design: 'design/app',
+    fs: {}
   }
 }
 
 mock.usr.home = path.join(target, 'usr');
+mock.usr.rlx = path.join(mock.usr.home, '.rlx');
 
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);
@@ -121,4 +123,8 @@ attachment.dir = path.join(mock.paths.app, 'attachments');
 mock.app.path = mock.paths.app;
 mock.app.updates.file = path.join(mock.paths.updates, 'mock-list-item.json');
 mock.ptn = {wildcard: '**/**'};
+
+mock.template.fs.file = path.join(mock.usr.rlx, 'template', 'user', 'new.js');
+mock.template.fs.design = path.join(mock.usr.rlx, 'template', 'design', 'app');
+
 module.exports = mock;
