@@ -45,7 +45,7 @@ var mock = {
       minimal: {name: 'minimal', ddoc: 'minimal-ddoc'},
       validate: {name: 'validate', ddoc: 'validate-ddoc'},
       view: {name: 'view', ddoc: 'view-ddoc'},
-      app: {name: 'app', ddoc: 'app-ddoc'},
+      full: {name: 'full', ddoc: 'full-ddoc'},
     }
   },
   conf: {

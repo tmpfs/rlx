@@ -1481,8 +1481,8 @@ var qt = [
     ]
   },
   {
-    id: 'app/push/app',
-    description: 'Push a design document by template (app)',
+    id: 'app/push/full',
+    description: 'Push a design document by template (full)',
     cmd: [
       'app',
       'push',
@@ -1491,9 +1491,9 @@ var qt = [
       '-d',
       database,
       '-i',
-      mock.app.tpl.app.ddoc,
+      mock.app.tpl.full.ddoc,
       '-t',
-      mock.app.tpl.app.name
+      mock.app.tpl.full.name
     ]
   },
   {

@@ -56,7 +56,7 @@ function dir(doc, req, list) {
   expect(doc).to.be.an('array');
   expect(doc.length).to.be.gt(0);
   if(!list) {
-    list = [req.dirs.user.template, req.dirs.tpl.system]
+    list = [req.dirs.tpl.system, req.dirs.user.template]
   }
   expect(doc).to.eql(list);
 }

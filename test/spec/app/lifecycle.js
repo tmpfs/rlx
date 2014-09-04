@@ -81,13 +81,13 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should push design document (app)', function(done){
-    var mock = config.file('app-push-app.json');
-    var args = qt.getArguments('app/push/app', {output: mock});
+  it('should push design document (full)', function(done){
+    var mock = config.file('app-push-full.json');
+    var args = qt.getArguments('app/push/full', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.app.create(doc, config.app.tpl.app.ddoc);
+      config.assert.app.create(doc, config.app.tpl.full.ddoc);
       done();
     })
     def.parse(args);
