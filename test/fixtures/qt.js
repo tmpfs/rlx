@@ -2097,7 +2097,7 @@ function getArguments(id, opts) {
     args = item.cmd.slice(0);
   }
   if(Array.isArray(opts.args)) {
-    args.concat(opts.args);
+    args = args.concat(opts.args);
   }
   if(opts.output) {
     args.push('-o', opts.output);

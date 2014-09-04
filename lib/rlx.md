@@ -369,7 +369,7 @@ To refer to a file template just specify the relative path, eg: `user/new`, to r
 
 Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
 
-By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with `${opt_system_long}` and `${opt_user_long}`.
+By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with `${opt_system_long}`, `${opt_user_long}` and `${opt_search_path_help}` options, see `FILES` for more information.
 
 If no subcommand is specified `ls` is invoked.
 
@@ -383,13 +383,24 @@ If no subcommand is specified `ls` is invoked.
 
 #### Options
 
-* `--system`: Only search system templates.
-* `--user`: Only search user templates (overrides --system).
-* `--search-path [dir...]`: Add template directories to the search path.
+* `--[no]-system`: Include system templates.
+* `--[no]-user`: Include user templates (overrides --system).
+* `--search-path [dir...]`: Prepend template directories to the search path.
 
 #### Files
 
-Files are read first from `~/.rlx/template` (user templates) and then from the templates bundled with the program `lib/template` (system templates).
+Files are read by default first from `~/.rlx/template` (user templates) and then from the templates bundled with the program `lib/template` (system templates).
+
+If a `rc` file declares an array of search paths (`search.paths.template`) these are prepended to the list of search paths, if `${opt_search_path_long}` has been specified the values are prepended to the search path.
+
+So the precedence is:
+
+* cli (`${opt_search_path_long}`)
+* rc file configuration
+* user templates
+* system templates
+
+When using `${opt_user_long}` and `${opt_system_long}` cli search paths and rc search paths are still included.
 
 Application templates are read from the `design` sub-directory.
 
@@ -406,6 +417,8 @@ $0 tpl init design/minimal ~/.rlx/template
 If the destination already exists an error is reported unless the `${opt_force_long}` option has been specified.
 
 When copying application templates, the `design` directory is included in the destination, this is intentional and allows for applications that have multiple design documents.
+
+You can change the name of the destination template with an additional `<name>` argument.
 
 #### List
 

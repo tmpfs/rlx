@@ -67,6 +67,21 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should init named file template with output name', function(done){
+    var mock = config.file('template-init-file-output-name.json');
+    var args = qt.getArguments('tpl/init/file',
+      {output: mock, args: ['mock-template.js']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.template.initfile(doc, 'user/mock-template.js');
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should init named application template', function(done){
     var mock = config.file('template-init-app.json');
     var args = qt.getArguments('tpl/init/app', {output: mock});
@@ -80,8 +95,21 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should init named application template with output name', function(done){
+    var mock = config.file('template-init-app-output-name.json');
+    var args = qt.getArguments('tpl/init/app', {output: mock});
+    var args = qt.getArguments('tpl/init/app',
+      {output: mock, args: ['mock-app']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.initapp(doc, 'design/mock-app');
+      done();
+    })
+    def.parse(args);
+  });
 
-  it('should init named file template (--template)', function(done){
+  it('should init named file template (-t)', function(done){
     var mock = config.file('template-init-template-file.json');
     var args = qt.getArguments('tpl/init/template/file', {output: mock});
     var def = program(require(pkg), config.name)
@@ -94,13 +122,39 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should init named application template', function(done){
+  it('should init named file template (-t) with output name', function(done){
+    var mock = config.file('template-init-template-file-output-name.json');
+    var args = qt.getArguments('tpl/init/template/file',
+      {output: mock, args: ['mock-template.js']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.initfile(doc, 'user/mock-template.js');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should init named application template (-t)', function(done){
     var mock = config.file('template-init-template-app.json');
     var args = qt.getArguments('tpl/init/template/app', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.template.initapp(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should init named application template (-t) with output name', function(done){
+    var mock = config.file('template-init-template-app-output-name.json');
+    var args = qt.getArguments('tpl/init/template/app',
+      {output: mock, args: ['mock-app']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.initapp(doc, 'design/mock-app');
       done();
     })
     def.parse(args);

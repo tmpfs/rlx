@@ -32,22 +32,22 @@ function initall(doc) {
   expect(fs.statSync(doc.file).isDirectory()).to.eql(true);
 }
 
-function initfile(doc) {
+function initfile(doc, name) {
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
   expect(doc.source).to.be.a('string');
   expect(doc.file).to.be.a('string')
-    .to.eql(path.join(mock.paths.target, mock.template.file));
+    .to.eql(path.join(mock.paths.target, name || mock.template.file));
   expect(fs.existsSync(doc.file)).to.eql(true);
   expect(fs.statSync(doc.file).isFile()).to.eql(true);
 }
 
-function initapp(doc) {
+function initapp(doc, name) {
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
   expect(doc.source).to.be.a('string');
   expect(doc.file).to.be.a('string')
-    .to.eql(path.join(mock.paths.target, mock.template.design));
+    .to.eql(path.join(mock.paths.target, name || mock.template.design));
   expect(fs.existsSync(doc.file)).to.eql(true);
   expect(fs.statSync(doc.file).isDirectory()).to.eql(true);
 }
