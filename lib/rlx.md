@@ -374,9 +374,9 @@ If no subcommand is specified `print` is invoked.
 
 * `init: init`: Copy system rc file.
 * `ls: ls`: List rc files.
+* `print: print, p`: Print configuration.
 * `get: get`: Get configuration property.
 * `set: set`: Set configuration property.
-* `print: print, p`: Print configuration.
 * `dir: dir`: Print rc file search path.
 
 #### Options

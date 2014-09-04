@@ -240,6 +240,11 @@
     "message": "output is required (%s)"
   },
   {
+    "key": "ERC_KEY_REQUIRED",
+    "description": "Key value is required",
+    "message": "key is required (object.field)"
+  },
+  {
     "key": "EHEADER_PARSE",
     "description": "Header option is in an unknown format",
     "message": "header syntax error, 'key: value' required, got '%s'"

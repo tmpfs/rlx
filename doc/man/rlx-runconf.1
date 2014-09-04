@@ -4,9 +4,9 @@ rlx-runconf -- Runtime configuration.
 .SH "SYNOPSIS"
 
 .SP
-rlx runconf <command> [\-\-search\-path=<dir...>] <args>
+rlx runconf <command> [\-l] [\-l|\-\-long] [\-\-search\-path=<dir...>] <args>
 .br
-rlx rc <command> [\-\-search\-path=<dir...>] <args>
+rlx rc <command> [\-l] [\-l|\-\-long] [\-\-search\-path=<dir...>] <args>
 .SH "DESCRIPTION"
 .PP
 Runtime configuration is provided by JSON files named \fB.rlxrc\fR.
@@ -31,6 +31,8 @@ If no subcommand is specified \fBprint\fR is invoked.
 .EL
 .SH "OPTIONS"
 .BL
+.IP "\[ci]" 4
+\fB\-l, \-\-long\fR: Long listing, include file contents.
 .IP "\[ci]" 4
 \fB\-\-search\-path=[dir...]\fR: Append directories to the rc search path.
 .EL
