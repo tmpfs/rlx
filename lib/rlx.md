@@ -376,8 +376,8 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List template files.
-* `get: get`: Print template file.
-* `parse: parse`: Parse template file and print result.
+* `get: get`: Print template.
+* `parse: parse`: Parse template and print result.
 * `init: init`: Copy templates.
 
 #### Options
@@ -403,6 +403,8 @@ $0 tpl init design/app ~/.rlx/template
 ```
 
 If the destination already exists an error is reported unless the `${opt_force_long}` option has been specified.
+
+When copying application templates, the `design` directory is included in the destination, this is intentional and allows for applications that have multiple design documents.
 
 #### List
 
