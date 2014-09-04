@@ -6,6 +6,16 @@ var fixtures = [
 
   // TEMPLATE
   {
+    id: 'tpl/dir',
+    description: 'List search paths',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'tpl',
+      'dir'
+    ]
+  },
+  {
     id: 'tpl/init',
     description: 'Copy all system templates to the user template directory',
     before: [setup.home.mock],

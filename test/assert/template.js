@@ -52,10 +52,20 @@ function initapp(doc) {
   expect(fs.statSync(doc.file).isDirectory()).to.eql(true);
 }
 
+function dir(doc, req, list) {
+  expect(doc).to.be.an('array');
+  expect(doc.length).to.be.gt(0);
+  if(!list) {
+    list = [req.dirs.user.template, req.dirs.tpl.system]
+  }
+  expect(doc).to.eql(list);
+}
+
 module.exports = {
   text: text,
   parse: parse,
   initall: initall,
   initfile: initfile,
   initapp: initapp,
+  dir: dir,
 }
