@@ -49,7 +49,8 @@ var fixtures = [
       'init',
       '-t',
       mock.template.name,
-      mock.paths.target
+      mock.paths.target,
+      '--force'
     ]
   },
   {
@@ -62,7 +63,8 @@ var fixtures = [
       'init',
       '-t',
       mock.template.design,
-      mock.paths.target
+      mock.paths.target,
+      '--force'
     ]
   },
   {
@@ -74,7 +76,8 @@ var fixtures = [
       'tpl',
       'init',
       mock.template.fs.file,
-      mock.paths.target
+      mock.paths.target,
+      '--force'
     ]
   },
   {
@@ -87,7 +90,8 @@ var fixtures = [
       'init',
       '-t',
       mock.template.fs.design,
-      mock.paths.target
+      mock.paths.target,
+      '--force'
     ]
   },
   {

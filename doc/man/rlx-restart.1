@@ -1,4 +1,4 @@
-.TH "RLX-RESTART" "1" "September 2014" "rlx-restart 0.1.156" "User Commands"
+.TH "RLX-RESTART" "1" "September 2014" "rlx-restart 0.1.162" "User Commands"
 .SH "NAME"
 rlx-restart
 .SH "SYNOPSIS"
@@ -6,7 +6,15 @@ rlx-restart
   rlx restart <args>
 .SH "DESCRIPTION"
 .PP
-Restart a server.
+Upon success (202 status code) by default this command will poll the server waiting for it to become available again. You can control this behaviour in the \fBrestart\fR section of an rc file.
+.BL
+.IP "\[ci]" 4
+\fBpoll\fR: Boolean indicating whether polling is enabled, default is \fBtrue\fR.
+.IP "\[ci]" 4
+\fBinterval\fR: Integer milliseconds between poll attempts, default is \fB2000\fR.
+.IP "\[ci]" 4
+\fBmax\fR: Integer indicating the maximum number of retry attempts, default is \fB10\fR.
+.EL
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
