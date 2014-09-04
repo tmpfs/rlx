@@ -122,21 +122,21 @@ var fixtures = [
     ]
   },
   {
-    id: 'tpl/get',
-    description: 'Get a template contents',
+    id: 'tpl/print',
+    description: 'Print a template contents',
     cmd: [
       'tpl',
-      'get',
+      'print',
       '-t',
       mock.template.name
     ]
   },
   {
-    id: 'tpl/get/extension',
-    description: 'Get a template contents (file extension specified)',
+    id: 'tpl/print/extension',
+    description: 'Print a template contents (file extension specified)',
     cmd: [
       'tpl',
-      'get',
+      'print',
       '-t',
       mock.template.file
     ]

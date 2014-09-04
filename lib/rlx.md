@@ -375,11 +375,11 @@ If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
-* `ls: ls`: List template files.
-* `get: get`: Print template.
-* `dir: dir`: Print template search path array.
-* `parse: parse`: Parse template and print result.
 * `init: init`: Copy templates.
+* `ls: ls`: List template files.
+* `print: print`: Print template.
+* `parse: parse`: Parse template and print result.
+* `dir: dir`: Print template search path.
 
 #### Options
 
@@ -426,11 +426,11 @@ The `${cmd_ls_long}` command may be used to list all template files as JSON, use
 
 Empty directories and hidden files (those starting with a period '.') are not included in the list.
 
-#### Get
+#### Print
 
-When using the `${cmd_get_long}` command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
+When using the `${cmd_print_long}` command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
 
-The `${cmd_get_long}` and `${cmd_parse_long}` commands behave the same on application templates (they print the collated document) except `${cmd_parse_long}` will include additional information such as an attachment file list.
+The `${cmd_print_long}` and `${cmd_parse_long}` commands behave the same on application templates (they print the collated document) except `${cmd_parse_long}` will include additional information such as an attachment file list.
 
 #### Variables
 

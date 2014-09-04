@@ -1,4 +1,4 @@
-.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.165" "User Commands"
+.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.166" "User Commands"
 .SH "NAME"
 rlx-template -- Manage template files.
 .SH "SYNOPSIS"
@@ -25,15 +25,15 @@ If no subcommand is specified \fBls\fR is invoked.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
+\fBinit\fR: Copy templates.
+.IP "\[ci]" 4
 \fBls\fR: List template files.
 .IP "\[ci]" 4
-\fBget\fR: Print template.
-.IP "\[ci]" 4
-\fBdir\fR: Print template search path array.
+\fBprint\fR: Print template.
 .IP "\[ci]" 4
 \fBparse\fR: Parse template and print result.
 .IP "\[ci]" 4
-\fBinit\fR: Copy templates.
+\fBdir\fR: Print template search path.
 .EL
 .SH "OPTIONS"
 .BL
@@ -62,11 +62,11 @@ You can change the name of the destination template with an additional \fB<name>
 The \fBls\fR command may be used to list all template files as JSON, use the \fB\-\-raw\fR option to print a tree hierarchy of the template files, you may filter the list using the \fB\-g | \-\-glob\fR option.
 .PP
 Empty directories and hidden files (those starting with a period '.') are not included in the list.
-.SH "GET"
+.SH "PRINT"
 .PP
-When using the \fBget\fR command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
+When using the \fBprint\fR command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
 .PP
-The \fBget\fR and \fBparse\fR commands behave the same on application templates (they print the collated document) except \fBparse\fR will include additional information such as an attachment file list.
+The \fBprint\fR and \fBparse\fR commands behave the same on application templates (they print the collated document) except \fBparse\fR will include additional information such as an attachment file list.
 .SH "VARIABLES"
 .PP
 Variables only apply to file templates for application templates they will be ignored.

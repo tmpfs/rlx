@@ -207,9 +207,9 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should get template', function(done){
-    var mock = config.file('template-get.json');
-    var args = qt.getArguments('tpl/get', {output: mock});
+  it('should print template', function(done){
+    var mock = config.file('template-print.json');
+    var args = qt.getArguments('tpl/print', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
@@ -219,9 +219,9 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should get template with file extension', function(done){
-    var mock = config.file('template-get-extension.json');
-    var args = qt.getArguments('tpl/get/extension', {output: mock});
+  it('should print template with file extension', function(done){
+    var mock = config.file('template-print-extension.json');
+    var args = qt.getArguments('tpl/print/extension', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.text(mock);

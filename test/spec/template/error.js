@@ -36,10 +36,10 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on template/get (template name required)', function(done){
+  it('should error on template/print (template name required)', function(done){
     var args = [
       'tpl',
-      'get',
+      'print',
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
@@ -65,10 +65,10 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-  it('should error on template/get (unknown template)', function(done){
+  it('should error on template/print (unknown template)', function(done){
     var args = [
       'tpl',
-      'get',
+      'print',
       '--template=unknown',
       '--no-color'
     ];
