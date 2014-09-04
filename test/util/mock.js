@@ -109,7 +109,7 @@ var mock = {
   template: {
     name: 'user/new',
     file: 'user/new.js',
-    design: 'design/app',
+    design: 'design/minimal',
     fs: {}
   }
 }
@@ -124,7 +124,9 @@ mock.app.path = mock.paths.app;
 mock.app.updates.file = path.join(mock.paths.updates, 'mock-list-item.json');
 mock.ptn = {wildcard: '**/**'};
 
-mock.template.fs.file = path.join(mock.usr.rlx, 'template', 'user', 'new.js');
-mock.template.fs.design = path.join(mock.usr.rlx, 'template', 'design', 'app');
+mock.template.fs.file = path.join(
+  mock.usr.rlx, 'template', 'user', 'new.js');
+mock.template.fs.design = path.join(
+  mock.usr.rlx, 'template', 'design', 'minimal');
 
 module.exports = mock;

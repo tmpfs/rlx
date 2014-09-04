@@ -365,7 +365,7 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 These commands operate on two types of template, `file templates` that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and `application templates` which are directories that are collated to a design document.
 
-To refer to a file template just specify the relative path, eg: `user/new`, to reference an application prefix the template name with `design/`, eg: `design/app`.
+To refer to a file template just specify the relative path, eg: `user/new`, to reference an application prefix the template name with `design/`, eg: `design/minimal`.
 
 Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
 
@@ -391,7 +391,6 @@ Files are read first from `~/.rlx/template` (user templates) and then from the t
 
 Application templates are read from the `design` sub-directory.
 
-
 #### Init
 
 The `${cmd_init_long}` command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied to the current working directory.
@@ -399,7 +398,7 @@ The `${cmd_init_long}` command when called with no arguments will attempt to cop
 To import a particular template from the system directory to the user directory specify the output directory:
 
 ```
-$0 tpl init design/app ~/.rlx/template
+$0 tpl init design/minimal ~/.rlx/template
 ```
 
 If the destination already exists an error is reported unless the `${opt_force_long}` option has been specified.
