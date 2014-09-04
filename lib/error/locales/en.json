@@ -241,8 +241,23 @@
   },
   {
     "key": "ERC_KEY_REQUIRED",
-    "description": "Key value is required",
+    "description": "Configuration Key is required",
     "message": "key is required (object.field)"
+  },
+  {
+    "key": "ERC_VALUE_REQUIRED",
+    "description": "Configuration value is required",
+    "message": "value is required (JSON)"
+  },
+  {
+    "key": "ERC_VALUE_PARSE",
+    "description": "Configuration value is not valid json",
+    "message": "value is invalid json (%s)"
+  },
+  {
+    "key": "ERC_FILE_REQUIRED",
+    "description": "Required rc configuration file is not present",
+    "message": "rc file %s is required (run: %s)"
   },
   {
     "key": "EHEADER_PARSE",
