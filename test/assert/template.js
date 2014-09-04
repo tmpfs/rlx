@@ -1,3 +1,4 @@
+var path = require('path');
 var expect = require('chai').expect;
 var mock = require('../util/mock');
 
@@ -27,8 +28,24 @@ function initall(doc) {
   expect(doc.file).to.be.a('string');
 }
 
+function initfile(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.file).to.be.a('string')
+    .to.eql(path.join(mock.paths.target, mock.template.file));
+}
+
+function initapp(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.file).to.be.a('string')
+    .to.eql(path.join(mock.paths.target, path.basename(mock.template.design)));
+}
+
 module.exports = {
   text: text,
   parse: parse,
   initall: initall,
+  initfile: initfile,
+  initapp: initapp,
 }

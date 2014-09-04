@@ -40,6 +40,32 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should init named file template', function(done){
+    var mock = config.file('template-init-file.json');
+    var args = qt.getArguments('tpl/init/file', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.template.initfile(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should init named application template', function(done){
+    var mock = config.file('template-init-app.json');
+    var args = qt.getArguments('tpl/init/app', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.template.initapp(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should list raw templates', function(done){
     var mock = config.file('template-ls.json');
     var args = qt.getArguments('tpl/raw', {output: mock});
