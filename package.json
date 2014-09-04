@@ -25,7 +25,7 @@
     "cli-error": "~0.5.0",
     "cli-interface": "~1.0.8",
     "cli-logger": "~0.5.13",
-    "cli-rc": "^1.0.5",
+    "cli-rc": "^1.0.7",
     "cli-util": "^1.1.16",
     "couchdb-log-parse": "0.0.3",
     "jslint": "^0.6.2",
