@@ -369,6 +369,8 @@ To refer to a file template just specify the relative path, eg: `user/new`, to r
 
 Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
 
+By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with `${opt_system_long}` and `${opt_user_long}`.
+
 If no subcommand is specified `ls` is invoked.
 
 #### Commands
@@ -376,17 +378,23 @@ If no subcommand is specified `ls` is invoked.
 * `ls: ls`: List template files.
 * `get: get`: Print template file.
 * `parse: parse`: Parse template file and print result.
-* `init: init`: Copy system templates.
+* `init: init`: Copy templates.
+
+#### Options
+
+* `--system`: Only search system templates.
+* `--user`: Only search user templates (overrides --system).
 
 #### Files
 
-Files are read first from `~/.rlx/template` and then from the templates bundled with the program `lib/template`.
+Files are read first from `~/.rlx/template` (user templates) and then from the templates bundled with the program `lib/template` (system templates).
 
 Application templates are read from the `design` sub-directory.
 
+
 #### Init
 
-The `${cmd_init_long}` command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied from the system templates directory to the current working directory.
+The `${cmd_init_long}` command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied to the current working directory.
 
 To import a particular template from the system directory to the user directory specify the output directory:
 
@@ -399,6 +407,8 @@ If the destination already exists an error is reported unless the `${opt_force_l
 #### List
 
 The `${cmd_ls_long}` command may be used to list all template files as JSON, use the `${opt_raw_long}` option to print a tree hierarchy of the template files, you may filter the list using the `${opt_glob_pipe}` option.
+
+Empty directories and hidden files (those starting with a period '.') are not included in the list.
 
 #### Get
 

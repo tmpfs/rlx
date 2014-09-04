@@ -4,9 +4,9 @@ rlx-template -- Manage template files.
 .SH "SYNOPSIS"
 
 .SP
-rlx template <command> <args>
+rlx template <command> [\-\-system] [\-\-user] <args>
 .br
-rlx tpl <command> <args>
+rlx tpl <command> [\-\-system] [\-\-user] <args>
 .SH "DESCRIPTION"
 .PP
 These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document.
@@ -14,6 +14,8 @@ These commands operate on two types of template, \fBfile templates\fR that corre
 To refer to a file template just specify the relative path, eg: \fBuser/new\fR, to reference an application prefix the template name with \fBdesign/\fR, eg: \fBdesign/app\fR.
 .PP
 Templates may be referenced using the \fB\-t | \-\-template\fR option (or the first additional argument), the value may be a file system path or short reference, eg: \fBuser/new\fR. Short references are relative to the template directory and may or may not include the file extension.
+.PP
+By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with \fB\-\-system\fR and \fB\-\-user\fR.
 .PP
 If no subcommand is specified \fBls\fR is invoked.
 .SH "COMMANDS"
@@ -25,11 +27,18 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fBparse\fR: Parse template file and print result.
 .IP "\[ci]" 4
-\fBinit\fR: Copy system templates.
+\fBinit\fR: Copy templates.
+.EL
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-\-system\fR: Only search system templates.
+.IP "\[ci]" 4
+\fB\-\-user\fR: Only search user templates (overrides \-\-system).
 .EL
 .SH "INIT"
 .PP
-The \fBinit\fR command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied from the system templates directory to the current working directory.
+The \fBinit\fR command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied to the current working directory.
 .PP
 To import a particular template from the system directory to the user directory specify the output directory:
 
