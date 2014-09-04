@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.163" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.167" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -199,6 +199,9 @@ The rc file \fBhighlight\fR section is invalid (does not contain json and js obj
 .IP "\[ci]" 4
 The output to print is neither JSON or javascript (\-\-raw specified).
 .EL
+.SH "ENVIRONMENT"
+.PP
+The \fB$HOME\fR environment variable must be set in order for user configuration data to be loaded, typically for most developer environments this is not an issue however when using \fBrlx(1)\fR as part of infrastructure deployment you may need to ensure that \fB$HOME\fR is set.
 .SH "FILES"
 .PP
 Input files are read with the following precedence: \fBstdin\fR, \fB\-\-json\fR and \fB\-\-file\fR. 

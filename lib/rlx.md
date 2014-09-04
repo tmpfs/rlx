@@ -604,6 +604,10 @@ The program will attempt to syntax highlight JSON and javascript documents using
 * The rc file `highlight` section is invalid (does not contain json and js objects).
 * The output to print is neither JSON or javascript (${opt_raw_long} specified).
 
+## Environment
+
+The `\$HOME` environment variable must be set in order for user configuration data to be loaded, typically for most developer environments this is not an issue however when using `$0(1)` as part of infrastructure deployment you may need to ensure that `\$HOME` is set.
+
 ## History
 
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx-shell.
