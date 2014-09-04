@@ -1,0 +1,33 @@
+.TH "RLX-RUNCONF" "1" "September 2014" "rlx-runconf 0.1.167" "User Commands"
+.SH "NAME"
+rlx-runconf -- Runtime configuration.
+.SH "SYNOPSIS"
+
+.SP
+rlx runconf <command> [\-\-search\-path=<dir...>] <args>
+.br
+rlx rc <command> [\-\-search\-path=<dir...>] <args>
+.SH "DESCRIPTION"
+.PP
+If no subcommand is specified \fBprint\fR is invoked.
+.SH "COMMANDS"
+.BL
+.IP "\[ci]" 4
+\fBinit\fR: Copy system rc file.
+.IP "\[ci]" 4
+\fBget\fR: Get configuration property.
+.IP "\[ci]" 4
+\fBset\fR: Set configuration property.
+.IP "\[ci]" 4
+\fBprint, p\fR: Print configuration.
+.IP "\[ci]" 4
+\fBdir\fR: Print rc file search path.
+.EL
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-\-search\-path=[dir...]\fR: Append directories to the rc search path.
+.EL
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/freeformsystems/rlx/issues.

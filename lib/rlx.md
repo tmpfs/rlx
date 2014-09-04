@@ -364,14 +364,19 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 ### Rc
 
-If no subcommand is specified `ls` is invoked.
+If no subcommand is specified `print` is invoked.
 
 #### Commands
 
 * `init: init`: Copy system rc file.
-* `ls: ls`: List rc files.
+* `get: get`: Get configuration property.
+* `set: set`: Set configuration property.
 * `print: print, p`: Print configuration.
 * `dir: dir`: Print rc file search path.
+
+#### Options
+
+* `--search-path [dir...]`: Append directories to the rc search path.
 
 ### Template
 
