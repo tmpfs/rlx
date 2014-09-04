@@ -47,7 +47,7 @@ function initapp(doc) {
   expect(doc.ok).to.eql(true);
   expect(doc.source).to.be.a('string');
   expect(doc.file).to.be.a('string')
-    .to.eql(path.join(mock.paths.target, path.basename(mock.template.design)));
+    .to.eql(path.join(mock.paths.target, mock.template.design));
   expect(fs.existsSync(doc.file)).to.eql(true);
   expect(fs.statSync(doc.file).isDirectory()).to.eql(true);
 }
