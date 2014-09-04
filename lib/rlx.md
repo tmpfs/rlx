@@ -382,6 +382,7 @@ If no subcommand is specified `print` is invoked.
 #### Options
 
 * `--search-path [dir...]`: Append directories to the rc search path.
+* `-l, --long`: Long listing, include file contents.
 
 ### Template
 
