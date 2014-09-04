@@ -1,4 +1,4 @@
-.TH "RLX-RUNCONF" "1" "September 2014" "rlx-runconf 0.1.167" "User Commands"
+.TH "RLX-RUNCONF" "1" "September 2014" "rlx-runconf 0.1.169" "User Commands"
 .SH "NAME"
 rlx-runconf -- Runtime configuration.
 .SH "SYNOPSIS"
@@ -9,11 +9,17 @@ rlx runconf <command> [\-\-search\-path=<dir...>] <args>
 rlx rc <command> [\-\-search\-path=<dir...>] <args>
 .SH "DESCRIPTION"
 .PP
+Runtime configuration is provided by JSON files named \fB.rlxrc\fR.
+.PP
+The \fBinit\fR command when invoked with no arguments will copy the system rc file to the user directory \fB~/.rlx\fR otherwise if an output directory is specified it is copied to the target directory.
+.PP
 If no subcommand is specified \fBprint\fR is invoked.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
 \fBinit\fR: Copy system rc file.
+.IP "\[ci]" 4
+\fBls\fR: List rc files.
 .IP "\[ci]" 4
 \fBget\fR: Get configuration property.
 .IP "\[ci]" 4

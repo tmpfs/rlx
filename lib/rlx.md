@@ -364,6 +364,10 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 ### Rc
 
+Runtime configuration is provided by JSON files named `.rlxrc`.
+
+The `${cmd_init_long}` command when invoked with no arguments will copy the system rc file to the user directory `~/.rlx` otherwise if an output directory is specified it is copied to the target directory.
+
 If no subcommand is specified `print` is invoked.
 
 #### Commands
