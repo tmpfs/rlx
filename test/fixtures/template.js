@@ -40,6 +40,32 @@ var fixtures = [
     ]
   },
   {
+    id: 'tpl/init/template/file',
+    description: 'Copy a named template file (--template)',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'tpl',
+      'init',
+      '-t',
+      mock.template.name,
+      mock.paths.target
+    ]
+  },
+  {
+    id: 'tpl/init/template/app',
+    description: 'Copy a named design document application (--template)',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'tpl',
+      'init',
+      '-t',
+      mock.template.design,
+      mock.paths.target
+    ]
+  },
+  {
     id: 'tpl/raw',
     description: 'List raw templates (no subcommand)',
     cmd: [
