@@ -33,6 +33,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `lint: lint`: Lint javascript and json.
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.
+* `rc: runconf, rc`: Runtime configuration.
 
 ## Options
 
@@ -361,6 +362,17 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 * `set: set`: Set the security document.
 * `rm: rm`: Reset the security document.
 
+### Rc
+
+If no subcommand is specified `ls` is invoked.
+
+#### Commands
+
+* `init: init`: Copy system rc file.
+* `ls: ls`: List rc files.
+* `print: print, p`: Print configuration.
+* `dir: dir`: Print rc file search path.
+
 ### Template
 
 These commands operate on two types of template, `file templates` that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and `application templates` which are directories that are collated to a design document.
@@ -377,7 +389,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `init: init`: Copy templates.
 * `ls: ls`: List template files.
-* `print: print`: Print template.
+* `print: print, p`: Print template.
 * `parse: parse`: Parse template and print result.
 * `dir: dir`: Print template search path.
 
