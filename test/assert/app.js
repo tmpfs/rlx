@@ -21,6 +21,11 @@ function get(doc, id) {
   expect(doc).to.be.an('object');
   expect(doc._id).to.eql(id);
   expect(doc._rev).to.be.a('string');
+  structure(doc);
+}
+
+function structure(doc) {
+  expect(doc).to.be.an('object');
   expect(doc.language).to.be.a('string');
   //expect(doc.validate_doc_update).to.be.a('string');
   expect(doc.options).to.be.an('object');
@@ -133,4 +138,5 @@ module.exports = {
   listfunc: listfunc,
   rewrite: rewrite,
   deploy: deploy,
+  structure: structure,
 }

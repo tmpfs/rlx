@@ -231,6 +231,32 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should print template from directory', function(done){
+    var mock = config.file('template-print-directory.json');
+    var args = qt.getArguments(
+      'tpl/print/empty', {output: mock, args: [config.paths.app]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.collate(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should print template from file', function(done){
+    var mock = config.file('template-print-file.json');
+    var args = qt.getArguments(
+      'tpl/print/empty', {output: mock, args: [config.paths.security]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.text(mock);
+      config.assert.generic.string(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should parse template file', function(done){
     var mock = config.file('template-parse.json');
     var args = qt.getArguments('tpl/parse', {output: mock});

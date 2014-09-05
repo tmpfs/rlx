@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var expect = require('chai').expect;
 var mock = require('../util/mock');
+var app = require('./app');
 
 function text(doc) {
   expect(doc).to.be.a('string');
@@ -61,6 +62,10 @@ function dir(doc, req, list) {
   expect(doc).to.eql(list);
 }
 
+function collate(doc) {
+  app.structure(doc);
+}
+
 module.exports = {
   text: text,
   parse: parse,
@@ -68,4 +73,5 @@ module.exports = {
   initfile: initfile,
   initapp: initapp,
   dir: dir,
+  collate: collate,
 }

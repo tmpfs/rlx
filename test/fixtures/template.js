@@ -132,6 +132,15 @@ var fixtures = [
     ]
   },
   {
+    id: 'tpl/print/empty',
+    description: 'Print a template contents',
+    enabled: false,
+    cmd: [
+      'tpl',
+      'print'
+    ]
+  },
+  {
     id: 'tpl/print/extension',
     description: 'Print a template contents (file extension specified)',
     cmd: [
