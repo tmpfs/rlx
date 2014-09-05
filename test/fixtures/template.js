@@ -164,6 +164,15 @@ var fixtures = [
       '@roles=' + mock.user.roles
     ]
   },
+  {
+    id: 'tpl/parse/empty',
+    description: 'Parse a template file',
+    enabled: false,
+    cmd: [
+      'tpl',
+      'parse'
+    ]
+  },
 ];
 
 module.exports = fixtures;

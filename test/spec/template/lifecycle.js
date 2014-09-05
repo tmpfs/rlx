@@ -268,4 +268,31 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should parse template from directory', function(done){
+    var mock = config.file('template-parse-directory.json');
+    var args = qt.getArguments(
+      'tpl/parse/empty', {output: mock, args: [config.paths.app]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.template.collate(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should parse template from file', function(done){
+    var mock = config.file('template-parse-file.json');
+    var args = qt.getArguments(
+      'tpl/parse/empty', {output: mock, args: [config.paths.tpl]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.generic.empty(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
 })

@@ -1,0 +1,7 @@
+module.exports = function template(req, cb) {
+  var doc = {};
+  for(var z in this) {
+    doc[z] = this[z];
+  }
+  cb(null, doc);
+}
