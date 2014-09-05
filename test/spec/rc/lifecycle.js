@@ -87,4 +87,28 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should get rc configuration', function(done){
+    var mock = config.file('rc-get.json');
+    var args = qt.getArguments('rc/get', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.get(doc, req);
+      //console.dir(doc);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should set rc configuration', function(done){
+    var mock = config.file('rc-set.json');
+    var args = qt.getArguments('rc/set', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.set(doc, req);
+      //console.dir(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

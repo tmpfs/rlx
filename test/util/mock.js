@@ -111,6 +111,10 @@ var mock = {
     file: 'user/new.js',
     design: 'design/minimal',
     fs: {}
+  },
+  rc: {
+    key: 'progress.upload',
+    value: true
   }
 }
 

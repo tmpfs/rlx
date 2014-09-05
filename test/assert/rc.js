@@ -50,8 +50,26 @@ function print(doc, req) {
   expect(doc.search).to.be.an('object')
 }
 
+function get(doc, req, val) {
+  val = val === undefined ? true : val;
+  expect(doc).to.eql(val);
+}
+
+function set(doc, req, val) {
+  val = val === undefined ? true : val;
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.file).to.be.a('string');
+  expect(doc.key).to.be.a('string');
+  expect(doc.path).to.be.a('string');
+  expect(doc.value).to.eql(val)
+  //console.dir(doc);
+}
+
 module.exports = {
   dir: dir,
+  get: get,
+  set: set,
   init: init,
   ls: ls,
   lslong: lslong,

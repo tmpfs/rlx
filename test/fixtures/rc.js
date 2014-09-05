@@ -56,6 +56,29 @@ var fixtures = [
       'print'
     ]
   },
+  {
+    id: 'rc/get',
+    description: 'Get configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'rc',
+      'get',
+      mock.rc.key
+    ]
+  },
+  {
+    id: 'rc/set',
+    description: 'Set configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'rc',
+      'set',
+      mock.rc.key,
+      mock.rc.value
+    ]
+  },
 ];
 
 module.exports = fixtures;
