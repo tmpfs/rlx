@@ -39,9 +39,21 @@ function lslong(doc, req, list) {
   }
 }
 
+function print(doc, req) {
+  expect(doc).to.be.an('object');
+  expect(doc.indent).to.be.a('number');
+  expect(doc.server).to.eql(null);
+  expect(doc.edit).to.be.an('object')
+  expect(doc.restart).to.be.an('object')
+  expect(doc.highlight).to.be.an('object')
+  expect(doc.progress).to.be.an('object')
+  expect(doc.search).to.be.an('object')
+}
+
 module.exports = {
   dir: dir,
   init: init,
   ls: ls,
   lslong: lslong,
+  print: print,
 }

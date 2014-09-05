@@ -76,4 +76,15 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should print rc configuration', function(done){
+    var mock = config.file('rc-print.json');
+    var args = qt.getArguments('rc/print', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.print(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
 })

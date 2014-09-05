@@ -46,6 +46,16 @@ var fixtures = [
       '-l'
     ]
   },
+  {
+    id: 'rc/print',
+    description: 'Print configuration',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'rc',
+      'print'
+    ]
+  },
 ];
 
 module.exports = fixtures;
