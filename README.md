@@ -51,7 +51,7 @@ Options:
 
 Command should be one of: admin, user, database, security, document, attach,
 replicate, application, local, login, logout, session, config, meta, stats,
-tasks, log, restart, uuids, edit, template, lint, level, whoami, help.
+tasks, log, restart, uuids, edit, template, lint, level, whoami, runconf, help.
 
 Commands:
  admin                  Manage server administrators.
@@ -78,6 +78,7 @@ Commands:
  lint                   Lint javascript and json.
  level, lvl             Get or set the server log level.
  whoami                 Get current user information.
+ runconf, rc            Runtime configuration.
  help                   Show help for commands.
 
 Arguments:
