@@ -14,6 +14,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `database: database, db`: Manage databases.
 * `security: security, sec`: Get or set database security.
 * `document: document, doc`: Manage documents.
+* `docs: docs`: Bulk document tasks.
 * `attach: attach, att`: Manage document attachments.
 * `replicate: replicate, repl`: Replicate a database.
 * `application: application, app`: Manage design document applications.
@@ -61,6 +62,14 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
+
+### Docs
+
+Commands for pushing and pulling bulk documents.
+
+#### Commands
+
+* `push: push`: Push a directory of JSON documents.
 
 ### Application
 
