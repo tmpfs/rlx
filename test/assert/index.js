@@ -15,5 +15,6 @@ module.exports = {
   view: require('./view'),
   attach: require('./attach'),
   options: require('./options'),
+  rc: require('./rc'),
   replicate: require('./replicate'),
 }

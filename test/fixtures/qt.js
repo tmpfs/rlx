@@ -612,46 +612,6 @@ var qt = [
     ]
   },
 
-  // TEMPLATE
-  {
-    id: 'template/ls',
-    description: 'List templates',
-    api: null,
-    method: null,
-    cmd: [
-      'template',
-      'ls'
-    ]
-  },
-  {
-    id: 'template/get',
-    description: 'Get a template',
-    api: null,
-    method: null,
-    cmd: [
-      'template',
-      'get',
-      '-t',
-      'user/new'
-    ]
-  },
-  {
-    id: 'template/parse',
-    description: 'Parse a template',
-    api: null,
-    method: null,
-    cmd: [
-      'template',
-      'parse',
-      '-t',
-      'user/new',
-      '@id=' + mock.user.id,
-      '@name=' + mock.user.name,
-      '@password=' + mock.user.password,
-      '@roles=' + mock.user.roles,
-    ]
-  },
-
   // SERVER
   {
     id: 'info',
@@ -1992,7 +1952,9 @@ var qt = [
   },
 ]
 
+var rc = require('./rc');
 var tpl = require('./template');
+qt = rc.concat(qt);
 qt = tpl.concat(qt);
 
 function find(id) {
