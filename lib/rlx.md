@@ -387,13 +387,16 @@ If no subcommand is specified `print` is invoked.
 
 ### Template
 
-These commands operate on two types of template, `file templates` that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and `application templates` which are directories that are collated to a design document.
+These commands operate on two types of template, `file templates` that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and `application templates` which are directories that are collated to a design document. For more information on application templates run `${cmd_help_long} ${cmd_application_short}`.
 
-To refer to a file template just specify the relative path, eg: `user/new`, to reference an application prefix the template name with `design/`, eg: `design/minimal`.
+Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or reference to lookup in the search path. Short references are relative to the template directory and may or may not include the file extension.
 
-Templates may be referenced using the `${opt_template_pipe}` option (or the first additional argument), the value may be a file system path or short reference, eg: `user/new`. Short references are relative to the template directory and may or may not include the file extension.
+For commands that accept a template (${cmd_init_long}, ${cmd_print_long} and ${cmd_parse_long}) file system paths are resolved first before looking in the template search path. In the case of `${cmd_init_long}` the template is used as the source for the copy operation. For other commands if a file is located it is treated as a template (and parsed in the case of the `${cmd_parse_long}` command), if a directory is located it is collated as if it were an application template.
 
-By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with `${opt_system_long}`, `${opt_user_long}` and `${opt_search_path_help}` options, see `FILES` for more information.
+
+To refer to a file template in the search path specify the relative path, eg: `user/new`, to reference an application prefix the template name with `design/`, eg: `design/minimal`.
+
+Template references are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with `${opt_system_long}`, `${opt_user_long}` and `${opt_search_path_help}` options, see `FILES` for more information.
 
 If no subcommand is specified `ls` is invoked.
 
@@ -409,7 +412,7 @@ If no subcommand is specified `ls` is invoked.
 
 * `--[no]-system`: Include system templates.
 * `--[no]-user`: Include user templates (overrides --system).
-* `--search-path [dir...]`: Prepend template directories to the search path.
+* `--search-path [dir...]`: Modify template search path.
 
 #### Files
 
@@ -425,6 +428,8 @@ So the precedence is:
 * system templates
 
 When using `${opt_user_long}` and `${opt_system_long}` cli search paths and rc search paths are still included.
+
+Full negation by combining `${opt_user_no}` and `${opt_system_no}` when no rc or cli search paths are defined is not allowed, the search path will be a single entry including the system templates.
 
 Application templates are read from the `design` sub-directory.
 

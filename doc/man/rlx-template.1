@@ -1,4 +1,4 @@
-.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.167" "User Commands"
+.TH "RLX-TEMPLATE" "1" "September 2014" "rlx-template 0.1.179" "User Commands"
 .SH "NAME"
 rlx-template -- Manage template files.
 .SH "SYNOPSIS"
@@ -13,13 +13,15 @@ rlx tpl <command> [\-\-system|\-\-no\-system] [\-\-user|\-\-no\-user]
     [\-\-search\-path=<dir...>] <args>
 .SH "DESCRIPTION"
 .PP
-These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document.
+These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document. For more information on application templates run \fBhelp app\fR.
 .PP
-To refer to a file template just specify the relative path, eg: \fBuser/new\fR, to reference an application prefix the template name with \fBdesign/\fR, eg: \fBdesign/minimal\fR.
+Templates may be referenced using the \fB\-t | \-\-template\fR option (or the first additional argument), the value may be a file system path or reference to lookup in the search path. Short references are relative to the template directory and may or may not include the file extension.
 .PP
-Templates may be referenced using the \fB\-t | \-\-template\fR option (or the first additional argument), the value may be a file system path or short reference, eg: \fBuser/new\fR. Short references are relative to the template directory and may or may not include the file extension.
+For commands that accept a template (init, print and parse) file system paths are resolved first before looking in the template search path. In the case of \fBinit\fR the template is used as the source for the copy operation. For other commands if a file is located it is treated as a template (and parsed in the case of the \fBparse\fR command), if a directory is located it is collated as if it were an application template.
 .PP
-By default templates are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with \fB\-\-[no]\-system\fR, \fB\-\-[no]\-user\fR and \fB\-\-search\-path=[dir...]\fR options, see \fBFILES\fR for more information.
+To refer to a file template in the search path specify the relative path, eg: \fBuser/new\fR, to reference an application prefix the template name with \fBdesign/\fR, eg: \fBdesign/minimal\fR.
+.PP
+Template references are resolved by first searching the user template directory and then the system template directory. You can modify these search paths with \fB\-\-[no]\-system\fR, \fB\-\-[no]\-user\fR and \fB\-\-search\-path=[dir...]\fR options, see \fBFILES\fR for more information.
 .PP
 If no subcommand is specified \fBls\fR is invoked.
 .SH "COMMANDS"
@@ -29,7 +31,7 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fBls\fR: List template files.
 .IP "\[ci]" 4
-\fBprint\fR: Print template.
+\fBprint, p\fR: Print template.
 .IP "\[ci]" 4
 \fBparse\fR: Parse template and print result.
 .IP "\[ci]" 4
@@ -42,7 +44,7 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fB\-\-[no]\-user\fR: Include user templates (overrides \-\-system).
 .IP "\[ci]" 4
-\fB\-\-search\-path=[dir...]\fR: Prepend template directories to the search path.
+\fB\-\-search\-path=[dir...]\fR: Modify template search path.
 .EL
 .SH "INIT"
 .PP
@@ -126,6 +128,8 @@ system templates
 .EL
 .PP
 When using \fB\-\-[no]\-user\fR and \fB\-\-[no]\-system\fR cli search paths and rc search paths are still included.
+.PP
+Full negation by combining \fB\-\-no\-user\fR and \fB\-\-no\-system\fR when no rc or cli search paths are defined is not allowed, the search path will be a single entry including the system templates.
 .PP
 Application templates are read from the \fBdesign\fR sub\-directory.
 .SH "BUGS"
