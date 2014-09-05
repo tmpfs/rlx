@@ -1,5 +1,6 @@
 module.exports = {
   app: require('./app'),
+  docs: require('./docs'),
   error: require('./error'),
   generic: require('./generic'),
   admin: require('./admin'),

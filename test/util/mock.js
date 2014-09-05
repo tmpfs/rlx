@@ -102,6 +102,7 @@ var mock = {
     attachment: path.join(
       base, 'test', 'fixtures', 'attachments', attachment.name),
     app: path.join(base, 'test', 'fixtures', 'app'),
+    docs: path.join(base, 'test', 'fixtures', 'app', 'docs'),
     updates: path.join(base, 'test', 'fixtures', 'updates'),
     tpl: path.join(
       base, 'test', 'fixtures', 'template', 'mock-template.js'),

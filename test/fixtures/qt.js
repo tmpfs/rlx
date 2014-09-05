@@ -1952,8 +1952,10 @@ var qt = [
   },
 ]
 
+var docs = require('./docs');
 var rc = require('./rc');
 var tpl = require('./template');
+qt = docs.concat(qt);
 qt = rc.concat(qt);
 qt = tpl.concat(qt);
 
