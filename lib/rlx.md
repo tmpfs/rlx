@@ -377,6 +377,7 @@ If no subcommand is specified `print` is invoked.
 * `print: print, p`: Print configuration.
 * `get: get`: Get configuration property.
 * `set: set`: Set configuration property.
+* `rm: rm`: Remove configuration property.
 * `dir: dir`: Print rc file search path.
 
 #### Options

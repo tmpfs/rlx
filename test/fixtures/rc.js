@@ -79,6 +79,50 @@ var fixtures = [
       mock.rc.value
     ]
   },
+  {
+    id: 'rc/rm',
+    description: 'Remove configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'rc',
+      'rm',
+      mock.rc.key
+    ]
+  },
+  {
+    id: 'rc/get/empty',
+    description: 'Get configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    enabled: false,
+    cmd: [
+      'rc',
+      'get'
+    ]
+  },
+  {
+    id: 'rc/set/empty',
+    description: 'Set configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    enabled: false,
+    cmd: [
+      'rc',
+      'set'
+    ]
+  },
+  {
+    id: 'rc/rm/empty',
+    description: 'Remove configuration value',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    enabled: false,
+    cmd: [
+      'rc',
+      'rm'
+    ]
+  },
 ];
 
 module.exports = fixtures;

@@ -111,4 +111,92 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+  it('should rm rc configuration', function(done){
+    var mock = config.file('rc-rm.json');
+    var args = qt.getArguments('rc/rm', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.rm(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+  it('should set rc configuration (top-level string)', function(done){
+    var mock = config.file('rc-set-top-level-string.json');
+    var args = qt.getArguments('rc/set/empty',
+      {output: mock, args: ['field', 'value']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.set(doc, req, 'value');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should rm rc configuration (top-level string)', function(done){
+    var mock = config.file('rc-rm-top-level-string.json');
+    var args = qt.getArguments('rc/rm/empty',
+      {output: mock, args: ['field']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.rm(doc, req, 'value');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should set rc configuration (deep string)', function(done){
+    var mock = config.file('rc-set-deep-level-string.json');
+    var args = qt.getArguments('rc/set/empty',
+      {output: mock, args: ['object.field', 'value']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.set(doc, req, 'value');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should rm rc configuration (deep string)', function(done){
+    var mock = config.file('rc-rm-deep-level-string.json');
+    var args = qt.getArguments('rc/rm/empty',
+      {output: mock, args: ['object.field']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.rm(doc, req, 'value');
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should rm rc configuration (top-level object)', function(done){
+    var mock = config.file('rc-rm-top-level-object.json');
+    var args = qt.getArguments('rc/rm/empty',
+      {output: mock, args: ['object']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.rm(doc, req, {});
+      done();
+    })
+    def.parse(args);
+  });
+
+  //it('should print rc configuration', function(done){
+    //var mock = config.file('rc-print.json');
+    //var args = qt.getArguments('rc/print', {output: mock});
+    //var def = program(require(pkg), config.name)
+    //def.program.on('complete', function(req) {
+      //var doc = config.json(mock);
+      ////config.assert.rc.print(doc, req);
+      //console.dir(doc);
+      //done();
+    //})
+    //def.parse(args);
+  //});
 })

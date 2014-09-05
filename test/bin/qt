@@ -33,7 +33,9 @@ function run(fixtures, hook, cb) {
       var cmd = test.cmd.slice(0);
       //if(!~cmd.indexOf('--force')) cmd.push('--force');
       if(test.enabled === false) {
-        console.warn(prefix + 'not yet implemented %s', test.req);
+        if(test.req) {
+          console.warn(prefix + 'not yet implemented %s', test.req);
+        }
         return callback(null, test, -1);
       }
       var opts = {env: process.env};

@@ -59,17 +59,29 @@ function set(doc, req, val) {
   val = val === undefined ? true : val;
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
+  expect(doc.deleted).to.eql(undefined);
   expect(doc.file).to.be.a('string');
   expect(doc.key).to.be.a('string');
   expect(doc.path).to.be.a('string');
   expect(doc.value).to.eql(val)
-  //console.dir(doc);
+}
+
+function rm(doc, req, val) {
+  val = val === undefined ? true : val;
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.deleted).to.eql(true);
+  expect(doc.file).to.be.a('string');
+  expect(doc.key).to.be.a('string');
+  expect(doc.path).to.be.a('string');
+  expect(doc.value).to.eql(val)
 }
 
 module.exports = {
   dir: dir,
   get: get,
   set: set,
+  rm: rm,
   init: init,
   ls: ls,
   lslong: lslong,
