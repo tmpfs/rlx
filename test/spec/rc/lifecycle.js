@@ -41,15 +41,39 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  //it('should error on re-init no --force', function(done){
-    //var mock = config.file('template-reinit.json');
-    //var args = qt.getArguments('tpl/init', {output: mock, common: false});
-    //var def = program(require(pkg), config.name)
-    //var errors = def.program.errors;
-    //def.program.on('error', function(err) {
-      //config.error.fsexists(err, errors);
-      //done();
-    //})
-    //def.parse(args);
-  //});
+  it('should error on re-init no --force', function(done){
+    var mock = config.file('rc-reinit.json');
+    var args = qt.getArguments('rc/init', {output: mock, common: false});
+    var def = program(require(pkg), config.name)
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.fsexists(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list rc files', function(done){
+    var mock = config.file('rc-ls.json');
+    var args = qt.getArguments('rc/ls', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.ls(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list rc files (-l)', function(done){
+    var mock = config.file('rc-ls-long.json');
+    var args = qt.getArguments('rc/ls/long', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.lslong(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
 })

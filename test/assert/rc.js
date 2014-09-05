@@ -17,9 +17,31 @@ function init(doc, req) {
   expect(doc.ok).to.eql(true);
   expect(doc.source).to.eql(path.join(req.dirs.base, req.runcontrol.name));
   expect(doc.file).to.eql(path.join(req.dirs.user.home, req.runcontrol.name));
+  expect(fs.statSync(doc.file).isFile()).to.eql(true);
+}
+
+function ls(doc, req, list) {
+  expect(doc).to.be.an('array');
+  if(!list) {
+    list = [
+      path.join(req.dirs.base, req.runcontrol.name),
+      path.join(req.dirs.user.home, req.runcontrol.name)];
+  }
+  expect(doc).to.eql(list);
+}
+
+function lslong(doc, req, list) {
+  expect(doc).to.be.an('object');
+  var keys = Object.keys(doc);
+  ls(keys, req, list);
+  for(var i = 0;i < keys.length;i++) {
+    expect(doc[keys[i]]).to.be.an('object');
+  }
 }
 
 module.exports = {
   dir: dir,
   init: init,
+  ls: ls,
+  lslong: lslong,
 }
