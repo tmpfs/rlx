@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.167" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.179" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -75,7 +75,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fBwhoami\fR: Get current user information.
 .IP "\[ci]" 4
-\fBrunconf, rc\fR: Runtime configuration for \fBrlx(1)\fR.
+\fBrunconf, rc\fR: Runtime configuration.
 .IP "\[ci]" 4
 \fBhelp\fR: Show help for commands.
 .EL
@@ -156,9 +156,9 @@ If the value of the \fB\-\-header\fR option is incorrect (bad syntax) an error i
 Use the HTTP logging option to inspect the request headers:
 
 .SP
-rlx doc get \-s {server} \-d {database} \-i {document} \e
+  rlx doc get \-s {server} \-d {database} \-i {document} \e
 .br
-  \-h 'if\-none\-match: "{revision}"' \-\-http \-\-trace
+    \-h 'if\-none\-match: "{revision}"' \-\-http \-\-trace
 .PP
 The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
 .SH "QUERY STRING"
@@ -215,13 +215,13 @@ If both the \fB\-\-json\fR and \fB\-\-file\fR options are specified the JSON lit
 Files specified using the \fB\-\-file\fR option may be a file system path or URL. Relative paths are resolved according to the current working directory. For example:
 
 .SP
-rlx lint \-f package.json
+  rlx lint \-f package.json
 .br
-rlx lint \-f http://registry.npmjs.org
+  rlx lint \-f http://registry.npmjs.org
 .br
-rlx lint \-j '{}'
+  rlx lint \-j '{}'
 .br
-cat package.json | rlx \- lint
+  cat package.json | rlx \- lint
 .SH "HISTORY"
 .PP
 This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.

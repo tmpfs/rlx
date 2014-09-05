@@ -117,6 +117,15 @@ app/
     └── lib
 ```
 
+#### System Templates
+
+The bundled system template directory contains:
+
+* `minimal`: Minimum required files to define an application.
+* `validate`: An application template with a `valiate_doc_update` function.
+* `view`: A view based template with a single view named `all`.
+* `full`: A full application template including all directories.
+
 #### Identifiers
 
 Most subcommands allow `${opt_id_long}` and `${opt_ddoc_long}` to be used interchangeably (they always refer to a design document id), however the commands `${cmd_show_long}`, `${cmd_list_long}` and `${cmd_update_long}` distinguish between a design document id (`${opt_ddoc_long}`) and a document id (`${opt_id_long}`) as they accept a document to use during execution.

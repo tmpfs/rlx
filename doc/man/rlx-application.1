@@ -1,4 +1,4 @@
-.TH "RLX-APPLICATION" "1" "September 2014" "rlx-application 0.1.165" "User Commands"
+.TH "RLX-APPLICATION" "1" "September 2014" "rlx-application 0.1.179" "User Commands"
 .SH "NAME"
 rlx-application -- Manage design document applications.
 .SH "SYNOPSIS"
@@ -51,40 +51,53 @@ The terms \fBapp\fR, \fBapplication\fR and \fBdesign document\fR are used interc
 The layout for an application at it's simplest just includes an \fBindex.json\fR file which indicates the language for a design document. However without any additional files it is an empty design document, a simple application might look like:
 
 .SP
-app/
+  app/
 .br
-├── index.json
+  ├── index.json
 .br
-└── validate_doc_update.js
+  └── validate_doc_update.js
 .PP
 A complete application layout looks like:
 
 .SP
-app/
+  app/
 .br
-├── attachments
+  ├── attachments
 .br
-├── docs
+  ├── docs
 .br
-├── filters
+  ├── filters
 .br
-├── index.json
+  ├── index.json
 .br
-├── lib
+  ├── lib
 .br
-├── lists
+  ├── lists
 .br
-├── rewrites.js
+  ├── rewrites.js
 .br
-├── shows
+  ├── shows
 .br
-├── updates
+  ├── updates
 .br
-├── validate_doc_update.js
+  ├── validate_doc_update.js
 .br
-└── views
+  └── views
 .br
-    └── lib
+      └── lib
+.SH "SYSTEM TEMPLATES"
+.PP
+The bundled system template directory contains:
+.BL
+.IP "\[ci]" 4
+\fBminimal\fR: Minimum required files to define an application.
+.IP "\[ci]" 4
+\fBvalidate\fR: An application template with a \fBvaliate_doc_update\fR function.
+.IP "\[ci]" 4
+\fBview\fR: A view based template with a single view named \fBall\fR.
+.IP "\[ci]" 4
+\fBfull\fR: A full application template including all directories.
+.EL
 .SH "IDENTIFIERS"
 .PP
 Most subcommands allow \fB\-\-id\fR and \fB\-\-ddoc\fR to be used interchangeably (they always refer to a design document id), however the commands \fBshow\fR, \fBlist\fR and \fBupdate\fR distinguish between a design document id (\fB\-\-ddoc\fR) and a document id (\fB\-\-id\fR) as they accept a document to use during execution.
