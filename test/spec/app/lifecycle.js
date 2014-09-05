@@ -171,7 +171,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.app.view(doc, 3, false);
+      config.assert.app.view(doc, 7, false);
       done();
     })
     def.parse(args);
