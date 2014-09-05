@@ -40,4 +40,11 @@ err.fsexists = err('EFS_FILE_EXISTS');
 
 err.header = err('EHEADER_PARSE');
 
+err.dir = err('EDIRECTORY_REQUIRED');
+
+err.rckey = err('ERC_KEY_REQUIRED');
+err.rcvalue = err('ERC_VALUE_REQUIRED');
+err.rcfile = err('ERC_FILE_REQUIRED');
+err.rcparse = err('ERC_VALUE_PARSE');
+
 module.exports = err;

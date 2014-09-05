@@ -17,6 +17,30 @@ describe('rlx:', function() {
     teardown.home.restore(done);
   })
 
+  it('should print rc configuration (default subcommand)', function(done){
+    var mock = config.file('rc-print-subcommand.json');
+    var args = qt.getArguments('rc', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.print(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on unknown subcommand', function(done){
+    var mock = config.file('rc-unknown-subcommand.json');
+    var args = qt.getArguments('rc', {args: ['unknown']});
+    var def = program(require(pkg), config.name)
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.subcommand(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should list default search paths', function(done){
     var mock = config.file('rc-dir.json');
     var args = qt.getArguments('rc/dir', {output: mock});
@@ -48,6 +72,19 @@ describe('rlx:', function() {
     var errors = def.program.errors;
     def.program.on('error', function(err) {
       config.error.fsexists(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should init rc file (overwrite)', function(done){
+    var mock = config.file('rc-init-overwrite.json');
+    var args = qt.getArguments(
+      'rc/init', {output: mock, args: [config.usr.rlx]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.rc.init(doc, req);
       done();
     })
     def.parse(args);
@@ -306,11 +343,22 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  // clean up mock *field* property
-  it('should rm rc configuration (top-level)', function(done){
-    var mock = config.file('rc-rm-top-level.json');
+  it('should error on rc/set (invalid json)', function(done){
+    var args = qt.getArguments('rc/set/empty', {args: ['field', '[1,2,3']});
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.rcparse(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  // clean up mock *field* property, adds value to test alternative code path
+  it('should rm rc configuration (ignore additional arguments)', function(done){
+    var mock = config.file('rc-rm-ignore.json');
     var args = qt.getArguments('rc/rm/empty',
-      {output: mock, args: ['field']});
+      {output: mock, args: ['field', 'value']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -320,17 +368,4 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  // debug printing the result
-  //it('should print rc configuration', function(done){
-    //var mock = config.file('rc-print.json');
-    //var args = qt.getArguments('rc/print', {output: mock});
-    //var def = program(require(pkg), config.name)
-    //def.program.on('complete', function(req) {
-      //var doc = config.json(mock);
-      ////config.assert.rc.print(doc, req);
-      //console.dir(doc);
-      //done();
-    //})
-    //def.parse(args);
-  //});
 })

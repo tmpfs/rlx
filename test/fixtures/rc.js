@@ -6,6 +6,15 @@ var fixtures = [
 
   // RC
   {
+    id: 'rc',
+    description: 'Invoke default subcommand',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'rc'
+    ]
+  },
+  {
     id: 'rc/dir',
     description: 'List search paths',
     before: [setup.home.mock],
