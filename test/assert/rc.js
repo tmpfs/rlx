@@ -56,8 +56,7 @@ function get(doc, req, val) {
 }
 
 function set(doc, req, val) {
-  val = val === undefined ? true : val;
-  //console.dir(doc);
+  val = arguments.length < 3 ? true : val;
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
   expect(doc.deleted).to.eql(undefined);
@@ -69,7 +68,6 @@ function set(doc, req, val) {
 
 function rm(doc, req, val) {
   val = val === undefined ? true : val;
-  //console.dir(doc);
   expect(doc).to.be.an('object');
   expect(doc.ok).to.eql(true);
   expect(doc.deleted).to.eql(true);
