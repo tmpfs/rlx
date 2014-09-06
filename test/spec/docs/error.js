@@ -9,12 +9,12 @@ var program = config.program;
 describe('rlx:', function() {
   this.timeout(5000);
 
-  it('should error on unknown subcommand', function(done){
-    var args = qt.getArguments('docs/unknown');
+  it('should error on no subcommand', function(done){
+    var args = qt.getArguments('docs');
     var def = program(require(pkg), config.name)
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      config.error.subcommand(err, errors);
+      config.error.nosub(err, errors);
       done();
     })
     def.parse(args);

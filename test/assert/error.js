@@ -14,6 +14,7 @@ function err(key) {
   }
 }
 
+err.nosub = err('ENO_SUBCOMMAND');
 err.subcommand = err('EUNKNOWN_SUBCOMMAND');
 err.command = err('EUNKNOWN_COMMAND');
 

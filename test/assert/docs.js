@@ -9,6 +9,13 @@ function push(doc) {
   }
 }
 
+function list(doc) {
+  expect(doc).to.be.an('object');
+  var keys = Object.keys(doc);
+  expect(keys.length).to.be.gt(0);
+}
+
 module.exports = {
   push: push,
+  list: list,
 }

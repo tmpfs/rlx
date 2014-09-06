@@ -15,6 +15,18 @@ describe('rlx:', function() {
     teardown.db.rm(done);
   })
 
+  it('should list documents', function(done){
+    var mock = config.file('docs-ls.json');
+    var args = qt.getArguments('docs/ls', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.list(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should push documents', function(done){
     var mock = config.file('docs-push.json');
     var args = qt.getArguments('docs/push', {output: mock});

@@ -6,7 +6,25 @@ var database = mock.database.default
   , server = mock.server.default;
 
 var fixtures = [
+
   // DOCS
+  {
+    id: 'docs',
+    description: 'No subcommand',
+    enabled: false,
+    cmd: [
+      'docs'
+    ]
+  },
+  {
+    id: 'docs/ls',
+    description: 'List documents',
+    cmd: [
+      'docs',
+      'ls',
+      mock.paths.docs
+    ]
+  },
   {
     id: 'docs/push',
     description: 'Push bulk documents',
@@ -20,17 +38,6 @@ var fixtures = [
       '-d',
       database,
       mock.paths.docs
-    ]
-  },
-  {
-    id: 'docs/unknown',
-    description: 'Unknown subcommand',
-    enabled: false,
-    cmd: [
-      'docs',
-      'unknown',
-      '-s',
-      server
     ]
   },
   {
