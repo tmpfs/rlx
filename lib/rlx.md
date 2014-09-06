@@ -244,8 +244,8 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List design documents.
-* `push: push`: Push a design document.
-* `deploy: deploy`: Deploy views in live environment.
+* `push: push <dir>`: Push a design document.
+* `deploy: deploy <dir>`: Deploy views in live environment.
 * `get: get`: Get a design document.
 * `info: info`: Get design document information.
 * `cp: cp`: Copy a design document.
@@ -405,8 +405,8 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List attachments.
-* `up: up`: Upload an attachment.
-* `dl: dl`: Download an attachment.
+* `up: up <file...>`: Upload an attachment.
+* `dl: dl <patterns...> <dir>`: Download an attachment.
 * `get: get`: Get attachment information.
 * `head: head`: Head attachment information.
 * `rm: rm`: Remove an attachment.
@@ -524,9 +524,9 @@ $0 admin add <username> <password>
 #### Commands
 
 * `ls: ls`: List administrators.
-* `get: get`: Get an administrator.
-* `add: add`: Create an administrator.
-* `rm: rm`: Delete an administrator.
+* `get: get <username>`: Get an administrator.
+* `add: add <username> <password>`: Create an administrator.
+* `rm: rm <username>`: Delete an administrator.
 
 ### Security
 
