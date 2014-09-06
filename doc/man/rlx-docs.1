@@ -1,10 +1,10 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.196" "User Commands"
+.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.197" "User Commands"
 .SH "NAME"
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
 
 .SP
-rlx docs <command> [\-l] [\-l|\-\-long] [\-\-flat|\-\-no\-flat]
+rlx docs <command> [\-l] [\-l|\-\-long] [\-\-lenient] [\-\-flat|\-\-no\-flat]
 .br
     [\-\-auto\-id|\-\-no\-auto\-id] <args>
 .SH "DESCRIPTION"
@@ -22,11 +22,15 @@ If no subcommand is specified an error is reported.
 \fBls\fR: List file system documents.
 .IP "\[ci]" 4
 \fBpush\fR: Push a directory of documents.
+.IP "\[ci]" 4
+\fBrevs\fR: Fetch multiple document revisions.
 .EL
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
 \fB\-l, \-\-long\fR: Long listing (include documents).
+.IP "\[ci]" 4
+\fB\-\-lenient\fR: Skip errors in a bulk response.
 .IP "\[ci]" 4
 \fB\-\-[no]\-flat\fR: Use flat collation (no attachments).
 .IP "\[ci]" 4
@@ -147,6 +151,81 @@ The default collation matches the \fBLAYOUT\fR but you may change this behaviour
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to \fB<dir>\fR, no files found are treated as attachments.
 .PP
 If the \fB\-g | \-\-glob\fR option is used the patterns are matched after file collation and the relative file path must match one of the glob patterns to be included.
+.SH "BULK REVISIONS"
+.PP
+Use the \fBrevs\fR command to fetch revisions for multiple document identifiers:
+
+  rlx docs revs \-s {server} \-d {db} <id...>
+.PP
+By default the listing is a map of identifiers to revisions:
+
+.SP
+  {
+.br
+    "8faf0d3bae0a0520e1a459ff9c003ddd": "1\-967a00dff5e02add41819138abb3284d"
+.br
+  }
+.PP
+Use the \fB\-l | \-\-long\fR option for an array of objects:
+
+.SP
+  [
+.br
+    {
+.br
+      "id": "8faf0d3bae0a0520e1a459ff9c003ddd",
+.br
+      "rev": "1\-967a00dff5e02add41819138abb3284d"
+.br
+    }
+.br
+  ]
+.PP
+To view the raw result of the query use \fB\-\-raw\fR:
+
+.SP
+  {
+.br
+    "total_rows": 4,
+.br
+    "offset": 0,
+.br
+    "rows": [
+.br
+      {
+.br
+        "id": "15136c47b4865ea2222196de47004f59",
+.br
+        "key": "15136c47b4865ea2222196de47004f59",
+.br
+        "value": {
+.br
+          "rev": "1\-967a00dff5e02add41819138abb3284d"
+.br
+        }
+.br
+      }
+.br
+    ]
+.br
+  }
+.PP
+Errors in the response are included in the output by default:
+
+.SP
+  {
+.br
+    "15136c47b4865ea2222196de47004f59": "1\-967a00dff5e02add41819138abb3284d",
+.br
+    "unknown\-document": {
+.br
+      "error": "not_found"
+.br
+    }
+.br
+  }
+.PP
+To suppress inclusion of errors use the \fB\-\-lenient\fR option.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

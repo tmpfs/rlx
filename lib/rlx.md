@@ -82,6 +82,7 @@ If no subcommand is specified an error is reported.
 #### Options
 
 * `-l, --long`: Long listing (include documents).
+* `--lenient`: Skip errors in a bulk response.
 * `--[no]-flat`: Use flat collation (no attachments).
 * `--[no]-auto-id`: Use automatic id generation.
 
@@ -170,6 +171,64 @@ rlx_docs_flat=true \
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to `<dir>`, no files found are treated as attachments.
 
 If the `${opt_glob_pipe}` option is used the patterns are matched after file collation and the relative file path must match one of the glob patterns to be included.
+
+#### Bulk Revisions
+
+Use the `${cmd_revs_long}` command to fetch revisions for multiple document identifiers:
+
+```
+$0 ${cmd_docs_long} ${cmd_revs_short} -s {server} -d {db} <id...>
+```
+
+By default the listing is a map of identifiers to revisions:
+
+```
+{
+  "8faf0d3bae0a0520e1a459ff9c003ddd": "1-967a00dff5e02add41819138abb3284d"
+}
+```
+
+Use the `${opt_long_pipe}` option for an array of objects:
+
+```
+[
+  {
+    "id": "8faf0d3bae0a0520e1a459ff9c003ddd",
+    "rev": "1-967a00dff5e02add41819138abb3284d"
+  }
+]
+```
+
+To view the raw result of the query use `${opt_raw_long}`:
+
+```
+{
+  "total_rows": 4,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "15136c47b4865ea2222196de47004f59",
+      "key": "15136c47b4865ea2222196de47004f59",
+      "value": {
+        "rev": "1-967a00dff5e02add41819138abb3284d"
+      }
+    }
+  ]
+}
+```
+
+Errors in the response are included in the output by default:
+
+```
+{
+  "15136c47b4865ea2222196de47004f59": "1-967a00dff5e02add41819138abb3284d",
+  "unknown-document": {
+    "error": "not_found"
+  }
+}
+```
+
+To suppress inclusion of errors use the `${opt_lenient_long}` option.
 
 ### Application
 
