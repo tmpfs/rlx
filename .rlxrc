@@ -9,6 +9,10 @@
     "interval": 2000,
     "max": 10
   },
+  "progress": {
+    "upload": true,
+    "download": true
+  },
   "highlight": {
     "default": {
       "source-highlight": "-f esc -s %s",
@@ -23,13 +27,14 @@
       "pygmentize": "-l javascript"
     }
   },
-  "progress": {
-    "upload": true,
-    "download": true
-  },
   "search": {
     "paths": {
       "template": []
+    }
+  },
+  "docs": {
+    "id": {
+      "auto": true
     }
   }
 }

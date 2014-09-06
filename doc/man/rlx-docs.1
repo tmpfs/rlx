@@ -1,4 +1,4 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.190" "User Commands"
+.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.192" "User Commands"
 .SH "NAME"
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
@@ -111,6 +111,8 @@ Because the files have not been loaded from disc the document identifers are not
 If a document explicity defines an \fB_id\fR property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
 .PP
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
+.PP
+You may disable the automatic id injection by setting the rc configuration property \fBdocs.id.auto\fR to \fBfalse\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

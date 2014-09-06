@@ -138,6 +138,8 @@ If a document explicity defines an `_id` property than it is always used, otherw
 
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
 
+You may disable the automatic id injection by setting the rc configuration property `docs.id.auto` to `false`.
+
 ### Application
 
 Commands for managing applications (design documents).
