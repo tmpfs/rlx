@@ -134,11 +134,20 @@ Because the files have not been loaded from disc the document identifers are not
 
 #### Document Identifiers
 
-If a document explicity defines an `_id` property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
+If a document explicity defines an `_id` property than it is always used otherwise a document id will automatically be generated based on the name of the file (or directory).
 
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
 
-You may disable the automatic id injection by setting the rc configuration property `docs.id.auto` to `false`.
+You may disable the automatic id injection by setting the rc configuration property `docs.id.auto` to `false` or by setting the corresponding environment variable:
+
+```
+rlx_docs_id_auto=false \
+  $0 ${cmd_docs_long} ${cmd_ls_short} ${opt_long_short} <dir>
+```
+
+Note that the identifiers are generated and assigned to the `id` field of the file object but they are not assigned to the document's `_id` property.
+
+Use this setting if you would like the server to generate an id for those documents that do not have an explicit `_id`.
 
 ### Application
 
