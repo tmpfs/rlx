@@ -69,6 +69,7 @@ Commands for pushing and pulling bulk documents.
 
 #### Commands
 
+* `ls: ls`: List file system documents.
 * `push: push`: Push a directory of JSON documents.
 
 ### Application
