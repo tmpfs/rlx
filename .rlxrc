@@ -33,6 +33,7 @@
     }
   },
   "docs": {
+    "flat": false,
     "id": {
       "auto": true
     }

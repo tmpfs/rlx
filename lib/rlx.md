@@ -67,14 +67,18 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 Commands for operating on multiple documents.
 
+You may `${cmd_push_long}` an arbitrary directory of json documents as a bulk database operation but first it is recommended you inspect the output of the `${cmd_ls_long}` command to verify the document collation is as desired.
+
+If no subcommand is specified an error is reported.
+
 #### Commands
 
 * `ls: ls`: List file system documents.
-* `push: push`: Push a directory of JSON documents.
+* `push: push`: Push a directory of documents.
 
 #### Options
 
-* `-l, --long`: Long listing, include file contents.
+* `-l, --long`: Long listing (include documents).
 
 #### Layout
 
@@ -479,7 +483,7 @@ If no subcommand is specified `print` is invoked.
 #### Options
 
 * `--search-path [dir...]`: Append directories to the rc search path.
-* `-l, --long`: Long listing, include file contents.
+* `-l, --long`: Long listing (include file contents).
 
 ### Template
 

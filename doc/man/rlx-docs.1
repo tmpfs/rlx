@@ -7,17 +7,21 @@ rlx docs <command> [\-l] [\-l|\-\-long] <args>
 .SH "DESCRIPTION"
 .PP
 Commands for operating on multiple documents.
+.PP
+You may \fBpush\fR an arbitrary directory of json documents as a bulk database operation but first it is recommended you inspect the output of the \fBls\fR command to verify the document collation is as desired.
+.PP
+If no subcommand is specified an error is reported.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
 \fBls\fR: List file system documents.
 .IP "\[ci]" 4
-\fBpush\fR: Push a directory of JSON documents.
+\fBpush\fR: Push a directory of documents.
 .EL
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-l, \-\-long\fR: Long listing, include file contents.
+\fB\-l, \-\-long\fR: Long listing (include documents).
 .EL
 .SH "LAYOUT"
 .PP
