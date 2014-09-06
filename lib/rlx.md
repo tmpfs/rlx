@@ -69,6 +69,8 @@ Commands for operating on multiple documents.
 
 You may `${cmd_push_long}` an arbitrary directory of json documents as a bulk database operation but first it is recommended you inspect the output of the `${cmd_ls_long}` command to verify the document collation is as desired.
 
+Use the `${opt_glob_pipe}` option to filter bulk operations.
+
 If no subcommand is specified an error is reported.
 
 #### Commands
@@ -157,7 +159,7 @@ Use this setting if you would like the server to generate an id for those docume
 
 #### Document Collation
 
-The default collation logic matches the `LAYOUT` but you may change this behaviour if you are not using attachments and wish to operate on all the documents in a directory with `${opt_flat_yes}` or by setting the rc configuration property `docs.flat` to `true`:
+The default collation matches the `LAYOUT` but you may change this behaviour if you are not using attachments and wish to operate on all the documents in a directory with `${opt_flat_yes}` or by setting the rc configuration property `docs.flat` to `true`:
 
 ```
 rlx_docs_flat=true \
@@ -165,6 +167,8 @@ rlx_docs_flat=true \
 ```
 
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to `<dir>`, no files found are treated as attachments.
+
+If the `${opt_glob_pipe}` option is used the patterns are matched after file collation and the relative file path must match one of the glob patterns to be included.
 
 ### Application
 
