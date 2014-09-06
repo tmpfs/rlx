@@ -22,8 +22,10 @@ err.server = err('ESERVER_REQUIRED');
 err.db = err('EDATABASE_REQUIRED');
 err.id = err('EID_REQUIRED');
 err.document = err('EDOCUMENT_REQUIRED');
+
 err.tpl = err('ETEMPLATE_REQUIRED');
 err.tplvar = err('EVARIABLE_DECLARATION');
+err.tplexport = err('ETEMPLATE_EXPORT');
 
 err.username = err('EUSERNAME_REQUIRED');
 err.password = err('EPASSWORD_REQUIRED');

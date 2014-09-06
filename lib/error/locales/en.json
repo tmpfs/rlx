@@ -260,6 +260,16 @@
     "message": "rc file %s is required (run: %s)"
   },
   {
+    "key": "ETEMPLATE_EXPORT",
+    "description": "Template does not export a function",
+    "message": "template %s does not export a function"
+  },
+  {
+    "key": "ETEMPLATE_RETURN",
+    "description": "Template does not return an object",
+    "message": "template %s does not return an object"
+  },
+  {
     "key": "EHEADER_PARSE",
     "description": "Header option is in an unknown format",
     "message": "header syntax error, 'key: value' required, got '%s'"
