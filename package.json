@@ -34,7 +34,7 @@
     "minimatch": "^1.0.0",
     "mkdirp": "^0.5.0",
     "ncp": "^0.6.0",
-    "recursive-readdir": "^1.2.0",
+    "recursive-readdir": "git+ssh://git@github.com:freeformsystems/recursive-readdir.git#master",
     "request": "^2.40.0",
     "ttycolor": "^0.8.10",
     "uuid": "^1.4.1",
