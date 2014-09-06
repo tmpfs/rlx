@@ -75,9 +75,10 @@ If no subcommand is specified an error is reported.
 
 #### Commands
 
-* `ls: ls`: List file system documents.
-* `push: push`: Push a directory of documents.
-* `revs: revs`: Fetch multiple document revisions.
+* `ls: ls <dir>`: List file system documents.
+* `push: push <dir>`: Push a directory of documents.
+* `revs: revs <id...>`: Fetch multiple document revisions.
+* `rm: rm <id...>`: Delete multiple documents.
 
 #### Options
 
