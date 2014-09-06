@@ -10,6 +10,8 @@ var fixtures = [
   {
     id: 'docs/push',
     description: 'Push bulk documents',
+    before: ['db/add'],
+    after: ['db/rm'],
     cmd: [
       'docs',
       'push',

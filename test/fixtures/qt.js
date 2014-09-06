@@ -3,56 +3,19 @@ var setup = require('../util/setup');
 var teardown = require('../util/teardown');
 var fsutil = require('../util/fsutil');
 
-var api = 'http://docs.couchdb.org/en/latest/api';
+var database = mock.database.default
+  , server = mock.server.default
+  , ddoc = mock.app.ddoc;
+
 var cdb = require('cdb');
 var levels = cdb.levels;
 var parameters = cdb.parameters;
 var methods = cdb.methods;
 
-var database = mock.database.default
-  , server = mock.server.default
-  , ddoc = mock.app.ddoc;
-
-var params = {
-  server: '{server}',
-  db: '{db}',
-  ptn: '{ptn}',
-  docid: '{docid}',
-  attname: '{attname}',
-  rev: '{rev}',
-  view: '{view}',
-  path: '{path}',
-  ddoc: '{ddoc}',
-  section: '{section}',
-  key: '{key}',
-  value: '{value}',
-  func: '{func}',
-  name: '{username}',
-  pass: '{password}',
-  file: '{file}',
-  directory: '{dir}',
-  template: '{template}'
-}
-
-var docs = {
-  server: 'server/common.html',
-  auth: 'server/authn.html',
-  database: 'database/common.html',
-  config: 'server/configuration.html',
-  security: 'database/security.html',
-  compact: 'database/compact.html',
-  changes: 'database/changes.html',
-  bulk: 'database/bulk-api.html',
-  temp : 'database/temp-views.html',
-  misc: 'database/misc.html',
-  document: 'document/common.html',
-  attachment: 'document/attachments.html',
-  local: 'local.html',
-  ddoc: 'ddoc/common.html',
-  views: 'ddoc/views.html',
-  render: 'ddoc/render.html',
-  rewrites: 'ddoc/rewrites.html'
-}
+var params = require('./params');
+var urls = require('./urls')
+  , api = urls.api
+  , docs = urls.docs;
 
 var qt = [
 
@@ -1212,56 +1175,6 @@ var qt = [
     ]
   },
 
-  // SECURITY
-  {
-    id: 'security/set',
-    description: 'Set security document',
-    api: [params.db, parameters.security],
-    method: methods.put,
-    doc: docs.security + '#put--db-_security',
-    before: ['db/add'],
-    cmd: [
-      'security',
-      'set',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default,
-      '--file',
-      mock.paths.security
-    ]
-  },
-  {
-    id: 'security/get',
-    description: 'Get security document',
-    api: [params.db, parameters.security],
-    method: methods.get,
-    doc: docs.security + '#get--db-_security',
-    cmd: [
-      'security',
-      'get',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default
-    ]
-  },
-  {
-    id: 'security/rm',
-    description: 'Reset security document',
-    api: [params.db, parameters.security],
-    method: methods.put,
-    doc: docs.security + '#put--db-_security',
-    after: ['db/rm'],
-    cmd: [
-      'security',
-      'rm',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default
-    ]
-  },
 
   // SESSION
   {
@@ -1952,9 +1865,11 @@ var qt = [
   },
 ]
 
+var sec = require('./sec');
 var docs = require('./docs');
 var rc = require('./rc');
 var tpl = require('./template');
+qt = sec.concat(qt);
 qt = docs.concat(qt);
 qt = rc.concat(qt);
 qt = tpl.concat(qt);
