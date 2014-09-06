@@ -79,6 +79,8 @@ If no subcommand is specified an error is reported.
 #### Options
 
 * `-l, --long`: Long listing (include documents).
+* `--[no]-flat`: Use flat collation (no attachments).
+* `--[no]-auto-id`: Use automatic id generation.
 
 #### Layout
 
@@ -142,7 +144,7 @@ If a document explicity defines an `_id` property than it is always used otherwi
 
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
 
-You may disable the automatic id injection by setting the rc configuration property `docs.id.auto` to `false` or by setting the corresponding environment variable:
+You may disable the automatic id injection with `${opt_auto_id_no}` or setting the rc configuration property `docs.id.auto` to `false` or the corresponding environment variable:
 
 ```
 rlx_docs_id_auto=false \
@@ -152,6 +154,17 @@ rlx_docs_id_auto=false \
 Note that the identifiers are generated and assigned to the `id` field of the file object but they are not assigned to the document's `_id` property.
 
 Use this setting if you would like the server to generate an id for those documents that do not have an explicit `_id`.
+
+#### Document Collation
+
+The default collation logic matches the `LAYOUT` but you may change this behaviour if you are not using attachments and wish to operate on all the documents in a directory with `${opt_flat_yes}` or by setting the rc configuration property `docs.flat` to `true`:
+
+```
+rlx_docs_flat=true \
+  $0 ${cmd_docs_long} ${cmd_ls_short} ${opt_long_short} <dir>
+```
+
+Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to `<dir>`, no files found are treated as attachments.
 
 ### Application
 

@@ -3,7 +3,10 @@
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
 
-rlx docs <command> [\-l] [\-l|\-\-long] <args>
+.SP
+rlx docs <command> [\-l] [\-l|\-\-long] [\-\-flat|\-\-no\-flat]
+.br
+    [\-\-auto\-id|\-\-no\-auto\-id] <args>
 .SH "DESCRIPTION"
 .PP
 Commands for operating on multiple documents.
@@ -22,6 +25,10 @@ If no subcommand is specified an error is reported.
 .BL
 .IP "\[ci]" 4
 \fB\-l, \-\-long\fR: Long listing (include documents).
+.IP "\[ci]" 4
+\fB\-\-[no]\-flat\fR: Use flat collation (no attachments).
+.IP "\[ci]" 4
+\fB\-\-[no]\-auto\-id\fR: Use automatic id generation.
 .EL
 .SH "LAYOUT"
 .PP
@@ -116,7 +123,7 @@ If a document explicity defines an \fB_id\fR property than it is always used oth
 .PP
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
 .PP
-You may disable the automatic id injection by setting the rc configuration property \fBdocs.id.auto\fR to \fBfalse\fR or by setting the corresponding environment variable:
+You may disable the automatic id injection with \fB\-\-no\-auto\-id\fR or setting the rc configuration property \fBdocs.id.auto\fR to \fBfalse\fR or the corresponding environment variable:
 
 .SP
   rlx_docs_id_auto=false \e
@@ -126,6 +133,16 @@ You may disable the automatic id injection by setting the rc configuration prope
 Note that the identifiers are generated and assigned to the \fBid\fR field of the file object but they are not assigned to the document's \fB_id\fR property.
 .PP
 Use this setting if you would like the server to generate an id for those documents that do not have an explicit \fB_id\fR.
+.SH "DOCUMENT COLLATION"
+.PP
+The default collation logic matches the \fBLAYOUT\fR but you may change this behaviour if you are not using attachments and wish to operate on all the documents in a directory with \fB\-\-flat\fR or by setting the rc configuration property \fBdocs.flat\fR to \fBtrue\fR:
+
+.SP
+  rlx_docs_flat=true \e
+.br
+    rlx docs ls \-l <dir>
+.PP
+Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to \fB<dir>\fR, no files found are treated as attachments.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
