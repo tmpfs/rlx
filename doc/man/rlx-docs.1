@@ -1,17 +1,113 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.184" "User Commands"
+.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.190" "User Commands"
 .SH "NAME"
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
 
-  rlx docs <command> <args>
+rlx docs <command> <args>
 .SH "DESCRIPTION"
 .PP
-Commands for pushing and pulling bulk documents.
+Commands for operating on multiple documents.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
+\fBls\fR: List file system documents.
+.IP "\[ci]" 4
 \fBpush\fR: Push a directory of JSON documents.
 .EL
+.SH "LAYOUT"
+.PP
+The file system layout for a \fIdocs\fR directory looks like:
+
+.SP
+  docs
+.br
+  ├── doc\-attachments
+.br
+  │   ├── attachment.txt
+.br
+  │   ├── deep
+.br
+  │   │   └── alt\-attachment.txt
+.br
+  │   └── index.json
+.br
+  ├── doc1.json
+.br
+  └── doc2.json
+.PP
+The document collation will include top\-level \fB.json\fR and \fB.js\fR files in the list of documents to include, these documents cannot have attachments, for example: \fBdoc1.json\fR and \fBdoc2.json\fR.
+.PP
+If a top\-level directory exists and the directory contains a known index file (\fBindex.json\fR or \fBindex.js\fR) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: \fBdeep/alt\-attachment.txt\fR is the attachment name for the document with an id of \fBdoc\-attachments\fR.
+.PP
+The result of using \fBls\fR on this layout is:
+
+.SP
+  {
+.br
+    "doc\-attachments": {
+.br
+      "file": "/path/docs/doc\-attachments/index.json",
+.br
+      "name": "index.json",
+.br
+      "path": "doc\-attachments/index.json",
+.br
+      "attachments": [
+.br
+        {
+.br
+          "file": "/path/docs/doc\-attachments/attachment.txt",
+.br
+          "name": "attachment.txt",
+.br
+          "path": "doc\-attachments/attachment.txt"
+.br
+        },
+.br
+        {
+.br
+          "file": "/path/docs/doc\-attachments/deep/alt\-attachment.txt",
+.br
+          "name": "alt\-attachment.txt",
+.br
+          "path": "doc\-attachments/deep/alt\-attachment.txt"
+.br
+        }
+.br
+      ]
+.br
+    },
+.br
+    "doc1.json": {
+.br
+      "file": "/path/docs/doc1.json",
+.br
+      "name": "doc1.json",
+.br
+      "path": "doc1.json"
+.br
+    },
+.br
+    "doc2.json": {
+.br
+      "file": "/path/docs/doc2.json",
+.br
+      "name": "doc2.json",
+.br
+      "path": "doc2.json"
+.br
+    }
+.br
+  }
+.PP
+Because the files have not been loaded from disc the document identifers are not available, however they will become the keys with known file extensions removed.
+.SH "DOCUMENT IDENTIFIERS"
+.PP
+If a document explicity defines an \fB_id\fR property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
+.PP
+When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
+.PP
+In the \fBLAYOUT\fR file system the generated identifiers are \fBdoc\-attachments\fR, \fBdoc1\fR and \fBdoc2\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

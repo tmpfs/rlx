@@ -65,12 +65,76 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Docs
 
-Commands for pushing and pulling bulk documents.
+Commands for operating on multiple documents.
 
 #### Commands
 
 * `ls: ls`: List file system documents.
 * `push: push`: Push a directory of JSON documents.
+
+#### Layout
+
+The file system layout for a *docs* directory looks like:
+
+```
+docs
+├── doc-attachments
+│   ├── attachment.txt
+│   ├── deep
+│   │   └── alt-attachment.txt
+│   └── index.json
+├── doc1.json
+└── doc2.json
+```
+
+The document collation will include top-level `.json` and `.js` files in the list of documents to include, these documents cannot have attachments, for example: `doc1.json` and `doc2.json`.
+
+If a top-level directory exists and the directory contains a known index file (`index.json` or `index.js`) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: `deep/alt-attachment.txt` is the attachment name for the document with an id of `doc-attachments`.
+
+
+The result of using `${cmd_ls_long}` on this layout is:
+
+```json
+{
+  "doc-attachments": {
+    "file": "/path/docs/doc-attachments/index.json",
+    "name": "index.json",
+    "path": "doc-attachments/index.json",
+    "attachments": [
+      {
+        "file": "/path/docs/doc-attachments/attachment.txt",
+        "name": "attachment.txt",
+        "path": "doc-attachments/attachment.txt"
+      },
+      {
+        "file": "/path/docs/doc-attachments/deep/alt-attachment.txt",
+        "name": "alt-attachment.txt",
+        "path": "doc-attachments/deep/alt-attachment.txt"
+      }
+    ]
+  },
+  "doc1.json": {
+    "file": "/path/docs/doc1.json",
+    "name": "doc1.json",
+    "path": "doc1.json"
+  },
+  "doc2.json": {
+    "file": "/path/docs/doc2.json",
+    "name": "doc2.json",
+    "path": "doc2.json"
+  }
+}
+```
+
+Because the files have not been loaded from disc the document identifers are not available, however they will become the keys with known file extensions removed.
+
+#### Document Identifiers
+
+If a document explicity defines an `_id` property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
+
+When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
+
+In the `LAYOUT` file system the generated identifiers are `doc-attachments`, `doc1` and `doc2`.
 
 ### Application
 
