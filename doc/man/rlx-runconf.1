@@ -1,4 +1,4 @@
-.TH "RLX-RUNCONF" "1" "September 2014" "rlx-runconf 0.1.190" "User Commands"
+.TH "RLX-RUNCONF" "1" "September 2014" "rlx-runconf 0.1.198" "User Commands"
 .SH "NAME"
 rlx-runconf -- Runtime configuration.
 .SH "SYNOPSIS"
@@ -6,7 +6,21 @@ rlx-runconf -- Runtime configuration.
 .SP
 rlx runconf <command> [\-l] [\-l|\-\-long] [\-\-search\-path=<dir...>] <args>
 .br
-rlx rc <command> [\-l] [\-l|\-\-long] [\-\-search\-path=<dir...>] <args>
+rlx rc <command> [\-l] [\-l|\-\-long] [\-\-search\-path=<dir...>] <args> 
+.br
+rlx rc init <args> [dir] 
+.br
+rlx rc ls <args> 
+.br
+rlx rc print <args> 
+.br
+rlx rc get <args> <key> 
+.br
+rlx rc set <args> <key> <value> 
+.br
+rlx rc rm <args> <key> 
+.br
+rlx rc dir <args>
 .SH "DESCRIPTION"
 .PP
 Runtime configuration is provided by JSON files named \fB.rlxrc\fR.
@@ -34,7 +48,7 @@ If no subcommand is specified \fBprint\fR is invoked.
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-l, \-\-long\fR: Long listing, include file contents.
+\fB\-l, \-\-long\fR: Long listing (include file contents).
 .IP "\[ci]" 4
 \fB\-\-search\-path=[dir...]\fR: Append directories to the rc search path.
 .EL

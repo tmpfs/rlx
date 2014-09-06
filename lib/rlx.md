@@ -548,12 +548,12 @@ If no subcommand is specified `print` is invoked.
 
 #### Commands
 
-* `init: init`: Copy system rc file.
+* `init: init [dir]`: Copy system rc file.
 * `ls: ls`: List rc files.
 * `print: print, p`: Print configuration.
-* `get: get`: Get configuration property.
-* `set: set`: Set configuration property.
-* `rm: rm`: Remove configuration property.
+* `get: get <key>`: Get configuration property.
+* `set: set <key> <value>`: Set configuration property.
+* `rm: rm <key>`: Remove configuration property.
 * `dir: dir`: Print rc file search path.
 
 #### Options
@@ -578,10 +578,10 @@ If no subcommand is specified `ls` is invoked.
 
 #### Commands
 
-* `init: init`: Copy templates.
+* `init: init <template> <dir> [name]`: Copy templates.
 * `ls: ls`: List template files.
-* `print: print, p`: Print template.
-* `parse: parse`: Parse template and print result.
+* `print: print, p <template>`: Print template.
+* `parse: parse <template>`: Parse template and print result.
 * `dir: dir`: Print template search path.
 
 #### Options
@@ -692,6 +692,7 @@ If no subcommand is specified `get` is invoked.
 
 #### Commands
 
+* `get: get`: Get log level. 
 * `info: info`: Set log level to `info`.
 * `debug: debug`: Set log level to `debug`.
 * `error: error`: Set log level to `error`.

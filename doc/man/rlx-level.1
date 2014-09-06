@@ -1,4 +1,4 @@
-.TH "RLX-LEVEL" "1" "September 2014" "rlx-level 0.1.190" "User Commands"
+.TH "RLX-LEVEL" "1" "September 2014" "rlx-level 0.1.198" "User Commands"
 .SH "NAME"
 rlx-level -- Get or set the server log level.
 .SH "SYNOPSIS"
@@ -6,12 +6,26 @@ rlx-level -- Get or set the server log level.
 .SP
 rlx level <command> <args>
 .br
-rlx lvl <command> <args>
+rlx lvl <command> <args> 
+.br
+rlx lvl get <args> 
+.br
+rlx lvl info <args> 
+.br
+rlx lvl debug <args> 
+.br
+rlx lvl error <args> 
+.br
+rlx lvl warn <args> 
+.br
+rlx lvl none <args>
 .SH "DESCRIPTION"
 .PP
 If no subcommand is specified \fBget\fR is invoked.
 .SH "COMMANDS"
 .BL
+.IP "\[ci]" 4
+\fBget\fR: Get log level. 
 .IP "\[ci]" 4
 \fBinfo\fR: Set log level to \fBinfo\fR.
 .IP "\[ci]" 4
