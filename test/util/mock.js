@@ -11,6 +11,19 @@ var attachment = {
   ddoc: 'mock-design-document-attachment.txt'
 }
 
+var pkg = path.join(base, 'package.json')
+  , test = path.join(base, 'test')
+  , fixtures = path.join(test, 'fixtures')
+  , security = path.join(fixtures, 'security.json')
+  , attachments = path.join(fixtures, 'attachments')
+  , attachfile = path.join(attachments, attachment.name)
+  , app = path.join(fixtures, 'app')
+  , docs = path.join(app, 'docs')
+  , updates = path.join(fixtures, 'updates')
+  , templates = path.join(fixtures, 'template')
+  , tplerrors = path.join(templates, 'error')
+  , tpl = path.join(templates, 'mock-template.js');
+
 var mock = {
   name: 'rlx-test-runner',
   program: program,
@@ -95,17 +108,18 @@ var mock = {
   attachment: attachment,
   paths: {
     base: base,
-    pkg: path.join(base, 'package.json'),
+    pkg: pkg,
     target: target,
-    fixtures: path.join(base, 'test', 'fixtures'),
-    security: path.join(base, 'test', 'fixtures', 'security.json'),
-    attachment: path.join(
-      base, 'test', 'fixtures', 'attachments', attachment.name),
-    app: path.join(base, 'test', 'fixtures', 'app'),
-    docs: path.join(base, 'test', 'fixtures', 'app', 'docs'),
-    updates: path.join(base, 'test', 'fixtures', 'updates'),
-    tpl: path.join(
-      base, 'test', 'fixtures', 'template', 'mock-template.js'),
+    test: test,
+    fixtures: fixtures,
+    security: security,
+    attachments: attachments,
+    attachment: attachfile,
+    app: app,
+    docs: docs,
+    updates: updates,
+    templates: templates,
+    tpl: tpl
   },
   fixtures: {},
   usr: {},
@@ -113,7 +127,11 @@ var mock = {
     name: 'user/new',
     file: 'user/new.js',
     design: 'design/minimal',
-    fs: {}
+    fs: {},
+    error: {
+      etplexport: path.join(tplerrors, 'etemplate-export.js'),
+      etplreturn: path.join(tplerrors, 'etemplate-return.js'),
+    }
   },
   rc: {
     key: 'progress.upload',
