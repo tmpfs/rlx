@@ -20,6 +20,41 @@ var fixtures = [
       mock.paths.docs
     ]
   },
+  {
+    id: 'docs/unknown',
+    description: 'Unknown subcommand',
+    enabled: false,
+    cmd: [
+      'docs',
+      'unknown',
+      '-s',
+      server
+    ]
+  },
+  {
+    id: 'docs/push/empty',
+    description: 'Push bulk documents',
+    enabled: false,
+    cmd: [
+      'docs',
+      'push',
+      '-s',
+      server,
+      '-d',
+      database
+    ]
+  },
+  {
+    id: 'docs/push/nodb',
+    description: 'Push bulk documents',
+    enabled: false,
+    cmd: [
+      'docs',
+      'push',
+      '-s',
+      server
+    ]
+  },
 ];
 
 module.exports = fixtures;

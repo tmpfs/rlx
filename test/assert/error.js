@@ -41,6 +41,7 @@ err.fsexists = err('EFS_FILE_EXISTS');
 err.header = err('EHEADER_PARSE');
 
 err.dir = err('EDIRECTORY_REQUIRED');
+err.few = err('ETOO_FEW_ARGUMENTS');
 
 err.rckey = err('ERC_KEY_REQUIRED');
 err.rcvalue = err('ERC_VALUE_REQUIRED');
