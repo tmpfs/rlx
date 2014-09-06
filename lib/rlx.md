@@ -77,6 +77,7 @@ If no subcommand is specified an error is reported.
 
 * `ls: ls`: List file system documents.
 * `push: push`: Push a directory of documents.
+* `revs: revs`: Fetch multiple document revisions.
 
 #### Options
 
