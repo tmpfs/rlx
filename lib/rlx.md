@@ -255,7 +255,7 @@ If no subcommand is specified `ls` is invoked.
 * `update: update`: Put a design document update.
 * `show: show`: Show a document.
 * `list: list`: Run a list function on a view.
-* `rewrite: rewrite`: Run a rewrite rule path.
+* `rewrite: rewrite [verb] <path>`: Run a rewrite rule path.
 * `rm: rm`: Remove a design document.
 
 #### Terminology
@@ -489,9 +489,9 @@ If no subcommand is specified `get` is invoked.
 
 #### Commands
 
-* `get: get`: Get server configuration.
-* `set: set`: Set server configuration.
-* `rm: rm`: Delete server configuration.
+* `get: get [section] [key]`: Get server configuration.
+* `set: set <section> <key> <value>`: Set server configuration.
+* `rm: rm <section> <key>`: Delete server configuration.
 
 ### Uuids
 
@@ -514,12 +514,6 @@ If no subcommand is specified `get` is invoked.
 #### Description
 
 If no subcommand is specified `ls` is invoked.
-
-To add an administrator specify a username and password after the `add` command:
-
-```
-$0 admin add <username> <password>
-```
 
 #### Commands
 
