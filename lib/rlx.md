@@ -72,6 +72,10 @@ Commands for operating on multiple documents.
 * `ls: ls`: List file system documents.
 * `push: push`: Push a directory of JSON documents.
 
+#### Options
+
+* `-l, --long`: Long listing, include file contents.
+
 #### Layout
 
 The file system layout for a *docs* directory looks like:
@@ -92,7 +96,7 @@ The document collation will include top-level `.json` and `.js` files in the lis
 If a top-level directory exists and the directory contains a known index file (`index.json` or `index.js`) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: `deep/alt-attachment.txt` is the attachment name for the document with an id of `doc-attachments`.
 
 
-The result of using `${cmd_ls_long}` on this layout is:
+The result of using `${cmd_docs_long} ${cmd_ls_long}` on this layout is:
 
 ```json
 {
@@ -126,15 +130,13 @@ The result of using `${cmd_ls_long}` on this layout is:
 }
 ```
 
-Because the files have not been loaded from disc the document identifers are not available, however they will become the keys with known file extensions removed.
+Because the files have not been loaded from disc the document identifers are not available add the `${opt_long_short}` flag to view collated documents and generated identifiers.
 
 #### Document Identifiers
 
 If a document explicity defines an `_id` property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
 
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
-
-In the `LAYOUT` file system the generated identifiers are `doc-attachments`, `doc1` and `doc2`.
 
 ### Application
 

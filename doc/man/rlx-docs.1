@@ -3,7 +3,7 @@
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
 
-rlx docs <command> <args>
+rlx docs <command> [\-l] [\-l|\-\-long] <args>
 .SH "DESCRIPTION"
 .PP
 Commands for operating on multiple documents.
@@ -13,6 +13,11 @@ Commands for operating on multiple documents.
 \fBls\fR: List file system documents.
 .IP "\[ci]" 4
 \fBpush\fR: Push a directory of JSON documents.
+.EL
+.SH "OPTIONS"
+.BL
+.IP "\[ci]" 4
+\fB\-l, \-\-long\fR: Long listing, include file contents.
 .EL
 .SH "LAYOUT"
 .PP
@@ -39,7 +44,7 @@ The document collation will include top\-level \fB.json\fR and \fB.js\fR files i
 .PP
 If a top\-level directory exists and the directory contains a known index file (\fBindex.json\fR or \fBindex.js\fR) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: \fBdeep/alt\-attachment.txt\fR is the attachment name for the document with an id of \fBdoc\-attachments\fR.
 .PP
-The result of using \fBls\fR on this layout is:
+The result of using \fBdocs ls\fR on this layout is:
 
 .SP
   {
@@ -100,14 +105,12 @@ The result of using \fBls\fR on this layout is:
 .br
   }
 .PP
-Because the files have not been loaded from disc the document identifers are not available, however they will become the keys with known file extensions removed.
+Because the files have not been loaded from disc the document identifers are not available add the \fB\-l\fR flag to view collated documents and generated identifiers.
 .SH "DOCUMENT IDENTIFIERS"
 .PP
 If a document explicity defines an \fB_id\fR property than it is always used, otherwise a document id will automatically be generated based on the name of the file (or directory).
 .PP
 When generating identifiers for documents with a known file extension, the extension is removed, for documents with attachments (directories) the name of the directory is used.
-.PP
-In the \fBLAYOUT\fR file system the generated identifiers are \fBdoc\-attachments\fR, \fBdoc1\fR and \fBdoc2\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
