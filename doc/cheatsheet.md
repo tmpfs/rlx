@@ -81,8 +81,8 @@ Table of Contents
     * [GET /_users/{docid}](#get-_usersdocid)
     * [DELETE /_users/{docid}](#delete-_usersdocid)
   * [Security](#security)
-    * [PUT /{db}/_security](#put-db_security)
     * [GET /{db}/_security](#get-db_security)
+    * [PUT /{db}/_security](#put-db_security)
   * [Session](#session)
     * [POST /{db}/_session](#post-db_session)
     * [GET /{db}/_session](#get-db_session)
@@ -872,6 +872,17 @@ Documentation: [document/common#delete-db-docid](http://docs.couchdb.org/en/late
 * Manual: `rlx help security`
 * Help: `rlx --help security`
 
+### GET /{db}/_security
+
+Get security document (default subcommand):
+
+```
+rlx security -s {server} -d {db}
+rlx security get -s {server} -d {db}
+```
+
+Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
+
 ### PUT /{db}/_security
 
 Set security document:
@@ -882,16 +893,6 @@ rlx security rm -s {server} -d {db}
 ```
 
 Documentation: [database/security#put-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#put--db-_security)
-
-### GET /{db}/_security
-
-Get security document:
-
-```
-rlx security get -s {server} -d {db}
-```
-
-Documentation: [database/security#get-db-security](http://docs.couchdb.org/en/latest/api/database/security.html#get--db-_security)
 
 ## Session
 
@@ -1083,7 +1084,7 @@ rlx level debug -s {server}
 rlx level info -s {server}
 ```
 
-Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
+Documentation: [undefined#put-config-section-key](http://docs.couchdb.org/en/latest/api/undefined#put--_config-section-key)
 
 ### GET /_config/log/level
 

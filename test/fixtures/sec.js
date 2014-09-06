@@ -18,12 +18,26 @@ var fixtures = [
 
   // SECURITY
   {
+    id: 'security',
+    description: 'Get security document (default subcommand)',
+    api: [params.db, parameters.security],
+    method: methods.get,
+    doc: docs.security + '#get--db-_security',
+    before: ['db/add'],
+    cmd: [
+      'security',
+      '-s',
+      server,
+      '-d',
+      database
+    ]
+  },
+  {
     id: 'security/set',
     description: 'Set security document',
     api: [params.db, parameters.security],
     method: methods.put,
     doc: docs.security + '#put--db-_security',
-    before: ['db/add'],
     cmd: [
       'security',
       'set',
