@@ -161,6 +161,9 @@ The default collation matches the \fBLAYOUT\fR but you may change this behaviour
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to \fB<dir>\fR, no files found are treated as attachments.
 .PP
 If the \fB\-g | \-\-glob\fR option is used the patterns are matched after file collation and the relative file path must match one of the glob patterns to be included.
+.SH "BULK DELETION"
+.PP
+Use the \fBrm\fR command to remove multiple documents. This removal is forceful in that it fetches the latest revisions for the specified documents before attempting the bulk deletion.
 .SH "BULK REVISIONS"
 .PP
 Use the \fBrevs\fR command to fetch revisions for multiple document identifiers:

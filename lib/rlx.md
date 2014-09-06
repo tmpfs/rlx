@@ -173,6 +173,10 @@ Flat collation includes all files of known file extensions recursively and gener
 
 If the `${opt_glob_pipe}` option is used the patterns are matched after file collation and the relative file path must match one of the glob patterns to be included.
 
+#### Bulk Deletion
+
+Use the `${cmd_rm_long}` command to remove multiple documents. This removal is forceful in that it fetches the latest revisions for the specified documents before attempting the bulk deletion.
+
 #### Bulk Revisions
 
 Use the `${cmd_revs_long}` command to fetch revisions for multiple document identifiers:
