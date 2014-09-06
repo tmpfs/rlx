@@ -26,6 +26,16 @@ var fixtures = [
     ]
   },
   {
+    id: 'docs/ls/long',
+    description: 'List documents and include files',
+    cmd: [
+      'docs',
+      'ls',
+      '-l',
+      mock.paths.docs
+    ]
+  },
+  {
     id: 'docs/push',
     description: 'Push bulk documents',
     before: ['db/add'],

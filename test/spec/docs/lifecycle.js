@@ -27,6 +27,19 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should list documents (-l)', function(done){
+    var mock = config.file('docs-ls-long.json');
+    var args = qt.getArguments('docs/ls/long', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.listlong(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should push documents', function(done){
     var mock = config.file('docs-push.json');
     var args = qt.getArguments('docs/push', {output: mock});

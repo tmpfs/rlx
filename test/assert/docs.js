@@ -15,7 +15,14 @@ function list(doc) {
   expect(keys.length).to.be.gt(0);
 }
 
+function listlong(doc) {
+  expect(doc).to.be.an('object');
+  var keys = Object.keys(doc);
+  expect(keys.length).to.be.gt(0);
+}
+
 module.exports = {
   push: push,
   list: list,
+  listlong: listlong,
 }
