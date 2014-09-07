@@ -9,6 +9,9 @@
     "interval": 2000,
     "max": 10
   },
+  "login": {
+    "retries": 4
+  },
   "progress": {
     "upload": true,
     "download": true

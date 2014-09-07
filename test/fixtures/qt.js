@@ -787,11 +787,7 @@ var qt = [
       'admin',
       'ls',
       '-s',
-      mock.server.default,
-      '-u',
-      mock.admin.name,
-      '-p',
-      mock.admin.pass,
+      mock.server.default
     ]
   },
   {
