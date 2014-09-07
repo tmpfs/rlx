@@ -64,4 +64,29 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should fetch multiple revisions (--raw)', function(done){
+    var mock = config.file('docs-revs-raw.json');
+    var args = qt.getArguments('docs/revs', {output: mock, args: ['--raw']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.docs.revsraw(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should fetch multiple revisions (-l)', function(done){
+    var mock = config.file('docs-revs-long.json');
+    var args = qt.getArguments('docs/revs', {output: mock, args: ['-l']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.docs.revslong(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

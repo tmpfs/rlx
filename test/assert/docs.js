@@ -50,9 +50,34 @@ function revs(doc, ids) {
   }
 }
 
+function revsraw(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('object');
+  expect(doc.rows).to.be.an('array');
+  var keys = doc.rows.map(function(doc) {
+    if(doc.id) {
+      return doc.id;
+    }
+  })
+  expect(keys).to.eql(ids);
+}
+
+function revslong(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('array');
+  var keys = doc.map(function(doc) {
+    if(doc.id) {
+      return doc.id;
+    }
+  })
+  expect(keys).to.eql(ids);
+}
+
 module.exports = {
   push: push,
   list: list,
   listlong: listlong,
   revs: revs,
+  revsraw: revsraw,
+  revslong: revslong,
 }
