@@ -54,6 +54,7 @@ function revsraw(doc, ids) {
   ids = ids || mock.docs.ids;
   expect(doc).to.be.an('object');
   expect(doc.rows).to.be.an('array');
+  expect(doc.rows.length).to.eql(ids.length);
   var keys = doc.rows.map(function(doc) {
     if(doc.id) {
       return doc.id;
@@ -65,12 +66,22 @@ function revsraw(doc, ids) {
 function revslong(doc, ids) {
   ids = ids || mock.docs.ids;
   expect(doc).to.be.an('array');
+  expect(doc.length).to.eql(ids.length);
   var keys = doc.map(function(doc) {
     if(doc.id) {
       return doc.id;
     }
   })
   expect(keys).to.eql(ids);
+}
+
+function revserror(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('object');
+  expect(doc[mock.docs.unknown]).to.be.an('object')
+    .to.have.property('error').to.eql('not_found');
+  delete doc[mock.docs.unknown]
+  revs(doc, ids);
 }
 
 module.exports = {
@@ -80,4 +91,5 @@ module.exports = {
   revs: revs,
   revsraw: revsraw,
   revslong: revslong,
+  revserror: revserror,
 }

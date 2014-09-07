@@ -83,8 +83,33 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.docs.revslong(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should fetch multiple revisions (include errors)', function(done){
+    var mock = config.file('docs-revs-unknown.json');
+    var args = qt.getArguments(
+      'docs/revs', {output: mock, args: [config.docs.unknown]});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.revserror(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should fetch multiple revisions (omit errors --lenient)', function(done){
+    var mock = config.file('docs-revs-lenient.json');
+    var args = qt.getArguments(
+      'docs/revs', {output: mock, args: [config.docs.unknown, '--lenient']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.revs(doc);
       done();
     })
     def.parse(args);
