@@ -1,4 +1,4 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.198" "User Commands"
+.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.199" "User Commands"
 .SH "NAME"
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
@@ -11,6 +11,8 @@ rlx docs <command> [\-l] [\-l|\-\-long] [\-\-lenient] [\-\-flat|\-\-no\-flat]
 rlx docs ls <args> <dir> 
 .br
 rlx docs push <args> <dir> 
+.br
+rlx docs pull <args> <id...> <dir> 
 .br
 rlx docs revs <args> <id...> 
 .br
@@ -27,13 +29,15 @@ If no subcommand is specified an error is reported.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBls=<dir>\fR: List file system documents.
+\fBls\fR: List file system documents.
 .IP "\[ci]" 4
-\fBpush=<dir>\fR: Push a directory of documents.
+\fBpush\fR: Push a directory of documents.
 .IP "\[ci]" 4
-\fBrevs=<id...>\fR: Fetch multiple document revisions.
+\fBpull\fR: Pull documents to a directory.
 .IP "\[ci]" 4
-\fBrm=<id...>\fR: Delete multiple documents.
+\fBrevs\fR: Fetch multiple document revisions.
+.IP "\[ci]" 4
+\fBrm\fR: Delete multiple documents.
 .EL
 .SH "OPTIONS"
 .BL

@@ -101,7 +101,7 @@ Arguments:
  -c, --compress         Compact JSON output format (zero indent).
  -q, --query=[params...]
                         Query string parameters.
- -h, --header=[key:value...]
+ -h, --header=[key: value...]
                         Additional HTTP headers.
  -s, --server=[url]     Database server.
      --recursive        Read directories recursively.

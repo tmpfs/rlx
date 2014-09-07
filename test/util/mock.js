@@ -136,6 +136,14 @@ var mock = {
   rc: {
     key: 'progress.upload',
     value: true
+  },
+  docs: {
+    ids: [
+      'mock-docs-document',
+      'mock-docs-id-document-explicit',
+      'mock-docs-attachment',
+      'mock-docs-alt-attachment'
+    ]
   }
 }
 

@@ -74,6 +74,18 @@ var fixtures = [
       server
     ]
   },
+  {
+    id: 'docs/revs',
+    description: 'Fetch multiple document revisions',
+    cmd: [
+      'docs',
+      'revs',
+      '-s',
+      server,
+      '-d',
+      database
+    ].concat(mock.docs.ids)
+  },
 ];
 
 module.exports = fixtures;

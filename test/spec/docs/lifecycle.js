@@ -52,4 +52,16 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should fetch multiple revisions', function(done){
+    var mock = config.file('docs-revs.json');
+    var args = qt.getArguments('docs/revs', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.revs(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
 })

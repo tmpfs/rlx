@@ -41,8 +41,18 @@ function listlong(doc) {
   }
 }
 
+function revs(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('object');
+  expect(Object.keys(doc)).to.eql(ids);
+  for(var k in doc) {
+    expect(doc[k]).to.be.a('string');
+  }
+}
+
 module.exports = {
   push: push,
   list: list,
   listlong: listlong,
+  revs: revs,
 }
