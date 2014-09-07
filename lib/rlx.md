@@ -3,7 +3,7 @@ $0
 
 Command line interface for couchdb.
 
-Designed for parity with the couchdb HTTP API, run `help <cmd>` for more information on individual commands.
+Designed for parity with the couchdb HTTP API, run `help <cmd>` for more information on individual commands, start an interactive session with `${0} ${cmd_interactive_short}`.
 
 <!--- top-level commands and options -->
 
