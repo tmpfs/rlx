@@ -84,6 +84,20 @@ function revserror(doc, ids) {
   revs(doc, ids);
 }
 
+function rm(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('array');
+  expect(doc.length).to.eql(ids.length);
+  var keys = doc.map(function(doc) {
+    expect(doc.ok).to.eql(true);
+    expect(doc.rev).to.be.a('string');
+    if(doc.id) {
+      return doc.id;
+    }
+  })
+  expect(keys).to.eql(ids);
+}
+
 module.exports = {
   push: push,
   list: list,
@@ -92,4 +106,5 @@ module.exports = {
   revsraw: revsraw,
   revslong: revslong,
   revserror: revserror,
+  rm: rm,
 }

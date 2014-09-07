@@ -114,4 +114,16 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should delete multiple documents', function(done){
+    var mock = config.file('docs-rm.json');
+    var args = qt.getArguments('docs/rm', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.rm(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

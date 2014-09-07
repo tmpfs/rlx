@@ -86,6 +86,18 @@ var fixtures = [
       database
     ].concat(mock.docs.ids)
   },
+  {
+    id: 'docs/rm',
+    description: 'Delete multiple documents',
+    cmd: [
+      'docs',
+      'rm',
+      '-s',
+      server,
+      '-d',
+      database
+    ].concat(mock.docs.ids)
+  },
 ];
 
 module.exports = fixtures;
