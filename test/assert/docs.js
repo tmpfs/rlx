@@ -98,6 +98,14 @@ function rm(doc, ids) {
   expect(keys).to.eql(ids);
 }
 
+function rmerror(doc, id) {
+  id = id || mock.docs.unknown;
+  expect(doc).to.be.an('object');
+  expect(doc[id]).to.be.an('object')
+    .to.have.property('error')
+    .to.eql('not_found');
+}
+
 module.exports = {
   push: push,
   list: list,
@@ -107,4 +115,5 @@ module.exports = {
   revslong: revslong,
   revserror: revserror,
   rm: rm,
+  rmerror: rmerror,
 }
