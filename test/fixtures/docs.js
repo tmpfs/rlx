@@ -9,14 +9,6 @@ var fixtures = [
 
   // DOCS
   {
-    id: 'docs',
-    description: 'No subcommand',
-    enabled: false,
-    cmd: [
-      'docs'
-    ]
-  },
-  {
     id: 'docs/ls',
     description: 'List documents',
     cmd: [
@@ -39,7 +31,6 @@ var fixtures = [
     id: 'docs/push',
     description: 'Push bulk documents',
     before: ['db/add'],
-    after: ['db/rm'],
     cmd: [
       'docs',
       'push',
@@ -48,6 +39,54 @@ var fixtures = [
       '-d',
       database,
       mock.paths.docs
+    ]
+  },
+  {
+    id: 'docs/pull',
+    description: 'Pull bulk documents',
+    cmd: [
+      'docs',
+      'pull',
+      '-s',
+      server,
+      '-d',
+      database
+    ].concat(mock.docs.ids).concat(mock.paths.docspull)
+  },
+  {
+    id: 'docs/revs',
+    description: 'Fetch multiple document revisions',
+    cmd: [
+      'docs',
+      'revs',
+      '-s',
+      server,
+      '-d',
+      database
+    ].concat(mock.docs.ids)
+  },
+  {
+    id: 'docs/rm',
+    description: 'Delete multiple documents',
+    after: ['db/rm'],
+    cmd: [
+      'docs',
+      'rm',
+      '-s',
+      server,
+      '-d',
+      database
+    ].concat(mock.docs.ids)
+  },
+
+
+  // DISABLED
+  {
+    id: 'docs',
+    description: 'No subcommand',
+    enabled: false,
+    cmd: [
+      'docs'
     ]
   },
   {
@@ -75,32 +114,9 @@ var fixtures = [
     ]
   },
   {
-    id: 'docs/revs',
-    description: 'Fetch multiple document revisions',
-    cmd: [
-      'docs',
-      'revs',
-      '-s',
-      server,
-      '-d',
-      database
-    ].concat(mock.docs.ids)
-  },
-  {
-    id: 'docs/rm',
-    description: 'Delete multiple documents',
-    cmd: [
-      'docs',
-      'rm',
-      '-s',
-      server,
-      '-d',
-      database
-    ].concat(mock.docs.ids)
-  },
-  {
     id: 'docs/rm/empty',
     description: 'Delete multiple documents',
+    enabled: false,
     cmd: [
       'docs',
       'rm',

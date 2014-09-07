@@ -116,8 +116,36 @@ function rmerrorstrict(doc, id) {
   rmerror(doc, id);
 }
 
+function pull(doc, ids) {
+  ids = ids || mock.docs.ids;
+  expect(doc).to.be.an('array')
+  expect(doc.length).to.eql(ids.length);
+  var collation = mock.docs.collation.default, expected, attachments;
+  var i, fo;
+  for(i = 0;i < doc.length;i++) {
+    fo = doc[i];
+    expect(fo.file).to.be.a('string');
+    expect(fo.name).to.be.a('string');
+    expect(fo.path).to.be.a('string');
+    expect(fo.id).to.be.a('string');
+    expect(fo.document).to.be.an('object');
+    expect(fo.id).to.eql(fo.document._id);
+
+    if(collation && collation.attachments && fo.attachments) {
+      expected = collation.attachments[fo.id];
+      attachments = fo.attachments.map(function(ao) {
+        return ao.path;
+      });
+      expect(attachments).to.eql(expected);
+      //console.dir('assert on known attachments' + expected);
+    }
+  }
+  //console.log('%s', JSON.stringify(doc, undefined, 2));
+}
+
 module.exports = {
   push: push,
+  pull: pull,
   list: list,
   listlong: listlong,
   revs: revs,

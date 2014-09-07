@@ -20,6 +20,7 @@ var pkg = path.join(base, 'package.json')
   , app = path.join(fixtures, 'app')
   , docs = path.join(app, 'docs')
   , updates = path.join(fixtures, 'updates')
+  , docspull = path.join(target, 'docs', 'pull')
   , templates = path.join(fixtures, 'template')
   , tplerrors = path.join(templates, 'error')
   , tpl = path.join(templates, 'mock-template.js');
@@ -119,6 +120,7 @@ var mock = {
     docs: docs,
     updates: updates,
     templates: templates,
+    docspull: docspull,
     tpl: tpl
   },
   fixtures: {},
@@ -144,6 +146,20 @@ var mock = {
       'mock-docs-attachment',
       'mock-docs-alt-attachment'
     ],
+    collation: {
+      default: {
+        attachments: {
+          'mock-docs-attachment': [
+            'deep/mock-docs-deep-attachment.txt',
+            'mock-multiple-attachment.txt',
+            'mock-docs-attachment.txt',
+          ],
+          'mock-docs-alt-attachment': [
+            'mock-docs-alt-attachment.txt',
+          ]
+        }
+      }
+    },
     unknown: 'unknown-document'
   }
 }
