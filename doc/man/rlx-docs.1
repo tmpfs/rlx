@@ -1,4 +1,4 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.203" "User Commands"
+.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.205" "User Commands"
 .SH "NAME"
 rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
@@ -8,7 +8,7 @@ rlx docs <command> [\-l] [\-l|\-\-long] [\-\-strict] [\-\-lenient]
 .br
     [\-\-flat|\-\-no\-flat] [\-\-auto\-id|\-\-no\-auto\-id] <args> 
 .br
-rlx docs ls <args> <dir> 
+rlx docs ls <args> <id...> <dir> 
 .br
 rlx docs push <args> <dir> 
 .br
@@ -29,7 +29,7 @@ If no subcommand is specified an error is reported.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
-\fBls\fR: List file system documents.
+\fBls\fR: List documents.
 .IP "\[ci]" 4
 \fBpush\fR: Push a directory of documents.
 .IP "\[ci]" 4
@@ -139,6 +139,9 @@ The result of using \fBdocs ls\fR on this layout is:
   }
 .PP
 Because the files have not been loaded from disc the document identifers are not available add the \fB\-l\fR flag to view collated documents and generated identifiers.
+.SH "DOCUMENT LIST"
+.PP
+Listing local documents is performed by invoking \fBls\fR with a single argument (\fB<dir>\fR), to list remote documents specify multiple document identifiers (\fB<id...>\fR).
 .SH "DOCUMENT IDENTIFIERS"
 .PP
 If a document explicity defines an \fB_id\fR property than it is always used otherwise a document id will automatically be generated based on the name of the file (or directory).

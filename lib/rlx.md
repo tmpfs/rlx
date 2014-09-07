@@ -75,7 +75,7 @@ If no subcommand is specified an error is reported.
 
 #### Commands
 
-* `ls: ls <dir>`: List file system documents.
+* `ls: ls <id...> <dir>`: List documents.
 * `push: push <dir>`: Push a directory of documents.
 * `pull: pull <id...> <dir>`: Pull documents to a directory.
 * `revs: revs <id...>`: Fetch multiple document revisions.
@@ -144,6 +144,10 @@ The result of using `${cmd_docs_long} ${cmd_ls_long}` on this layout is:
 ```
 
 Because the files have not been loaded from disc the document identifers are not available add the `${opt_long_short}` flag to view collated documents and generated identifiers.
+
+#### Document List
+
+Listing local documents is performed by invoking `${cmd_ls_long}` with a single argument (`<dir>`), to list remote documents specify multiple document identifiers (`<id...>`).
 
 #### Document Identifiers
 
