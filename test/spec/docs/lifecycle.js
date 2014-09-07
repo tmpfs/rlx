@@ -152,4 +152,18 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should skip deletion with error and --strict', function(done){
+    var mock = config.file('docs-rm-error-no-delete.json');
+    var args = qt.getArguments(
+      'docs/rm/empty',
+      {output: mock, args: [config.docs.unknown, '--strict']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.rmerrorstrict(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

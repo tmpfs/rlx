@@ -4,9 +4,9 @@ rlx-docs -- Bulk document tasks.
 .SH "SYNOPSIS"
 
 .SP
-rlx docs <command> [\-l] [\-l|\-\-long] [\-\-lenient] [\-\-flat|\-\-no\-flat]
+rlx docs <command> [\-l] [\-l|\-\-long] [\-\-strict] [\-\-lenient]
 .br
-    [\-\-auto\-id|\-\-no\-auto\-id] <args> 
+    [\-\-flat|\-\-no\-flat] [\-\-auto\-id|\-\-no\-auto\-id] <args> 
 .br
 rlx docs ls <args> <dir> 
 .br
@@ -43,6 +43,8 @@ If no subcommand is specified an error is reported.
 .BL
 .IP "\[ci]" 4
 \fB\-l, \-\-long\fR: Long listing (include documents).
+.IP "\[ci]" 4
+\fB\-\-strict\fR: Abort on error.
 .IP "\[ci]" 4
 \fB\-\-lenient\fR: Skip errors in a bulk response.
 .IP "\[ci]" 4
@@ -168,6 +170,8 @@ If the \fB\-g | \-\-glob\fR option is used the patterns are matched after file c
 .SH "BULK DELETION"
 .PP
 Use the \fBrm\fR command to remove multiple documents. This removal is forceful in that it fetches the latest revisions for the specified documents before attempting the bulk deletion.
+.PP
+Specify the \fB\-\-strict\fR option and if any error occurs while fetching document revisions no bulk deletion is performed, an array of errors is printed.
 .SH "BULK REVISIONS"
 .PP
 Use the \fBrevs\fR command to fetch revisions for multiple document identifiers:

@@ -112,6 +112,10 @@ function rmerrorlenient(doc) {
     .to.eql([]);
 }
 
+function rmerrorstrict(doc, id) {
+  rmerror(doc, id);
+}
+
 module.exports = {
   push: push,
   list: list,
@@ -123,4 +127,5 @@ module.exports = {
   rm: rm,
   rmerror: rmerror,
   rmerrorlenient: rmerrorlenient,
+  rmerrorstrict: rmerrorstrict,
 }

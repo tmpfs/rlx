@@ -84,6 +84,7 @@ If no subcommand is specified an error is reported.
 #### Options
 
 * `-l, --long`: Long listing (include documents).
+* `--strict`: Abort on error.
 * `--lenient`: Skip errors in a bulk response.
 * `--[no]-flat`: Use flat collation (no attachments).
 * `--[no]-auto-id`: Use automatic id generation.
@@ -177,6 +178,8 @@ If the `${opt_glob_pipe}` option is used the patterns are matched after file col
 #### Bulk Deletion
 
 Use the `${cmd_rm_long}` command to remove multiple documents. This removal is forceful in that it fetches the latest revisions for the specified documents before attempting the bulk deletion.
+
+Specify the `${opt_strict_long}` option and if any error occurs while fetching document revisions no bulk deletion is performed, an array of errors is printed.
 
 #### Bulk Revisions
 
