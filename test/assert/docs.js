@@ -100,10 +100,16 @@ function rm(doc, ids) {
 
 function rmerror(doc, id) {
   id = id || mock.docs.unknown;
-  expect(doc).to.be.an('object');
-  expect(doc[id]).to.be.an('object')
+  expect(doc).to.be.an('array');
+  var err = doc[0];
+  expect(err).to.be.an('object')
     .to.have.property('error')
     .to.eql('not_found');
+}
+
+function rmerrorlenient(doc) {
+  expect(doc).to.be.an('array')
+    .to.eql([]);
 }
 
 module.exports = {
@@ -116,4 +122,5 @@ module.exports = {
   revserror: revserror,
   rm: rm,
   rmerror: rmerror,
+  rmerrorlenient: rmerrorlenient,
 }

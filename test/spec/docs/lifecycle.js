@@ -139,4 +139,17 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
+
+  it('should delete multiple documents (with error --lenient)', function(done){
+    var mock = config.file('docs-rm-error-lenient.json');
+    var args = qt.getArguments(
+      'docs/rm/empty', {output: mock, args: [config.docs.unknown, '--lenient']});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.docs.rmerrorlenient(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })
