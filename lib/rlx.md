@@ -35,6 +35,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.
 * `rc: runconf, rc`: Runtime configuration.
+* `interactive: interactive, i`: Interactive REPL console.
 
 ## Options
 
