@@ -270,6 +270,11 @@
     "message": "template %s does not return an object"
   },
   {
+    "key": "EAUTH_REQUIRED",
+    "description": "Authentication details required",
+    "message": "authentication credentials required"
+  },
+  {
     "key": "EHEADER_PARSE",
     "description": "Header option is in an unknown format",
     "message": "header syntax error, 'key: value' required, got '%s'"
