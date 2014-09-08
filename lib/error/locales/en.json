@@ -10,6 +10,11 @@
     "message": "connection refused to %s"
   },
   {
+    "key": "EFORBIDDEN",
+    "description": "Server sent forbidden response",
+    "message": "permission denied, forbidden (%s)"
+  },
+  {
     "key": "ERESTART_LIMIT",
     "description": "Server restart retry limit exceeded",
     "message": "restart retry maximum limit exceeded"
