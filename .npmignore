@@ -3,6 +3,9 @@ target
 build
 package
 test
+/sbin
+/doc/readme
+/doc/cheatsheet.json
 *.bak
 *.log
 *.pid
