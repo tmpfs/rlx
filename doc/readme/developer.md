@@ -10,6 +10,8 @@ Tests require a clean [couchdb][] installation running in *admin party* mode.
 npm test
 ```
 
+If an rc file is present (`~/.rlx/.rlxrc`) the tests may fail as the default configuration is required you should ensure this file does not exist before running tests.
+
 Quick test executes commands in series but bypasses code coverage and test assertions:
 
 ```
