@@ -75,7 +75,7 @@
       },
       {
         "title": "Usage",
-        "bin": "rlx --help",
+        "bin": "rlx",
         "type": "code"
       },
       {

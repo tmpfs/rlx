@@ -33,90 +33,22 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
-Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
-           [--recursive] [--force] [--http] [--trace] [--debug]
-           [--info] [--warn] [--error] [--help] [--version]
-           [-s|--server=<url>] [-d|--database=<name>] [-i|--id=<id>]
-           [-a|--attachment=<file>] [-r|--rev=<rev>]
-           [-u|--username=<name>] [-p|--password=<pass>]
-           [-o|--output=<file>] [-f|--file=<file>] [-j|--json=<json>]
-           [-t|--template=<name>] [-q|--query=<params...>]
-           [-h|--header=<key:value...>] [-g|--glob=<pattern...>]
-           [--destination=<url>] [--ddoc=<name>] [-n|--name=<name>]
-           [--feed=<type>] <args>
 
-Command line interface for couchdb.
+Usage: rlx <command>
 
-Commands:
- admin                  Manage server administrators.
- user, usr              Manage server users.
- database, db           Manage databases.
- security, sec          Get or set database security.
- document, doc          Manage documents.
- docs                   Bulk document tasks.
- attach, att            Manage document attachments.
- replicate, repl        Replicate a database.
- application, app       Manage design document applications.
- local, lcl             Manage local documents.
- login                  Login to a server.
- logout                 Logout of current session.
- session, sess          Session authentication.
- config, conf           Manage server configuration.
- meta, info             Print server information.
- stats                  Print server statistics.
- tasks                  Print active tasks.
- log                    Tail server log file.
- restart                Restart a server.
- uuids                  Print list of uuids.
- edit                   Edit a document.
- template, tpl          Manage template files.
- lint                   Lint javascript and json.
- level, lvl             Get or set the server log level.
- whoami                 Get current user information.
- runconf, rc            Runtime configuration.
- interactive, i         Interactive REPL console.
- help                   Show help for commands.
+where <command> is one of:
+    admin, user, usr, database, db, security, sec, document,
+    doc, docs, attach, att, replicate, repl, application, app,
+    local, lcl, login, logout, session, sess, config, conf,
+    meta, info, stats, tasks, log, restart, uuids, edit,
+    template, tpl, lint, level, lvl, whoami, runconf, rc,
+    interactive, i, help
 
-Options:
- -g, --glob=[pattern...]
-                        File match pattern(s).
-     --[no]-color       Enable or disable terminal colors.
- -d, --database=[name]  Database name.
- -i, --id=[id]          Document identifier.
- -a, --attachment=[file]
-                        Attachment file path.
- -r, --rev=[rev]        Document revision.
- -u, --username=[name]  Authentication username.
- -p, --password=[pass]  Authentication password.
- -o, --output=[file]    Write response to output file.
- -f, --file=[file]      Read JSON input from file.
- -j, --json=[json]      JSON string literal (overrides --file).
- -t, --template=[name]  Name of a template file.
- -c, --compress         Compact JSON output format (zero indent).
- -q, --query=[params...]
-                        Query string parameters.
- -h, --header=[key: value...]
-                        Additional HTTP headers.
- -s, --server=[url]     Database server.
-     --recursive        Read directories recursively.
-     --destination=[url]
-                        Copy destination.
-     --force            Force file overwrite.
-     --ddoc=[name]      Design document id.
- -n, --name=[name]      Design document function name (view|update|show|list).
-     --feed=[type]      Poll feed type.
-     --http             Enable HTTP logs.
-     --trace            Set log level to trace.
-     --debug            Set log level to debug.
-     --info             Set log level to info.
-     --warn             Set log level to warn.
-     --error            Set log level to error.
-     --help             Display this help and exit.
-     --version          Print version and exit.
+rlx --help <cmd>       quick help on <cmd>
+rlx help <cmd>         documentation for <cmd>
+rlx i                  launch interactive console
 
-Report bugs to https://github.com/freeformsystems/rlx/issues.
-
-rlx@0.1.229 /Users/cyberfunk/git/rlx
+rlx@0.1.230 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer
