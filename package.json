@@ -4,6 +4,7 @@
   "description": "Command line interface for couchdb",
   "author": "muji <noop@xpm.io>",
   "preferGlobal": true,
+  "homepage": "https://github.com/freeformsystems/rlx",
   "repository": {
     "type": "git",
     "url": "https://github.com/freeformsystems/rlx"
