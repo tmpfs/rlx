@@ -756,6 +756,22 @@ var qt = [
 
   // ADMIN
   {
+    id: 'admin/ls',
+    description: 'List administrators',
+    api: [
+      parameters.config,
+      cdb.config.admins.name
+    ],
+    method: methods.get,
+    doc: docs.config + '#get--_config-section',
+    cmd: [
+      'admin',
+      'ls',
+      '-s',
+      mock.server.default
+    ]
+  },
+  {
     id: 'admin/add',
     description: 'Add an administrator',
     api: [
@@ -775,8 +791,8 @@ var qt = [
     ]
   },
   {
-    id: 'admin/ls',
-    description: 'List administrators',
+    id: 'admin/ls/auth',
+    description: 'List administrators with credentials',
     api: [
       parameters.config,
       cdb.config.admins.name
@@ -787,7 +803,11 @@ var qt = [
       'admin',
       'ls',
       '-s',
-      mock.server.default
+      mock.server.default,
+      '-u',
+      mock.admin.name,
+      '-p',
+      mock.admin.pass,
     ]
   },
   {

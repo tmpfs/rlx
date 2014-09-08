@@ -47,13 +47,6 @@ Usage: rlx <command> [-c] [--color|--no-color] [-c|--compress]
 
 Command line interface for couchdb.
 
-Options:
-
-Command should be one of: admin, user, database, security, document, docs,
-attach, replicate, application, local, login, logout, session, config, meta,
-stats, tasks, log, restart, uuids, edit, template, lint, level, whoami, runconf,
-help.
-
 Commands:
  admin                  Manage server administrators.
  user, usr              Manage server users.
@@ -81,9 +74,10 @@ Commands:
  level, lvl             Get or set the server log level.
  whoami                 Get current user information.
  runconf, rc            Runtime configuration.
+ interactive, i         Interactive REPL console.
  help                   Show help for commands.
 
-Arguments:
+Options:
  -g, --glob=[pattern...]
                         File match pattern(s).
      --[no]-color       Enable or disable terminal colors.
@@ -121,6 +115,8 @@ Arguments:
      --version          Print version and exit.
 
 Report bugs to https://github.com/freeformsystems/rlx/issues.
+
+rlx@0.1.229 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer
@@ -134,6 +130,8 @@ Tests require a clean [couchdb](http://couchdb.apache.org) installation running 
 ```
 npm test
 ```
+
+If an rc file is present (`~/.rlx/.rlxrc`) the tests may fail as the default configuration is required you should ensure this file does not exist before running tests.
 
 Quick test executes commands in series but bypasses code coverage and test assertions:
 

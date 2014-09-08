@@ -71,8 +71,8 @@ Table of Contents
     * [DELETE /{db}/{docid}/{attname}](#delete-dbdocidattname)
     * [GET /{db}/{docid}](#get-dbdocid-4)
   * [Administrator](#administrator)
-    * [PUT /_config/admins/{key}](#put-_configadminskey)
     * [GET /_config/admins](#get-_configadmins)
+    * [PUT /_config/admins/{key}](#put-_configadminskey)
     * [GET /_config/admins/{key}](#get-_configadminskey)
     * [DELETE /_config/admins/{key}](#delete-_configadminskey)
   * [User](#user)
@@ -780,6 +780,17 @@ Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/
 * Manual: `rlx help admin`
 * Help: `rlx --help admin`
 
+### GET /_config/admins
+
+List administrators:
+
+```
+rlx admin ls -s {server}
+rlx admin ls -s {server} -u {username} -p {password}
+```
+
+Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
+
 ### PUT /_config/admins/{key}
 
 Add an administrator:
@@ -789,16 +800,6 @@ rlx admin add {username} {password} -s {server}
 ```
 
 Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
-
-### GET /_config/admins
-
-List administrators:
-
-```
-rlx admin ls -u {username} -p {password} -s {server}
-```
-
-Documentation: [server/configuration#get-config-section](http://docs.couchdb.org/en/latest/api/server/configuration.html#get--_config-section)
 
 ### GET /_config/admins/{key}
 

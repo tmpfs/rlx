@@ -146,6 +146,65 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
+.SH "LOG"
+.PP
+All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
+.PP
+Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the aforementioned options applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
+.SH "HEADERS"
+.PP
+Similar to \fBcurl(1)\fR arbitrary HTTP headers are accepted using the \fB\-h | \-\-header\fR option (note the short version is lowercase), you may specify as many headers as you like although \fBContent\-Type\fR and \fBAccept\fR are ignored, a warning is printed if you attempt to use them.
+.PP
+If the value of the \fB\-\-header\fR option is incorrect (bad syntax) an error is reported.
+.PP
+Use the HTTP logging option to inspect the request headers:
+
+.SP
+  rlx doc get \-s {server} \-d {database} \-i {document} \e
+.br
+    \-h 'if\-none\-match: "{revision}"' \-\-http \-\-trace
+.PP
+The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
+.SH "QUERY STRING"
+.PP
+The \fBcouchdb\fR database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
+.PP
+To specify query string parameters use the \fB\-q | \-\-query\fR option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
+.PP
+Some options map to query string parameters (for example \fB\-r | \-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
+.PP
+You may specify a leading \fB?\fR but it is unnecessary and not recommended.
+.PP
+To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
+
+  rlx doc revsinfo \-s {server} \-d {database} \-i {id}
+.PP
+But you could also use \fB\-q | \-\-query\fR:
+
+  rlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'
+.PP
+An example of precedence:
+
+  rlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'
+.PP
+The value of \fB{rev}\fR will be used \fInot\fR \fB{revision}\fR.
+.SH "HIGHLIGHT"
+.PP
+The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
+.BL
+.IP "\[ci]" 4
+Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fB$PATH\fR.
+.IP "\[ci]" 4
+The \fBstdout\fR stream is not a \fBtty\fR (redirection).
+.IP "\[ci]" 4
+The \fB\-o | \-\-output\fR option is specified (output is a file).
+.IP "\[ci]" 4
+The \fB\-\-no\-color\fR option is specified (disables all ANSI escape sequences).
+.IP "\[ci]" 4
+The rc file \fBhighlight\fR section is invalid (does not contain json and js objects).
+.IP "\[ci]" 4
+The output to print is neither JSON or javascript (\-\-raw specified).
+.EL
 .SH "ENVIRONMENT"
 .PP
 The \fB$HOME\fR environment variable must be set in order for user configuration data to be loaded, typically for most developer environments this is not an issue however when using \fBrlx(1)\fR as part of infrastructure deployment you may need to ensure that \fB$HOME\fR is set.

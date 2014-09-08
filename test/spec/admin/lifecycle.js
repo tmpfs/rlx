@@ -8,10 +8,10 @@ var assert = config.assert.admin;
 
 describe('rlx:', function() {
   this.timeout(5000);
+
   it('should list admins', function(done){
     var mock = config.file('admin-ls.json');
     var args = qt.getArguments('admin/ls', {output: mock});
-    //console.dir(args);
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -28,6 +28,18 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       assert(doc, config.admin.name);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should list admins with credentials', function(done){
+    var mock = config.file('admin-ls-auth.json');
+    var args = qt.getArguments('admin/ls/auth', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      assert(doc, null, -1, true);
       done();
     })
     def.parse(args);
