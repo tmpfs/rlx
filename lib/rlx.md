@@ -689,10 +689,10 @@ If no subcommand is specified `ls` is invoked.
 #### Commands
 
 * `ls: ls`: List users.
-* `add: add`: Create a user.
-* `get: get`: Get a user document.
+* `add: add <name> <password> <@vars...>`: Create a user.
+* `get: get <name>`: Get a user document.
 * `edit: edit`: Edit a user document.
-* `rm: rm`: Remove a user document.
+* `rm: rm <name>`: Remove a user document.
 * `passwd: passwd`: Set an existing user password.
 
 ### Level
