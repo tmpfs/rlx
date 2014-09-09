@@ -10,7 +10,7 @@ describe('rlx:', function() {
   this.timeout(5000);
 
   it('should error on no subcommand', function(done){
-    var args = qt.getArguments('docs');
+    var args = qt.getArguments('bulk');
     var def = program(require(pkg), config.name)
     var errors = def.program.errors;
     def.program.on('error', function(err) {
@@ -21,7 +21,7 @@ describe('rlx:', function() {
   });
 
   it('should error on push with no database', function(done){
-    var args = qt.getArguments('docs/push/nodb');
+    var args = qt.getArguments('bulk/push/nodb');
     var def = program(require(pkg), config.name)
     var errors = def.program.errors;
     def.program.on('error', function(err) {
@@ -32,7 +32,7 @@ describe('rlx:', function() {
   });
 
   it('should error on push with too few arguments', function(done){
-    var args = qt.getArguments('docs/push/empty');
+    var args = qt.getArguments('bulk/push/empty');
     var def = program(require(pkg), config.name)
     var errors = def.program.errors;
     def.program.on('error', function(err) {
@@ -44,7 +44,7 @@ describe('rlx:', function() {
 
   it('should error on push with invalid directory', function(done){
     var args = qt.getArguments(
-      'docs/push/empty', {args: [config.paths.security]});
+      'bulk/push/empty', {args: [config.paths.security]});
     var def = program(require(pkg), config.name)
     var errors = def.program.errors;
     def.program.on('error', function(err) {

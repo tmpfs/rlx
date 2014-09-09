@@ -139,7 +139,7 @@ var mock = {
     key: 'progress.upload',
     value: true
   },
-  docs: {
+  bulk: {
     ids: [
       'mock-docs-document',
       'mock-docs-id-document-explicit',

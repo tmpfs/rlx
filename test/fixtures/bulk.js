@@ -7,32 +7,32 @@ var database = mock.database.default
 
 var fixtures = [
 
-  // DOCS
+  // bulk
   {
-    id: 'docs/ls',
+    id: 'bulk/ls',
     description: 'List documents',
     cmd: [
-      'docs',
+      'bulk',
       'ls',
       mock.paths.docs
     ]
   },
   {
-    id: 'docs/ls/long',
+    id: 'bulk/ls/long',
     description: 'List documents and include files',
     cmd: [
-      'docs',
+      'bulk',
       'ls',
       '-l',
       mock.paths.docs
     ]
   },
   {
-    id: 'docs/push',
+    id: 'bulk/push',
     description: 'Push bulk documents',
     before: ['db/add'],
     cmd: [
-      'docs',
+      'bulk',
       'push',
       '-s',
       server,
@@ -42,59 +42,59 @@ var fixtures = [
     ]
   },
   {
-    id: 'docs/pull',
+    id: 'bulk/pull',
     description: 'Pull bulk documents',
     cmd: [
-      'docs',
+      'bulk',
       'pull',
       '-s',
       server,
       '-d',
       database
-    ].concat(mock.docs.ids).concat(mock.paths.docspull)
+    ].concat(mock.bulk.ids).concat(mock.paths.docspull)
   },
   {
-    id: 'docs/revs',
+    id: 'bulk/revs',
     description: 'Fetch multiple document revisions',
     cmd: [
-      'docs',
+      'bulk',
       'revs',
       '-s',
       server,
       '-d',
       database
-    ].concat(mock.docs.ids)
+    ].concat(mock.bulk.ids)
   },
   {
-    id: 'docs/rm',
+    id: 'bulk/rm',
     description: 'Delete multiple documents',
     after: ['db/rm'],
     cmd: [
-      'docs',
+      'bulk',
       'rm',
       '-s',
       server,
       '-d',
       database
-    ].concat(mock.docs.ids)
+    ].concat(mock.bulk.ids)
   },
 
 
   // DISABLED
   {
-    id: 'docs',
+    id: 'bulk',
     description: 'No subcommand',
     enabled: false,
     cmd: [
-      'docs'
+      'bulk'
     ]
   },
   {
-    id: 'docs/push/empty',
+    id: 'bulk/push/empty',
     description: 'Push bulk documents',
     enabled: false,
     cmd: [
-      'docs',
+      'bulk',
       'push',
       '-s',
       server,
@@ -103,22 +103,22 @@ var fixtures = [
     ]
   },
   {
-    id: 'docs/push/nodb',
+    id: 'bulk/push/nodb',
     description: 'Push bulk documents',
     enabled: false,
     cmd: [
-      'docs',
+      'bulk',
       'push',
       '-s',
       server
     ]
   },
   {
-    id: 'docs/rm/empty',
+    id: 'bulk/rm/empty',
     description: 'Delete multiple documents',
     enabled: false,
     cmd: [
-      'docs',
+      'bulk',
       'rm',
       '-s',
       server,

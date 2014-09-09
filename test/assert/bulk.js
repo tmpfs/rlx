@@ -42,7 +42,7 @@ function listlong(doc) {
 }
 
 function revs(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('object');
   expect(Object.keys(doc)).to.eql(ids);
   for(var k in doc) {
@@ -51,7 +51,7 @@ function revs(doc, ids) {
 }
 
 function revsraw(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('object');
   expect(doc.rows).to.be.an('array');
   expect(doc.rows.length).to.eql(ids.length);
@@ -64,7 +64,7 @@ function revsraw(doc, ids) {
 }
 
 function revslong(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('array');
   expect(doc.length).to.eql(ids.length);
   var keys = doc.map(function(doc) {
@@ -76,16 +76,16 @@ function revslong(doc, ids) {
 }
 
 function revserror(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('object');
-  expect(doc[mock.docs.unknown]).to.be.an('object')
+  expect(doc[mock.bulk.unknown]).to.be.an('object')
     .to.have.property('error').to.eql('not_found');
-  delete doc[mock.docs.unknown]
+  delete doc[mock.bulk.unknown]
   revs(doc, ids);
 }
 
 function rm(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('array');
   expect(doc.length).to.eql(ids.length);
   var keys = doc.map(function(doc) {
@@ -99,7 +99,7 @@ function rm(doc, ids) {
 }
 
 function rmerror(doc, id) {
-  id = id || mock.docs.unknown;
+  id = id || mock.bulk.unknown;
   expect(doc).to.be.an('array');
   var err = doc[0];
   expect(err).to.be.an('object')
@@ -117,10 +117,10 @@ function rmerrorstrict(doc, id) {
 }
 
 function pull(doc, ids) {
-  ids = ids || mock.docs.ids;
+  ids = ids || mock.bulk.ids;
   expect(doc).to.be.an('array')
   expect(doc.length).to.eql(ids.length);
-  var collation = mock.docs.collation.default, expected, attachments;
+  var collation = mock.bulk.collation.default, expected, attachments;
   var i, fo;
   for(i = 0;i < doc.length;i++) {
     fo = doc[i];

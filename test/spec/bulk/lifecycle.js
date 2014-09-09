@@ -16,24 +16,24 @@ describe('rlx:', function() {
   })
 
   it('should list documents', function(done){
-    var mock = config.file('docs-ls.json');
-    var args = qt.getArguments('docs/ls', {output: mock});
+    var mock = config.file('bulk-ls.json');
+    var args = qt.getArguments('bulk/ls', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.list(doc);
+      config.assert.bulk.list(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should list documents (-l)', function(done){
-    var mock = config.file('docs-ls-long.json');
-    var args = qt.getArguments('docs/ls/long', {output: mock});
+    var mock = config.file('bulk-ls-long.json');
+    var args = qt.getArguments('bulk/ls/long', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.listlong(doc);
+      config.assert.bulk.listlong(doc);
       done();
     })
     def.parse(args);
@@ -41,25 +41,26 @@ describe('rlx:', function() {
 
 
   it('should push documents', function(done){
-    var mock = config.file('docs-push.json');
-    var args = qt.getArguments('docs/push', {output: mock});
+    var mock = config.file('bulk-push.json');
+    var args = qt.getArguments('bulk/push', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.push(doc);
+      config.assert.bulk.push(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should pull documents', function(done){
-    var mock = config.file('docs-pull.json');
-    var args = qt.getArguments('docs/pull', {output: mock});
+    var mock = config.file('bulk-pull.json');
+    var args = qt.getArguments('bulk/pull', {output: mock});
+    //console.dir(args);
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       //console.dir(doc);
-      config.assert.docs.pull(doc);
+      config.assert.bulk.pull(doc);
       done();
     })
     def.parse(args);
@@ -67,115 +68,115 @@ describe('rlx:', function() {
 
 
   it('should fetch multiple revisions', function(done){
-    var mock = config.file('docs-revs.json');
-    var args = qt.getArguments('docs/revs', {output: mock});
+    var mock = config.file('bulk-revs.json');
+    var args = qt.getArguments('bulk/revs', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.revs(doc);
+      config.assert.bulk.revs(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should fetch multiple revisions (--raw)', function(done){
-    var mock = config.file('docs-revs-raw.json');
-    var args = qt.getArguments('docs/revs', {output: mock, args: ['--raw']});
+    var mock = config.file('bulk-revs-raw.json');
+    var args = qt.getArguments('bulk/revs', {output: mock, args: ['--raw']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       //console.dir(doc);
-      config.assert.docs.revsraw(doc);
+      config.assert.bulk.revsraw(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should fetch multiple revisions (-l)', function(done){
-    var mock = config.file('docs-revs-long.json');
-    var args = qt.getArguments('docs/revs', {output: mock, args: ['-l']});
+    var mock = config.file('bulk-revs-long.json');
+    var args = qt.getArguments('bulk/revs', {output: mock, args: ['-l']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.revslong(doc);
+      config.assert.bulk.revslong(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should fetch multiple revisions (include errors)', function(done){
-    var mock = config.file('docs-revs-unknown.json');
+    var mock = config.file('bulk-revs-unknown.json');
     var args = qt.getArguments(
-      'docs/revs', {output: mock, args: [config.docs.unknown]});
+      'bulk/revs', {output: mock, args: [config.bulk.unknown]});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.revserror(doc);
+      config.assert.bulk.revserror(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should fetch multiple revisions (omit errors --lenient)', function(done){
-    var mock = config.file('docs-revs-lenient.json');
+    var mock = config.file('bulk-revs-lenient.json');
     var args = qt.getArguments(
-      'docs/revs', {output: mock, args: [config.docs.unknown, '--lenient']});
+      'bulk/revs', {output: mock, args: [config.bulk.unknown, '--lenient']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.revs(doc);
+      config.assert.bulk.revs(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should delete multiple documents', function(done){
-    var mock = config.file('docs-rm.json');
-    var args = qt.getArguments('docs/rm', {output: mock});
+    var mock = config.file('bulk-rm.json');
+    var args = qt.getArguments('bulk/rm', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.rm(doc);
+      config.assert.bulk.rm(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should delete multiple documents (with error)', function(done){
-    var mock = config.file('docs-rm-error.json');
+    var mock = config.file('bulk-rm-error.json');
     var args = qt.getArguments(
-      'docs/rm/empty', {output: mock, args: [config.docs.unknown]});
+      'bulk/rm/empty', {output: mock, args: [config.bulk.unknown]});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.rmerror(doc);
+      config.assert.bulk.rmerror(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should delete multiple documents (with error --lenient)', function(done){
-    var mock = config.file('docs-rm-error-lenient.json');
+    var mock = config.file('bulk-rm-error-lenient.json');
     var args = qt.getArguments(
-      'docs/rm/empty', {output: mock, args: [config.docs.unknown, '--lenient']});
+      'bulk/rm/empty', {output: mock, args: [config.bulk.unknown, '--lenient']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.rmerrorlenient(doc);
+      config.assert.bulk.rmerrorlenient(doc);
       done();
     })
     def.parse(args);
   });
 
   it('should skip deletion with error and --strict', function(done){
-    var mock = config.file('docs-rm-error-no-delete.json');
+    var mock = config.file('bulk-rm-error-no-delete.json');
     var args = qt.getArguments(
-      'docs/rm/empty',
-      {output: mock, args: [config.docs.unknown, '--strict']});
+      'bulk/rm/empty',
+      {output: mock, args: [config.bulk.unknown, '--strict']});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      config.assert.docs.rmerrorstrict(doc);
+      config.assert.bulk.rmerrorstrict(doc);
       done();
     })
     def.parse(args);
