@@ -291,7 +291,7 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name);
     var errors = def.program.errors;
     def.program.on('error', function(err) {
-      config.error.db(err, errors);
+      config.error.few(err, errors);
       done();
     })
     def.parse(args);

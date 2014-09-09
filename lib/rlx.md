@@ -358,7 +358,7 @@ If no subcommand is specified `ls` is invoked.
 * `head: head`: Check database existence.
 * `add: add`: Create a database.
 * `bulk: bulk`: Bulk insert/update.
-* `rm: rm`: Remove a database.
+* `rm: rm <db>`: Remove a database.
 * `temp: temp`: Execute a temporary view.
 * `changes: changes`: Get database changes.
 * `commit: commit`: Ensure full commit.

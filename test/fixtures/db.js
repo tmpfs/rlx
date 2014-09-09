@@ -274,7 +274,6 @@ var  fixtures = [
       'rm',
       '-s',
       server,
-      '-d',
       database
     ]
   },
