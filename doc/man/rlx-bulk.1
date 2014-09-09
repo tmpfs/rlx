@@ -1,22 +1,22 @@
-.TH "RLX-DOCS" "1" "September 2014" "rlx-docs 0.1.247" "User Commands"
+.TH "RLX-BULK" "1" "September 2014" "rlx-bulk 0.1.254" "User Commands"
 .SH "NAME"
-rlx-docs -- Bulk document tasks.
+rlx-bulk -- Bulk document tasks.
 .SH "SYNOPSIS"
 
 .SP
-rlx docs <command> [\-l] [\-l|\-\-long] [\-\-strict] [\-\-lenient]
+rlx bulk <command> [\-l] [\-l|\-\-long] [\-\-strict] [\-\-lenient]
 .br
     [\-\-flat|\-\-no\-flat] [\-\-auto\-id|\-\-no\-auto\-id] <args> 
 .br
-rlx docs ls <args> <id...> <dir> 
+rlx bulk ls <args> <id...> <dir> 
 .br
-rlx docs push <args> <dir> 
+rlx bulk push <args> <dir> 
 .br
-rlx docs pull <args> <id...> <dir> 
+rlx bulk pull <args> <id...> <dir> 
 .br
-rlx docs revs <args> <id...> 
+rlx bulk revs <args> <id...> 
 .br
-rlx docs rm <args> <id...>
+rlx bulk rm <args> <id...>
 .SH "DESCRIPTION"
 .PP
 Commands for operating on multiple documents.
@@ -77,7 +77,7 @@ The document collation will include top\-level \fB.json\fR and \fB.js\fR files i
 .PP
 If a top\-level directory exists and the directory contains a known index file (\fBindex.json\fR or \fBindex.js\fR) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: \fBdeep/alt\-attachment.txt\fR is the attachment name for the document with an id of \fBdoc\-attachments\fR.
 .PP
-The result of using \fBdocs ls\fR on this layout is:
+The result of using \fB${cmd_docs_long} ls\fR on this layout is:
 
 .SP
   {
@@ -153,7 +153,7 @@ You may disable the automatic id injection with \fB\-\-no\-auto\-id\fR or settin
 .SP
   rlx_docs_id_auto=false \e
 .br
-    rlx docs ls \-l <dir>
+    rlx ${cmd_docs_long} ls \-l <dir>
 .PP
 Note that the identifiers are generated and assigned to the \fBid\fR field of the file object but they are not assigned to the document's \fB_id\fR property.
 .PP
@@ -165,7 +165,7 @@ The default collation matches the \fBLAYOUT\fR but you may change this behaviour
 .SP
   rlx_docs_flat=true \e
 .br
-    rlx docs ls \-l <dir>
+    rlx ${cmd_docs_long} ls \-l <dir>
 .PP
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to \fB<dir>\fR, no files found are treated as attachments.
 .PP
@@ -179,7 +179,7 @@ Specify the \fB\-\-strict\fR option and if any error occurs while fetching docum
 .PP
 Use the \fBrevs\fR command to fetch revisions for multiple document identifiers:
 
-  rlx docs revs \-s {server} \-d {db} <id...>
+  rlx ${cmd_docs_long} revs \-s {server} \-d {db} <id...>
 .PP
 By default the listing is a map of identifiers to revisions:
 

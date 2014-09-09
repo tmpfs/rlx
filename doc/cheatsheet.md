@@ -371,7 +371,7 @@ Documentation: [server/common#get-db-updates](http://docs.couchdb.org/en/latest/
 Create a document:
 
 ```
-rlx doc add -s {server} -d {db} -t {template} -i {docid}
+rlx doc add -s {server} -d {db} -t {template} -i {docid} @bool=false @int=1024 @float=1.67 @arr=1,2,3 @str=value @nil=null
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
@@ -979,7 +979,7 @@ Documentation: [server/common#post-replicate](http://docs.couchdb.org/en/latest/
 Create a local document:
 
 ```
-rlx lcl add -s {server} -d {db} -t {template} -i {docid}
+rlx lcl add -s {server} -d {db} -t {template} -i {docid} @bool=false @int=1024 @float=1.67 @arr=1,2,3 @str=value @nil=null
 ```
 
 Documentation: [local#put-db-local-docid](http://docs.couchdb.org/en/latest/api/local.html#put--db-_local-docid)
@@ -1086,7 +1086,7 @@ rlx level debug -s {server}
 rlx level info -s {server}
 ```
 
-Documentation: [undefined#put-config-section-key](http://docs.couchdb.org/en/latest/api/undefined#put--_config-section-key)
+Documentation: [server/configuration#put-config-section-key](http://docs.couchdb.org/en/latest/api/server/configuration.html#put--_config-section-key)
 
 ### GET /_config/log/level
 
