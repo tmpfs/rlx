@@ -28,7 +28,7 @@
     "cli-logger": "~0.5.13",
     "cli-native": "^1.0.0",
     "cli-rc": "^1.0.8",
-    "cli-input": "^0.0.15",
+    "cli-input": "^0.0.20",
     "cli-util": "^1.1.17",
     "couchdb-log-parse": "0.0.3",
     "jslint": "^0.6.2",
