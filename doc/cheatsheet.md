@@ -76,8 +76,8 @@ Table of Contents
     * [GET /_config/admins/{key}](#get-_configadminskey)
     * [DELETE /_config/admins/{key}](#delete-_configadminskey)
   * [User](#user)
-    * [PUT /_users/{docid}](#put-_usersdocid)
     * [GET /_users/_all_docs](#get-_users_all_docs)
+    * [PUT /_users/{docid}](#put-_usersdocid)
     * [GET /_users/{docid}](#get-_usersdocid)
     * [DELETE /_users/{docid}](#delete-_usersdocid)
   * [Security](#security)
@@ -346,7 +346,7 @@ Documentation: [database/misc#put-db-revs-limit](http://docs.couchdb.org/en/late
 Remove database:
 
 ```
-rlx db rm -s {server} -d {db}
+rlx db rm -s {server} {db}
 ```
 
 Documentation: [database/common#delete-db](http://docs.couchdb.org/en/latest/api/database/common.html#delete--db)
@@ -826,6 +826,17 @@ Documentation: [server/configuration#delete-config-section-key](http://docs.couc
 * Manual: `rlx help user`
 * Help: `rlx --help user`
 
+### GET /_users/_all_docs
+
+List users:
+
+```
+rlx user -s {server}
+rlx user ls -s {server}
+```
+
+Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
+
 ### PUT /_users/{docid}
 
 Create or update a user:
@@ -837,16 +848,6 @@ rlx user passwd -s {server} @name={username} @password={password}
 ```
 
 Documentation: [document/common#put-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid)
-
-### GET /_users/_all_docs
-
-List users:
-
-```
-rlx user ls -s {server}
-```
-
-Documentation: [database/bulk-api#get-db-all-docs](http://docs.couchdb.org/en/latest/api/database/bulk-api.html#get--db-_all_docs)
 
 ### GET /_users/{docid}
 

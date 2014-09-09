@@ -40,15 +40,15 @@ where <command> is one of:
     admin, user, usr, database, db, security, sec, document,
     doc, docs, attach, att, replicate, repl, application, app,
     local, lcl, login, logout, session, sess, config, conf,
-    meta, info, stats, tasks, log, restart, uuids, edit,
-    template, tpl, lint, level, lvl, whoami, runconf, rc,
-    interactive, i, help
+    info, stats, tasks, log, restart, uuids, edit, template,
+    tpl, lint, level, lvl, whoami, runconf, rc, interactive, i,
+    help
 
 rlx --help <cmd>       quick help on <cmd>
 rlx help <cmd>         documentation for <cmd>
 rlx i                  launch interactive console
 
-rlx@0.1.235 /Users/cyberfunk/git/rlx
+rlx@0.1.247 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer

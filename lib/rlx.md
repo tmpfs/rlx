@@ -23,7 +23,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `logout`: Logout of current session.
 * `session: session, sess`: Session authentication.
 * `config: config, conf`: Manage server configuration.
-* `info: info, meta`: Print server information.
+* `info: info`: Print server information.
 * `stats: stats`: Print server statistics.
 * `tasks: tasks`: Print active tasks. 
 * `log: log`: Tail server log file. 

@@ -1,26 +1,28 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.235" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.247" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
 
 .SP
-rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-recursive]
+rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress]
 .br
-    [\-\-force] [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error]
+    [\-\-interactive|\-\-no\-interactive] [\-\-recursive] [\-\-force] [\-\-http]
 .br
-    [\-\-help] [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
+    [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help] [\-\-version]
 .br
-    [\-i|\-\-id=<id>] [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>]
+    [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
 .br
-    [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
+    [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>]
 .br
-    [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
+    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
 .br
-    [\-q|\-\-query=<params...>] [\-h|\-\-header=<key:value...>]
+    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
 .br
-    [\-g|\-\-glob=<pattern...>] [\-\-destination=<url>] [\-\-ddoc=<name>]
+    [\-h|\-\-header=<key:value...>] [\-g|\-\-glob=<pattern...>]
 .br
-    [\-n|\-\-name=<name>] [\-\-feed=<type>] <args>
+    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-n|\-\-name=<name>]
+.br
+    [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands, start an interactive session with \fBrlx i\fR.
@@ -55,7 +57,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fBconfig, conf\fR: Manage server configuration.
 .IP "\[ci]" 4
-\fBmeta, info\fR: Print server information.
+\fBinfo\fR: Print server information.
 .IP "\[ci]" 4
 \fBstats\fR: Print server statistics.
 .IP "\[ci]" 4
@@ -117,6 +119,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-h, \-\-header=[key: value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
+.IP "\[ci]" 4
+\fB\-\-[no]\-interactive\fR: Disable interactive prompts.
 .IP "\[ci]" 4
 \fB\-\-recursive\fR: Read directories recursively.
 .IP "\[ci]" 4
