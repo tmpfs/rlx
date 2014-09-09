@@ -1,3 +1,4 @@
+var qt = require('../../fixtures/qt');
 var setup = require('../../util/setup');
 var teardown = require('../../util/teardown');
 
@@ -18,21 +19,7 @@ describe('rlx:', function() {
 
   it('should create document', function(done){
     var mock = config.file('document-add.json');
-    var args = [
-      'doc',
-      'add',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '@bool=' + config.document.bool,
-      '@int=' + config.document.int,
-      '@float=' + config.document.float,
-      '@arr=' + config.document.arr,
-      '@str=' + config.document.str,
-      '@nil=' + config.document.nil,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/add', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -44,17 +31,7 @@ describe('rlx:', function() {
 
   it('should copy document', function(done){
     var mock = config.file('document-copy.json');
-    var args = [
-      'doc',
-      'cp',
-      '-s=' + config.server.default,
-      '-d=' + database,
-      '-i=' + config.document.id,
-      '--destination',
-      config.copy.id,
-      '--no-color',
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/cp', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -66,14 +43,7 @@ describe('rlx:', function() {
 
   it('should list documents', function(done){
     var mock = config.file('document-ls.json');
-    var args = [
-      'doc',
-      'ls',
-      '-d=' + database,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/ls', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -85,15 +55,7 @@ describe('rlx:', function() {
 
   it('should get document', function(done){
     var mock = config.file('document-get.json');
-    var args = [
-      'doc',
-      'get',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -105,15 +67,7 @@ describe('rlx:', function() {
 
   it('should head document', function(done){
     var mock = config.file('document-head.json');
-    var args = [
-      'doc',
-      'head',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/head', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -125,15 +79,7 @@ describe('rlx:', function() {
 
   it('should get document revision', function(done){
     var mock = config.file('document-rev.json');
-    var args = [
-      'doc',
-      'rev',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/rev', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -145,15 +91,7 @@ describe('rlx:', function() {
 
   it('should get document revs', function(done){
     var mock = config.file('document-revs.json');
-    var args = [
-      'doc',
-      'revs',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/revs', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -166,15 +104,7 @@ describe('rlx:', function() {
 
   it('should get document meta', function(done){
     var mock = config.file('document-meta.json');
-    var args = [
-      'doc',
-      'meta',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/meta', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -187,15 +117,7 @@ describe('rlx:', function() {
 
   it('should get document conflicts', function(done){
     var mock = config.file('document-conflicts.json');
-    var args = [
-      'doc',
-      'conflicts',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/conflicts', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -208,15 +130,7 @@ describe('rlx:', function() {
 
   it('should get deleted document conflicts', function(done){
     var mock = config.file('document-deleted-conflicts.json');
-    var args = [
-      'doc',
-      'dc',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/dc', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -229,15 +143,7 @@ describe('rlx:', function() {
 
   it('should get document revs info', function(done){
     var mock = config.file('document-revs-info.json');
-    var args = [
-      'doc',
-      'revsinfo',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/revsinfo', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -249,15 +155,17 @@ describe('rlx:', function() {
 
   it('should get document revs info (id query string)', function(done){
     var mock = config.file('document-revs-info-query-string.json');
-    var args = [
-      'doc',
-      'get',
-      '-d=' + database,
-      '--id=' + config.document.id + '?revs_info=true',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/get', {
+      output: mock,
+      clear: true,
+      args: [
+        'doc',
+        'get',
+        '-s=' + config.server.default,
+        '-d=' + database,
+        '--id=' + config.document.id + '?revs_info=true',
+      ]
+    });
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -269,17 +177,13 @@ describe('rlx:', function() {
 
   it('should get document revs info (query option)', function(done){
     var mock = config.file('document-revs-info-query-option.json');
-    var args = [
-      'doc',
-      'get',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--query',
-      'revs_info=true',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/get', {
+      output: mock,
+      args: [
+        '--query',
+        'revs_info=true',
+      ]
+    });
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -289,18 +193,9 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-
   it('should remove document', function(done){
     var mock = config.file('document-rm.json');
-    var args = [
-      'doc',
-      'rm',
-      '-d=' + database,
-      '--id=' + config.document.id,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('doc/rm', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
