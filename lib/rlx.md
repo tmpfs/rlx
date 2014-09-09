@@ -19,7 +19,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `replicate: replicate, repl`: Replicate a database.
 * `application: application, app`: Manage design document applications.
 * `local: local, lcl`: Manage local documents.
-* `login`: Login to a server.
+* `login: login <username> <server>`: Login to a server.
 * `logout`: Logout of current session.
 * `session: session, sess`: Session authentication.
 * `config: config, conf`: Manage server configuration.
