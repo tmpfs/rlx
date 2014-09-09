@@ -1515,13 +1515,13 @@ var qt = [
 var user = require('./user');
 var db = require('./db');
 var sec = require('./sec');
-var docs = require('./docs');
+var bulk = require('./bulk');
 var rc = require('./rc');
 var tpl = require('./template');
 qt = user.concat(qt);
 qt = db.concat(qt);
 qt = sec.concat(qt);
-qt = docs.concat(qt);
+qt = bulk.concat(qt);
 qt = rc.concat(qt);
 qt = tpl.concat(qt);
 
