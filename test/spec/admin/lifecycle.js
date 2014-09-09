@@ -2,6 +2,7 @@ var qt = require('../../fixtures/qt');
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
+var server = config.server.default;
 var database = config.database.default;
 
 var assert = config.assert.admin;
@@ -96,7 +97,6 @@ describe('rlx:', function() {
 
   it('should remove alt admin', function(done){
     var mock = config.file('admin-alt-rm.json');
-    // TODO
     var args = [
       'admin',
       'rm',
@@ -105,10 +105,11 @@ describe('rlx:', function() {
       config.admin.name,
       '-p',
       config.admin.pass,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
+      '-s',
+      server
     ];
+    var args = qt.getArguments(
+      'admin/rm', {output: mock, args: args, clear: true});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);

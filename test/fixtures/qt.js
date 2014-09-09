@@ -1992,7 +1992,7 @@ function getArguments(id, opts) {
     args = item.cmd.slice(0);
   }
   if(Array.isArray(opts.args)) {
-    args = args.concat(opts.args);
+    args = opts.clear ? opts.args : args.concat(opts.args);
   }
   if(opts.output) {
     args.push('-o', opts.output);
@@ -2003,6 +2003,7 @@ function getArguments(id, opts) {
     }
     args.push('--no-color', '--error');
   }
+  args.push('--no-interactive');
   return args;
 }
 
