@@ -20,82 +20,6 @@ var urls = require('./urls')
 var qt = [
 
 
-  // LOCAL DOCUMENT
-  {
-    id: 'lcl/add',
-    description: 'Create a local document',
-    api: [params.db, parameters.local, params.docid],
-    method: methods.put,
-    doc: docs.local + '#put--db-_local-docid',
-    before: ['db/add'],
-    cmd: [
-      'lcl',
-      'add',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default,
-      '-t',
-      'doc/new',
-      '-i',
-      mock.document.id
-    ]
-  },
-  {
-    id: 'lcl/cp',
-    description: 'Copy a local document',
-    api: [params.db, parameters.local, params.docid],
-    method: methods.copy,
-    doc: docs.local + '#copy--db-_local-docid',
-    cmd: [
-      'lcl',
-      'cp',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default,
-      '-i',
-      mock.document.id,
-      '--destination',
-      mock.copy.id
-    ]
-  },
-  {
-    id: 'lcl/get',
-    description: 'Get a local document',
-    api: [params.db, parameters.local, params.docid],
-    method: methods.get,
-    doc: docs.local + '#get--db-_local-docid',
-    cmd: [
-      'lcl',
-      'get',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default,
-      '-i',
-      mock.document.id
-    ]
-  },
-  {
-    id: 'lcl/rm',
-    description: 'Remove a local document',
-    api: [params.db, parameters.local, params.docid],
-    method: methods.delete,
-    doc: docs.local + '#delete--db-_local-docid',
-    after: ['db/rm'],
-    cmd: [
-      'lcl',
-      'rm',
-      '-s',
-      mock.server.default,
-      '-d',
-      mock.database.default,
-      '-i',
-      mock.document.id
-    ]
-  },
-
   // ATTACHMENTS
   {
     id: 'att/ls',
@@ -1299,6 +1223,7 @@ var qt = [
 
 var db = require('./db');
 var doc = require('./doc');
+var lcl = require('./local');
 var user = require('./user');
 var sec = require('./sec');
 var bulk = require('./bulk');
@@ -1306,6 +1231,7 @@ var rc = require('./rc');
 var tpl = require('./template');
 qt = db.concat(qt);
 qt = doc.concat(qt);
+qt = lcl.concat(qt);
 qt = user.concat(qt);
 qt = sec.concat(qt);
 qt = bulk.concat(qt);
