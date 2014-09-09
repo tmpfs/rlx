@@ -76,7 +76,8 @@
       {
         "title": "Usage",
         "bin": "rlx",
-        "type": "code"
+        "type": "code",
+        "trim": true
       },
       {
         "inc": [
