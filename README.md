@@ -33,6 +33,7 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
+
 Usage: rlx <command>
 
 where <command> is one of:
@@ -47,7 +48,7 @@ rlx --help <cmd>       quick help on <cmd>
 rlx help <cmd>         documentation for <cmd>
 rlx i                  launch interactive console
 
-rlx@0.1.230 /Users/cyberfunk/git/rlx
+rlx@0.1.235 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer
