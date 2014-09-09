@@ -1,3 +1,4 @@
+var qt = require('../../fixtures/qt');
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -9,12 +10,7 @@ describe('rlx:', function() {
   this.timeout(5000);
   it('should list users', function(done){
     var mock = config.file('user-ls.json');
-    var args = [
-      'user',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -25,13 +21,7 @@ describe('rlx:', function() {
   });
   it('should list with alias and explicit subcommand', function(done){
     var mock = config.file('user-ls-command-alias.json');
-    var args = [
-      'usr',
-      'ls',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user/ls', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -42,15 +32,7 @@ describe('rlx:', function() {
   });
   it('should add user', function(done){
     var mock = config.file('user-add.json');
-    var args = [
-      'user',
-      'add',
-      '@name=' + config.user.name,
-      '@password=' + config.user.password,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user/add', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -62,12 +44,7 @@ describe('rlx:', function() {
 
   it('should list users with non-empty list', function(done){
     var mock = config.file('user-ls-after-add.json');
-    var args = [
-      'usr',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -79,15 +56,7 @@ describe('rlx:', function() {
 
   it('should update user password', function(done){
     var mock = config.file('user-passwd.json');
-    var args = [
-      'user',
-      'passwd',
-      '--id=' + config.user.name,
-      config.user.password + '-update',
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user/passwd', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -99,14 +68,7 @@ describe('rlx:', function() {
 
   it('should get user', function(done){
     var mock = config.file('user-get.json');
-    var args = [
-      'user',
-      'get',
-      '--id=' + config.user.name,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
@@ -118,14 +80,7 @@ describe('rlx:', function() {
 
   it('should remove user', function(done){
     var mock = config.file('user-rm.json');
-    var args = [
-      'user',
-      'rm',
-      '--id=' + config.user.name,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('user/rm', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);

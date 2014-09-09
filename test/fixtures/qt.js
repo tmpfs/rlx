@@ -19,95 +19,6 @@ var urls = require('./urls')
 
 var qt = [
 
-  // USER
-  {
-    id: 'user/add',
-    description: 'Create or update a user',
-    api: [cdb.user.db, params.docid],
-    method: methods.put,
-    doc: docs.document + '#put--db-docid',
-    cmd: [
-      'user',
-      'add',
-      '-s',
-      mock.server.default,
-      '@name=' + mock.user.name,
-      '@password=' + mock.user.password
-    ]
-  },
-  {
-    id: 'user/ls',
-    description: 'List users',
-    api: [cdb.user.db, parameters.docs],
-    method: methods.get,
-    doc: docs.bulk + '#get--db-_all_docs',
-    cmd: [
-      'user',
-      'ls',
-      '-s',
-      mock.server.default
-    ]
-  },
-  {
-    id: 'user/get',
-    description: 'Get a user',
-    api: [cdb.user.db, params.docid],
-    method: methods.get,
-    doc: docs.document + '#get--db-docid',
-    cmd: [
-      'user',
-      'get',
-      '-s',
-      mock.server.default,
-      '@name=' + mock.user.name,
-    ]
-  },
-  {
-    id: 'user/edit',
-    description: 'Update a user',
-    api: [cdb.user.db, params.docid],
-    method: methods.put,
-    doc: docs.document + '#put--db-docid',
-    before: [setup.edit.mock],
-    after: [teardown.edit.restore],
-    cmd: [
-      'user',
-      'edit',
-      '-s',
-      mock.server.default,
-      '@name=' + mock.user.name
-    ]
-  },
-  {
-    id: 'user/passwd',
-    description: 'Change user password',
-    api: [cdb.user.db, params.docid],
-    method: methods.put,
-    doc: docs.document + '#put--db-docid',
-    cmd: [
-      'user',
-      'passwd',
-      '-s',
-      mock.server.default,
-      '@name=' + mock.user.name,
-      '@password=' + mock.user.password
-    ]
-  },
-  {
-    id: 'user/rm',
-    description: 'Remove a user',
-    api: [cdb.user.db, params.docid],
-    method: methods.delete,
-    doc: docs.document + '#delete--db-docid',
-    cmd: [
-      'user',
-      'rm',
-      '-s',
-      mock.server.default,
-      '@name=' + mock.user.name,
-    ]
-  },
-
   // DOCUMENT
   {
     id: 'doc/add',
@@ -1601,11 +1512,13 @@ var qt = [
   },
 ]
 
+var user = require('./user');
 var db = require('./db');
 var sec = require('./sec');
 var docs = require('./docs');
 var rc = require('./rc');
 var tpl = require('./template');
+qt = user.concat(qt);
 qt = db.concat(qt);
 qt = sec.concat(qt);
 qt = docs.concat(qt);

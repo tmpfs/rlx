@@ -1,6 +1,4 @@
 var mock = require('../util/mock');
-//var setup = require('../util/setup');
-//var teardown = require('../util/teardown');
 
 var cdb = require('cdb');
 var parameters = cdb.parameters;
