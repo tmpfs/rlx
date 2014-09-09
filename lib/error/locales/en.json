@@ -283,5 +283,10 @@
     "key": "EHEADER_PARSE",
     "description": "Header option is in an unknown format",
     "message": "header syntax error, 'key: value' required, got '%s'"
+  },
+  {
+    "key": "ENO_ADMIN",
+    "description": "Administrator not found",
+    "message": "administrator %s does not exist"
   }
 ]
