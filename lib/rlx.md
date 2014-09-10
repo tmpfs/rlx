@@ -82,6 +82,10 @@ Commands are not required in interactive mode, you may set any argument:
 --trace   # set log level to trace
 ```
 
+#### History Interpreter
+
+An experimental history command interpreter is enabled by default that recognizes index based references such as `!!` (or `!-1`) and `!1`, 
+
 #### Files
 
 The history file is read and written from `~/.rlx/.history`, when this command is invoked the file (and parent directories) are created if they do not exist.

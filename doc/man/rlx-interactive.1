@@ -24,6 +24,9 @@ Commands are not required in interactive mode, you may set any argument:
   \-d        # clear current database
 .br
   \-\-trace   # set log level to trace
+.SH "HISTORY INTERPRETER"
+.PP
+An experimental history command interpreter is enabled by default that recognizes index based references such as \fB!!\fR (or \fB!\-1\fR) and \fB!1\fR, 
 .SH "FILES"
 .PP
 The history file is read and written from \fB~/.rlx/.history\fR, when this command is invoked the file (and parent directories) are created if they do not exist.
