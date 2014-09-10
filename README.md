@@ -33,7 +33,6 @@ The documentation for the program is available via the `help` command, for those
 ## Usage
 
 ```
-
 Usage: rlx <command>
 
 where <command> is one of:
