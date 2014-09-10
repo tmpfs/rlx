@@ -4,12 +4,23 @@ rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
 
 .SP
-rlx interactive <args>
+rlx interactive <command> <args>
 .br
-rlx i <args>
+rlx i <command> <args> 
+.br
+rlx i ? <args> 
+.br
+rlx i quit <args>
 .SH "DESCRIPTION"
 .PP
 Launch an interactive console with \fBrlx i\fR, interactive consoles may not be nested. Help is available via \fB?\fR, \fB\-\-help\fR and \fBhelp\fR. If \fB\-\-no\-interactive\fR is specified it is ignored.
+.SH "COMMANDS"
+.BL
+.IP "\[ci]" 4
+\fB?\fR: Short help.
+.IP "\[ci]" 4
+\fBexit, quit, q\fR: Quit interactive console.
+.EL
 .SH "ARGUMENTS"
 .PP
 Commands are not required in interactive mode, you may set any argument:

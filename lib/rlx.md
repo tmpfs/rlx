@@ -69,6 +69,10 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive consoles may not be nested. Help is available via `?`, `${opt_help_long}` and `${cmd_help_long}`. If `${opt_interactive_no}` is specified it is ignored.
 
+#### Commands
+
+* `shorthelp: ?`: Short help.
+* `exit: q, quit, exit`: Quit interactive console.
 
 #### Arguments
 
