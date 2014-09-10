@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.262" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.264" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -10,6 +10,8 @@ rlx i <command> <args>
 .br
 rlx i ? <args> 
 .br
+rlx i dbg <args> 
+.br
 rlx i quit <args>
 .SH "DESCRIPTION"
 .PP
@@ -19,6 +21,8 @@ Launch an interactive console with \fBrlx i\fR, interactive consoles may not be 
 .IP "\[ci]" 4
 \fB?\fR: Short help.
 .IP "\[ci]" 4
+\fBdbg\fR: Debug utilities.
+.IP "\[ci]" 4
 \fBexit, quit, q\fR: Quit interactive console.
 .EL
 .SH "ARGUMENTS"
@@ -26,15 +30,17 @@ Launch an interactive console with \fBrlx i\fR, interactive consoles may not be 
 Commands are not required in interactive mode, you may set any argument:
 
 .SP
-  \-\-http    # enable http logging
+  \-\-http      # enable http logging
 .br
-  \-\-no\-http # disable http logging
+  \-\-no\-http   # disable http logging
 .br
-  \-d {db}   # set current database
+  \-d {db}     # set current database
 .br
-  \-d        # clear current database
+  \-d          # clear current database
 .br
-  \-\-trace   # set log level to trace
+  \-\-trace     # set log level to trace
+.br
+  \-\-no\-color  # disable colors
 .SH "HISTORY INTERPRETER"
 .PP
 An experimental history command interpreter is enabled by default that recognizes index based references such as \fB!!\fR (or \fB!\-1\fR) and \fB!1\fR, 

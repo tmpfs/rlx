@@ -71,8 +71,8 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 
 #### Commands
 
-* `debug: dbg`: Debug utilities.
 * `shorthelp: ?`: Short help.
+* `debug: dbg`: Debug utilities.
 * `exit: q, quit, exit`: Quit interactive console.
 
 #### Arguments
@@ -80,11 +80,12 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 Commands are not required in interactive mode, you may set any argument:
 
 ```
---http    # enable http logging
---no-http # disable http logging
--d {db}   # set current database
--d        # clear current database
---trace   # set log level to trace
+--http      # enable http logging
+--no-http   # disable http logging
+-d {db}     # set current database
+-d          # clear current database
+--trace     # set log level to trace
+--no-color  # disable colors
 ```
 
 #### History Interpreter
