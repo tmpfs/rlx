@@ -1,6 +1,6 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.254" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.262" "User Commands"
 .SH "NAME"
-rlx-interactive
+rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
 
 .SP
@@ -9,7 +9,24 @@ rlx interactive <args>
 rlx i <args>
 .SH "DESCRIPTION"
 .PP
-Interactive REPL console.
+Launch an interactive console with \fBrlx i\fR, interactive consoles may not be nested. Help is available via \fB?\fR, \fB\-\-help\fR and \fBhelp\fR. If \fB\-\-no\-interactive\fR is specified it is ignored.
+.SH "ARGUMENTS"
+.PP
+Commands are not required in interactive mode, you may set any argument:
+
+.SP
+  \-\-http    # enable http logging
+.br
+  \-\-no\-http # disable http logging
+.br
+  \-d {db}   # set current database
+.br
+  \-d        # clear current database
+.br
+  \-\-trace   # set log level to trace
+.SH "FILES"
+.PP
+The history file is read and written from \fB~/.rlx/.history\fR, when this command is invoked the file (and parent directories) are created if they do not exist.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

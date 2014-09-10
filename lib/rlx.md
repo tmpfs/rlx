@@ -65,6 +65,27 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 <!--- command definitions -->
 
+### Interactive
+
+Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive consoles may not be nested. Help is available via `?`, `${opt_help_long}` and `${cmd_help_long}`. If `${opt_interactive_no}` is specified it is ignored.
+
+
+#### Arguments
+
+Commands are not required in interactive mode, you may set any argument:
+
+```
+--http    # enable http logging
+--no-http # disable http logging
+-d {db}   # set current database
+-d        # clear current database
+--trace   # set log level to trace
+```
+
+#### Files
+
+The history file is read and written from `~/.rlx/.history`, when this command is invoked the file (and parent directories) are created if they do not exist.
+
 ### Bulk
 
 Commands for operating on multiple documents.
