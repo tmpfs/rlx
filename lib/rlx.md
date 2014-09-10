@@ -71,6 +71,7 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 
 #### Commands
 
+* `debug: dbg`: Debug utilities.
 * `shorthelp: ?`: Short help.
 * `exit: q, quit, exit`: Quit interactive console.
 
