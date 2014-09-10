@@ -10,7 +10,7 @@
     "max": 10
   },
   "login": {
-    "retries": 4
+    "retries": 3
   },
   "progress": {
     "upload": true,
