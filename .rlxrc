@@ -1,6 +1,12 @@
 {
   "server": null,
   "indent": 2,
+  "history": {
+    "limit": 1024,
+    "ignores": [
+      "^(q|quit|exit)$"
+    ]
+  },
   "edit": {
     "hash": "sha1"
   },
