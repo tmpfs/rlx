@@ -48,20 +48,24 @@ describe('rlx:', function() {
 
   it('should add alt admin', function(done){
     var mock = config.file('admin-alt-add.json');
-    // TODO
-    var args = [
-      'admin',
-      'add',
-      config.admin.alt.name,
-      config.admin.alt.pass,
-      '-u',
-      config.admin.name,
-      '-p',
-      config.admin.pass,
-      '--no-color',
-      '-s=' + config.server.default,
-      '-o', mock
-    ];
+    var args = qt.getArguments('admin/add',
+      {
+        output: mock,
+        clear: true,
+        args: [
+          'admin',
+          'add',
+          config.admin.alt.name,
+          config.admin.alt.pass,
+          '-u',
+          config.admin.name,
+          '-p',
+          config.admin.pass,
+          '--no-color',
+          '-s=' + config.server.default,
+        ]
+      }
+    );
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
