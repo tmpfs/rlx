@@ -163,6 +163,7 @@ describe('rlx:', function() {
   it('should init fs file template', function(done){
     var mock = config.file('template-init-fs-file.json');
     var args = qt.getArguments('tpl/init/fs/file', {output: mock});
+    //console.dir(args);
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
