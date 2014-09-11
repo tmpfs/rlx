@@ -72,7 +72,7 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 #### Commands
 
 * `pwd: pwd`: Print current location.
-* `use: use <db>`: Idiomatic version of `-d {db}`.
+* `use: use <server> <db> <docid> <rev>`: Use server, database and document.
 * `shorthelp: ?`: Short help.
 * `debug: dbg`: Debug utilities.
 * `exit: q, quit, exit`: Quit interactive console.
