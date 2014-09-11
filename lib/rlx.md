@@ -73,6 +73,7 @@ System debugging utilities.
 #### Commands
 
 * `jar: jar`: Print cookie jar.
+* `auth: auth`: Print current authentication information.
 * `prg: prg`: Print state of program.
 * `req: req`: Print state of middleware request object.
 * `dbh: dbh`: Print state of database handle.
