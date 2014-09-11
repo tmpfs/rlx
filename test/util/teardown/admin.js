@@ -1,5 +1,6 @@
 var cdb = require('cdb');
-var dbh = new cdb();
+var jar = require('../../../lib/jar');
+var dbh = new cdb({jar: jar});
 var mock = require('../mock');
 var admins = cdb.sections.admins;
 
@@ -17,8 +18,8 @@ var admin = {
       opts = null;
     }
     opts = opts || {};
+    opts.jar = jar;
     opts.server = opts.server || mock.server.default;
-    opts.db = opts.db || mock.database.default;
     opts.section = admins;
     opts.key = opts.key || mock.admin.name;
     opts.value = opts.value || mock.admin.pass;
