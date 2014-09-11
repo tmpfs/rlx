@@ -1,4 +1,4 @@
-.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.275" "User Commands"
+.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.276" "User Commands"
 .SH "NAME"
 rlx-system -- System utilities.
 .SH "SYNOPSIS"
@@ -7,6 +7,10 @@ rlx-system -- System utilities.
 rlx system <command> <args>
 .br
 rlx sys <command> <args> 
+.br
+rlx sys jar <args> 
+.br
+rlx sys auth <args> 
 .br
 rlx sys prg <args> 
 .br
@@ -18,6 +22,10 @@ rlx sys dbh <args>
 System debugging utilities.
 .SH "COMMANDS"
 .BL
+.IP "\[ci]" 4
+\fBjar\fR: Print cookie jar.
+.IP "\[ci]" 4
+\fBauth\fR: Print current authentication information.
 .IP "\[ci]" 4
 \fBprg\fR: Print state of program.
 .IP "\[ci]" 4
