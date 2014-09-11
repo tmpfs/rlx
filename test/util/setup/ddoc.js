@@ -1,5 +1,6 @@
 var cdb = require('cdb');
-var dbh = new cdb();
+var jar = require('../../../lib/jar');
+var dbh = new cdb({jar: jar});
 var mock = require('../mock');
 
 var ddoc = {
