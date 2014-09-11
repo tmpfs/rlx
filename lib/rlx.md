@@ -35,6 +35,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.
 * `rc: runconf, rc`: Runtime configuration.
+* `system: system, sys`: System utilities.
 * `interactive: interactive, i`: Interactive REPL console.
 
 ## Options
@@ -64,6 +65,15 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
+
+### System
+
+System debugging utilities.
+
+#### Commands
+
+* `program: program, prg`: Print state of program.
+* `request: request, req`: Print state of request object.
 
 ### Interactive
 
