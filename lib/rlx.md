@@ -72,8 +72,9 @@ System debugging utilities.
 
 #### Commands
 
-* `program: program, prg`: Print state of program.
-* `request: request, req`: Print state of request object.
+* `prg: prg`: Print state of program.
+* `req: req`: Print state of middleware request object.
+* `dbh: dbh`: Print state of database handle.
 
 ### Interactive
 
