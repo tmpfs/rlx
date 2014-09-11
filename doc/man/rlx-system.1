@@ -1,4 +1,4 @@
-.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.276" "User Commands"
+.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.281" "User Commands"
 .SH "NAME"
 rlx-system -- System utilities.
 .SH "SYNOPSIS"
@@ -10,13 +10,15 @@ rlx sys <command> <args>
 .br
 rlx sys jar <args> 
 .br
-rlx sys auth <args> 
-.br
 rlx sys prg <args> 
 .br
 rlx sys req <args> 
 .br
-rlx sys dbh <args>
+rlx sys dbh <args> 
+.br
+rlx sys conf <args> 
+.br
+rlx sys auth <args>
 .SH "DESCRIPTION"
 .PP
 System debugging utilities.
@@ -25,13 +27,15 @@ System debugging utilities.
 .IP "\[ci]" 4
 \fBjar\fR: Print cookie jar.
 .IP "\[ci]" 4
-\fBauth\fR: Print current authentication information.
-.IP "\[ci]" 4
 \fBprg\fR: Print state of program.
 .IP "\[ci]" 4
 \fBreq\fR: Print state of middleware request object.
 .IP "\[ci]" 4
 \fBdbh\fR: Print state of database handle.
+.IP "\[ci]" 4
+\fBconf\fR: Print program configuration.
+.IP "\[ci]" 4
+\fBauth\fR: Print current authentication information.
 .EL
 .SH "BUGS"
 .PP

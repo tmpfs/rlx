@@ -19,8 +19,8 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `replicate: replicate, repl`: Replicate a database.
 * `application: application, app`: Manage design document applications.
 * `local: local, lcl`: Manage local documents.
-* `login: login <username> <server>`: Login to a server.
-* `logout: logout <username> <server>`: Logout of current session.
+* `login: login, li <username> <server>`: Login to a server.
+* `logout: logout, lo <username> <server>`: Logout of current session.
 * `session: session, sess`: Session authentication.
 * `config: config, conf`: Manage server configuration.
 * `info: info`: Print server information.
@@ -787,6 +787,10 @@ Alias for the `session set` command.
 ### Logout
 
 #### Description
+
+Log out a user from the current authentication session. If no arguments are specified the current session is deleted, otherwise the stored cookie information for the user is removed.
+
+Use the `${cmd_who_long}` command to view currently available login sessions, to view current authentication information run `${cmd_whoami_long}`.
 
 Alias for the `session rm` command.
 
