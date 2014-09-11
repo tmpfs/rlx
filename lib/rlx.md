@@ -84,6 +84,7 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 
 #### Commands
 
+* `who: who`: List login sessions.
 * `pwd: pwd`: Print current location.
 * `cd: cd <server> <db> <docid> <rev>`: Set current location.
 * `shorthelp: ?`: Short help.

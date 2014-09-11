@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.276" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.278" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -7,6 +7,8 @@ rlx-interactive -- Interactive REPL console.
 rlx interactive <command> <args>
 .br
 rlx i <command> <args> 
+.br
+rlx i who <args> 
 .br
 rlx i pwd <args> 
 .br
@@ -22,6 +24,8 @@ rlx i quit <args>
 Launch an interactive console with \fBrlx i\fR, interactive consoles may not be nested. Help is available via \fB?\fR, \fB\-\-help\fR and \fBhelp\fR. If \fB\-\-no\-interactive\fR is specified it is ignored.
 .SH "COMMANDS"
 .BL
+.IP "\[ci]" 4
+\fBwho\fR: List login sessions.
 .IP "\[ci]" 4
 \fBpwd\fR: Print current location.
 .IP "\[ci]" 4
