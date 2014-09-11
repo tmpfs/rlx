@@ -77,6 +77,12 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 * `debug: dbg`: Debug utilities.
 * `exit: q, quit, exit`: Quit interactive console.
 
+#### Location
+
+Run the `${cmd_use_long}` command to change the current location, inspect the location with `${cmd_pwd_long}`.
+
+When `${cmd_use_long}` is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server.
+
 #### Arguments
 
 Commands are not required in interactive mode, you may set any argument:
