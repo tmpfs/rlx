@@ -24,7 +24,8 @@ describe('rlx:', function() {
       config.admin.pass,
       '--no-color',
       '-s=' + config.server.default,
-      '-o', mock
+      '-o', mock,
+      '--no-interactive'
     ];
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {

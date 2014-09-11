@@ -18,7 +18,6 @@ var admin = {
     }
     opts = opts || {};
     opts.server = opts.server || mock.server.default;
-    opts.db = opts.db || mock.database.default;
     opts.section = admins;
     opts.key = opts.key || mock.admin.name;
     opts.value = opts.value || mock.admin.pass;
