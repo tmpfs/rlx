@@ -20,7 +20,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `application: application, app`: Manage design document applications.
 * `local: local, lcl`: Manage local documents.
 * `login: login <username> <server>`: Login to a server.
-* `logout`: Logout of current session.
+* `logout: logout <username> <server>`: Logout of current session.
 * `session: session, sess`: Session authentication.
 * `config: config, conf`: Manage server configuration.
 * `info: info`: Print server information.
