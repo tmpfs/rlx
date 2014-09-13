@@ -17,6 +17,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `bulk: bulk`: Bulk document tasks.
 * `attach: attach, att`: Manage document attachments.
 * `replicate: replicate, repl`: Replicate a database.
+* `batch: batch`: Batch file execution.
 * `application: application, app`: Manage design document applications.
 * `local: local, lcl`: Manage local documents.
 * `login: login, in <username> <server>`: Login to a server.
@@ -65,6 +66,14 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
+
+### Batch
+
+Parse and execute batch files.
+
+#### Commands
+
+* `parse: parse <file...>`: Parse files and print result.
 
 ### System
 
