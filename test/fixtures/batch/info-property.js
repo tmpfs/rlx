@@ -11,7 +11,8 @@ var batch = {
         object: {
           field: [1,2,3]
         }
-      }
+      },
+      header: ['X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1']
     }
   ]
 }

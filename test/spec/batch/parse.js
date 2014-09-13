@@ -87,6 +87,7 @@ describe('rlx:', function() {
       expect(err).to.eql(null);
       var exec = batch.exec[0], cmd;
 
+      var headers = ['X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1'];
       console.dir(exec);
 
       var expected = [
@@ -96,7 +97,11 @@ describe('rlx:', function() {
         '--error',
         '--no-color',
         '--json',
-        '{"object":{"field":[1,2,3]}}'
+        '{"object":{"field":[1,2,3]}}',
+        '--header',
+        headers[0],
+        '--header',
+        headers[1]
       ];
 
       expect(exec.cmd).to.eql(expected);
