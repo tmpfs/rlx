@@ -10,18 +10,20 @@ var batch = {
   ]
 }
 
-for(var i = 0;i < 1;i++) {
+for(var i = 0;i < 101;i++) {
   batch.exec.push(
     {
-      cmd: ['doc', 'add'],
+      cmd: ['doc', 'add', "@num=" + Math.random()],
       id: i,
-      json: {
-        num: Math.random()
-      }
+      // you could achieve the same result
+      // by declaring a json object too
+      //json: {
+        //num: Math.random()
+      //}
     }
   );
 }
 
-//batch.exec.push('db rm');
+batch.exec.push('db rm');
 
 module.exports = batch;
