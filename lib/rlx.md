@@ -74,6 +74,7 @@ Parse and execute batch files.
 #### Commands
 
 * `parse: parse <file...>`: Parse files and print result.
+* `exec: exec <file...>`: Execute batch files.
 
 ### System
 

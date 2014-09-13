@@ -81,14 +81,16 @@ describe('rlx:', function() {
     });
   });
 
-  it('should add argument from property', function(done){
+  it('should add arguments from properties', function(done){
     var file = fsutil.batchfile('info-property.js');
     parse({file: file}, function(err, batch) {
       expect(err).to.eql(null);
       var exec = batch.exec[0], cmd;
 
-      var headers = ['X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1'];
-      console.dir(exec);
+      var headers = [
+        'X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1'];
+
+      //console.dir(exec);
 
       var expected = [
         'info',
