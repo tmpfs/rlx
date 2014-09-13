@@ -80,4 +80,27 @@ describe('rlx:', function() {
       done();
     });
   });
+
+  it('should add argument from property', function(done){
+    var file = fsutil.batchfile('info-property.js');
+    parse({file: file}, function(err, batch) {
+      expect(err).to.eql(null);
+      var exec = batch.exec[0], cmd;
+
+      console.dir(exec);
+
+      var expected = [
+        'info',
+        '--id',
+        'docid',
+        '--error',
+        '--no-color',
+        '--json',
+        '{"object":{"field":[1,2,3]}}'
+      ];
+
+      expect(exec.cmd).to.eql(expected);
+      done();
+    });
+  });
 })

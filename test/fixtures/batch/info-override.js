@@ -8,7 +8,6 @@ var batch = {
     {
       cmd: ['info'],
       server: mock.server.secure,
-      anExtraProperty: 'value'
     }
   ]
 }
