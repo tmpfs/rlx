@@ -9,6 +9,10 @@ fsutil.file = function(name, content) {
   return file;
 }
 
+fsutil.batchfile = function(name) {
+  return path.join(mock.paths.batch, name);
+}
+
 fsutil.rmfile = function(file) {
   fs.unlinkSync(file);
 }

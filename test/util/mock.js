@@ -14,6 +14,7 @@ var attachment = {
 var pkg = path.join(base, 'package.json')
   , test = path.join(base, 'test')
   , fixtures = path.join(test, 'fixtures')
+  , batch = path.join(fixtures, 'batch')
   , security = path.join(fixtures, 'security.json')
   , attachments = path.join(fixtures, 'attachments')
   , attachfile = path.join(attachments, attachment.name)
@@ -113,6 +114,7 @@ var mock = {
     target: target,
     test: test,
     fixtures: fixtures,
+    batch: batch,
     security: security,
     attachments: attachments,
     attachment: attachfile,
