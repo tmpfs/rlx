@@ -6,14 +6,13 @@ var parse = require('../../../lib/util/batch').parse;
 
 describe('rlx:', function() {
   this.timeout(5000);
-  it('should parse raw batch file', function(done){
-    var file = fsutil.batchfile('raw-info.js');
+  it('should parse batch file', function(done){
+    var file = fsutil.batchfile('info.js');
     parse({file: file}, function(err, batch) {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
       expect(batch.options.bail).to.eql(true);
-      expect(batch.options.raw).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
       expect(batch.options.database).to.eql(mock.database.default);
 
@@ -31,14 +30,13 @@ describe('rlx:', function() {
     });
   });
 
-  it('should parse raw batch file (array)', function(done){
-    var file = fsutil.batchfile('raw-info-array.js');
+  it('should parse batch file (array)', function(done){
+    var file = fsutil.batchfile('info-array.js');
     parse({file: file}, function(err, batch) {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
       expect(batch.options.bail).to.eql(true);
-      expect(batch.options.raw).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
       expect(batch.options.database).to.eql(mock.database.default);
 
@@ -58,13 +56,12 @@ describe('rlx:', function() {
 
 
   it('should override default server', function(done){
-    var file = fsutil.batchfile('raw-info-override.js');
+    var file = fsutil.batchfile('info-override.js');
     parse({file: file}, function(err, batch) {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
       expect(batch.options.bail).to.eql(true);
-      expect(batch.options.raw).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
       expect(batch.options.database).to.eql(mock.database.default);
 
