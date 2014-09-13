@@ -7,7 +7,8 @@ var batch = {
   exec: [
     {
       cmd: ['info'],
-      server: mock.server.secure
+      server: mock.server.secure,
+      anExtraProperty: 'value'
     }
   ]
 }

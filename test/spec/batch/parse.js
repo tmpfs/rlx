@@ -65,7 +65,11 @@ describe('rlx:', function() {
       expect(batch.options.server).to.eql(mock.server.default);
       expect(batch.options.database).to.eql(mock.database.default);
 
+      //console.dir(batch);
+
       var exec = batch.exec[0], cmd;
+
+      //console.dir(exec);
       expect(exec).to.be.an('object');
       expect(exec.cmd).to.be.an('array');
       cmd = exec.cmd;
