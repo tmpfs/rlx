@@ -58,6 +58,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-g, --glob [pattern...]`: File match pattern(s).
 * `--[no]-interactive`: Disable interactive prompts.
 * `--recursive`: Read directories recursively.
+* `--noop`: Print db network requests, do not send them.
 * `--destination [url]`: Copy destination.
 * `--force`: Force file overwrite.
 * `--ddoc [name]`: Design document id.
