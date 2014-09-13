@@ -5,6 +5,7 @@ var batch = {
   server: mock.server.default,
   database: mock.database.default,
   interactive: false,
+  // comment this out and it will do it's thing
   noop: true,
   exec: [
     'db add'
