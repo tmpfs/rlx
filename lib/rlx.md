@@ -151,6 +151,24 @@ module.exports = {
 // => ['lint', '--json', '{"field":"value"}']
 ```
 
+For advanced use cases that need asynchronous logic you may export a function.
+
+The function is passed a callback function with the signature `cb(err, batch)` where `batch` should be a valid batch file.
+
+```javascript
+module.exports = function batch(cb) {
+  var def = {
+    server: '{server}',
+    exec: [
+      {
+        cmd: ['info']
+      }
+    ]
+  }
+  cb(null, def);
+}
+```
+
 ### System
 
 System debugging utilities.

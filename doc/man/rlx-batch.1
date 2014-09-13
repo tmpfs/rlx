@@ -1,4 +1,4 @@
-.TH "RLX-BATCH" "1" "September 2014" "rlx-batch 0.1.289" "User Commands"
+.TH "RLX-BATCH" "1" "September 2014" "rlx-batch 0.1.291" "User Commands"
 .SH "NAME"
 rlx-batch -- Batch file execution.
 .SH "SYNOPSIS"
@@ -126,6 +126,33 @@ The \fB\-\-json\fR option is a special case, you may specify a string and it is 
   }
 .br
   // => ['lint', '\-\-json', '{"field":"value"}']
+.PP
+For advanced use cases that need asynchronous logic you may export a function.
+.PP
+The function is passed a callback function with the signature \fBcb(err, batch)\fR where \fBbatch\fR should be a valid batch file.
+
+.SP
+  module.exports = function batch(cb) {
+.br
+    var def = {
+.br
+      server: '{server}',
+.br
+      exec: [
+.br
+        {
+.br
+          cmd: ['info']
+.br
+        }
+.br
+      ]
+.br
+    }
+.br
+    cb(null, def);
+.br
+  }
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

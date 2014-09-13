@@ -12,9 +12,7 @@ describe('rlx:', function() {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
-      expect(batch.options.bail).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
-      expect(batch.options.database).to.eql(mock.database.default);
 
       //console.dir(batch.exec[0]);
 
@@ -24,8 +22,6 @@ describe('rlx:', function() {
       cmd = exec.cmd;
       expect(cmd).to.be.an('array');
       expect(cmd[0]).to.eql('info');
-      expect(cmd[1]).to.eql('--server');
-      expect(cmd[2]).to.eql(mock.server.default);
       done();
     });
   });
@@ -36,9 +32,7 @@ describe('rlx:', function() {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
-      expect(batch.options.bail).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
-      expect(batch.options.database).to.eql(mock.database.default);
 
       //console.dir(batch.exec[0]);
 
@@ -48,8 +42,6 @@ describe('rlx:', function() {
       cmd = exec.cmd;
       expect(cmd).to.be.an('array');
       expect(cmd[0]).to.eql('info');
-      expect(cmd[1]).to.eql('--server');
-      expect(cmd[2]).to.eql(mock.server.default);
       done();
     });
   });
@@ -61,9 +53,7 @@ describe('rlx:', function() {
       expect(err).to.eql(null);
       expect(batch).to.be.an('object')
       expect(batch.exec).to.be.an('array');
-      expect(batch.options.bail).to.eql(true);
       expect(batch.options.server).to.eql(mock.server.default);
-      expect(batch.options.database).to.eql(mock.database.default);
 
       //console.dir(batch);
 
