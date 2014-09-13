@@ -71,10 +71,85 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 Parse and execute batch files.
 
+Batch files are executed in the context of the current process.
+
 #### Commands
 
 * `parse: parse <file...>`: Parse files and print result.
 * `exec: exec <file...>`: Execute batch files.
+
+#### Batch Definitions
+
+Batch file definitions may be Javascript or JSON, Javascript is preferable and recommended. Use the `${cmd_parse_long}` command to inspect what would be executed.
+
+Reserved keywords in batch files are `conf`, `exec` and `cmd`.
+
+A batch file is an object with an `exec` array:
+
+```javascript
+module.exports = {
+  server: '{server}',
+  exec: [
+    'info'
+  ]
+}
+```
+
+Fields defined at the top-level are assigned to the program , such that you can set the server, database and other useful options. These properties last for the duration of the batch file execution.
+
+An entry in the `exec` array may be:
+
+1. A string, it is split into an array of raw arguments using a space character.
+2. An array of raw arguments to parse.
+3. An object containing a `cmd` array with optional additional fields.
+
+When specifying an object as an `exec` the format is:
+
+```javascript
+module.exports = {
+  server: '{server}',
+  exec: [
+    {
+      cmd: ['db', 'rm'],
+      interactive: false
+    }
+  ]
+}
+// => ['db', 'rm', '--no-interactive']
+```
+
+You can specify arguments that accept multiple parameters as arrays and they are expanded to multiple options:
+
+
+```javascript
+module.exports = {
+  server: '{server}',
+  exec: [
+    {
+      cmd: ['tpl', 'ls'],
+      glob: ['db/**', 'design/**']
+    }
+  ]
+}
+// => ['tpl', 'ls', '--glob', 'db/**', '--glob', 'design/**']
+```
+
+The `${opt_json_long}` option is a special case, you may specify a string and it is treated as a JSON string literal any other type is passed to `JSON.stringify`. For example:
+
+```javascript
+module.exports = {
+  server: '{server}',
+  exec: [
+    {
+      cmd: ['lint'],
+      json: {
+        field: "value"
+      }
+    }
+  ]
+}
+// => ['lint', '--json', '{"field":"value"}']
+```
 
 ### System
 
