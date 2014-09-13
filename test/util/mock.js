@@ -32,7 +32,8 @@ var mock = {
   editor: path.join(base, 'test', 'bin', 'editor'),
   cdb: cdb,
   server: {
-    default: process.env.rlx_test_server || 'http://localhost:5984'
+    default: process.env.rlx_test_server || 'http://localhost:5984',
+    secure: process.env.rlx_test_server_secure || 'https://localhost:5984'
   },
   app: {
     ddoc: 'mock-design-document',
