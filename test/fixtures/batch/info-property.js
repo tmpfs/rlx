@@ -12,7 +12,9 @@ var batch = {
           field: [1,2,3]
         }
       },
-      header: ['X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1']
+      header: ['X-Couch-Full-Commit: true', 'X-Forwarded-For: 127.0.0.1'],
+      glob: ['*.txt', '*.md', '*.html'],
+      query: 'rev=0-1'
     }
   ]
 }

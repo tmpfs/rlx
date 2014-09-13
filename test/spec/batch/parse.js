@@ -101,7 +101,15 @@ describe('rlx:', function() {
         '--header',
         headers[0],
         '--header',
-        headers[1]
+        headers[1],
+        '--glob',
+        '*.txt',
+        '--glob',
+        '*.md',
+        '--glob',
+        '*.html',
+        '--query',
+        'rev=0-1'
       ];
 
       expect(exec.cmd).to.eql(expected);
