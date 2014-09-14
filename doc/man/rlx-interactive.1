@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.294" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.297" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -41,23 +41,32 @@ Launch an interactive console with \fBrlx i\fR, interactive consoles may not be 
 .PP
 Run the \fBcd\fR command to change the current location, inspect the location with \fBpwd\fR.
 .PP
-When \fBcd\fR is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server.
+When \fBcd\fR is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with \fBcd /\fR.
 .SH "ARGUMENTS"
 .PP
 Commands are not required in interactive mode, you may set any argument:
 
 .SP
-  \-\-http      # enable http logging
+  \-\-http                    # enable http logging
 .br
-  \-\-no\-http   # disable http logging
+  \-\-no\-http                 # disable http logging
 .br
-  \-d {db}     # set current database
+  \-d {db}                   # set current database
 .br
-  \-d          # clear current database
+  \-d                        # clear current database
 .br
-  \-\-trace     # set log level to trace
+  \-\-no\-color                # disable colors
+.PP
+To alleviate typing so many hyphens shortcuts are available. Provided a command is not specified in the interactive console you may also set options without the leading hyphens using the long name:
+
+.SP
+  no\-color                  # disable colors
 .br
-  \-\-no\-color  # disable colors
+  color                     # enable colors
+.br
+  http log\-level debug      # enable http logging (debug)
+.PP
+The only current known collision is between the \fBhelp\fR command and \fB\-\-help\fR option, in this case \fBhelp\fR is preferred, you can still use \fB\-\-help\fR but no shortcut is available.
 .SH "HISTORY INTERPRETER"
 .PP
 An experimental history command interpreter is enabled by default that recognizes index based references such as \fB!!\fR (or \fB!\-1\fR) and \fB!1\fR, 

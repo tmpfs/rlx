@@ -181,6 +181,7 @@ System debugging utilities.
 * `prg: prg`: Print state of program.
 * `req: req`: Print state of middleware request object.
 * `dbh: dbh`: Print state of database handle.
+* `env: env`: Print environemnt variables.
 * `conf: conf`: Print program configuration.
 * `auth: auth`: Print current authentication information.
 
@@ -201,27 +202,29 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 
 Run the `${cmd_cd_long}` command to change the current location, inspect the location with `${cmd_pwd_long}`.
 
-When `${cmd_cd_long}` is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server.
+When `${cmd_cd_long}` is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with `${cmd_cd_long} /`.
 
 #### Arguments
 
 Commands are not required in interactive mode, you may set any argument:
 
 ```
---http      # enable http logging
---no-http   # disable http logging
--d {db}     # set current database
--d          # clear current database
---no-color  # disable colors
+--http                    # enable http logging
+--no-http                 # disable http logging
+-d {db}                   # set current database
+-d                        # clear current database
+--no-color                # disable colors
 ```
 
-But it is a little tedious to keep typing all those hyphens so *providing a command is not specified* in the interactive console you may also set options without the leading hyphens using the long name:
+To alleviate typing so many hyphens shortcuts are available. Provided a command is not specified in the interactive console you may also set options without the leading hyphens using the long name:
 
 ```
-no-color  # disable colors
-color     # enable colors
-http      # enable http logging
+no-color                  # disable colors
+color                     # enable colors
+http log-level debug      # enable http logging (debug)
 ```
+
+The only current known collision is between the `${cmd_help_long}` command and `${opt_help_long}` option, in this case `${cmd_help_long}` is preferred, you can still use `${opt_help_long}` but no shortcut is available.
 
 #### History Interpreter
 
