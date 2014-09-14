@@ -1,4 +1,4 @@
-.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.294" "User Commands"
+.TH "RLX-SYSTEM" "1" "September 2014" "rlx-system 0.1.298" "User Commands"
 .SH "NAME"
 rlx-system -- System utilities.
 .SH "SYNOPSIS"
@@ -8,6 +8,8 @@ rlx system <command> <args>
 .br
 rlx sys <command> <args> 
 .br
+rlx sys log <args> 
+.br
 rlx sys jar <args> 
 .br
 rlx sys prg <args> 
@@ -16,14 +18,22 @@ rlx sys req <args>
 .br
 rlx sys dbh <args> 
 .br
+rlx sys env <args> 
+.br
+rlx sys hist <args> 
+.br
 rlx sys conf <args> 
 .br
 rlx sys auth <args>
 .SH "DESCRIPTION"
 .PP
 System debugging utilities.
+.PP
+The \fBlog\fR command accepts the \fB\-\-raw\fR option as an alternative to the default JSON output.
 .SH "COMMANDS"
 .BL
+.IP "\[ci]" 4
+\fBlog\fR: Print log buffer contents.
 .IP "\[ci]" 4
 \fBjar\fR: Print cookie jar.
 .IP "\[ci]" 4
@@ -32,6 +42,10 @@ System debugging utilities.
 \fBreq\fR: Print state of middleware request object.
 .IP "\[ci]" 4
 \fBdbh\fR: Print state of database handle.
+.IP "\[ci]" 4
+\fBenv\fR: Print environemnt variables.
+.IP "\[ci]" 4
+\fBhist\fR: Print command history.
 .IP "\[ci]" 4
 \fBconf\fR: Print program configuration.
 .IP "\[ci]" 4

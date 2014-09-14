@@ -175,6 +175,8 @@ module.exports = function batch(cb) {
 
 System debugging utilities.
 
+The `${cmd_log_long}` command accepts the `${opt_raw_long}` option as an alternative to the default JSON output.
+
 #### Commands
 
 * `log: log`: Print log buffer contents.
