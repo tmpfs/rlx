@@ -54,7 +54,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-t, --template [name]`: Name of a template file.
 * `-c, --compress`: Compact JSON output format (zero indent). 
 * `-q, --query [params...]`: Query string parameters.
-* `-h, --header [key: value...]`: Additional HTTP headers.
+* `-h, --header [key:val...]`: Additional HTTP headers.
 * `-g, --glob [pattern...]`: File match pattern(s).
 * `--log-level [level]`: Set the log level.
 * `--[no]-interactive`: Disable interactive prompts.
