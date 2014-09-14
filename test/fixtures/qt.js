@@ -1349,7 +1349,7 @@ function getArguments(id, opts) {
     if(!~args.indexOf(force)) {
       args.push(force);
     }
-    args.push('--no-color', '--error');
+    args.push('--no-color', '--log-level', 'error');
   }
   args.push('--no-interactive');
   return args;

@@ -56,6 +56,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-q, --query [params...]`: Query string parameters.
 * `-h, --header [key: value...]`: Additional HTTP headers.
 * `-g, --glob [pattern...]`: File match pattern(s).
+* `--log-level [level]`: Set the log level.
 * `--[no]-interactive`: Disable interactive prompts.
 * `--recursive`: Read directories recursively.
 * `--noop`: Print db network requests, do not send them.
@@ -211,8 +212,15 @@ Commands are not required in interactive mode, you may set any argument:
 --no-http   # disable http logging
 -d {db}     # set current database
 -d          # clear current database
---trace     # set log level to trace
 --no-color  # disable colors
+```
+
+But it is a little tedious to keep typing all those hyphens so *providing a command is not specified* in the interactive console you may also set options without the leading hyphens using the long name:
+
+```
+no-color  # disable colors
+color     # enable colors
+http      # enable http logging
 ```
 
 #### History Interpreter
@@ -934,7 +942,7 @@ Use the HTTP logging option to inspect the request headers:
 
 ```
 $0 doc get -s {server} -d {database} -i {document} \
-  -h 'if-none-match: "{revision}"' --http --trace
+  -h 'if-none-match: "{revision}"' --http --log-level debug
 ```
 
 The `${opt_rev_long}` would be more concise in the above example, however it illustrates the ability to set and inspect headers.
