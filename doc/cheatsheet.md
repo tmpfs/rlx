@@ -106,6 +106,8 @@ Table of Contents
     * [PUT /_config/log/level](#put-_configloglevel)
     * [GET /_config/log/level](#get-_configloglevel)
 
+'/Users/cyberfunk/git/rlx/target/usr/.rlx-test-runner'
+
 rlx(1) cheatsheet
 =================
 

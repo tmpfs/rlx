@@ -31,7 +31,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `restart: restart`: Restart a server.
 * `uuids: uuids`: Print list of uuids.
 * `edit: edit`: Edit a document.
-* `template: template, tpl`: Manage template files.
+* `template: tpl`: Manage template files.
 * `lint: lint`: Lint javascript and json.
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.

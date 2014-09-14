@@ -24,10 +24,11 @@ var pkg = path.join(base, 'package.json')
   , docspull = path.join(target, 'docs', 'pull')
   , templates = path.join(fixtures, 'template')
   , tplerrors = path.join(templates, 'error')
-  , tpl = path.join(templates, 'mock-template.js');
+  , tpl = path.join(templates, 'mock-template.js')
+  , name = process.env.rlx_program_name || 'rlx-test-runner';
 
 var mock = {
-  name: 'rlx-test-runner',
+  name: name,
   program: program,
   editor: path.join(base, 'test', 'bin', 'editor'),
   cdb: cdb,
@@ -169,6 +170,8 @@ var mock = {
 
 mock.usr.home = path.join(target, 'usr');
 mock.usr.rlx = path.join(mock.usr.home, '.' + mock.name);
+
+console.dir(mock.usr.rlx);
 
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);

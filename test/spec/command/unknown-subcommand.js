@@ -111,7 +111,7 @@ describe('rlx:', function() {
   });
   it('should error on unknown template command', function(done){
     var args = [
-      'template',
+      'tpl',
       'unknown',
       '-s=' + config.server.default,
       '--no-color'

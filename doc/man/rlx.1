@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.281" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.294" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -6,11 +6,11 @@ rlx -- Command line interface for couchdb.
 .SP
 rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress]
 .br
-    [\-\-interactive|\-\-no\-interactive] [\-\-recursive] [\-\-force] [\-\-http]
+    [\-\-interactive|\-\-no\-interactive] [\-\-recursive] [\-\-noop] [\-\-force]
 .br
-    [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help] [\-\-version]
+    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help]
 .br
-    [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
+    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
 .br
     [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>]
 .br
@@ -45,13 +45,15 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fBreplicate, repl\fR: Replicate a database.
 .IP "\[ci]" 4
+\fBbatch\fR: Batch file execution.
+.IP "\[ci]" 4
 \fBapplication, app\fR: Manage design document applications.
 .IP "\[ci]" 4
 \fBlocal, lcl\fR: Manage local documents.
 .IP "\[ci]" 4
-\fBlogin, li\fR: Login to a server.
+\fBlogin, in\fR: Login to a server.
 .IP "\[ci]" 4
-\fBlogout, lo\fR: Logout of current session.
+\fBlogout, out\fR: Logout of current session.
 .IP "\[ci]" 4
 \fBsession, sess\fR: Session authentication.
 .IP "\[ci]" 4
@@ -71,7 +73,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fBedit\fR: Edit a document.
 .IP "\[ci]" 4
-\fBtemplate, tpl\fR: Manage template files.
+\fBtpl\fR: Manage template files.
 .IP "\[ci]" 4
 \fBlint\fR: Lint javascript and json.
 .IP "\[ci]" 4
@@ -90,7 +92,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-g, \-\-glob=[pattern...]\fR: File match pattern(s).
+\fB\-\-[no]\-interactive\fR: Disable interactive prompts.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -120,11 +122,13 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-h, \-\-header=[key: value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
+\fB\-g, \-\-glob=[pattern...]\fR: File match pattern(s).
+.IP "\[ci]" 4
 \fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
-\fB\-\-[no]\-interactive\fR: Disable interactive prompts.
-.IP "\[ci]" 4
 \fB\-\-recursive\fR: Read directories recursively.
+.IP "\[ci]" 4
+\fB\-\-noop\fR: Print db network requests, do not send them.
 .IP "\[ci]" 4
 \fB\-\-destination=[url]\fR: Copy destination.
 .IP "\[ci]" 4

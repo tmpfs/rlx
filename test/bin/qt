@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+// unit tests use `rlx-test-runner` but
+// we are executing externally so need
+// to change the *mock* name
+process.env.rlx_program_name = 'rlx';
+
 var async = require('async');
 var path = require('path');
 var util = require('util');
@@ -41,9 +46,13 @@ function run(fixtures, hook, cb) {
       var opts = {env: process.env};
       console.log(
         prefix + (hook ? hook + ' ' : '') + '%s %s', nm, cmd.join(' '));
+
+      if(!~cmd.indexOf('--no-interactive') && cmd.length) {
+        cmd.push('--no-interactive');
+      }
       cmd.unshift(exe);
       cmd = cmd.join(' ');
-      cmd = cmd.replace('*', '\\*');
+      cmd = cmd.replace(/(\*|&|!|\$|\?|\^|<|>)/g, '\\$1');
       exec(cmd, opts, function(err, stdout, stderr) {
         var code = err && err.code ? err.code : 0;
         if(test.stdout) {
