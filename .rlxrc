@@ -46,5 +46,10 @@
     "id": {
       "auto": true
     }
+  },
+  "console": {
+    "comment": {
+      "inject": false
+    }
   }
 }
