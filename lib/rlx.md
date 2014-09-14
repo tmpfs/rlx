@@ -182,6 +182,7 @@ System debugging utilities.
 * `req: req`: Print state of middleware request object.
 * `dbh: dbh`: Print state of database handle.
 * `env: env`: Print environemnt variables.
+* `hist: hist`: Print command history.
 * `conf: conf`: Print program configuration.
 * `auth: auth`: Print current authentication information.
 
