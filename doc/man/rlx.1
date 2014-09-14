@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.294" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.297" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -8,21 +8,21 @@ rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress]
 .br
     [\-\-interactive|\-\-no\-interactive] [\-\-recursive] [\-\-noop] [\-\-force]
 .br
-    [\-\-http] [\-\-trace] [\-\-debug] [\-\-info] [\-\-warn] [\-\-error] [\-\-help]
+    [\-\-http] [\-\-help] [\-\-version] [\-s|\-\-server=<url>]
 .br
-    [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>] [\-i|\-\-id=<id>]
+    [\-d|\-\-database=<name>] [\-i|\-\-id=<id>] [\-a|\-\-attachment=<file>]
 .br
-    [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>]
+    [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>]
 .br
-    [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>] [\-f|\-\-file=<file>]
+    [\-o|\-\-output=<file>] [\-f|\-\-file=<file>] [\-j|\-\-json=<json>]
 .br
-    [\-j|\-\-json=<json>] [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
+    [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
 .br
     [\-h|\-\-header=<key:value...>] [\-g|\-\-glob=<pattern...>]
 .br
-    [\-\-destination=<url>] [\-\-ddoc=<name>] [\-n|\-\-name=<name>]
+    [\-\-log\-level=<level>] [\-\-destination=<url>] [\-\-ddoc=<name>]
 .br
-    [\-\-feed=<type>] <args>
+    [\-n|\-\-name=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands, start an interactive session with \fBrlx i\fR.
@@ -92,7 +92,7 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .SH "OPTIONS"
 .BL
 .IP "\[ci]" 4
-\fB\-\-[no]\-interactive\fR: Disable interactive prompts.
+\fB\-h, \-\-header=[key: value...]\fR: Additional HTTP headers.
 .IP "\[ci]" 4
 \fB\-\-[no]\-color\fR: Enable or disable terminal colors.
 .IP "\[ci]" 4
@@ -120,11 +120,13 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-q, \-\-query=[params...]\fR: Query string parameters.
 .IP "\[ci]" 4
-\fB\-h, \-\-header=[key: value...]\fR: Additional HTTP headers.
+\fB\-s, \-\-server=[url]\fR: Database server.
 .IP "\[ci]" 4
 \fB\-g, \-\-glob=[pattern...]\fR: File match pattern(s).
 .IP "\[ci]" 4
-\fB\-s, \-\-server=[url]\fR: Database server.
+\fB\-\-log\-level=[level]\fR: Set the log level.
+.IP "\[ci]" 4
+\fB\-\-[no]\-interactive\fR: Disable interactive prompts.
 .IP "\[ci]" 4
 \fB\-\-recursive\fR: Read directories recursively.
 .IP "\[ci]" 4
@@ -142,78 +144,9 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-http\fR: Enable HTTP logs.
 .IP "\[ci]" 4
-\fB\-\-trace\fR: Set log level to trace.
-.IP "\[ci]" 4
-\fB\-\-debug\fR: Set log level to debug.
-.IP "\[ci]" 4
-\fB\-\-info\fR: Set log level to info.
-.IP "\[ci]" 4
-\fB\-\-warn\fR: Set log level to warn.
-.IP "\[ci]" 4
-\fB\-\-error\fR: Set log level to error.
-.IP "\[ci]" 4
 \fB\-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
-.EL
-.SH "LOG"
-.PP
-All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-trace\fR, \fB\-\-debug\fR, \fB\-\-info\fR, \fB\-\-warn\fR and \fB\-\-error\fR options. The default log level is \fBinfo\fR.
-.PP
-Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the log level options (\fB${opt_trace_long}\fR etc.) applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is \fBdebug\fR then query string parameters will also be logged, if the \fBtrace\fR level is specified then request and response headers are also printed.
-.SH "HEADERS"
-.PP
-Similar to \fBcurl(1)\fR arbitrary HTTP headers are accepted using the \fB\-h | \-\-header\fR option (note the short version is lowercase), you may specify as many headers as you like although \fBContent\-Type\fR and \fBAccept\fR are ignored, a warning is printed if you attempt to use them.
-.PP
-If the value of the \fB\-\-header\fR option is incorrect (bad syntax) an error is reported.
-.PP
-Use the HTTP logging option to inspect the request headers:
-
-.SP
-  rlx doc get \-s {server} \-d {database} \-i {document} \e
-.br
-    \-h 'if\-none\-match: "{revision}"' \-\-http \-\-trace
-.PP
-The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
-.SH "QUERY STRING"
-.PP
-The \fBcouchdb\fR database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
-.PP
-To specify query string parameters use the \fB\-q | \-\-query\fR option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
-.PP
-Some options map to query string parameters (for example \fB\-r | \-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
-.PP
-You may specify a leading \fB?\fR but it is unnecessary and not recommended.
-.PP
-To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
-
-  rlx doc revsinfo \-s {server} \-d {database} \-i {id}
-.PP
-But you could also use \fB\-q | \-\-query\fR:
-
-  rlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'
-.PP
-An example of precedence:
-
-  rlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'
-.PP
-The value of \fB{rev}\fR will be used \fInot\fR \fB{revision}\fR.
-.SH "HIGHLIGHT"
-.PP
-The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
-.BL
-.IP "\[ci]" 4
-Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fB$PATH\fR.
-.IP "\[ci]" 4
-The \fBstdout\fR stream is not a \fBtty\fR (redirection).
-.IP "\[ci]" 4
-The \fB\-o | \-\-output\fR option is specified (output is a file).
-.IP "\[ci]" 4
-The \fB\-\-no\-color\fR option is specified (disables all ANSI escape sequences).
-.IP "\[ci]" 4
-The rc file \fBhighlight\fR section is invalid (does not contain json and js objects).
-.IP "\[ci]" 4
-The output to print is neither JSON or javascript (\-\-raw specified).
 .EL
 .SH "ENVIRONMENT"
 .PP
