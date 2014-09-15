@@ -56,7 +56,8 @@
     "debug": {
       "clean": true,
       "always": true,
-      "json": false,
+      "json": true,
+      "lines": true,
       "indent": 2
     }
   }
