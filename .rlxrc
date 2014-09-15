@@ -54,7 +54,9 @@
   },
   "log": {
     "debug": {
-      "json": true,
+      "clean": true,
+      "always": true,
+      "json": false,
       "indent": 2
     }
   }
