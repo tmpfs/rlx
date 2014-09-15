@@ -50,6 +50,17 @@
   "console": {
     "comment": {
       "inject": false
+    },
+    "cascade": {
+      "allow": [
+        "color",
+        "http",
+        "server",
+        "database",
+        "id",
+        "rev",
+        "ddoc"
+      ]
     }
   },
   "log": {
