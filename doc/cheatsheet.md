@@ -6,6 +6,7 @@ Table of Contents
     * [GET /](#get-)
     * [GET /_active_tasks](#get-_active_tasks)
     * [GET /_log](#get-_log)
+    * [GET /_log](#get-_log-1)
     * [POST /_restart](#post-_restart)
     * [GET /_stats](#get-_stats)
     * [GET /_uuids](#get-_uuids)
@@ -106,8 +107,6 @@ Table of Contents
     * [PUT /_config/log/level](#put-_configloglevel)
     * [GET /_config/log/level](#get-_configloglevel)
 
-'/Users/cyberfunk/git/rlx/target/usr/.rlx-test-runner'
-
 rlx(1) cheatsheet
 =================
 
@@ -144,6 +143,16 @@ Tail log file:
 
 ```
 rlx log -s {server}
+```
+
+Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
+
+### GET /_log
+
+Tail raw log file:
+
+```
+rlx log --raw -s {server}
 ```
 
 Documentation: [server/common#get-log](http://docs.couchdb.org/en/latest/api/server/common.html#get--_log)
