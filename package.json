@@ -26,7 +26,7 @@
     "cli-error": "~0.5.3",
     "cli-input": "^0.0.83",
     "cli-interface": "~1.0.8",
-    "cli-logger": "^0.5.16",
+    "cli-logger": "^0.5.20",
     "cli-native": "^1.0.0",
     "cli-rc": "^1.0.8",
     "cli-util": "^1.1.18",
