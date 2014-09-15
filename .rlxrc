@@ -47,6 +47,9 @@
       "auto": true
     }
   },
+  "error": {
+    "json": false
+  },
   "console": {
     "comment": {
       "inject": false
