@@ -51,5 +51,11 @@
     "comment": {
       "inject": false
     }
+  },
+  "log": {
+    "debug": {
+      "json": true,
+      "indent": 2
+    }
   }
 }
