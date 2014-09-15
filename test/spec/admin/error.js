@@ -12,7 +12,7 @@ describe('rlx:', function() {
       clear: true,
       args: [
         'admin',
-        'add'
+        'add',
       ]
     })
     var def = program(require(pkg), config.name);

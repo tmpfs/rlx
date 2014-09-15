@@ -25,7 +25,9 @@ var pkg = path.join(base, 'package.json')
   , templates = path.join(fixtures, 'template')
   , tplerrors = path.join(templates, 'error')
   , tpl = path.join(templates, 'mock-template.js')
-  , name = process.env.rlx_program_name || 'rlx-test-runner';
+  // should use same name in test runner
+  // makes life so much easier
+  , name = process.env.rlx_program_name || 'rlx';
 
 var mock = {
   name: name,
