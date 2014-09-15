@@ -38,7 +38,7 @@
     "ncp": "^0.6.0",
     "recursive-readdir": "^1.2.0",
     "request": "^2.40.0",
-    "ttycolor": "^0.8.10",
+    "ttycolor": "^0.8.11",
     "uuid": "^1.4.1",
     "which": "^1.0.5"
   },
