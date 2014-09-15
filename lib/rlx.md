@@ -919,6 +919,33 @@ Alias for the `session rm` command.
 
 ## Files
 
+A debug log file (`rlx-debug.log`) is written to the current working directory when an error occurs. The debug log file is written synchronously when the program exits.
+
+The format of this file and under which circumstances it is written is controlled by the rc configuration section:
+
+```
+"log": {
+  "debug": {
+    "clean": true,
+    "always": false,
+    "interactive": false,
+    "json": false,
+    "lines": false,
+    "indent": 2
+  }
+}
+```
+
+The rules for when a debug log file are written are:
+
+1. If `always` write the file regardless of exit code or interactivity.
+2. Otherwise write the file if an error occurs and it is not an interactive session.
+3. If `interactive` also write the file for interactive sessions with errors.
+
+The log file by default is a plain text format designed to be quick to scan you can set `json` to `true` for a dump of the log records array, if you also set `lines` to `true` then the output is a newline delimited list of stringified log records compatible with bunyan(1). The `indent` property only applies to JSON output when `lines` is not set.
+
+The `clean` property indicates that the log file should be removed upon successful execution (zero exit code).
+
 Input files are read with the following precedence: `stdin`, `${opt_json_long}` and `${opt_file_long}`. 
 
 To read from `stdin` the special option (-) must be specified, if data is written to `stdin` it must be a JSON document or an error is reported. When the `${opt_json_long}` option is specified it must be a valid JSON string literal, be sure to enclose in quotes to prevent shell errors.

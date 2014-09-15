@@ -47,7 +47,7 @@ rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.310 /Users/cyberfunk/git/rlx
+rlx@0.1.311 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer

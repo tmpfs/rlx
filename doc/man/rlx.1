@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.310" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.311" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "SYNOPSIS"
@@ -211,6 +211,45 @@ The output to print is neither JSON or javascript (\-\-raw specified).
 .PP
 The \fB$HOME\fR environment variable must be set in order for user configuration data to be loaded, typically for most developer environments this is not an issue however when using \fBrlx(1)\fR as part of infrastructure deployment you may need to ensure that \fB$HOME\fR is set.
 .SH "FILES"
+.PP
+A debug log file (\fBrlx\-debug.log\fR) is written to the current working directory when an error occurs. The debug log file is written synchronously when the program exits.
+.PP
+The format of this file and under which circumstances it is written is controlled by the rc configuration section:
+
+.SP
+  "log": {
+.br
+    "debug": {
+.br
+      "clean": true,
+.br
+      "always": false,
+.br
+      "interactive": false,
+.br
+      "json": false,
+.br
+      "lines": false,
+.br
+      "indent": 2
+.br
+    }
+.br
+  }
+.PP
+The rules for when a debug log file are written are:
+.BL
+
+  1.  If \fBalways\fR write the file regardless of exit code or interactivity.
+
+  2.  Otherwise write the file if an error occurs and it is not an interactive session.
+
+  3.  If \fBinteractive\fR also write the file for interactive sessions with errors.
+.EL
+.PP
+The log file by default is a plain text format designed to be quick to scan you can set \fBjson\fR to \fBtrue\fR for a dump of the log records array, if you also set \fBlines\fR to \fBtrue\fR then the output is a newline delimited list of stringified log records compatible with bunyan(1). The \fBindent\fR property only applies to JSON output when \fBlines\fR is not set.
+.PP
+The \fBclean\fR property indicates that the log file should be removed upon successful execution (zero exit code).
 .PP
 Input files are read with the following precedence: \fBstdin\fR, \fB\-\-json\fR and \fB\-\-file\fR. 
 .PP
