@@ -54,6 +54,7 @@
     "cascade": {
       "allow": [
         "color",
+        "noop",
         "http",
         "server",
         "database",
