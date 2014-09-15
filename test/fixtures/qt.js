@@ -233,6 +233,19 @@ var qt = [
     ]
   },
   {
+    id: 'log/raw',
+    description: 'Tail raw log file',
+    api: [parameters.log],
+    method: methods.get,
+    doc: docs.server + '#get--_log',
+    cmd: [
+      'log',
+      '--raw',
+      '-s',
+      mock.server.default
+    ]
+  },
+  {
     id: 'restart',
     description: 'Restart the server',
     api: [parameters.restart],
@@ -1349,7 +1362,7 @@ function getArguments(id, opts) {
     if(!~args.indexOf(force)) {
       args.push(force);
     }
-    args.push('--no-color', '--log-level', 'error');
+    args.push('--no-color', '--log-level', 'fatal');
   }
   args.push('--no-interactive');
   return args;
