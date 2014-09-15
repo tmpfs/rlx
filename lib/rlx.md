@@ -936,9 +936,9 @@ cat package.json | $0 - ${cmd_lint_long}
 
 ## Log
 
-All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_logtrace_pipe}`, `${opt_logdebug_pipe}`, `${opt_loginfo_pipe}`, `${opt_logwarn_pipe}` and `${opt_logerror_pipe}` options. The default log level is `info`.
+All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_log_level_long}` option. The default log level is `info`.
 
-Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the ${log_level_long} option applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code). When the log level is `debug` then query string parameters will also be logged, if the `trace` level is specified then request and response headers are also printed.
+Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the `${opt_log_level_long}` option applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is `debug` then query string parameters and headers will also be logged.
 
 ## Headers
 

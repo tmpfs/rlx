@@ -56,7 +56,7 @@
     "debug": {
       "clean": true,
       "always": false,
-      "interactive": true,
+      "interactive": false,
       "json": false,
       "lines": false,
       "indent": 2

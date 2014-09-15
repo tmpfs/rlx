@@ -171,7 +171,7 @@ var mock = {
 mock.usr.home = path.join(target, 'usr');
 mock.usr.rlx = path.join(mock.usr.home, '.' + mock.name);
 
-console.dir(mock.usr.rlx);
+//console.dir(mock.usr.rlx);
 
 attachment.path = mock.paths.attachment;
 attachment.doc = '' + fs.readFileSync(attachment.path);
