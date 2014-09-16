@@ -211,7 +211,7 @@ When `${cmd_cd_long}` is invoked with no arguments it clears the currently selec
 
 #### Arguments
 
-Commands are not required in interactive mode, you may set any argument:
+Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
 
 ```
 --http                    # enable http logging
@@ -221,13 +221,17 @@ Commands are not required in interactive mode, you may set any argument:
 --no-color                # disable colors
 ```
 
-To alleviate typing so many hyphens shortcuts are available. Provided a command is not specified in the interactive console you may also set options without the leading hyphens using the long name:
+Alternatively without the leading hyphens using the long name:
 
 ```
 no-color                  # disable colors
 color                     # enable colors
 http log-level debug      # enable http logging (debug)
 ```
+
+This arguments are tested against a whitelist of property names defined in `console.cascade.allow`. It makes sense for some options to cascade to commands executed in the future (`${opt_color_yes}`, `${opt_log_level_long}` etc) however for some options it is counter-intuitive, `${opt_raw_long}` for example.
+
+The default list should cater for must use cases but you may modify it if you like.
 
 The only current known collision is between the `${cmd_help_long}` command and `${opt_help_long}` option, in this case `${cmd_help_long}` is preferred, you can still use `${opt_help_long}` but no shortcut is available.
 

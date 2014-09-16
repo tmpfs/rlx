@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.314" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.317" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -44,7 +44,7 @@ Run the \fBcd\fR command to change the current location, inspect the location wi
 When \fBcd\fR is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with \fBcd /\fR.
 .SH "ARGUMENTS"
 .PP
-Commands are not required in interactive mode, you may set any argument:
+Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
 
 .SP
   \-\-http                    # enable http logging
@@ -57,7 +57,7 @@ Commands are not required in interactive mode, you may set any argument:
 .br
   \-\-no\-color                # disable colors
 .PP
-To alleviate typing so many hyphens shortcuts are available. Provided a command is not specified in the interactive console you may also set options without the leading hyphens using the long name:
+Alternatively without the leading hyphens using the long name:
 
 .SP
   no\-color                  # disable colors
@@ -65,6 +65,10 @@ To alleviate typing so many hyphens shortcuts are available. Provided a command 
   color                     # enable colors
 .br
   http log\-level debug      # enable http logging (debug)
+.PP
+This arguments are tested against a whitelist of property names defined in \fBconsole.cascade.allow\fR. It makes sense for some options to cascade to commands executed in the future (\fB\-\-color\fR, \fB\-\-log\-level\fR etc) however for some options it is counter\-intuitive, \fB\-\-raw\fR for example.
+.PP
+The default list should cater for must use cases but you may modify it if you like.
 .PP
 The only current known collision is between the \fBhelp\fR command and \fB\-\-help\fR option, in this case \fBhelp\fR is preferred, you can still use \fB\-\-help\fR but no shortcut is available.
 .SH "HISTORY INTERPRETER"
