@@ -78,6 +78,7 @@ Manage server shortcuts.
 
 * `init: init`: Create an `alias.json` file.
 * `parse: parse <alias>`: Parse an alias and print the result.
+* `get: get <alias>`: Print an alias.
 
 ### Batch
 
