@@ -285,6 +285,11 @@
     "message": "header syntax error, 'key: value' required, got '%s'"
   },
   {
+    "key": "EREGEXP_COMPILE",
+    "description": "Error occured compiling a regular expression",
+    "message": "invalid regular expression /%s/ (%s) (reason: %s)"
+  },
+  {
     "key": "ENO_ADMIN",
     "description": "Administrator not found",
     "message": "administrator %s does not exist"

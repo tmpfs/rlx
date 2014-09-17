@@ -3,10 +3,9 @@
   "indent": 2,
   "history": {
     "limit": 1024,
-    "ignores.bak": [
+    "ignores": [
       "^$(q|quit|exit)$"
-    ],
-    "ignores": ["+"]
+    ]
   },
   "edit": {
     "hash": "sha1"
