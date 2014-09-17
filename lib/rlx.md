@@ -214,7 +214,7 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 * `who: who`: List login sessions.
 * `su: su <username> <server>`: Switch user session.
 * `pwd: pwd`: Print current location.
-* `cd: cd <server> <db> <docid> <rev>`: Set current location.
+* `cd: cd <path>`: Set current location.
 * `shorthelp: ?`: Short help.
 * `exit: q, quit, exit`: Quit interactive console.
 
