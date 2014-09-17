@@ -224,6 +224,8 @@ Run the `${cmd_cd_long}` command to change the current location, inspect the loc
 
 When `${cmd_cd_long}` is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with `${cmd_cd_long} /`.
 
+The `${cmd_cd_long}` command also accepts '..' paths, if any argument contains '..' all other arguments are ignored.
+
 #### Arguments
 
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
