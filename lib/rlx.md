@@ -36,6 +36,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `level: level, lvl`: Get or set the server log level.
 * `whoami: whoami`: Get current user information.
 * `rc: runconf, rc`: Runtime configuration.
+* `alias: alias, as`: Manage alias shortcuts.
 * `system: system, sys`: System utilities.
 * `interactive: interactive, i`: Interactive REPL console.
 
@@ -68,6 +69,14 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
+
+### Alias
+
+Manage server shortcuts.
+
+#### Commands
+
+* `init: init`: Create an `alias.json` file.
 
 ### Batch
 

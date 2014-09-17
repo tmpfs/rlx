@@ -1,0 +1,10 @@
+{
+  "server": {
+    "http://localhost:5984": {
+      "alias": ["lh", "localhost"]
+    },
+    "https://localhost:5984": {
+      "alias": ["lhs", "localhost-secure"]
+    }
+  }
+}
