@@ -290,6 +290,11 @@
     "message": "invalid regular expression /%s/ (%s) (reason: %s)"
   },
   {
+    "key": "EUNKNOWN_ALIAS",
+    "description": "Specified alias could not be found",
+    "message": "unknown alias %s"
+  },
+  {
     "key": "ENO_ADMIN",
     "description": "Administrator not found",
     "message": "administrator %s does not exist"

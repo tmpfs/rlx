@@ -7,6 +7,9 @@
       "^$(q|quit|exit)$"
     ]
   },
+  "alias": {
+    "match": "^:(//)?"
+  },
   "edit": {
     "hash": "sha1"
   },
