@@ -298,5 +298,20 @@
     "key": "ENO_ADMIN",
     "description": "Administrator not found",
     "message": "administrator %s does not exist"
+  },
+  {
+    "key": "EALIAS_FILE_REQUIRED",
+    "description": "Required alias configuration file is not present",
+    "message": "alias file %s is required (run: %s)"
+  },
+  {
+    "key": "EALIAS_EXISTS",
+    "description": "Attempt to overwrite an alias without the force",
+    "message": "alias %s exists, use %s to overwrite"
+  },
+  {
+    "key": "EALIAS_EMPTY",
+    "description": "Attempt to modify an alias with no associated data",
+    "message": "empty alias data for %s, specify server, database, id or revision"
   }
 ]
