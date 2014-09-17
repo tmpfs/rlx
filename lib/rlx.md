@@ -72,13 +72,16 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Alias
 
-Manage server shortcuts.
+Manage alias shortcuts.
+
+Aliases are stored in `alias.json` within `~/.$0`.
 
 #### Commands
 
-* `init: init`: Create an `alias.json` file.
+* `init: init`: Create an alias file.
 * `parse: parse <alias>`: Parse an alias and print the result.
 * `get: get <alias>`: Print an alias.
+* `print: print, p`: Print the alias file contents.
 
 ### Batch
 

@@ -1,0 +1,36 @@
+.TH "RLX-ALIAS" "1" "September 2014" "rlx-alias 0.1.332" "User Commands"
+.SH "NAME"
+rlx-alias -- Manage alias shortcuts.
+.SH "SYNOPSIS"
+
+.SP
+rlx alias <command> <args>
+.br
+rlx as <command> <args> 
+.br
+rlx as init <args> 
+.br
+rlx as parse <args> <alias> 
+.br
+rlx as get <args> <alias> 
+.br
+rlx as print <args>
+.SH "DESCRIPTION"
+.PP
+Manage alias shortcuts.
+.PP
+Aliases are stored in \fBalias.json\fR within \fB~/.rlx\fR.
+.SH "COMMANDS"
+.BL
+.IP "\[ci]" 4
+\fBinit\fR: Create an alias file.
+.IP "\[ci]" 4
+\fBparse\fR: Parse an alias and print the result.
+.IP "\[ci]" 4
+\fBget\fR: Print an alias.
+.IP "\[ci]" 4
+\fBprint, p\fR: Print the alias file contents.
+.EL
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/freeformsystems/rlx/issues.
