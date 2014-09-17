@@ -186,6 +186,7 @@ The `${cmd_log_long}` command accepts the `${opt_raw_long}` option as an alterna
 * `dbh: dbh`: Print state of database handle.
 * `env: env`: Print environemnt variables.
 * `err: err`: Print exceptions encountered.
+* `dir: dir`: Print internal location information.
 * `hist: hist`: Print command history.
 * `conf: conf`: Print program configuration.
 * `auth: auth`: Print current authentication information.
