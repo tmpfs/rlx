@@ -82,6 +82,7 @@ Aliases are stored in `alias.json` within `~/.$0`.
 * `parse: parse <alias>`: Parse an alias and print the result.
 * `get: get <alias>`: Print an alias.
 * `add: add <alias>`: Add an alias.
+* `rm: rm <alias>`: Remove an alias.
 * `print: print, p`: Print the alias file contents.
 
 ### Batch
