@@ -24,7 +24,6 @@ err.id = err('EID_REQUIRED');
 err.document = err('EDOCUMENT_REQUIRED');
 
 err.tpl = err('ETEMPLATE_REQUIRED');
-err.tplvar = err('EVARIABLE_DECLARATION');
 err.tplexport = err('ETEMPLATE_EXPORT');
 err.tplreturn = err('ETEMPLATE_RETURN');
 

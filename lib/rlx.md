@@ -846,7 +846,7 @@ The `${cmd_print_long}` and `${cmd_parse_long}` commands behave the same on appl
 
 Variables only apply to file templates for application templates they will be ignored.
 
-Variables are declared with an `@` symbol and must include an assignment operator (`=`). For example, `@foo=bar` will set the template variable named `foo` to the string `bar`.
+Variables are declared with an `@` symbol, for example, `@foo=bar` will set the template variable named `foo` to the string `bar`.
 
 Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: `@foo=bar,baz`.
 
