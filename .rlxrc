@@ -4,7 +4,7 @@
   "history": {
     "limit": 1024,
     "ignores": [
-      "^$(q|quit|exit)$"
+      "^$(q|quit|exit)"
     ]
   },
   "alias": {
