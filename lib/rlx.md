@@ -84,6 +84,7 @@ For alias subcommands that accept an `<alias>` argument it may be specified with
 * `parse: parse <alias>`: Parse an alias and print the result.
 * `get: get <alias>`: Print an alias.
 * `add: add <alias>`: Add an alias.
+* `edit: edit`: Open the alias file in an editor.
 * `rm: rm <alias>`: Remove an alias.
 * `ls: ls`: List aliases.
 * `print: print, p`: Print the alias file.
@@ -100,6 +101,12 @@ Run `${cmd_alias_long} ${cmd_init_long}` to create an alias file, this includes 
 * `lhs`: https://localhost:5984
 
 You can now reference the alias location in arguments (`$0 ${cmd_info_long} -s :lh`) or in an interactive session (`cd :lh`).
+
+#### Create
+
+Create aliases using the `${cmd_add_long}` command and specify one or more of `${opt_username_long}`, `${opt_server_long}`, `${opt_database_long}`, `${opt_id_long}` and `${opt_rev_long}`.
+
+In an interactive session you can create an alias from the current location by just specifying the alias name (except `/`).
 
 #### Expansion
 

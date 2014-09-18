@@ -16,6 +16,8 @@ rlx as get <args> <alias>
 .br
 rlx as add <args> <alias> 
 .br
+rlx as edit <args> 
+.br
 rlx as rm <args> <alias> 
 .br
 rlx as ls <args> 
@@ -39,6 +41,8 @@ For alias subcommands that accept an \fB<alias>\fR argument it may be specified 
 .IP "\[ci]" 4
 \fBadd\fR: Add an alias.
 .IP "\[ci]" 4
+\fBedit\fR: Open the alias file in an editor.
+.IP "\[ci]" 4
 \fBrm\fR: Remove an alias.
 .IP "\[ci]" 4
 \fBls\fR: List aliases.
@@ -59,6 +63,11 @@ Run \fBalias init\fR to create an alias file, this includes two default aliases:
 .EL
 .PP
 You can now reference the alias location in arguments (\fBrlx info \-s :lh\fR) or in an interactive session (\fBcd :lh\fR).
+.SH "CREATE"
+.PP
+Create aliases using the \fBadd\fR command and specify one or more of \fB\-\-username\fR, \fB\-\-server\fR, \fB\-\-database\fR, \fB\-\-id\fR and \fB\-\-rev\fR.
+.PP
+In an interactive session you can create an alias from the current location by just specifying the alias name (except \fB/\fR).
 .SH "EXPANSION"
 .PP
 Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the reference.
