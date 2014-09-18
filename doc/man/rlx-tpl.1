@@ -1,4 +1,4 @@
-.TH "RLX-TPL" "1" "September 2014" "rlx-tpl 0.1.314" "User Commands"
+.TH "RLX-TPL" "1" "September 2014" "rlx-tpl 0.1.354" "User Commands"
 .SH "NAME"
 rlx-tpl -- Manage template files.
 .SH "SYNOPSIS"
@@ -79,7 +79,7 @@ The \fBprint\fR and \fBparse\fR commands behave the same on application template
 .PP
 Variables only apply to file templates for application templates they will be ignored.
 .PP
-Variables are declared with an \fB@\fR symbol and must include an assignment operator (\fB=\fR). For example, \fB@foo=bar\fR will set the template variable named \fBfoo\fR to the string \fBbar\fR.
+Variables are declared with an \fB@\fR symbol, for example, \fB@foo=bar\fR will set the template variable named \fBfoo\fR to the string \fBbar\fR.
 .PP
 Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: \fB@foo=bar,baz\fR.
 .PP
