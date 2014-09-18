@@ -245,6 +245,25 @@ cd ..                     # url => /
 cd :lhs                   # url => https://localhost:5984
 ```
 
+If the path starts with a known protocol (http or https) then you can expand a URL to a location:
+
+```
+cd http://usr@localhost:5984/db/doc?rev=0-1
+```
+
+Yields the location:
+
+```
+{
+  "server": "http://localhost:5984",
+  "database": "db",
+  "username": "usr",
+  "id": "doc",
+  "rev": "0-1",
+  "url": "http://usr@localhost:5984/db/doc?rev=0-1"
+}
+```
+
 #### Arguments
 
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:

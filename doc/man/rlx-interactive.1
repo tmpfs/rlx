@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.347" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.348" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -69,6 +69,29 @@ When referencing databases with forward slash characters you must URL encode the
   cd ..                     # url => /
 .br
   cd :lhs                   # url => https://localhost:5984
+.PP
+If the path starts with a known protocol (http or https) then you can expand a URL to a location:
+
+  cd http://usr@localhost:5984/db/doc?rev=0\-1
+.PP
+Yields the location:
+
+.SP
+  {
+.br
+    "server": "http://localhost:5984",
+.br
+    "database": "db",
+.br
+    "username": "usr",
+.br
+    "id": "doc",
+.br
+    "rev": "0\-1",
+.br
+    "url": "http://usr@localhost:5984/db/doc?rev=0\-1"
+.br
+  }
 .SH "ARGUMENTS"
 .PP
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
