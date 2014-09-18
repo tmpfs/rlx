@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.346" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.347" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -41,11 +41,34 @@ Launch an interactive console with \fBrlx i\fR, interactive consoles may not be 
 .PP
 Run the \fBcd\fR command to change the current location, inspect the location with \fBpwd\fR, clear the current location with \fBcd /\fR.
 .PP
-The \fBcd\fR command also accepts '..' paths, if any argument contains '..' all other arguments are ignored.
+The \fBcd\fR command accepts '..' paths so you may drop down the location or switch parent location.
 .PP
 Alias shortcuts are expanded when specified as a path to \fBcd\fR.
 .PP
 If no explicit path or alias is specified (or the path is a \fB./\fR reference) then the path is treated as relative to the current location.
+.PP
+When referencing databases with forward slash characters you must URL encode the forward slash (%2F).
+
+.SP
+  cd /                      # url => /
+.br
+  cd http://localhost:5984  # url => http://localhost:5984
+.br
+  cd db                     # url => http://localhost:5984/db
+.br
+  cd doc                    # url => http://localhost:5984/db/doc
+.br
+  cd 0\-1                    # url => http://localhost:5984/db/doc?rev=0\-1
+.br
+  cd ../../../altdb         # url => http://localhost:5984/altdb
+.br
+  cd ../db                  # url => http://localhost:5984/db
+.br
+  cd ..                     # url => http://localhost:5984
+.br
+  cd ..                     # url => /
+.br
+  cd :lhs                   # url => https://localhost:5984
 .SH "ARGUMENTS"
 .PP
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:

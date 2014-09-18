@@ -230,6 +230,8 @@ Alias shortcuts are expanded when specified as a path to `${cmd_cd_long}`.
 
 If no explicit path or alias is specified (or the path is a `./` reference) then the path is treated as relative to the current location.
 
+When referencing databases with forward slash characters you must URL encode the forward slash (%2F).
+
 ```
 cd /                      # url => /
 cd http://localhost:5984  # url => http://localhost:5984
@@ -240,9 +242,8 @@ cd ../../../altdb         # url => http://localhost:5984/altdb
 cd ../db                  # url => http://localhost:5984/db
 cd ..                     # url => http://localhost:5984
 cd ..                     # url => /
+cd :lhs                   # url => https://localhost:5984
 ```
-
-When referencing databases with forward slash characters you must URL encode the forward slash (%2F).
 
 #### Arguments
 

@@ -60,6 +60,7 @@
     "cascade": {
       "allow": [
         "color",
+        "username",
         "noop",
         "http",
         "server",
