@@ -8,7 +8,7 @@
     ]
   },
   "alias": {
-    "match": "^:(//)?"
+    "match": "^:"
   },
   "edit": {
     "hash": "sha1"

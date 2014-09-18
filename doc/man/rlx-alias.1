@@ -1,4 +1,4 @@
-.TH "RLX-ALIAS" "1" "September 2014" "rlx-alias 0.1.332" "User Commands"
+.TH "RLX-ALIAS" "1" "September 2014" "rlx-alias 0.1.349" "User Commands"
 .SH "NAME"
 rlx-alias -- Manage alias shortcuts.
 .SH "SYNOPSIS"
@@ -14,6 +14,12 @@ rlx as parse <args> <alias>
 .br
 rlx as get <args> <alias> 
 .br
+rlx as add <args> <alias> 
+.br
+rlx as rm <args> <alias> 
+.br
+rlx as ls <args> 
+.br
 rlx as print <args>
 .SH "DESCRIPTION"
 .PP
@@ -28,6 +34,12 @@ Aliases are stored in \fBalias.json\fR within \fB~/.rlx\fR.
 \fBparse\fR: Parse an alias and print the result.
 .IP "\[ci]" 4
 \fBget\fR: Print an alias.
+.IP "\[ci]" 4
+\fBadd\fR: Add an alias.
+.IP "\[ci]" 4
+\fBrm\fR: Remove an alias.
+.IP "\[ci]" 4
+\fBls\fR: List aliases.
 .IP "\[ci]" 4
 \fBprint, p\fR: Print the alias file contents.
 .EL
