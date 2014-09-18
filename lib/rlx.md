@@ -222,11 +222,27 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 
 #### Location
 
-Run the `${cmd_cd_long}` command to change the current location, inspect the location with `${cmd_pwd_long}`.
+Run the `${cmd_cd_long}` command to change the current location, inspect the location with `${cmd_pwd_long}`, clear the current location with `${cmd_cd_long} /`.
 
-When `${cmd_cd_long}` is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with `${cmd_cd_long} /`.
+The `${cmd_cd_long}` command accepts '..' paths so you may drop down the location or switch parent location.
 
-The `${cmd_cd_long}` command also accepts '..' paths, if any argument contains '..' all other arguments are ignored.
+Alias shortcuts are expanded when specified as a path to `${cmd_cd_long}`.
+
+If no explicit path or alias is specified (or the path is a `./` reference) then the path is treated as relative to the current location.
+
+```
+cd /                      # url => /
+cd http://localhost:5984  # url => http://localhost:5984
+cd db                     # url => http://localhost:5984/db
+cd doc                    # url => http://localhost:5984/db/doc
+cd 0-1                    # url => http://localhost:5984/db/doc?rev=0-1
+cd ../../../altdb         # url => http://localhost:5984/altdb
+cd ../db                  # url => http://localhost:5984/db
+cd ..                     # url => http://localhost:5984
+cd ..                     # url => /
+```
+
+When referencing databases with forward slash characters you must URL encode the forward slash (%2F).
 
 #### Arguments
 

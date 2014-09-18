@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.333" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.346" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "SYNOPSIS"
@@ -14,7 +14,7 @@ rlx i su <args> <username> <server>
 .br
 rlx i pwd <args> 
 .br
-rlx i cd <args> <server> <db> <docid> <rev> 
+rlx i cd <args> <path> 
 .br
 rlx i ? <args> 
 .br
@@ -39,11 +39,13 @@ Launch an interactive console with \fBrlx i\fR, interactive consoles may not be 
 .EL
 .SH "LOCATION"
 .PP
-Run the \fBcd\fR command to change the current location, inspect the location with \fBpwd\fR.
-.PP
-When \fBcd\fR is invoked with no arguments it clears the currently selected database, document and revision but keeps the current server, clear the currently selected server as well with \fBcd /\fR.
+Run the \fBcd\fR command to change the current location, inspect the location with \fBpwd\fR, clear the current location with \fBcd /\fR.
 .PP
 The \fBcd\fR command also accepts '..' paths, if any argument contains '..' all other arguments are ignored.
+.PP
+Alias shortcuts are expanded when specified as a path to \fBcd\fR.
+.PP
+If no explicit path or alias is specified (or the path is a \fB./\fR reference) then the path is treated as relative to the current location.
 .SH "ARGUMENTS"
 .PP
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
