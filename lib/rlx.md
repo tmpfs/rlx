@@ -72,9 +72,11 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Alias
 
-Manage alias shortcuts.
+Aliases allow users to map names to commonly used locations, a location being a combination of `server`, `database`, `id` (document) and `rev`.
 
-Aliases are stored in `alias.json` within `~/.$0`.
+Reference an alias with a colon ':' prefix.
+
+For alias subcommands that accept an `<alias>` argument it may be specified with or without the prefix.
 
 #### Commands
 
@@ -84,7 +86,59 @@ Aliases are stored in `alias.json` within `~/.$0`.
 * `add: add <alias>`: Add an alias.
 * `rm: rm <alias>`: Remove an alias.
 * `ls: ls`: List aliases.
-* `print: print, p`: Print the alias file contents.
+* `print: print, p`: Print the alias file.
+
+#### Usage
+
+The typical use case for aliases is server administrators managing multiple servers but an alias does not necessarily have to have a `server` field, it may reference a commonly used `database` or document `id`.
+
+#### Init
+
+Run `${cmd_alias_long} ${cmd_init_long}` to create an alias file, this includes two default aliases:
+
+* `lh`: http://localhost:5984
+* `lhs`: https://localhost:5984
+
+You can now reference the alias location in arguments (`$0 ${cmd_info_long} -s :lh`) or in an interactive session (`cd :lh`).
+
+#### Expansion
+
+Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the reference.
+
+Such that the full reference (for the default `:lh` alias):
+
+```
+:user@lh/db/doc/0-1
+```
+
+Expands to:
+
+```javascript
+{
+  "username": "user",
+  "database": "db",
+  "id": "doc",
+  "rev": "0-1",
+  "server": "http://localhost:5984",
+  "alias": "lh"
+}
+```
+
+Use the `${cmd_get_long}` command to inspect alias expansion on an existing alias, run the `${cmd_parse_long}` command to verify the parsing rules.
+
+#### Inspect
+
+Use the ${cmd_print_long} command to print the alias file contents, the `${cmd_ls_long}` command will show a map of keys to URLs (adding `${opt_long_short}` is equivalent to `${cmd_print_long}`).
+
+Print an individual alias with the `get` command.
+
+#### Match Pattern
+
+You may alter the regular expression used for matching alias names in the `alias.match` rc configuration field but choose wisely reserved shell special characters would be awkward and `@` would conflict with template variable names. The full match of the regular expression is stripped to determine the alias name.
+
+#### Files
+
+Aliases are stored in `alias.json` within `~/.$0`.
 
 ### Batch
 
