@@ -54,6 +54,19 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should list aliases (-l)', function(done){
+    var mock = config.file('alias-ls-long.json');
+    var args = qt.getArguments('alias/ls/long', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.lslong(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should parse simple alias reference', function(done){
     var mock = config.file('alias-parse.json');
     var args = qt.getArguments('alias/parse', {output: mock});

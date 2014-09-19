@@ -33,6 +33,13 @@ function ls(doc) {
   expect(doc.lhs).to.eql(mock.server.lhs);
 }
 
+function lslong(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.lh).to.be.an('object');
+  expect(doc.lhs).to.be.an('object');
+  expect(doc.lh.server).to.eql(mock.server.lh);
+  expect(doc.lhs.server).to.eql(mock.server.lhs);
+}
 
 module.exports = {
   init: init,
@@ -40,4 +47,5 @@ module.exports = {
   get: get,
   print: print,
   ls: ls,
+  lslong: lslong,
 }
