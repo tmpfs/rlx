@@ -61,4 +61,5 @@ module.exports = {
   ls: ls,
   lslong: lslong,
   add: add,
+  rm: add,
 }

@@ -103,4 +103,48 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+
+  it('should error on add duplicate (alias exists)', function(done){
+    var mock = config.file('alias-add.json');
+    var args = qt.getArguments('alias/add',
+      {output: mock, force: false});
+    //console.dir(args);
+    var def = program(require(pkg), config.name)
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.aliasexists(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should rm alias', function(done){
+    var mock = config.file('alias-rm.json');
+    var args = qt.getArguments('alias/rm', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.rm(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on get after deletion (unknown alias)', function(done){
+    var args = qt.getArguments('alias/get', {
+      clear: true,
+      args: [
+        'alias',
+        'get',
+        config.alias.alt.raw
+      ]
+    })
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.noalias(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
 })
