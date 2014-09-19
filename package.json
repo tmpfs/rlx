@@ -24,7 +24,7 @@
     "circular": "~1.0.5",
     "cli-command": "~0.8.207",
     "cli-error": "~0.5.7",
-    "cli-input": "~0.0.87",
+    "cli-input": "0.0.91",
     "cli-interface": "~1.0.8",
     "cli-logger": "~0.5.23",
     "cli-native": "~1.0.0",
