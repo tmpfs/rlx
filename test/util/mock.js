@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
+var url = require('url');
 var cdb = require('cdb');
+var querystring = require('querystring');
 var base = path.normalize(path.join(__dirname, '..', '..'));
 var target = path.join(base, 'target')
 var program = require('../../lib/rlx');
@@ -74,6 +76,7 @@ var mock = {
   },
   database: {
     default: 'mock/database',
+    escaped: querystring.escape('mock/database'),
     users: userdb.default,
     unknown: 'mock-unknown-database'
   },
@@ -108,6 +111,7 @@ var mock = {
     str: 'value',
     nil: null
   },
+  rev: '0-1',
   copy: {
     id: 'mock/document/copy'
   },
@@ -169,6 +173,9 @@ var mock = {
     unknown: 'unknown-document'
   }
 }
+
+var u = url.parse(mock.server.default);
+mock.server.user = u.protocol + '//' + mock.user.name + '@' + u.host;
 
 mock.usr.home = path.join(target, 'usr');
 mock.usr.rlx = path.join(mock.usr.home, '.' + mock.name);
