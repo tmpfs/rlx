@@ -25,7 +25,7 @@ rlx as ls <args>
 rlx as print <args>
 .SH "DESCRIPTION"
 .PP
-Aliases allow users to map names to commonly used locations, a location being a combination of \fBserver\fR, \fBdatabase\fR, \fBid\fR (document) and \fBrev\fR.
+Aliases allow users to map names to commonly used locations, a location being a combination of \fBserver\fR, \fBdatabase\fR, document \fBid\fR and \fBrev\fR.
 .PP
 Reference an alias with a colon ':' prefix.
 .PP
@@ -70,11 +70,11 @@ Create aliases using the \fBadd\fR command and specify one or more of \fB\-\-use
 In an interactive session you can create an alias from the current location by just specifying the alias name (except \fB/\fR).
 .SH "EXPANSION"
 .PP
-Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the reference.
+Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, and document specified in the reference.
 .PP
 Such that the full reference (for the default \fB:lh\fR alias):
 
-  :user@lh/db/doc/0\-1
+  :user@lh/db/doc
 .PP
 Expands to:
 
@@ -86,8 +86,6 @@ Expands to:
     "database": "db",
 .br
     "id": "doc",
-.br
-    "rev": "0\-1",
 .br
     "server": "http://localhost:5984",
 .br

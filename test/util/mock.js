@@ -182,14 +182,32 @@ var mock = {
       raw: ':lh',
       name: 'lh'
     },
+    user: {
+      raw: ':mock-user@lh',
+      name: 'lh',
+      username: 'mock-user'
+    },
+    userpass: {
+      raw: ':mock-user:secret@lh',
+      name: 'lh',
+      username: 'mock-user',
+      password: 'secret'
+    },
+    userdb: {
+      raw: ':mock-user@lh/mock%2Fdatabase',
+      name: 'lh',
+      username: 'mock-user',
+      database: 'mock/database',
+    },
+    userdbdoc: {
+      raw: ':mock-user@lh/mock%2Fdatabase/mock/document',
+      name: 'lh',
+      username: 'mock-user',
+      database: 'mock/database',
+    },
     alt: {
       raw: ':alt',
       name: 'alt'
-    },
-    db: {
-      raw: ':lh/dbname',
-      name: 'lh',
-      database: 'dbname'
     }
   }
 }

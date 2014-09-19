@@ -67,13 +67,124 @@ describe('rlx:', function() {
   });
 
 
-  it('should parse simple alias reference', function(done){
+  it('should parse simple alias reference (:name)', function(done){
     var mock = config.file('alias-parse.json');
     var args = qt.getArguments('alias/parse', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.alias.parse(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should parse simple alias reference slashes (:name//)', function(done){
+    var mock = config.file('alias-parse-slashes.json');
+    var args = qt.getArguments('alias/parse', {
+        output: mock,
+        clear: true,
+        args: [
+          'alias',
+          'parse',
+          ':lh//'
+        ]
+      }
+    );
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.alias.parse(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should parse user alias reference (:user@name)', function(done){
+    var mock = config.file('alias-parse-user.json');
+    var args = qt.getArguments('alias/parse',
+      {
+        output: mock,
+        clear: true,
+        args: [
+          'alias',
+          'parse',
+          config.alias.user.raw
+        ]
+      }
+    );
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.parseuser(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should parse user/pass alias reference (:user:pass@name)', function(done){
+    var mock = config.file('alias-parse-user.json');
+    var args = qt.getArguments('alias/parse',
+      {
+        output: mock,
+        clear: true,
+        args: [
+          'alias',
+          'parse',
+          config.alias.userpass.raw
+        ]
+      }
+    );
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.userpass(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+
+  it('should parse user/db alias reference (:user@name/db)', function(done){
+    var mock = config.file('alias-parse-user-db.json');
+    var args = qt.getArguments('alias/parse',
+      {
+        output: mock,
+        clear: true,
+        args: [
+          'alias',
+          'parse',
+          config.alias.userdb.raw
+        ]
+      }
+    );
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.parseuserdb(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should parse user/db/doc alias reference (:user@name/db/doc)', function(done){
+    var mock = config.file('alias-parse-user-db-doc.json');
+    var args = qt.getArguments('alias/parse',
+      {
+        output: mock,
+        clear: true,
+        args: [
+          'alias',
+          'parse',
+          config.alias.userdbdoc.raw
+        ]
+      }
+    );
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.userdbdoc(doc, req);
       done();
     })
     def.parse(args);
@@ -118,6 +229,27 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should expand alias to server reference (-s)', function(done){
+    var mock = config.file('alias-expand.json');
+    var args = qt.getArguments('info', {
+      output: mock,
+      clear: true,
+      args: [
+        'info',
+        '-s',
+        ':lh'
+      ]
+    });
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.expand(this, doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should rm alias', function(done){
     var mock = config.file('alias-rm.json');
     var args = qt.getArguments('alias/rm', {output: mock});
@@ -136,6 +268,24 @@ describe('rlx:', function() {
       args: [
         'alias',
         'get',
+        config.alias.alt.raw
+      ]
+    })
+    var def = program(require(pkg), config.name);
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.noalias(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on rm after deletion (unknown alias)', function(done){
+    var args = qt.getArguments('alias/rm', {
+      clear: true,
+      args: [
+        'alias',
+        'rm',
         config.alias.alt.raw
       ]
     })

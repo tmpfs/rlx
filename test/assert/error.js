@@ -54,5 +54,7 @@ err.rcparse = err('ERC_VALUE_PARSE');
 // alias
 err.noalias = err('EUNKNOWN_ALIAS');
 err.aliasexists = err('EALIAS_EXISTS');
+err.aliasempty = err('EALIAS_EMPTY');
+err.aliasfile = err('EALIAS_FILE_REQUIRED');
 
 module.exports = err;

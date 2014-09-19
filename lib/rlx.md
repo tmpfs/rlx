@@ -72,7 +72,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Alias
 
-Aliases allow users to map names to commonly used locations, a location being a combination of `server`, `database`, `id` (document) and `rev`.
+Aliases allow users to map names to commonly used locations, a location being a combination of `server`, `database`, document `id` and `rev`.
 
 Reference an alias with a colon ':' prefix.
 
@@ -110,12 +110,12 @@ In an interactive session you can create an alias from the current location by j
 
 #### Expansion
 
-Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the reference.
+Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, and document specified in the reference.
 
 Such that the full reference (for the default `:lh` alias):
 
 ```
-:user@lh/db/doc/0-1
+:user@lh/db/doc
 ```
 
 Expands to:
@@ -125,7 +125,6 @@ Expands to:
   "username": "user",
   "database": "db",
   "id": "doc",
-  "rev": "0-1",
   "server": "http://localhost:5984",
   "name": "lh"
 }

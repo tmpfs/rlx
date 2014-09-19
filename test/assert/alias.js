@@ -16,6 +16,28 @@ function parse(doc, req) {
   expect(doc.name).to.eql(mock.alias.simple.name);
 }
 
+function parseuser(doc, req) {
+  expect(doc).to.be.an('object');
+  expect(doc.name).to.eql(mock.alias.simple.name);
+  expect(doc.username).to.eql(mock.user.name);
+}
+
+function userpass(doc, req) {
+  parseuser(doc, req);
+  expect(doc.password).to.eql(mock.user.password);
+}
+
+
+function parseuserdb(doc, req) {
+  parseuser(doc, req);
+  expect(doc.database).to.eql(mock.database.default);
+}
+
+function userdbdoc(doc, req) {
+  parseuserdb(doc, req);
+  expect(doc.id).to.eql(mock.document.id);
+}
+
 function get(doc, req) {
   expect(doc).to.be.an('object');
   expect(doc.name).to.eql(mock.alias.simple.name);
@@ -53,13 +75,22 @@ function add(doc, req) {
   expect(doc.alias.rev).to.eql(mock.rev);
 }
 
+function expand(cli) {
+  expect(cli.server).to.eql(mock.server.lh);
+}
+
 module.exports = {
   init: init,
   parse: parse,
+  parseuser: parseuser,
+  parseuserdb: parseuserdb,
+  userpass: userpass,
+  userdbdoc: userdbdoc,
   get: get,
   print: print,
   ls: ls,
   lslong: lslong,
   add: add,
   rm: add,
+  expand: expand,
 }
