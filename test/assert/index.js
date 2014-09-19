@@ -1,6 +1,7 @@
 module.exports = {
   alias: require('./alias'),
   app: require('./app'),
+  batch: require('./batch'),
   bulk: require('./bulk'),
   error: require('./error'),
   generic: require('./generic'),

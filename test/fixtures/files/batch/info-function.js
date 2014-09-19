@@ -1,4 +1,4 @@
-var mock = require('../../util/mock');
+var mock = require('../../../util/mock');
 
 module.exports = function batch(cb) {
   var def = {
