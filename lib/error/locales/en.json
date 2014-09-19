@@ -112,7 +112,7 @@
   {
     "key": "EUNAUTHORIZED",
     "description": "Unauthorized request",
-    "message": "unauthorized request (authentication required)"
+    "message": "unauthorized request: %s"
   },
   {
     "key": "EMETHOD_NOT_ALLOWED",
