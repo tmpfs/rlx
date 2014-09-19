@@ -41,6 +41,18 @@ function lslong(doc) {
   expect(doc.lhs.server).to.eql(mock.server.lhs);
 }
 
+function add(doc, req) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.file).to.eql(mock.usr.alias);
+  expect(doc.alias).to.be.an('object');
+  expect(doc.alias.name).to.eql(mock.alias.alt.name);
+  expect(doc.alias.server).to.eql(mock.server.lh);
+  expect(doc.alias.database).to.eql(mock.database.default);
+  expect(doc.alias.id).to.eql(mock.document.id);
+  expect(doc.alias.rev).to.eql(mock.rev);
+}
+
 module.exports = {
   init: init,
   parse: parse,
@@ -48,4 +60,5 @@ module.exports = {
   print: print,
   ls: ls,
   lslong: lslong,
+  add: add,
 }

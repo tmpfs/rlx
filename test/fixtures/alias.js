@@ -68,6 +68,37 @@ var fixtures = [
       mock.alias.simple.raw
     ]
   },
+  {
+    id: 'alias/add',
+    description: 'Add an alias',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'add',
+      mock.alias.alt.raw,
+      '-s',
+      mock.server.lh,
+      '-d',
+      mock.database.default,
+      '-i',
+      mock.document.id,
+      '-r',
+      mock.rev
+    ]
+  },
+
+  {
+    id: 'alias/rm',
+    description: 'Remove an alias',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'rm',
+      mock.alias.alt.raw,
+    ]
+  },
 ];
 
 module.exports = fixtures;

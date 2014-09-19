@@ -182,6 +182,10 @@ var mock = {
       raw: ':lh',
       name: 'lh'
     },
+    alt: {
+      raw: ':alt',
+      name: 'alt'
+    },
     db: {
       raw: ':lh/dbname',
       name: 'lh',

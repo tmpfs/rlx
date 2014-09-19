@@ -127,7 +127,7 @@ Expands to:
   "id": "doc",
   "rev": "0-1",
   "server": "http://localhost:5984",
-  "alias": "lh"
+  "name": "lh"
 }
 ```
 
