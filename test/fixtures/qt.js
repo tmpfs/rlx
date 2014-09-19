@@ -1242,6 +1242,7 @@ var sec = require('./sec');
 var bulk = require('./bulk');
 var rc = require('./rc');
 var tpl = require('./template');
+var alias = require('./alias');
 qt = db.concat(qt);
 qt = doc.concat(qt);
 qt = lcl.concat(qt);
@@ -1250,6 +1251,7 @@ qt = sec.concat(qt);
 qt = bulk.concat(qt);
 qt = rc.concat(qt);
 qt = tpl.concat(qt);
+qt = alias.concat(qt);
 
 function find(id) {
   for(var i = 0;i < qt.length;i++) {

@@ -179,6 +179,7 @@ mock.server.user = u.protocol + '//' + mock.user.name + '@' + u.host;
 
 mock.usr.home = path.join(target, 'usr');
 mock.usr.rlx = path.join(mock.usr.home, '.' + mock.name);
+mock.usr.alias = path.join(mock.usr.rlx, 'alias.json');
 
 //console.dir(mock.usr.rlx);
 
