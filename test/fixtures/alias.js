@@ -26,6 +26,17 @@ var fixtures = [
       mock.alias.simple.raw
     ]
   },
+  {
+    id: 'alias/get',
+    description: 'Get an alias',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'get',
+      mock.alias.simple.raw
+    ]
+  },
 ];
 
 module.exports = fixtures;

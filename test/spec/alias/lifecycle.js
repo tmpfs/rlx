@@ -35,8 +35,21 @@ describe('rlx:', function() {
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.alias.parse(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
+
+  it('should get alias', function(done){
+    var mock = config.file('alias-get.json');
+    var args = qt.getArguments('alias/get', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.alias.get(doc, req);
       done();
     })
     def.parse(args);

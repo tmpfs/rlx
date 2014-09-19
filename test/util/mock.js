@@ -13,6 +13,8 @@ var attachment = {
   ddoc: 'mock-design-document-attachment.txt'
 }
 
+var lh = 'http://localhost:5984';
+
 var pkg = path.join(base, 'package.json')
   , test = path.join(base, 'test')
   , fixtures = path.join(test, 'fixtures')
@@ -37,7 +39,8 @@ var mock = {
   editor: path.join(base, 'test', 'bin', 'editor'),
   cdb: cdb,
   server: {
-    default: process.env.rlx_test_server || 'http://localhost:5984',
+    localhost: lh,
+    default: process.env.rlx_test_server || lh,
     secure: process.env.rlx_test_server_secure || 'https://localhost:5984'
   },
   app: {
