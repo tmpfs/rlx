@@ -1,6 +1,6 @@
 {
   "name": "rlx",
-  "version": "0.1.356",
+  "version": "0.1.357",
   "description": "Command line interface for couchdb",
   "author": "muji <noop@xpm.io>",
   "preferGlobal": true,
