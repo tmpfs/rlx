@@ -171,6 +171,17 @@ var mock = {
       }
     },
     unknown: 'unknown-document'
+  },
+  alias: {
+    simple: {
+      raw: ':lh',
+      name: 'lh'
+    },
+    db: {
+      raw: ':lh/dbname',
+      name: 'lh',
+      database: 'dbname'
+    }
   }
 }
 

@@ -15,6 +15,17 @@ var fixtures = [
       'init'
     ]
   },
+  {
+    id: 'alias/parse',
+    description: 'Parse a simple alias',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'parse',
+      mock.alias.simple.raw
+    ]
+  },
 ];
 
 module.exports = fixtures;

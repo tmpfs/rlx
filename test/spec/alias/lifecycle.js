@@ -29,4 +29,17 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should parse simple alias reference', function(done){
+    var mock = config.file('alias-parse.json');
+    var args = qt.getArguments('alias/parse', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      //console.dir(doc);
+      config.assert.alias.parse(doc, req);
+      done();
+    })
+    def.parse(args);
+  });
+
 })

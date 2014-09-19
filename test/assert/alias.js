@@ -11,6 +11,12 @@ function init(doc, req) {
   expect(fs.statSync(doc.file).isFile()).to.eql(true);
 }
 
+function parse(doc, req) {
+  expect(doc).to.be.an('object');
+  expect(doc.name).to.eql(mock.alias.simple.name);
+}
+
 module.exports = {
   init: init,
+  parse: parse,
 }
