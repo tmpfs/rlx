@@ -21,8 +21,23 @@ function get(doc, req) {
   expect(doc.name).to.eql(mock.alias.simple.name);
 }
 
+
+function print(doc, expected) {
+  expect(doc).to.be.an('object');
+  expect(doc).to.eql(expected);
+}
+
+function ls(doc) {
+  expect(doc).to.be.an('object');
+  expect(doc.lh).to.eql(mock.server.lh);
+  expect(doc.lhs).to.eql(mock.server.lhs);
+}
+
+
 module.exports = {
   init: init,
   parse: parse,
   get: get,
+  print: print,
+  ls: ls,
 }

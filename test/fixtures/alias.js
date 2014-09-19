@@ -16,6 +16,37 @@ var fixtures = [
     ]
   },
   {
+    id: 'alias/print',
+    description: 'Print alias file',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'print'
+    ]
+  },
+  {
+    id: 'alias/ls',
+    description: 'List aliases',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'ls'
+    ]
+  },
+  {
+    id: 'alias/ls/long',
+    description: 'List aliases (long)',
+    before: [setup.home.mock],
+    after: [teardown.home.restore],
+    cmd: [
+      'alias',
+      'ls',
+      '-l'
+    ]
+  },
+  {
     id: 'alias/parse',
     description: 'Parse a simple alias',
     before: [setup.home.mock],

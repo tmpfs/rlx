@@ -29,6 +29,31 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should print alias file', function(done){
+    var mock = config.file('alias-print.json');
+    var args = qt.getArguments('alias/print', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.print(doc, config.json(req.files.alias));
+      done();
+    })
+    def.parse(args);
+  });
+
+
+  it('should list aliases', function(done){
+    var mock = config.file('alias-ls.json');
+    var args = qt.getArguments('alias/ls', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.alias.ls(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
   it('should parse simple alias reference', function(done){
     var mock = config.file('alias-parse.json');
     var args = qt.getArguments('alias/parse', {output: mock});
@@ -41,14 +66,12 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-
   it('should get alias', function(done){
     var mock = config.file('alias-get.json');
     var args = qt.getArguments('alias/get', {output: mock});
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
-      //console.dir(doc);
       config.assert.alias.get(doc, req);
       done();
     })

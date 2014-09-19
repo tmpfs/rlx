@@ -13,8 +13,6 @@ var attachment = {
   ddoc: 'mock-design-document-attachment.txt'
 }
 
-var lh = 'http://localhost:5984';
-
 var pkg = path.join(base, 'package.json')
   , test = path.join(base, 'test')
   , fixtures = path.join(test, 'fixtures')
@@ -31,7 +29,10 @@ var pkg = path.join(base, 'package.json')
   , tpl = path.join(templates, 'mock-template.js')
   // should use same name in test runner
   // makes life so much easier
-  , name = process.env.rlx_program_name || 'rlx';
+  , name = process.env.rlx_program_name || 'rlx'
+  , lh = 'http://localhost:5984'
+  , lhs = 'https://localhost:5984';
+
 
 var mock = {
   name: name,
@@ -39,9 +40,10 @@ var mock = {
   editor: path.join(base, 'test', 'bin', 'editor'),
   cdb: cdb,
   server: {
-    localhost: lh,
+    lh: lh,
+    lhs: lhs,
     default: process.env.rlx_test_server || lh,
-    secure: process.env.rlx_test_server_secure || 'https://localhost:5984'
+    secure: process.env.rlx_test_server_secure || lhs
   },
   app: {
     ddoc: 'mock-design-document',
