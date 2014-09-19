@@ -280,6 +280,11 @@
     "message": "authentication credentials required"
   },
   {
+    "key": "EAUTH_RETRY",
+    "description": "Authentication retry limit exceeded",
+    "message": "authentication retry limit exceeded"
+  },
+  {
     "key": "EHEADER_PARSE",
     "description": "Header option is in an unknown format",
     "message": "header syntax error, 'key: value' required, got '%s'"
