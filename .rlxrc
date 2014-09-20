@@ -55,7 +55,8 @@
   },
   "console": {
     "comment": {
-      "inject": false
+      "inject": true,
+      "enabled": false
     },
     "cascade": {
       "allow": [
