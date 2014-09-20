@@ -675,6 +675,7 @@ If no subcommand is specified `ls` is invoked.
 * `ls: ls`: List documents.
 * `add: add`: Create a document.
 * `get: get`: Get a document.
+* `edit: edit`: Edit a document.
 * `cp: cp`: Copy a document.
 * `head: head`: Get minimal document information.
 * `rm: rm`: Remove a document.
