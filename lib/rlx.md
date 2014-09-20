@@ -301,7 +301,7 @@ Run the `${cmd_cd_long}` command to change the current location, inspect the loc
 
 The `${cmd_cd_long}` command accepts '..' paths so you may drop down the location or switch parent location.
 
-Alias shortcuts are expanded when specified as a path to `${cmd_cd_long}`.
+Alias shortcuts are expanded when specified as a path to `${cmd_cd_long}`, see ${see_alias}.
 
 If no explicit path or alias is specified (or the path is a `./` reference) then the path is treated as relative to the current location.
 
@@ -367,7 +367,7 @@ The only current known collision is between the `${cmd_help_long}` command and `
 
 #### Open
 
-Run `${cmd_open_long}` with no arguments to open the current server, otherwise specify a `<url>`. Use the shortcut flags to jump straight to futon, fauxton or the couchdb documentation.
+Run `${cmd_open_long}` with no arguments to open the current server, otherwise specify a `<url>`. Use the shortcut flags to jump straight to futon, fauxton or the couchdb documentation. Aliases are expanded to their full URL, if a shortcut flag is specified then the server for the alias is combined with the shortcut.
 
 The command executed to open a URL is set in the `console.launch.url` rc configuration property. By default it is configured to run the OSX specific open(1), linux users should change this to their preferred executable.
 

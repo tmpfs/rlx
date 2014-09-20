@@ -58,7 +58,7 @@ Run the \fBcd\fR command to change the current location, inspect the location wi
 .PP
 The \fBcd\fR command accepts '..' paths so you may drop down the location or switch parent location.
 .PP
-Alias shortcuts are expanded when specified as a path to \fBcd\fR.
+Alias shortcuts are expanded when specified as a path to \fBcd\fR, see rlx\-alias(1).
 .PP
 If no explicit path or alias is specified (or the path is a \fB./\fR reference) then the path is treated as relative to the current location.
 .PP
@@ -138,7 +138,7 @@ The default list should cater for must use cases but you may modify it if you li
 The only current known collision is between the \fBhelp\fR command and \fB\-\-help\fR option, in this case \fBhelp\fR is preferred, you can still use \fB\-\-help\fR but no shortcut is available.
 .SH "OPEN"
 .PP
-Run \fBopen\fR with no arguments to open the current server, otherwise specify a \fB<url>\fR. Use the shortcut flags to jump straight to futon, fauxton or the couchdb documentation.
+Run \fBopen\fR with no arguments to open the current server, otherwise specify a \fB<url>\fR. Use the shortcut flags to jump straight to futon, fauxton or the couchdb documentation. Aliases are expanded to their full URL, if a shortcut flag is specified then the server for the alias is combined with the shortcut.
 .PP
 The command executed to open a URL is set in the \fBconsole.launch.url\fR rc configuration property. By default it is configured to run the OSX specific open(1), linux users should change this to their preferred executable.
 .SH "HISTORY INTERPRETER"
