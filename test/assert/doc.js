@@ -49,6 +49,13 @@ function revsinfo(doc) {
   expect(revision.status).to.be.a('string');
 }
 
+function edit(doc, id) {
+  expect(doc).to.be.an('object');
+  expect(doc.ok).to.eql(true);
+  expect(doc.id).to.eql(id);
+  expect(doc.rev).to.be.a('string');
+}
+
 module.exports = {
   create: create,
   get: get,
@@ -58,4 +65,5 @@ module.exports = {
   rm: create,
   list: view.result,
   head: head,
+  edit: edit,
 }
