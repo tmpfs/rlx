@@ -110,12 +110,12 @@ In an interactive session you can create an alias from the current location by j
 
 #### Expansion
 
-Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, and document specified in the reference.
+Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the alias reference.
 
 Such that the full reference (for the default `:lh` alias):
 
 ```
-:user@lh/db/doc
+:user@lh/db/doc?rev=0-1
 ```
 
 Expands to:
@@ -125,22 +125,29 @@ Expands to:
   "username": "user",
   "database": "db",
   "id": "doc",
+  "rev": "0-1",
   "server": "http://localhost:5984",
   "name": "lh"
 }
 ```
 
+You may override the alias definition and expansions with specific options such as `${opt_database_long}`, `${opt_id_long}` etc.
+
 Use the `${cmd_get_long}` command to inspect alias expansion on an existing alias, run the `${cmd_parse_long}` command to verify the parsing rules.
+
+When not running in an interactive session the `${cmd_get_long}` command will change directory and print the result of the alias merged with other options (`${opt_database_short}` etc).
 
 #### Inspect
 
-Use the ${cmd_print_long} command to print the alias file contents, the `${cmd_ls_long}` command will show a map of keys to URLs (adding `${opt_long_short}` is equivalent to `${cmd_print_long}`).
+Use the `${cmd_print_long}` command to print the alias file contents, the `${cmd_ls_long}` command will show a map of keys to URLs (adding `${opt_long_short}` is equivalent to `${cmd_print_long}`).
 
 Print an individual alias with the `get` command.
 
 #### Match Pattern
 
-You may alter the regular expression used for matching alias names in the `alias.match` rc configuration field but choose wisely reserved shell special characters would be awkward and `@` would conflict with template variable names. The full match of the regular expression is stripped to determine the alias name.
+You may alter the regular expression used for matching alias names in the `alias.match` rc configuration field but choose wisely reserved shell special characters would be awkward and `@` would conflict with template variable names.
+
+The full match of the regular expression is stripped to determine the alias name.
 
 #### Files
 
@@ -1056,7 +1063,11 @@ Is expanded to the equivalent of:
 -s http://localhost:5984 -d data/store -i path/document -r 0-1
 ```
 
-Note that when referencing databases in the URL form you should URL encode the database name whilst it is not necessary for the `${opt_database_short}` option. See ${see_alias} for more information on alias expansion.
+Note that when referencing databases in the URL form you should URL encode the database name whilst it is not necessary for the `${opt_database_short}` option.
+
+If `${opt_database_long}`, `${opt_id_long}`, `${opt_rev_long}` or `${opt_username_long}` are specified they override any values extracted during expansion.
+
+See ${see_alias} for more information on alias expansion.
 
 ## Files
 
