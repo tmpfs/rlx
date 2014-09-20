@@ -53,6 +53,9 @@
   "error": {
     "json": false
   },
+  "launch": {
+    "url": "open %s"
+  },
   "console": {
     "comment": {
       "inject": true,

@@ -285,8 +285,15 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 * `su: su <username> <server>`: Switch user session.
 * `pwd: pwd`: Print current location.
 * `cd: cd <path>`: Set current location.
+* `open: open, o <url>`: Open a URL.
 * `shorthelp: ?`: Short help.
 * `exit: q, quit, exit`: Quit interactive console.
+
+#### Options
+
+* `--fu, --futon`: Open the futon web interface.
+* `--fx, --fauxton`: Open the fauxton web interface.
+* `--do, --docs`: Open the couchdb documentation.
 
 #### Location
 

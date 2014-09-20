@@ -1,4 +1,4 @@
-.TH "RLX-ALIAS" "1" "September 2014" "rlx-alias 0.1.380" "User Commands"
+.TH "RLX-ALIAS" "1" "September 2014" "rlx-alias 0.1.381" "User Commands"
 .SH "NAME"
 rlx-alias -- Manage alias shortcuts.
 .SH "USAGE"
@@ -107,7 +107,9 @@ Use the \fBprint\fR command to print the alias file contents, the \fBls\fR comma
 Print an individual alias with the \fBget\fR command.
 .SH "MATCH PATTERN"
 .PP
-You may alter the regular expression used for matching alias names in the \fBalias.match\fR rc configuration field but choose wisely reserved shell special characters would be awkward and \fB@\fR would conflict with template variable names. The full match of the regular expression is stripped to determine the alias name.
+You may alter the regular expression used for matching alias names in the \fBalias.match\fR rc configuration field but choose wisely reserved shell special characters would be awkward and \fB@\fR would conflict with template variable names.
+.PP
+The full match of the regular expression is stripped to determine the alias name.
 .SH "FILES"
 .PP
 Aliases are stored in \fBalias.json\fR within \fB~/.rlx\fR.
