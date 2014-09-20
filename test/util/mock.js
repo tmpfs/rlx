@@ -31,6 +31,8 @@ var pkg = path.join(base, 'package.json')
   // should use same name in test runner
   // makes life so much easier
   , name = process.env.rlx_program_name || 'rlx'
+  , rev = '0-1'
+  , username = 'mock-user'
   , lh = 'http://localhost:5984'
   , lhs = 'https://localhost:5984';
 
@@ -91,9 +93,9 @@ var mock = {
     target: 'mock/database/copy'
   },
   user: {
-    name: 'mock-user',
+    name: username,
     password: 'secret',
-    id: userdb.prefix + 'mock-user',
+    id: userdb.prefix + username,
     roles: 'admin,user',
     type: 'user'
   },
@@ -117,7 +119,7 @@ var mock = {
     str: 'value',
     nil: null
   },
-  rev: '0-1',
+  rev: rev,
   copy: {
     id: 'mock/document/copy'
   },
@@ -184,27 +186,24 @@ var mock = {
       name: 'lh'
     },
     user: {
-      raw: ':mock-user@lh',
+      raw: ':' + username + '@lh',
       name: 'lh',
-      username: 'mock-user'
     },
     userpass: {
-      raw: ':mock-user:secret@lh',
+      raw: ':' + username + ':secret@lh',
       name: 'lh',
-      username: 'mock-user',
-      password: 'secret'
     },
     userdb: {
-      raw: ':mock-user@lh/mock%2Fdatabase',
+      raw: ':' + username + '@lh/mock%2Fdatabase',
       name: 'lh',
-      username: 'mock-user',
-      database: 'mock/database',
     },
     userdbdoc: {
-      raw: ':mock-user@lh/mock%2Fdatabase/mock/document',
+      raw: ':' + username + '@lh/mock%2Fdatabase/mock/document',
       name: 'lh',
-      username: 'mock-user',
-      database: 'mock/database',
+    },
+    userdbdocrev: {
+      raw: ':' + username + '@lh/mock%2Fdatabase/mock/document?rev=' + rev,
+      name: 'lh',
     },
     alt: {
       raw: ':alt',

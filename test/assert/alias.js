@@ -38,6 +38,11 @@ function userdbdoc(doc, req) {
   expect(doc.id).to.eql(mock.document.id);
 }
 
+function userdbdocrev(doc, req) {
+  userdbdoc(doc, req);
+  expect(doc.rev).to.eql(mock.rev);
+}
+
 function get(doc, req) {
   expect(doc).to.be.an('object');
   expect(doc.name).to.eql(mock.alias.simple.name);
@@ -86,6 +91,7 @@ module.exports = {
   parseuserdb: parseuserdb,
   userpass: userpass,
   userdbdoc: userdbdoc,
+  userdbdocrev: userdbdocrev,
   get: get,
   print: print,
   ls: ls,

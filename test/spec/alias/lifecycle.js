@@ -168,27 +168,54 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-  it('should parse user/db/doc alias reference (:user@name/db/doc)', function(done){
-    var mock = config.file('alias-parse-user-db-doc.json');
-    var args = qt.getArguments('alias/parse',
-      {
-        output: mock,
-        clear: true,
-        args: [
-          'alias',
-          'parse',
-          config.alias.userdbdoc.raw
-        ]
-      }
-    );
-    var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
-      var doc = config.json(mock);
-      config.assert.alias.userdbdoc(doc, req);
-      done();
-    })
-    def.parse(args);
-  });
+  it('should parse user/db/doc alias reference (:user@name/db/doc)',
+    function(done){
+      var mock = config.file('alias-parse-user-db-doc.json');
+      var args = qt.getArguments('alias/parse',
+        {
+          output: mock,
+          clear: true,
+          args: [
+            'alias',
+            'parse',
+            config.alias.userdbdoc.raw
+          ]
+        }
+      );
+      var def = program(require(pkg), config.name)
+      def.program.on('complete', function(req) {
+        var doc = config.json(mock);
+        config.assert.alias.userdbdoc(doc, req);
+        done();
+      })
+      def.parse(args);
+    }
+  );
+
+  it('should parse user/db/doc/rev alias reference (:user@name/db/doc?rev=0-1)',
+    function(done){
+      var mock = config.file('alias-parse-user-db-doc-rev.json');
+      var args = qt.getArguments('alias/parse',
+        {
+          output: mock,
+          clear: true,
+          args: [
+            'alias',
+            'parse',
+            config.alias.userdbdocrev.raw
+          ]
+        }
+      );
+      var def = program(require(pkg), config.name)
+      def.program.on('complete', function(req) {
+        var doc = config.json(mock);
+        //console.dir(doc);
+        config.assert.alias.userdbdocrev(doc, req);
+        done();
+      })
+      def.parse(args);
+    }
+  );
 
   it('should get alias', function(done){
     var mock = config.file('alias-get.json');
