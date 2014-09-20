@@ -292,7 +292,7 @@ Launch an interactive console with `$0 ${cmd_interactive_short}`, interactive co
 #### Options
 
 * `--fu, --futon`: Open the futon web interface.
-* `--fx, --fauxton`: Open the fauxton web interface.
+* `--fa, --fauxton`: Open the fauxton web interface.
 * `--do, --docs`: Open the couchdb documentation.
 
 #### Location
@@ -364,6 +364,12 @@ This arguments are tested against a whitelist of property names defined in `cons
 The default list should cater for must use cases but you may modify it if you like.
 
 The only current known collision is between the `${cmd_help_long}` command and `${opt_help_long}` option, in this case `${cmd_help_long}` is preferred, you can still use `${opt_help_long}` but no shortcut is available.
+
+#### Open
+
+Run `${cmd_open_long}` with no arguments to open the current server, otherwise specify a `<url>`. Use the shortcut flags to jump straight to futon, fauxton or the couchdb documentation.
+
+The command executed to open a URL is set in the `console.launch.url` rc configuration property. By default it is configured to run the OSX specific open(1), linux users should change this to their preferred executable.
 
 #### History Interpreter
 

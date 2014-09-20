@@ -53,10 +53,10 @@
   "error": {
     "json": false
   },
-  "launch": {
-    "url": "open %s"
-  },
   "console": {
+    "launch": {
+      "url": "open %s"
+    },
     "comment": {
       "inject": true,
       "enabled": false
