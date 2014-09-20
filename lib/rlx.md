@@ -627,6 +627,10 @@ The `${cmd_deploy_long}` command will follow the steps:
 8. Delete the backup and new design document.
 9. Clean up stale view indices for the database.
 
+#### See
+
+${see_attach}
+
 ### Replicate
 
 Commands for starting, stopping and inspecting database replications.
@@ -1157,3 +1161,7 @@ Bash was chosen for ease of readline integration and the ability to concisely pi
 The original implementation whilst almost feature complete was deprecated in favour of a pure javascript version. In addition the original implementation started from a pure interactive REPL perspective with a view to implementing non-interactive support later - it never happened.
 
 For the javascript program an inverse approach is taken, the REPL is the last feature to be implemented.
+
+## See
+
+${see_all}
