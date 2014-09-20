@@ -22,7 +22,6 @@ describe('rlx:', function() {
     var args = [
       'db',
       'add',
-      '-d=_illegal',
       '--no-color'
     ];
     var def = program(require(pkg), config.name);
