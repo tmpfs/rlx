@@ -1,4 +1,4 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.378" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.379" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "USAGE"
@@ -150,6 +150,17 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
+.SH "EXPANSION"
+.PP
+Expansion is performed on the \fB\-s | \-\-server\fR option for absolute URLs and aliases. You may specify the database, document and revision such that the URL:
+
+  \-s http://localhost:5984/data%2Fstore/path/document?rev=0\-1
+.PP
+Is expanded to the equivalent of:
+
+  \-s http://localhost:5984 \-d data/store \-i path/document \-r 0\-1
+.PP
+Note that when referencing databases in the URL form you should URL encode the database name whilst it is not necessary for the \fB\-d\fR option. See rlx\-alias(1) for more information on alias expansion.
 .SH "LOG"
 .PP
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-log\-level\fR option. The default log level is \fBinfo\fR.

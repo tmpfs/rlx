@@ -98,7 +98,7 @@ The typical use case for aliases is server administrators managing multiple serv
 Run `${cmd_alias_long} ${cmd_init_long}` to create an alias file, this includes two default aliases:
 
 * `lh`: http://localhost:5984
-* `lhs`: https://localhost:5984
+* `lhs`: https://localhost:6984
 
 You can now reference the alias location in arguments (`$0 ${cmd_info_long} -s :lh`) or in an interactive session (`cd :lh`).
 
@@ -303,7 +303,7 @@ cd ../../../altdb         # url => http://localhost:5984/altdb
 cd ../db                  # url => http://localhost:5984/db
 cd ..                     # url => http://localhost:5984
 cd ..                     # url => /
-cd :lhs                   # url => https://localhost:5984
+cd :lhs                   # url => https://localhost:6984
 ```
 
 If the path starts with a known protocol (http or https) then you can expand a URL to a location:
@@ -1040,7 +1040,23 @@ Use the `${cmd_who_long}` command to view currently available login sessions, to
 
 Alias for the `session rm` command.
 
-<!--- custom sections -->
+<!--- custom top-level sections -->
+
+## Expansion
+
+Expansion is performed on the `${opt_server_pipe}` option for absolute URLs and aliases. You may specify the database, document and revision such that the URL:
+
+```
+-s http://localhost:5984/data%2Fstore/path/document?rev=0-1
+```
+
+Is expanded to the equivalent of:
+
+```
+-s http://localhost:5984 -d data/store -i path/document -r 0-1
+```
+
+Note that when referencing databases in the URL form you should URL encode the database name whilst it is not necessary for the `${opt_database_short}` option. See ${see_alias} for more information on alias expansion.
 
 ## Files
 

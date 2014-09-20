@@ -3,6 +3,6 @@
     "server": "http://localhost:5984" 
   },
   "lhs": {
-    "server": "https://localhost:5984" 
+    "server": "https://localhost:6984" 
   }
 }
