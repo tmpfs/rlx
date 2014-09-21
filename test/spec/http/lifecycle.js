@@ -58,6 +58,19 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should send COPY request', function(done){
+    var mock = config.file('http-copy.json');
+    var args = qt.getArguments('http/copy', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.doc.create(doc, false, config.copy.id);
+      done();
+    })
+    def.parse(args);
+  });
+
+
   it('should send DELETE request', function(done){
     var mock = config.file('http-del.json');
     var args = qt.getArguments('http/del', {output: mock});

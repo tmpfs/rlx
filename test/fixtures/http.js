@@ -54,6 +54,18 @@ var fixtures = [
     ]
   },
   {
+    id: 'http/copy',
+    description: 'Send a COPY request',
+    cmd: [
+      'http',
+      'copy',
+      server + '/' + querystring.escape(database)
+        + '/' + querystring.escape(mock.document.id),
+      '-h',
+      'Destination: ' + mock.copy.id
+    ]
+  },
+  {
     id: 'http/del',
     description: 'Send a DELETE request',
     cmd: [
