@@ -38,6 +38,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `rc: runconf, rc`: Runtime configuration.
 * `alias: alias, as`: Manage alias shortcuts.
 * `system: system, sys`: System utilities.
+* `http: http, tt`: Low-level HTTP requests.
 * `interactive: interactive, i`: Interactive REPL console.
 
 ## Options
@@ -69,6 +70,19 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--feed [type]`: Poll feed type. 
 
 <!--- command definitions -->
+
+### Http
+
+Perform HTTP requests using any of the available verbs GET, PUT, POST, DELETE, HEAD and COPY.
+
+#### Commands
+
+* `get: get <url>`: Send a GET request.
+* `put: put <url>`: Send a PUT request.
+* `post: post <url>`: Send a POST request.
+* `del: delete, del <url>`: Send a DELETE request.
+* `head: head <url>`: Send a HEAD request.
+* `copy: copy <url>`: Send a COPY request.
 
 ### Alias
 
