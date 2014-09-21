@@ -43,6 +43,8 @@ err.fsexists = err('EFS_FILE_EXISTS');
 
 err.header = err('EHEADER_PARSE');
 
+err.badreq = err('EBAD_REQUEST');
+
 err.dir = err('EDIRECTORY_REQUIRED');
 err.few = err('ETOO_FEW_ARGUMENTS');
 
