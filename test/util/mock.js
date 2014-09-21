@@ -212,6 +212,14 @@ var mock = {
   }
 }
 
+var jdoc  = {};
+for(var k in mock.document) {
+  jdoc[k] = mock.document[k];
+}
+jdoc._id = jdoc.id;
+delete jdoc.id;
+mock.jsondoc = JSON.stringify(jdoc);
+
 var u = url.parse(mock.server.default);
 mock.server.user = u.protocol + '//' + mock.user.name + '@' + u.host;
 

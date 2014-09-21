@@ -29,6 +29,21 @@ var fixtures = [
     ]
   },
   {
+    id: 'http/post',
+    description: 'Send a POST request',
+    cmd: [
+      'http',
+      'post',
+      server + '/' + querystring.escape(database),
+      '-h',
+      'Accept: application/json',
+      '-h',
+      'Content-Type: application/json',
+      '-j',
+      mock.jsondoc
+    ]
+  },
+  {
     id: 'http/del',
     description: 'Send a DELETE request',
     cmd: [

@@ -1368,7 +1368,9 @@ function getArguments(id, opts) {
     if(!~args.indexOf(force) && opts.force !== false) {
       args.push(force);
     }
-    args.push('--no-color', '--log-level', 'fatal');
+    args.push('--no-color');
+    args.push('--log-level', 'fatal');
+    //args.push('--log-level', 'debug', '--log-http');
   }
   args.push('--no-interactive');
   return args;
