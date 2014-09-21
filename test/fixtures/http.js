@@ -14,7 +14,7 @@ var fixtures = [
       'get',
       server + '/',
       '-h',
-      'Accept: application/json'
+      'Accept:application/json'
     ]
   },
   {
@@ -25,7 +25,7 @@ var fixtures = [
       'put',
       server + '/' + querystring.escape(database),
       '-h',
-      'Accept: application/json'
+      'Accept:application/json'
     ]
   },
   {
@@ -36,9 +36,9 @@ var fixtures = [
       'post',
       server + '/' + querystring.escape(database),
       '-h',
-      'Accept: application/json',
+      'Accept:application/json',
       '-h',
-      'Content-Type: application/json',
+      'Content-Type:application/json',
       '-j',
       mock.jsondoc
     ]
@@ -62,7 +62,7 @@ var fixtures = [
       server + '/' + querystring.escape(database)
         + '/' + querystring.escape(mock.document.id),
       '-h',
-      'Destination: ' + mock.copy.id
+      'Destination:' + mock.copy.id
     ]
   },
   {
@@ -73,7 +73,7 @@ var fixtures = [
       'del',
       server + '/' + querystring.escape(database),
       '-h',
-      'Accept: application/json'
+      'Accept:application/json'
     ]
   },
 ];

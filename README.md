@@ -41,13 +41,13 @@ where <command> is one of:
     app, local, lcl, login, in, logout, out, session, sess,
     config, conf, info, stats, tasks, log, restart, uuids, edit,
     tpl, lint, level, lvl, whoami, runconf, rc, alias, as,
-    system, sys, interactive, i, help
+    system, sys, http, tt, interactive, i, help
 
 rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.383 /Users/cyberfunk/git/rlx
+rlx@0.1.385 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer

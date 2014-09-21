@@ -70,7 +70,6 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
-
   it('should send DELETE request', function(done){
     var mock = config.file('http-del.json');
     var args = qt.getArguments('http/del', {output: mock});

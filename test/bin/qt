@@ -25,6 +25,20 @@ process.stdin.resume();
 
 console.info(lines.join(EOL));
 
+var rules = [];
+rules.push({src: /(-j|--json) ([^ ]+)/gm, rep: '$1 \'$2\''});
+
+function replace(str) {
+  var i, rule, re;
+  for(i = 0;i < rules.length;i++) {
+    rule = rules[i];
+    re = (rule.src instanceof RegExp)
+      ? rule.src : new RegExp(rule.src, 'gm');
+    str = str.replace(re, rule.rep);
+  }
+  return str;
+}
+
 function run(fixtures, hook, cb) {
   if(typeof hook === 'function') cb = hook;
   //console.dir(fixtures.length);
@@ -52,6 +66,7 @@ function run(fixtures, hook, cb) {
       }
       cmd.unshift(exe);
       cmd = cmd.join(' ');
+      cmd = replace(cmd);
       cmd = cmd.replace(/(\*|&|!|\$|\?|\^|<|>)/g, '\\$1');
       exec(cmd, opts, function(err, stdout, stderr) {
         var code = err && err.code ? err.code : 0;
