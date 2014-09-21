@@ -44,6 +44,16 @@ var fixtures = [
     ]
   },
   {
+    id: 'http/head',
+    description: 'Send a HEAD request',
+    cmd: [
+      'http',
+      'head',
+      server + '/' + querystring.escape(database)
+        + '/' + querystring.escape(mock.document.id)
+    ]
+  },
+  {
     id: 'http/del',
     description: 'Send a DELETE request',
     cmd: [
