@@ -4,13 +4,6 @@ var dbh = new cdb({jar: jar});
 var mock = require('../mock');
 var admins = cdb.sections.admins;
 
-var doc = {
-  docs: [
-    {_id: 'foo'},
-    {_id: 'bar'}
-  ]
-};
-
 var admin = {
   add: function(opts, cb){
     if(typeof opts === 'function') {
