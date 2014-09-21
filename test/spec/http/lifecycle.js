@@ -15,6 +15,13 @@ var qt = require('../../fixtures/qt');
 describe('rlx:', function() {
   this.timeout(5000);
 
+  before(function(done) {
+    setup.alias.init(done);
+  })
+  after(function(done) {
+    teardown.alias.unlink(done);
+  })
+
   it('should send GET request', function(done){
     var mock = config.file('http-get.json');
     var args = qt.getArguments('http/get', {output: mock});
@@ -26,7 +33,6 @@ describe('rlx:', function() {
     })
     def.parse(args);
   });
-
 
   it('should send PUT request', function(done){
     var mock = config.file('http-put.json');
@@ -88,6 +94,24 @@ describe('rlx:', function() {
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
       config.assert.doc.create(doc, false, config.copy.id);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should expand alias on request', function(done){
+    var mock = config.file('http-alias-expand.json');
+    var args = qt.getArguments('http', {
+      output: mock,
+      args: [
+        'get',
+        config.alias.simple.raw,
+      ]
+    });
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.server.info(doc);
       done();
     })
     def.parse(args);

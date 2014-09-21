@@ -81,6 +81,7 @@ var fixtures = [
   {
     id: 'http',
     description: 'No subcommand for http command',
+    enabled: false,
     cmd: [
       'http'
     ]

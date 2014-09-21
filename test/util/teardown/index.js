@@ -1,5 +1,6 @@
 module.exports = {
   admin: require('./admin'),
+  alias: require('./alias'),
   db: require('./db'),
   ddoc: require('./ddoc'),
   doc: require('./doc'),
