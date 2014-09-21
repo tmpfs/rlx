@@ -76,6 +76,15 @@ var fixtures = [
       'Accept:application/json'
     ]
   },
+
+  // http - errors
+  {
+    id: 'http',
+    description: 'No subcommand for http command',
+    cmd: [
+      'http'
+    ]
+  },
 ];
 
 module.exports = fixtures;

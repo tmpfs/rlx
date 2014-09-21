@@ -57,4 +57,6 @@ err.aliasexists = err('EALIAS_EXISTS');
 err.aliasempty = err('EALIAS_EMPTY');
 err.aliasfile = err('EALIAS_FILE_REQUIRED');
 
+err.protocol = err('EINVALID_PROTOCOL');
+
 module.exports = err;
