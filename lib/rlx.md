@@ -885,6 +885,7 @@ The `rm` subcommand name was chosen for consistency with other subcommands and i
 
 * `get: get`: Get the security document.
 * `set: set`: Set the security document.
+* `edit: edit`: Edit the security document.
 * `rm: rm`: Reset the security document.
 
 ### Rc
