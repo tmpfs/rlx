@@ -1234,6 +1234,7 @@ var qt = [
   },
 ]
 
+var http = require('./http');
 var db = require('./db');
 var doc = require('./doc');
 var lcl = require('./local');
@@ -1244,6 +1245,7 @@ var batch = require('./batch');
 var rc = require('./rc');
 var tpl = require('./template');
 var alias = require('./alias');
+qt = http.concat(qt);
 qt = db.concat(qt);
 qt = doc.concat(qt);
 qt = lcl.concat(qt);
