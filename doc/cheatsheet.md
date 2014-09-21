@@ -38,12 +38,12 @@ Table of Contents
     * [GET /{db}/{docid}?revs=true](#get-dbdocidrevstrue)
     * [GET /{db}/{docid}?revsinfo=true](#get-dbdocidrevsinfotrue)
     * [GET /{db}/{docid}?meta=true](#get-dbdocidmetatrue)
-    * [GET /{db}/_all_docs](#get-db_all_docs)
+    * [GET /{db}/docs](#get-dbdocs)
     * [HEAD /{db}/{docid}](#head-dbdocid)
     * [DELETE /{db}/{docid}](#delete-dbdocid)
   * [Design Document](#design-document)
     * [PUT /{db}/_design/{ddoc}](#put-db_designddoc)
-    * [GET /{db}/_all_docs](#get-db_all_docs-1)
+    * [GET /{db}/docs](#get-dbdocs-1)
     * [COPY /{db}/_design/{ddoc}](#copy-db_designddoc)
     * [GET /{db}/_design/{ddoc}](#get-db_designddoc)
     * [HEAD /{db}/_design/{ddoc}](#head-db_designddoc)
@@ -77,7 +77,7 @@ Table of Contents
     * [GET /_config/admins/{key}](#get-_configadminskey)
     * [DELETE /_config/admins/{key}](#delete-_configadminskey)
   * [User](#user)
-    * [GET /_users/_all_docs](#get-_users_all_docs)
+    * [GET /_users/docs](#get-_usersdocs)
     * [PUT /_users/{docid}](#put-_usersdocid)
     * [GET /_users/{docid}](#get-_usersdocid)
     * [DELETE /_users/{docid}](#delete-_usersdocid)
@@ -457,7 +457,7 @@ rlx doc meta -s {server} -d {db} -i {docid}
 
 Documentation: [document/common#get-db-docid](http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid)
 
-### GET /{db}/_all_docs
+### GET /{db}/docs
 
 List documents:
 
@@ -504,7 +504,7 @@ rlx app push -s {server} -d {db} -i {ddoc} -t {template}
 
 Documentation: [ddoc/common#put-db-design-ddoc](http://docs.couchdb.org/en/latest/api/ddoc/common.html#put--db-_design-ddoc)
 
-### GET /{db}/_all_docs
+### GET /{db}/docs
 
 List design documents:
 
@@ -837,7 +837,7 @@ Documentation: [server/configuration#delete-config-section-key](http://docs.couc
 * Manual: `rlx help user`
 * Help: `rlx --help user`
 
-### GET /_users/_all_docs
+### GET /_users/docs
 
 List users:
 

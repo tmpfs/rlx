@@ -58,6 +58,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `-h, --header [key:val...]`: Additional HTTP headers.
 * `-g, --glob [pattern...]`: File match pattern(s).
 * `--log-level [level]`: Set the log level.
+* `--log-http`: Enable HTTP logs.
 * `--[no]-interactive`: Disable interactive prompts.
 * `--recursive`: Read directories recursively.
 * `--noop`: Print db network requests, do not send them.
@@ -66,7 +67,6 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--ddoc [name]`: Design document id.
 * `nm:-n, --name [name]`: Design document function name (view|update|show|list).
 * `--feed [type]`: Poll feed type. 
-* `--http`: Enable HTTP logs.
 
 <!--- command definitions -->
 
@@ -344,8 +344,8 @@ Yields the location:
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
 
 ```
---http                    # enable http logging
---no-http                 # disable http logging
+--log-http                # enable http logging
+--no-log-http             # disable http logging
 -d {db}                   # set current database
 -d                        # clear current database
 --no-color                # disable colors
@@ -356,7 +356,7 @@ Alternatively without the leading hyphens using the long name:
 ```
 no-color                  # disable colors
 color                     # enable colors
-http log-level debug      # enable http logging (debug)
+log-http log-level debug  # enable http logging (debug)
 ```
 
 This arguments are tested against a whitelist of property names defined in `console.cascade.allow`. It makes sense for some options to cascade to commands executed in the future (`${opt_color_yes}`, `${opt_log_level_long}` etc) however for some options it is counter-intuitive, `${opt_raw_long}` for example.
@@ -1130,7 +1130,7 @@ cat package.json | $0 - ${cmd_lint_long}
 
 All log output is sent to `stderr`, response documents are printed to `stdout`. You may set the program log level using the `${opt_log_level_long}` option. The default log level is `info`.
 
-Enable logging of HTTP requests and responses by also specifiying `${opt_http_pipe}` option, any level specified using the `${opt_log_level_long}` option applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is `debug` then query string parameters and headers will also be logged.
+Enable logging of HTTP requests and responses by also specifiying `${opt_log_http_pipe}` option, any level specified using the `${opt_log_level_long}` option applies to the HTTP logger. When the HTTP log level is `info` basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is `debug` then query string parameters and headers will also be logged.
 
 ## Headers
 
@@ -1142,7 +1142,7 @@ Use the HTTP logging option to inspect the request headers:
 
 ```
 $0 doc get -s {server} -d {database} -i {document} \
-  -h 'if-none-match: "{revision}"' --http --log-level debug
+  -h 'if-none-match: "{revision}"' --log-http --log-level debug
 ```
 
 The `${opt_rev_long}` would be more concise in the above example, however it illustrates the ability to set and inspect headers.

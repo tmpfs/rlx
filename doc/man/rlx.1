@@ -1,28 +1,26 @@
-.TH "RLX" "1" "September 2014" "rlx 0.1.380" "User Commands"
+.TH "RLX" "1" "September 2014" "rlx 0.1.383" "User Commands"
 .SH "NAME"
 rlx -- Command line interface for couchdb.
 .SH "USAGE"
 
 .SP
-rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress]
+rlx <command> [\-c] [\-\-color|\-\-no\-color] [\-c|\-\-compress] [\-\-log\-http]
 .br
     [\-\-interactive|\-\-no\-interactive] [\-\-recursive] [\-\-noop] [\-\-force]
 .br
-    [\-\-http] [\-\-help] [\-\-version] [\-s|\-\-server=<url>]
+    [\-\-help] [\-\-version] [\-s|\-\-server=<url>] [\-d|\-\-database=<name>]
 .br
-    [\-d|\-\-database=<name>] [\-i|\-\-id=<id>] [\-a|\-\-attachment=<file>]
+    [\-i|\-\-id=<id>] [\-a|\-\-attachment=<file>] [\-r|\-\-rev=<rev>]
 .br
-    [\-r|\-\-rev=<rev>] [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>]
+    [\-u|\-\-username=<name>] [\-p|\-\-password=<pass>] [\-o|\-\-output=<file>]
 .br
-    [\-o|\-\-output=<file>] [\-f|\-\-file=<file>] [\-j|\-\-json=<json>]
+    [\-f|\-\-file=<file>] [\-j|\-\-json=<json>] [\-t|\-\-template=<name>]
 .br
-    [\-t|\-\-template=<name>] [\-q|\-\-query=<params...>]
+    [\-q|\-\-query=<params...>] [\-h|\-\-header=<key:val...>]
 .br
-    [\-h|\-\-header=<key:val...>] [\-g|\-\-glob=<pattern...>]
+    [\-g|\-\-glob=<pattern...>] [\-\-log\-level=<level>] [\-\-destination=<url>]
 .br
-    [\-\-log\-level=<level>] [\-\-destination=<url>] [\-\-ddoc=<name>]
-.br
-    [\-n|\-\-name=<name>] [\-\-feed=<type>] <args>
+    [\-\-ddoc=<name>] [\-n|\-\-name=<name>] [\-\-feed=<type>] <args>
 .SH "DESCRIPTION"
 .PP
 Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more information on individual commands, start an interactive session with \fBrlx i\fR.
@@ -128,6 +126,8 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-log\-level=[level]\fR: Set the log level.
 .IP "\[ci]" 4
+\fB\-\-log\-http\fR: Enable HTTP logs.
+.IP "\[ci]" 4
 \fB\-\-[no]\-interactive\fR: Disable interactive prompts.
 .IP "\[ci]" 4
 \fB\-\-recursive\fR: Read directories recursively.
@@ -143,8 +143,6 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 \fB\-n, \-\-name=[name]\fR: Design document function name (view|update|show|list).
 .IP "\[ci]" 4
 \fB\-\-feed=[type]\fR: Poll feed type. 
-.IP "\[ci]" 4
-\fB\-\-http\fR: Enable HTTP logs.
 .IP "\[ci]" 4
 \fB\-\-help\fR: Display this help and exit.
 .IP "\[ci]" 4
@@ -169,7 +167,7 @@ See rlx\-alias(1) for more information on alias expansion.
 .PP
 All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-log\-level\fR option. The default log level is \fBinfo\fR.
 .PP
-Enable logging of HTTP requests and responses by also specifiying \fB\-\-http\fR option, any level specified using the \fB\-\-log\-level\fR option applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is \fBdebug\fR then query string parameters and headers will also be logged.
+Enable logging of HTTP requests and responses by also specifiying \fB\-\-log\-http\fR option, any level specified using the \fB\-\-log\-level\fR option applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is \fBdebug\fR then query string parameters and headers will also be logged.
 .SH "HEADERS"
 .PP
 Similar to \fBcurl(1)\fR arbitrary HTTP headers are accepted using the \fB\-h | \-\-header\fR option (note the short version is lowercase), you may specify as many headers as you like although \fBContent\-Type\fR and \fBAccept\fR are ignored, a warning is printed if you attempt to use them.
@@ -181,7 +179,7 @@ Use the HTTP logging option to inspect the request headers:
 .SP
   rlx doc get \-s {server} \-d {database} \-i {document} \e
 .br
-    \-h 'if\-none\-match: "{revision}"' \-\-http \-\-log\-level debug
+    \-h 'if\-none\-match: "{revision}"' \-\-log\-http \-\-log\-level debug
 .PP
 The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
 .SH "QUERY STRING"

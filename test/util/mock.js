@@ -34,7 +34,7 @@ var pkg = path.join(base, 'package.json')
   , rev = '0-1'
   , username = 'mock-user'
   , lh = 'http://localhost:5984'
-  , lhs = 'https://localhost:5984';
+  , lhs = 'https://localhost:6984';
 
 
 var mock = {

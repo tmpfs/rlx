@@ -66,12 +66,12 @@
         "color",
         "username",
         "noop",
-        "http",
         "server",
         "database",
         "id",
         "rev",
         "ddoc",
+        "logHttp",
         "logLevel"
       ]
     }

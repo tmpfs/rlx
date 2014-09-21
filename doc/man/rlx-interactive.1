@@ -1,4 +1,4 @@
-.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.382" "User Commands"
+.TH "RLX-INTERACTIVE" "1" "September 2014" "rlx-interactive 0.1.383" "User Commands"
 .SH "NAME"
 rlx-interactive -- Interactive REPL console.
 .SH "USAGE"
@@ -112,9 +112,9 @@ Yields the location:
 Commands are not required in interactive mode. Provided a command is not specified in the interactive console you may also set certain arguments directly:
 
 .SP
-  \-\-http                    # enable http logging
+  \-\-log\-http                # enable http logging
 .br
-  \-\-no\-http                 # disable http logging
+  \-\-no\-log\-http             # disable http logging
 .br
   \-d {db}                   # set current database
 .br
@@ -129,7 +129,7 @@ Alternatively without the leading hyphens using the long name:
 .br
   color                     # enable colors
 .br
-  http log\-level debug      # enable http logging (debug)
+  log\-http log\-level debug  # enable http logging (debug)
 .PP
 This arguments are tested against a whitelist of property names defined in \fBconsole.cascade.allow\fR. It makes sense for some options to cascade to commands executed in the future (\fB\-\-color\fR, \fB\-\-log\-level\fR etc) however for some options it is counter\-intuitive, \fB\-\-raw\fR for example.
 .PP
