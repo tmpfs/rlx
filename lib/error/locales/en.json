@@ -328,5 +328,10 @@
     "key": "EOPEN_URL",
     "description": "Open called with no arguments and no server selected",
     "message": "cannot open, no url"
+  },
+  {
+    "key": "EINVALID_DESTINATION",
+    "description": "Open called with no arguments and no server selected",
+    "message": "destination %s is invalid, must be a relative URL"
   }
 ]

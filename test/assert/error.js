@@ -61,4 +61,6 @@ err.aliasfile = err('EALIAS_FILE_REQUIRED');
 
 err.protocol = err('EINVALID_PROTOCOL');
 
+err.dest = err('EINVALID_DESTINATION');
+
 module.exports = err;

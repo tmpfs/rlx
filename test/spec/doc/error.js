@@ -1,3 +1,4 @@
+var qt = require('../../fixtures/qt');
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
@@ -244,6 +245,24 @@ describe('rlx:', function() {
     var errors = def.program.errors;
     def.program.on('error', function(err) {
       config.error.template(err, errors);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should error on absolute destination', function(done){
+    var args = qt.getArguments('doc/cp', {
+      clear: true,
+      args:[
+        'doc', 'cp',
+        '-s', config.server.default,
+        '--destination', config.server.default,
+      ]
+    });
+    var def = program(require(pkg), config.name)
+    var errors = def.program.errors;
+    def.program.on('error', function(err) {
+      config.error.dest(err, errors);
       done();
     })
     def.parse(args);
