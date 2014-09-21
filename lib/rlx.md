@@ -73,13 +73,15 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Http
 
-Perform HTTP requests using any of the available verbs GET, PUT, POST, DELETE, HEAD and COPY.
+Perform HTTP requests using any of the available methods GET, PUT, POST, DELETE, HEAD and COPY.
 
-All subcommands require an absolute `<url>` using either the `http` or `https` scheme.
+All subcommands require an absolute `<url>` using either the `http` or `https` scheme. You may reference an alias for `<url>` but if the alias does not have a valid `server` field it is not possible to form an absolute URL, see ${see_alias}.
 
 The `${opt_query_long}` and `${opt_header_long}` options are respected and there are no restrictions on the headers that may be sent.
 
 The options `${opt_server_long}`, `${opt_database_long}`, `${opt_id_long}` and `${opt_rev_long}` have no effect.
+
+For PUT and POST requests any document specified using the rules that apply to stdin, `${opt_file_long}` and `${opt_json_long}` is sent as the body for the request. This means that at the moment only JSON is supported, in the future this will be addressed.
 
 #### Commands
 

@@ -1,4 +1,4 @@
-.TH "RLX-HTTP" "1" "September 2014" "rlx-http 0.1.387" "User Commands"
+.TH "RLX-HTTP" "1" "September 2014" "rlx-http 0.1.390" "User Commands"
 .SH "NAME"
 rlx-http -- Low-level HTTP requests.
 .SH "USAGE"
@@ -21,13 +21,15 @@ rlx tt head <args> <url>
 rlx tt copy <args> <url>
 .SH "DESCRIPTION"
 .PP
-Perform HTTP requests using any of the available verbs GET, PUT, POST, DELETE, HEAD and COPY.
+Perform HTTP requests using any of the available methods GET, PUT, POST, DELETE, HEAD and COPY.
 .PP
-All subcommands require an absolute \fB<url>\fR using either the \fBhttp\fR or \fBhttps\fR scheme.
+All subcommands require an absolute \fB<url>\fR using either the \fBhttp\fR or \fBhttps\fR scheme. You may reference an alias for \fB<url>\fR but if the alias does not have a valid \fBserver\fR field it is not possible to form an absolute URL, see rlx\-alias(1).
 .PP
 The \fB\-\-query\fR and \fB\-\-header\fR options are respected and there are no restrictions on the headers that may be sent.
 .PP
 The options \fB\-\-server\fR, \fB\-\-database\fR, \fB\-\-id\fR and \fB\-\-rev\fR have no effect.
+.PP
+For PUT and POST requests any document specified using the rules that apply to stdin, \fB\-\-file\fR and \fB\-\-json\fR is sent as the body for the request. This means that at the moment only JSON is supported, in the future this will be addressed.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
