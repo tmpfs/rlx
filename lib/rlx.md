@@ -75,6 +75,12 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 Perform HTTP requests using any of the available verbs GET, PUT, POST, DELETE, HEAD and COPY.
 
+All subcommands require an absolute `<url>` using either the `http` or `https` scheme.
+
+The `${opt_query_long}` and `${opt_header_long}` options are respected and there are no restrictions on the headers that may be sent.
+
+The options `${opt_server_long}`, `${opt_database_long}`, `${opt_id_long}` and `${opt_rev_long}` have no effect.
+
 #### Commands
 
 * `get: get <url>`: Send a GET request.
