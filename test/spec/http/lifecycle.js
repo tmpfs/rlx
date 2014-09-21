@@ -22,4 +22,27 @@ describe('rlx:', function() {
     def.parse(args);
   });
 
+  it('should send PUT request', function(done){
+    var mock = config.file('http-put.json');
+    var args = qt.getArguments('http/put', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.db.add(doc);
+      done();
+    })
+    def.parse(args);
+  });
+
+  it('should send DELETE request', function(done){
+    var mock = config.file('http-del.json');
+    var args = qt.getArguments('http/del', {output: mock});
+    var def = program(require(pkg), config.name)
+    def.program.on('complete', function(req) {
+      var doc = config.json(mock);
+      config.assert.db.rm(doc);
+      done();
+    })
+    def.parse(args);
+  });
 })

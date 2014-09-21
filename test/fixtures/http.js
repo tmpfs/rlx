@@ -1,11 +1,10 @@
+var querystring = require('querystring');
 var mock = require('../util/mock');
-var setup = require('../util/setup');
-var teardown = require('../util/teardown');
-
 var database = mock.database.default
   , server = mock.server.default;
 
 var fixtures = [
+
   // http
   {
     id: 'http/get',
@@ -14,6 +13,28 @@ var fixtures = [
       'http',
       'get',
       server + '/',
+      '-h',
+      'Accept: application/json'
+    ]
+  },
+  {
+    id: 'http/put',
+    description: 'Send a PUT request',
+    cmd: [
+      'http',
+      'put',
+      server + '/' + querystring.escape(database),
+      '-h',
+      'Accept: application/json'
+    ]
+  },
+  {
+    id: 'http/del',
+    description: 'Send a DELETE request',
+    cmd: [
+      'http',
+      'del',
+      server + '/' + querystring.escape(database),
       '-h',
       'Accept: application/json'
     ]
