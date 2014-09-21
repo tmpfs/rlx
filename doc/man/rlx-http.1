@@ -1,0 +1,48 @@
+.TH "RLX-HTTP" "1" "September 2014" "rlx-http 0.1.385" "User Commands"
+.SH "NAME"
+rlx-http -- Low-level HTTP requests.
+.SH "USAGE"
+
+.SP
+rlx http <command> <args>
+.br
+rlx tt <command> <args> 
+.br
+rlx tt get <args> <url> 
+.br
+rlx tt put <args> <url> 
+.br
+rlx tt post <args> <url> 
+.br
+rlx tt delete <args> <url> 
+.br
+rlx tt head <args> <url> 
+.br
+rlx tt copy <args> <url>
+.SH "DESCRIPTION"
+.PP
+Perform HTTP requests using any of the available verbs GET, PUT, POST, DELETE, HEAD and COPY.
+.PP
+All subcommands require an absolute \fB<url>\fR using either the \fBhttp\fR or \fBhttps\fR scheme.
+.PP
+The \fB\-\-query\fR and \fB\-\-header\fR options are respected and there are no restrictions on the headers that may be sent.
+.PP
+The options \fB\-\-server\fR, \fB\-\-database\fR, \fB\-\-id\fR and \fB\-\-rev\fR have no effect.
+.SH "COMMANDS"
+.BL
+.IP "\[ci]" 4
+\fBget\fR: Send a GET request.
+.IP "\[ci]" 4
+\fBput\fR: Send a PUT request.
+.IP "\[ci]" 4
+\fBpost\fR: Send a POST request.
+.IP "\[ci]" 4
+\fBdelete, del\fR: Send a DELETE request.
+.IP "\[ci]" 4
+\fBhead\fR: Send a HEAD request.
+.IP "\[ci]" 4
+\fBcopy\fR: Send a COPY request.
+.EL
+.SH "BUGS"
+.PP
+Report bugs to https://github.com/freeformsystems/rlx/issues.
