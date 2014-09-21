@@ -22,7 +22,7 @@
     "async-validate": "^0.1.20",
     "cdb": "0.0.80",
     "circular": "~1.0.5",
-    "cli-command": "^0.8.213",
+    "cli-command": "^0.8.219",
     "cli-error": "~0.5.7",
     "cli-input": "~0.0.91",
     "cli-interface": "~1.0.8",

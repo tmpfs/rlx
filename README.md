@@ -36,18 +36,18 @@ The documentation for the program is available via the `help` command, for those
 Usage: rlx <command>
 
 where <command> is one of:
-    admin, user, usr, database, db, security, sec, document,
-    doc, bulk, attach, att, replicate, repl, batch, application,
-    app, local, lcl, login, in, logout, out, session, sess,
-    config, conf, info, stats, tasks, log, restart, uuids, edit,
-    tpl, lint, level, lvl, whoami, runconf, rc, alias, as,
-    system, sys, http, tt, interactive, i, help
+    admin, alias, as, application, app, attach, att, batch,
+    bulk, config, conf, database, db, document, doc, edit, help,
+    http, tt, info, interactive, i, level, lvl, lint, local,
+    lcl, log, login, in, logout, out, runconf, rc, replicate,
+    repl, restart, security, sec, session, sess, stats, system,
+    sys, tasks, tpl, user, usr, uuids, whoami
 
 rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.385 /Users/cyberfunk/git/rlx
+rlx@0.1.387 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer
