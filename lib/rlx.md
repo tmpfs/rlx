@@ -78,6 +78,12 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 * `grep: grep, re <ptn...> <file...>`: Find objects matching a pattern.
 
+#### Options
+
+* `--flat`: Flatten object keys, joined on a period.
+* `--keys`: Include keys in the search.
+* `--values`: Include values in the search.
+
 ### Http
 
 Perform HTTP requests using any of the available methods GET, PUT, POST, DELETE, HEAD and COPY.
