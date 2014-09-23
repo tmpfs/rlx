@@ -22,7 +22,7 @@
     "async-validate": "^0.1.20",
     "cdb": "0.0.83",
     "circular": "~1.0.5",
-    "cli-command": "^0.8.226",
+    "cli-command": "^0.8.227",
     "cli-error": "~0.5.7",
     "cli-input": "~0.0.91",
     "cli-interface": "~1.0.8",
@@ -39,7 +39,7 @@
     "ncp": "^0.6.0",
     "recursive-readdir": "^1.2.0",
     "request": "^2.40.0",
-    "ttycolor": "^0.8.12",
+    "ttycolor": "^0.8.13",
     "uuid": "^1.4.1",
     "which": "^1.0.5"
   },
