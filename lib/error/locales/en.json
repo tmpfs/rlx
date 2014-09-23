@@ -185,6 +185,17 @@
     "message": "file is required (%s)"
   },
   {
+    "key": "EFILE_INPUT_REQUIRED",
+    "description": "Expected input with stdin, --json, --file or <file...>",
+    "message": "input is required (stdin, --json, --file, <file...>)"
+  },
+  {
+    "key": "ENO_PATTERNS_FOUND",
+    "description": "No regular expression patterns specified",
+    "message": "no patterns detected, expecting regular expression(s) <ptn..>"
+  },
+
+  {
     "key": "EVALIDATE",
     "description": "Document validation failed",
     "message": "validation error: %s"

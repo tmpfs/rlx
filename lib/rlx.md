@@ -38,6 +38,7 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `rc: runconf, rc`: Runtime configuration.
 * `alias: alias, as`: Manage alias shortcuts.
 * `system: system, sys`: System utilities.
+* `json: json, j`: Grep JSON and more.
 * `http: http, tt`: Low-level HTTP requests.
 * `interactive: interactive, i`: Interactive REPL console.
 
@@ -70,6 +71,12 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 * `--feed [type]`: Poll feed type. 
 
 <!--- command definitions -->
+
+### Json
+
+#### Commands
+
+* `grep: grep, re <ptn...> <file...>`: Find objects matching a pattern.
 
 ### Http
 
