@@ -74,6 +74,8 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Json
 
+To search documents specify regular expression(s) (and/or glob patterns) and one or more files. If input is specified on stdin, ${opt_file_long} or ${opt_json_long} if becomes the first in the list of documents to search. You can specify more files to search but they must have a `.json` file extension.
+
 #### Commands
 
 * `grep: grep, re <ptn...> <file...>`: Find objects matching a pattern.
@@ -81,8 +83,23 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 #### Options
 
 * `--flat`: Flatten object keys, joined on a period.
-* `--keys`: Include keys in the search.
+* `--[no]-keys`: Include keys in the search.
 * `--values`: Include values in the search.
+* `--unquote`: Remove double quotes for string results (single match).
+
+#### Patterns
+
+By default regular expression  patterns only search keys, add the `${opt_values_long}` option to also search values. You may search values only by negating the key pattern match: `${opt_keys_no} ${opt_values_long}`.
+
+Glob patterns match on the object keys joined on a forward slash, they never match against values.
+
+When combining patterns with `${opt_glob_pipe}` the matches are combined.
+
+Patterns are specified using typical regular expression notation:
+
+```
+cat package.json | $0 j re - '/cli-.*/'
+```
 
 ### Http
 

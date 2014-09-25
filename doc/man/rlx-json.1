@@ -1,17 +1,21 @@
-.TH "RLX-JSON" "1" "September 2014" "rlx-json 0.1.396" "User Commands"
+.TH "RLX-JSON" "1" "September 2014" "rlx-json 0.1.398" "User Commands"
 .SH "NAME"
-rlx-json
+rlx-json -- Grep JSON and more.
 .SH "USAGE"
 
 .SP
-rlx json <command> [\-\-flat] <args>
+rlx json <command> [\-\-flat] [\-\-keys|\-\-no\-keys] [\-\-values] [\-\-unquote]
 .br
-rlx j <command> [\-\-flat] <args> 
+    <args>
+.br
+rlx j <command> [\-\-flat] [\-\-keys|\-\-no\-keys] [\-\-values] [\-\-unquote]
+.br
+    <args> 
 .br
 rlx j grep <args> <ptn...> <file...>
 .SH "DESCRIPTION"
 .PP
-Grep JSON and more.
+To search documents specify regular expression(s) (and/or glob patterns) and one or more files. If input is specified on stdin, \-\-file or \-\-json if becomes the first in the list of documents to search. You can specify more files to search but they must have a \fB.json\fR file extension.
 .SH "COMMANDS"
 .BL
 .IP "\[ci]" 4
@@ -21,7 +25,24 @@ Grep JSON and more.
 .BL
 .IP "\[ci]" 4
 \fB\-\-flat\fR: Flatten object keys, joined on a period.
+.IP "\[ci]" 4
+\fB\-\-[no]\-keys\fR: Include keys in the search.
+.IP "\[ci]" 4
+\fB\-\-values\fR: Include values in the search.
+.IP "\[ci]" 4
+\fB\-\-unquote\fR: Remove double quotes for string results (single match).
 .EL
+.SH "PATTERNS"
+.PP
+By default regular expression  patterns only search keys, add the \fB\-\-values\fR option to also search values. You may search values only by negating the key pattern match: \fB\-\-no\-keys \-\-values\fR.
+.PP
+Glob patterns match on the object keys joined on a forward slash, they never match against values.
+.PP
+When combining patterns with \fB\-g | \-\-glob\fR the matches are combined.
+.PP
+Patterns are specified using typical regular expression notation:
+
+  cat package.json | rlx j re \- '/cli\-.*/'
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
