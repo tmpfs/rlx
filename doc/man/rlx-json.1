@@ -15,6 +15,8 @@ rlx j <command> [\-\-flat] [\-\-keys|\-\-no\-keys] [\-\-values] [\-\-unquote]
 rlx j grep <args> <ptn...> <file...>
 .SH "DESCRIPTION"
 .PP
+JSON documents are parsed asynchronously using the parse method provided by V8. The behaviour with very large documents is unknown.
+.PP
 To search documents specify regular expression(s) (and/or glob patterns) and one or more files. If input is specified on stdin, \-\-file or \-\-json if becomes the first in the list of documents to search. You can specify more files to search but they must have a \fB.json\fR file extension.
 .SH "COMMANDS"
 .BL
@@ -43,6 +45,9 @@ When combining patterns with \fB\-g | \-\-glob\fR the matches are combined.
 Patterns are specified using typical regular expression notation:
 
   cat package.json | rlx j re \- '/cli\-.*/'
+.SH "GREP"
+.PP
+Grep arguments are gathered by looking for additional files (arguments with a \fB.json\fR extension) then pattern matches (//gim), if either test fails the argument is treated as a dot\-style property lookup.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

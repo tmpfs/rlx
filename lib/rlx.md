@@ -74,6 +74,8 @@ Designed for parity with the couchdb HTTP API, run `help <cmd>` for more informa
 
 ### Json
 
+JSON documents are parsed asynchronously using the parse method provided by V8. The behaviour with very large documents is unknown.
+
 To search documents specify regular expression(s) (and/or glob patterns) and one or more files. If input is specified on stdin, ${opt_file_long} or ${opt_json_long} if becomes the first in the list of documents to search. You can specify more files to search but they must have a `.json` file extension.
 
 #### Commands
@@ -100,6 +102,11 @@ Patterns are specified using typical regular expression notation:
 ```
 cat package.json | $0 j re - '/cli-.*/'
 ```
+
+#### Grep
+
+Grep arguments are gathered by looking for additional files (arguments with a `.json` extension) then pattern matches (//gim), if either test fails the argument is treated as a dot-style property lookup.
+
 
 ### Http
 
