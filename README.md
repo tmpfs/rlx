@@ -38,16 +38,16 @@ Usage: rlx <command>
 where <command> is one of:
     admin, alias, as, application, app, attach, att, batch,
     bulk, config, conf, database, db, document, doc, edit, help,
-    http, tt, info, interactive, i, level, lvl, lint, local,
-    lcl, log, login, in, logout, out, runconf, rc, replicate,
-    repl, restart, security, sec, session, sess, stats, system,
-    sys, tasks, tpl, user, usr, uuids, whoami
+    http, tt, info, interactive, i, json, j, level, lvl, lint,
+    local, lcl, log, login, in, logout, out, runconf, rc,
+    replicate, repl, restart, security, sec, session, sess,
+    stats, system, sys, tasks, tpl, user, usr, uuids, whoami
 
 rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.395 /Users/cyberfunk/git/rlx
+rlx@0.1.399 /Users/cyberfunk/git/rlx
 ```
 
 ## Developer
