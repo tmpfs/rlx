@@ -156,7 +156,6 @@ describe('rlx:', function() {
   it('should query design document view', function(done){
     var mock = config.file('app-view.json');
     var args = qt.getArguments('app/view', {output: mock});
-    console.dir(args);
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.json(mock);
