@@ -1,6 +1,6 @@
-.TH "RLX-ATTACH" "1" "September 2014" "rlx-attach 0.1.399" "User Commands"
+.TH "RLX-ATTACH" "1" "October 2014" "rlx-attach 0.1.408" "User Commands"
 .SH "NAME"
-rlx-attach -- Manage document attachments.
+rlx-attach -- [object Object]
 .SH "USAGE"
 
 .SP
@@ -39,50 +39,6 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fBrm\fR: Remove an attachment.
 .EL
-.SH "DESIGN DOCUMENTS"
-.PP
-You can operate on attachments for a design document by specifying the \fB\-\-ddoc\fR option. If \fB\-\-id\fR and \fB\-\-ddoc\fR are combined the attachment operation is performed on a design document.
-.SH "FILE NAMES"
-.PP
-File names for uploaded and downloaded attachments are determined automatically based on either the file system path or the name of an attachment. It is possible to set the name of an attachment for single files using the \fB\-a | \-\-attachment\fR option.
-.PP
-When uploading files a relative path is included to prevent file name collision as best as possible, however if you specify multiple directories with relative paths that collide the last file in the list will be the final attachment.
-.SH "UPLOAD"
-.PP
-The \fBup\fR command accepts file arguments in the form \fB<files...>\fR. An error is reported if no files are specified.
-.PP
-To upload attachment(s) specify files (or directories) to the \fBup\fR command:
-
-  rlx att up \-s {server} \-d {db} \-i {docid} {file}
-.PP
-If one of the target files is a directory then all files in that directory (but not sub\-directories) are uploaded. To also upload files in sub\-directories use the \fB\-\-recursive\fR option:
-
-  rlx att up \-s {server} \-d {db} \-i {docid} \-\-recursive {dir}
-.PP
-It is possible to specify the name for an uploaded attachment but only if a single file is being attached:
-
-  rlx att up \-s {server} \-d {db} \-i {docid} \-a {attname} {file}
-.PP
-You can filter the files to be uploaded by specifying \fB\-g | \-\-glob\fR option(s):
-
-  rlx att up \-s {server} \-d {db} \-i {docid} \-\-recursive \-g '*.txt' {dir}
-.PP
-When glob pattern(s) are specified the file will be included in the list if one of the glob patterns matches the file path.
-.SH "DOWNLOAD"
-.PP
-The \fBdl\fR command accepts file arguments in the form \fB<pattern...> <dir>\fR. An error is reported if an output directory is not specified (or is not a directory) or if no glob patterns are specified.
-.PP
-The download logic first fetches the document so that patterns can be matched against the known existing attachments for the document. This means that \fBdl\fR incurs an additional request prior to downloading attachments.
-.PP
-To download a single attachment use the attachment name as the pattern:
-
-  rlx att dl \-s {server} \-d {db} \-i {docid} file.txt ./target
-.PP
-To download multiple attachments specify a series of file glob patterns followed by an output directory:
-
-  rlx att dl \-s {server} \-d {db} \-i {docid} '**/**' ./target
-.PP
-Attachment downloads respect the \fB\-\-force\fR option, the program will report an error if the target file already exists and \fB\-\-force\fR has not been specified.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

@@ -1,6 +1,6 @@
-.TH "RLX-TPL" "1" "September 2014" "rlx-tpl 0.1.399" "User Commands"
+.TH "RLX-TPL" "1" "October 2014" "rlx-tpl 0.1.408" "User Commands"
 .SH "NAME"
-rlx-tpl -- Manage template files.
+rlx-tpl -- [object Object]
 .SH "USAGE"
 
 .SP
@@ -19,7 +19,7 @@ rlx tpl parse <args> <template>
 rlx tpl dir <args>
 .SH "DESCRIPTION"
 .PP
-These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document. For more information on application templates run \fBhelp app\fR.
+These commands operate on two types of template, \fBfile templates\fR that correspond to a single file and may be parsed to produce a JSON document using variables declared on the command line and \fBapplication templates\fR which are directories that are collated to a design document. For more information on application templates run \fB${cmd_help_long} app\fR.
 .PP
 Templates may be referenced using the \fB\-t | \-\-template\fR option (or the first additional argument), the value may be a file system path or reference to lookup in the search path. Short references are relative to the template directory and may or may not include the file extension.
 .PP
@@ -52,92 +52,6 @@ If no subcommand is specified \fBls\fR is invoked.
 .IP "\[ci]" 4
 \fB\-\-search\-path=[dir...]\fR: Modify template search path.
 .EL
-.SH "INIT"
-.PP
-The \fBinit\fR command when called with no arguments will attempt to copy all system templates to the user template directory. When a template is specified and no output directory is specified the template is copied to the current working directory.
-.PP
-To import a particular template from the system directory to the user directory specify the output directory:
-
-  rlx tpl init design/minimal ~/.rlx/template
-.PP
-If the destination already exists an error is reported unless the \fB\-\-force\fR option has been specified.
-.PP
-When copying application templates, the \fBdesign\fR directory is included in the destination, this is intentional and allows for applications that have multiple design documents.
-.PP
-You can change the name of the destination template with an additional \fB<name>\fR argument.
-.SH "LIST"
-.PP
-The \fBls\fR command may be used to list all template files as JSON, use the \fB\-\-raw\fR option to print a tree hierarchy of the template files, you may filter the list using the \fB\-g | \-\-glob\fR option.
-.PP
-Empty directories and hidden files (those starting with a period '.') are not included in the list.
-.SH "PRINT"
-.PP
-When using the \fBprint\fR command on file templates the contents of the template file are printed, when used on application templates a design document is collated from the directory contents and printed.
-.PP
-The \fBprint\fR and \fBparse\fR commands behave the same on application templates (they print the collated document) except \fBparse\fR will include additional information such as an attachment file list.
-.SH "VARIABLES"
-.PP
-Variables only apply to file templates for application templates they will be ignored.
-.PP
-Variables are declared with an \fB@\fR symbol, for example, \fB@foo=bar\fR will set the template variable named \fBfoo\fR to the string \fBbar\fR.
-.PP
-Template values are coerced to their native types and it is possible to create an array by using a comma delimiter, eg: \fB@foo=bar,baz\fR.
-.PP
-Templates must export a function. Functions are invoked asynchronously and are passed the request object and a callback function:
-
-.SP
-  module.exports = function template(req, cb){
-.br
-    return cb(null, {});
-.br
-  }
-.PP
-They are invoked in the scope of the parsed variables object so if the template was parsed with \fB@id=foo\fR and looked like:
-
-.SP
-  module.exports = function template(req, cb){
-.br
-    var doc = {
-.br
-      _id: this.id
-.br
-    }
-.br
-    return cb(null, doc);
-.br
-  }
-.PP
-The result would be a JSON document such as:
-
-.SP
-  {
-.br
-    "_id": "foo"
-.br
-  }
-.SH "FILES"
-.PP
-Files are read by default first from \fB~/.rlx/template\fR (user templates) and then from the templates bundled with the program \fBlib/template\fR (system templates).
-.PP
-If a \fBrc\fR file declares an array of search paths (\fBsearch.paths.template\fR) these are prepended to the list of search paths, if \fB\-\-search\-path\fR has been specified the values are prepended to the search path.
-.PP
-So the precedence is:
-.BL
-.IP "\[ci]" 4
-cli (\fB\-\-search\-path\fR)
-.IP "\[ci]" 4
-rc file configuration
-.IP "\[ci]" 4
-user templates
-.IP "\[ci]" 4
-system templates
-.EL
-.PP
-When using \fB\-\-[no]\-user\fR and \fB\-\-[no]\-system\fR cli search paths and rc search paths are still included.
-.PP
-Full negation by combining \fB\-\-no\-user\fR and \fB\-\-no\-system\fR when no rc or cli search paths are defined is not allowed, the search path will be a single entry including the system templates.
-.PP
-Application templates are read from the \fBdesign\fR sub\-directory.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
