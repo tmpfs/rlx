@@ -69,8 +69,14 @@ describe('rlx:', function() {
       ]
     })
     var def = program(require(pkg), config.name);
+
+    //console.log('admin/get before parse server value');
+    //console.dir(def.program.server);
+    //console.dir(args);
+
     var errors = def.program.errors;
     def.program.on('error', function(err) {
+      //console.dir(def.program.server);
       config.error.server(err, errors);
       done();
     })

@@ -4,6 +4,7 @@ coverage
 target
 build
 package
+/lib/rlxc.js
 *.bak
 *.log
 *.pid
