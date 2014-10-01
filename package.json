@@ -26,6 +26,7 @@
     "cli-converter-util": "^1.0.1",
     "cli-error": "~0.5.7",
     "cli-fs": "^1.0.3",
+    "cli-help": "0.0.12",
     "cli-input": "~0.0.91",
     "cli-interface": "^1.0.15",
     "cli-logger": "~0.5.23",
