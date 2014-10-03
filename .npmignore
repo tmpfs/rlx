@@ -6,6 +6,7 @@ test
 /sbin
 /doc/readme
 /doc/cheatsheet.json
+/lib/rlxc.js
 *.bak
 *.log
 *.pid
