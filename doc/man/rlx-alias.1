@@ -1,4 +1,4 @@
-.TH "RLX-ALIAS" "1" "October 2014" "rlx-alias 0.1.413" "User Commands"
+.TH "RLX-ALIAS" "1" "October 2014" "rlx-alias 0.1.414" "User Commands"
 .SH "NAME"
 rlx-alias -- [object Object]
 .SH "USAGE"
@@ -50,12 +50,69 @@ For alias subcommands that accept an \fB<alias>\fR argument it may be specified 
 \fBprint, p\fR: Print the alias file.
 .EL
 .SH "USAGE"
+.PP
+The typical use case for aliases is server administrators managing multiple servers but an alias does not necessarily have to have a \fBserver\fR field, it may reference a commonly used \fBdatabase\fR or document \fBid\fR.
 .SH "INIT"
+.PP
+Run \fBalias init\fR to create an alias file, this includes two default aliases:
+.BL
+.IP "\[ci]" 4
+\fBlh\fR: http://localhost:5984
+.IP "\[ci]" 4
+\fBlhs\fR: https://localhost:6984
+.EL
+.PP
+You can now reference the alias location in arguments (\fBrlx info \-s :lh\fR) or in an interactive session (\fBcd :lh\fR).
 .SH "CREATE"
+.PP
+Create aliases using the \fBadd\fR command and specify one or more of \fB\-\-username\fR, \fB\-\-server\fR, \fB\-\-database\fR, \fB\-\-id\fR and \fB\-\-rev\fR.
+.PP
+In an interactive session you can create an alias from the current location by just specifying the alias name (except \fB/\fR).
 .SH "EXPANSION"
+.PP
+Aliases are expanded using the rule that fields encapsulated by the alias definition are overwritten by username, database, document and revision specified in the alias reference.
+.PP
+Such that the full reference (for the default \fB:lh\fR alias):
+
+  :user@lh/db/doc?rev=0\-1
+.PP
+Expands to:
+
+.SP
+  {
+.br
+    "username": "user",
+.br
+    "database": "db",
+.br
+    "id": "doc",
+.br
+    "rev": "0\-1",
+.br
+    "server": "http://localhost:5984",
+.br
+    "name": "lh"
+.br
+  }
+.PP
+You may override the alias definition and expansions with specific options such as \fB\-\-database\fR, \fB\-\-id\fR etc.
+.PP
+Use the \fBget\fR command to inspect alias expansion on an existing alias, run the \fBparse\fR command to verify the parsing rules.
+.PP
+When not running in an interactive session the \fBget\fR command will change directory and print the result of the alias merged with other options (\fB\-d\fR etc).
 .SH "INSPECT"
+.PP
+Use the \fBprint\fR command to print the alias file contents, the \fBls\fR command will show a map of keys to URLs (adding \fB\-l\fR is equivalent to \fBprint\fR).
+.PP
+Print an individual alias with the \fBget\fR command.
 .SH "MATCH\-PATTERN"
+.PP
+You may alter the regular expression used for matching alias names in the \fBalias.match\fR rc configuration field but choose wisely reserved shell special characters would be awkward and \fB@\fR would conflict with template variable names.
+.PP
+The full match of the regular expression is stripped to determine the alias name.
 .SH "FILES"
+.PP
+Aliases are stored in \fBalias.json\fR within \fB~/.rlx\fR.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.

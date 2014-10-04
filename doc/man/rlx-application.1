@@ -1,4 +1,4 @@
-.TH "RLX-APPLICATION" "1" "October 2014" "rlx-application 0.1.413" "User Commands"
+.TH "RLX-APPLICATION" "1" "October 2014" "rlx-application 0.1.414" "User Commands"
 .SH "NAME"
 rlx-application -- [object Object]
 .SH "USAGE"
@@ -72,12 +72,94 @@ If no subcommand is specified \fBls\fR is invoked.
 \fBrm\fR: Remove a design document.
 .EL
 .SH "TERMINOLOGY"
+.PP
+The terms \fBapp\fR, \fBapplication\fR and \fBdesign document\fR are used interchangeably, for all intents and purposes an application \fIis\fR a design document except it is represented on the file system as a series of files rather than a single JSON document with attachments.
 .SH "FILESYSTEM\-LAYOUT"
+.PP
+The layout for an application at it's simplest just includes an \fBindex.json\fR file which indicates the language for a design document. However without any additional files it is an empty design document, a simple application might look like:
+
+.SP
+  app/
+.br
+  ├── index.json
+.br
+  └── validate_doc_update.js
+.PP
+A complete application layout looks like:
+
+.SP
+  app/
+.br
+  ├── attachments
+.br
+  ├── docs
+.br
+  ├── filters
+.br
+  ├── index.json
+.br
+  ├── lib
+.br
+  ├── lists
+.br
+  ├── rewrites.js
+.br
+  ├── shows
+.br
+  ├── updates
+.br
+  ├── validate_doc_update.js
+.br
+  └── views
+.br
+      └── lib
 .SH "SYSTEM\-TEMPLATES"
+.PP
+The bundled system template directory contains:
+.BL
+.IP "\[ci]" 4
+\fBminimal\fR: Minimum required files to define an application.
+.IP "\[ci]" 4
+\fBvalidate\fR: An application template with a \fBvaliate_doc_update\fR function.
+.IP "\[ci]" 4
+\fBview\fR: A view based template with a single view named \fBall\fR.
+.IP "\[ci]" 4
+\fBfull\fR: A full application template including all directories.
+.EL
 .SH "IDENTIFIERS"
+.PP
+Most subcommands allow \fB\-\-id\fR and \fB\-\-ddoc\fR to be used interchangeably (they always refer to a design document id), however the commands \fBshow\fR, \fBlist\fR and \fBupdate\fR distinguish between a design document id (\fB\-\-ddoc\fR) and a document id (\fB\-\-id\fR) as they accept a document to use during execution.
 .SH "ATTACHMENTS"
+.PP
+The \fBatt\fR subcommand is provided as a convenience for attaching to design documents, it defers to the top\-level \fBatt\fR command with the \fB\-\-ddoc\fR option specified, see \fB${cmd_help_long} att\fR for more information.
 .SH "DEPLOY"
+.PP
+Typically during development you would use the \fBpush\fR command to upload the design document, it is then your responsibility to query a view to update the view indices for the design document. In a live environment the correct procedure involves a few document copies, waiting for view index updates to complete and cleaning stale views.
+.PP
+The \fBdeploy\fR command will follow the steps:
+.BL
+
+  1.  Delete any existing backup or new design documents.
+
+  2.  Check design document for existence, if it does not exist it is saved.
+
+  3.  Copy the existing design document to a backup.
+
+  4.  Upload the new design document with a new name.
+
+  5.  Query a view on the new design document.
+
+  6.  Wait for view index generation to complete.
+
+  7.  Copy the new design document to the existing design document.
+
+  8.  Delete the backup and new design document.
+
+  9.  Clean up stale view indices for the database.
+.EL
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
 .SH "SEE ALSO"
+.PP
+rlx\-attach(1)

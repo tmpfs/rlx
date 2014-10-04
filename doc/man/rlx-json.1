@@ -1,4 +1,4 @@
-.TH "RLX-JSON" "1" "October 2014" "rlx-json 0.1.413" "User Commands"
+.TH "RLX-JSON" "1" "October 2014" "rlx-json 0.1.414" "User Commands"
 .SH "NAME"
 rlx-json -- [object Object]
 .SH "USAGE"
@@ -27,8 +27,64 @@ JSON documents are parsed synchronously using the parse method provided by V8, t
 \fB\-\-values\fR: Include values in the search.
 .EL
 .SH "GREP"
+.PP
+To search documents specify regular expression(s) (and/or glob patterns) and one or more files. If input is specified on stdin, \-\-file or \-\-json it becomes the first in the list of documents to search. You can specify more files to search but they must have a \fB.json\fR file extension.
+.PP
+Grep arguments are gathered by looking for additional files (arguments with a \fB.json\fR extension) then pattern matches (//gim), if either test fails the argument is treated as dot\-style property lookup.
+.PP
+The \fBgrep\fR command will attempt to print a map of matched keys to values, if there are any key collisions then an array of objects is printed. If a match returns a single result then the value for the match is printed, use \fB\-\-raw\fR to print the result as plain text. This is useful if a match resolves to a string and you would like the string unquoted:
+
+  cat package.json | rlx j re \- version \-\-raw
+.PP
+The \fB\-\-flat\fR flag will join object keys on a period which reduces the likelihood of key collisions but does not prevent them.
+.PP
+Use \fB\-l | \-\-long\fR to show internal match information.
 .SH "PATTERNS"
+.PP
+By default regular expression  patterns only search keys, add the \fB\-\-values\fR option to also search values. You may search values only by negating the key pattern match: \fB\-\-no\-keys \-\-values\fR.
+.PP
+Glob patterns match on the object keys joined on a forward slash, they never match against values.
+.PP
+When combining patterns with \fB\-g | \-\-glob\fR the matches are combined.
+.PP
+Patterns are specified using typical regular expression notation:
+
+  cat package.json | rlx j re \- '/cli\-.*/'
 .SH "EXAMPLE"
+.PP
+Multiple property lookup:
+
+.SP
+  rlx j re \-c name version package.json
+.br
+  # {"name":"rlx","version":"0.1.399"}
+.PP
+Deep property lookup:
+
+.SP
+  rlx j re \-c bugs.url package.json
+.br
+  # "https://github.com/freeformsystems/rlx/issues"
+.PP
+Unquote string values:
+
+.SP
+  rlx j re \-c bugs.url \-\-raw package.json
+.br
+  # https://github.com/freeformsystems/rlx/issues
+.PP
+Regular expression pattern matching (remember to single quote patterns):
+
+  rlx j re '/cli\-i.*/' package.json
+
+.SP
+  {
+.br
+    "cli\-input": "~0.0.91",
+.br
+    "cli\-interface": "~1.0.8"
+.br
+  }
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
