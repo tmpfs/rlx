@@ -47,7 +47,7 @@ rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.408 /Users/cyberfunk/git/rlx
+rlx@0.1.413 /usr/local/xpm/pkg/node-0.10.29/lib/node_modules/rlx
 ```
 
 ## Developer

@@ -1,4 +1,4 @@
-.TH "RLX" "1" "October 2014" "rlx 0.1.408" "User Commands"
+.TH "RLX" "1" "October 2014" "rlx 0.1.413" "User Commands"
 .SH "NAME"
 rlx -- [object Object]
 .SH "USAGE"
@@ -152,6 +152,152 @@ Designed for parity with the couchdb HTTP API, run \fBhelp <cmd>\fR for more inf
 .IP "\[ci]" 4
 \fB\-\-version\fR: Print version and exit.
 .EL
+.SH "EXPANSION"
+.PP
+Expansion is performed on the \fB\-s | \-\-server\fR option for absolute URLs and aliases. You may specify the database, document and revision such that the URL:
+
+  \-s http://localhost:5984/data%2Fstore/path/document?rev=0\-1
+.PP
+Is expanded to the equivalent of:
+
+  \-s http://localhost:5984 \-d data/store \-i path/document \-r 0\-1
+.PP
+Note that when referencing databases in the URL form you should URL encode the database name whilst it is not necessary for the \fB\-d\fR option.
+.PP
+If \fB\-\-database\fR, \fB\-\-id\fR, \fB\-\-rev\fR or \fB\-\-username\fR are specified they override any values extracted during expansion.
+.PP
+See rlx\-alias(1) for more information on alias expansion.
+.SH "LOG"
+.PP
+All log output is sent to \fBstderr\fR, response documents are printed to \fBstdout\fR. You may set the program log level using the \fB\-\-log\-level\fR option. The default log level is \fBinfo\fR.
+.PP
+Enable logging of HTTP requests and responses by also specifiying \fB\-\-log\-http\fR option, any level specified using the \fB\-\-log\-level\fR option applies to the HTTP logger. When the HTTP log level is \fBinfo\fR basic request and response information is logged (HTTP verb, request URL and response status code), when the log level is \fBdebug\fR then query string parameters and headers will also be logged.
+.SH "HEADERS"
+.PP
+Similar to \fBcurl(1)\fR arbitrary HTTP headers are accepted using the \fB\-h | \-\-header\fR option (note the short version is lowercase), you may specify as many headers as you like although \fBContent\-Type\fR and \fBAccept\fR are ignored, a warning is printed if you attempt to use them.
+.PP
+If the value of the \fB\-\-header\fR option is incorrect (bad syntax) an error is reported.
+.PP
+Use the HTTP logging option to inspect the request headers:
+
+.SP
+  rlx doc get \-s {server} \-d {database} \-i {document} \e
+.br
+    \-h 'if\-none\-match: "{revision}"' \-\-log\-http \-\-log\-level debug
+.PP
+The \fB\-\-rev\fR would be more concise in the above example, however it illustrates the ability to set and inspect headers.
+.SH "QUERY\-STRING"
+.PP
+The \fBcouchdb\fR database server accepts many different query string parameters for different API calls, as such the query string parameter handling is flexible.
+.PP
+To specify query string parameters use the \fB\-q | \-\-query\fR option, this option is repeatable so you may specify each parameter as an individual option or combine the entire query string.
+.PP
+Some options map to query string parameters (for example \fB\-r | \-\-rev\fR) if you specify an option that maps to a query string parameter and the same parameter using \fB\-\-query\fR then the specific option value has precedence.
+.PP
+You may specify a leading \fB?\fR but it is unnecessary and not recommended.
+.PP
+To elucidate you can fetch document revision information with the \fBrevsinfo\fR shortcut command:
+
+  rlx doc revsinfo \-s {server} \-d {database} \-i {id}
+.PP
+But you could also use \fB\-q | \-\-query\fR:
+
+  rlx doc get \-s {server} \-d {database} \-i {id} \-q 'revsinfo=true'
+.PP
+An example of precedence:
+
+  rlx doc get \-s {server} \-d {database} \-i {id} \-r {rev} \-q 'rev={revision}'
+.PP
+The value of \fB{rev}\fR will be used \fInot\fR \fB{revision}\fR.
+.SH "HIGHLIGHT"
+.PP
+The program will attempt to syntax highlight JSON and javascript documents using either \fBsource\-highlight\fR or \fBpygmentize\fR. Document highlighting will not occur under the following conditions:
+.BL
+.IP "\[ci]" 4
+Neither \fBsource\-highlight\fR or \fBpygmentize\fR is in \fB$PATH\fR.
+.IP "\[ci]" 4
+The \fBstdout\fR stream is not a \fBtty\fR (redirection).
+.IP "\[ci]" 4
+The \fB\-o | \-\-output\fR option is specified (output is a file).
+.IP "\[ci]" 4
+The \fB\-\-no\-color\fR option is specified (disables all ANSI escape sequences).
+.IP "\[ci]" 4
+The rc file \fBhighlight\fR section is invalid (does not contain json and js objects).
+.IP "\[ci]" 4
+The output to print is neither JSON or javascript (\-\-raw specified).
+.EL
+.SH "ENVIRONMENT"
+.PP
+The \fB$HOME\fR environment variable must be set in order for user configuration data to be loaded, typically for most developer environments this is not an issue however when using \fBrlx(1)\fR as part of infrastructure deployment you may need to ensure that \fB$HOME\fR is set.
+.SH "FILES"
+.PP
+A debug log file (\fBrlx\-debug.log\fR) is written to the current working directory when an error occurs. The debug log file is written synchronously when the program exits.
+.PP
+The format of this file and under which circumstances it is written is controlled by the rc configuration section:
+
+.SP
+  "log": {
+.br
+    "debug": {
+.br
+      "clean": true,
+.br
+      "always": false,
+.br
+      "interactive": false,
+.br
+      "json": false,
+.br
+      "lines": false,
+.br
+      "indent": 2
+.br
+    }
+.br
+  }
+.PP
+The rules for when a debug log file are written are:
+.BL
+
+  1.  If \fBalways\fR write the file regardless of exit code or interactivity.
+
+  2.  Otherwise write the file if an error occurs and it is not an interactive session.
+
+  3.  If \fBinteractive\fR also write the file for interactive sessions with errors.
+.EL
+.PP
+The log file by default is a plain text format designed to be quick to scan you can set \fBjson\fR to \fBtrue\fR for a dump of the log records array, if you also set \fBlines\fR to \fBtrue\fR then the output is a newline delimited list of stringified log records compatible with bunyan(1). The \fBindent\fR property only applies to JSON output when \fBlines\fR is not set.
+.PP
+The \fBclean\fR property indicates that the log file should be removed upon successful execution (zero exit code).
+.PP
+Input files are read with the following precedence: \fBstdin\fR, \fB\-\-json\fR and \fB\-\-file\fR. 
+.PP
+To read from \fBstdin\fR the special option (\-) must be specified, if data is written to \fBstdin\fR it must be a JSON document or an error is reported. When the \fB\-\-json\fR option is specified it must be a valid JSON string literal, be sure to enclose in quotes to prevent shell errors.
+.PP
+If both the \fB\-\-json\fR and \fB\-\-file\fR options are specified the JSON literal is preferred.
+.PP
+Files specified using the \fB\-\-file\fR option may be a file system path or URL. Relative paths are resolved according to the current working directory. For example:
+
+.SP
+  rlx lint \-f package.json
+.br
+  rlx lint \-f http://registry.npmjs.org
+.br
+  rlx lint \-j '{}'
+.br
+  cat package.json | rlx \- lint
+.SH "HISTORY"
+.PP
+This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx\-shell.
+.PP
+Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non\-trivial and it needed to rely on external languages for JSON support.
+.PP
+The original implementation whilst almost feature complete was deprecated in favour of a pure javascript version. In addition the original implementation started from a pure interactive REPL perspective with a view to implementing non\-interactive support later \- it never happened.
+.PP
+For the javascript program an inverse approach is taken, the REPL is the last feature to be implemented.
 .SH "BUGS"
 .PP
 Report bugs to https://github.com/freeformsystems/rlx/issues.
+.SH "SEE ALSO"
+.PP
+rlx\-admin(1), rlx\-alias(1), rlx\-application(1), rlx\-attach(1), rlx\-batch(1), rlx\-bulk(1), rlx\-config(1), rlx\-database(1), rlx\-document(1), rlx\-edit(1), rlx\-http(1), rlx\-info(1), rlx\-interactive(1), rlx\-json(1), rlx\-level(1), rlx\-lint(1), rlx\-local(1), rlx\-log(1), rlx\-login(1), rlx\-logout(1), rlx\-runconf(1), rlx\-replicate(1), rlx\-restart(1), rlx\-security(1), rlx\-session(1), rlx\-stats(1), rlx\-system(1), rlx\-tasks(1), rlx\-tpl(1), rlx\-user(1), rlx\-uuids(1), rlx\-whoami(1)
