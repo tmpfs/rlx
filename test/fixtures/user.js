@@ -53,7 +53,8 @@ var fixtures = [
       '-s',
       server,
       '@name=' + mock.user.name,
-      '@password=' + mock.user.password
+      '@password=' + mock.user.password,
+      '@roles=user'
     ]
   },
   {

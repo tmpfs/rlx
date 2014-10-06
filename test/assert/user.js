@@ -24,7 +24,7 @@ function get(doc) {
   expect(doc._rev).to.be.a('string');
   expect(doc.name).to.eql(mock.user.name);
   expect(doc.type).to.eql('user');
-  expect(doc.roles).to.be.an('array').to.eql([]);
+  expect(doc.roles).to.be.an('array').to.eql(['user']);
   expect(doc.password_scheme).to.be.a('string');
   expect(doc.derived_key).to.be.a('string');
   expect(doc.salt).to.be.a('string');
