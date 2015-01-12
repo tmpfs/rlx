@@ -52,6 +52,7 @@ describe('rlx:', function() {
     var args = [
       'edit',
       '--json={}',
+      '--force',
       '--no-color',
       '-o', mock
     ];

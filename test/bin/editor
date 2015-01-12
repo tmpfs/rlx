@@ -3,6 +3,8 @@
 var fs = require('fs');
 var file = process.argv[2];
 var contents = fs.readFileSync(file);
+//console.dir('editor running with contents');
+//console.dir('' + contents);
 if(/\.json/.test(file)) {
   contents = JSON.parse(contents);
   contents.random = Math.random();
