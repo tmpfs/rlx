@@ -61,7 +61,7 @@
     "manual": "npm run clean-man && manpage --output ./doc/man ./bin/rlx",
     "cheatsheet": "./sbin/cheatsheet > doc/cheatsheet.md && mdp -i doc/cheatsheet.json -o doc/cheatsheet.md -v --force",
     "readme": "mdp --force -v",
-    "pretest": "rm -rf ./target && mkdir -p ./target/qt ./target/usr ./target/docs/pull",
+    "pretest": "rm -rf ./target && mkdir -p ./target/qt ./target/usr ./target/docs/pull && ./bin/rlx alias init 2> /dev/null || true",
     "test": "NODE_ENV=test istanbul cover _mocha -- -u bdd --recursive --reporter list -A test/spec/ --bail",
     "qt": "npm run pretest && ./test/bin/qt"
   },
