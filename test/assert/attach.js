@@ -51,7 +51,7 @@ function head(doc) {
   expect(doc.name).to.be.a('string');
   expect(doc.size).to.be.a('number');
   expect(doc.type).to.be.a('string');
-  expect(doc.md5).to.be.a('string');
+  //expect(doc.md5).to.be.a('string');
 }
 
 function get(doc) {
