@@ -528,7 +528,7 @@ The document collation will include top-level `.json` and `.js` files in the lis
 If a top-level directory exists and the directory contains a known index file (`index.json` or `index.js`) then the index file is used as the document and all other files in the directory are treated as attachments. Nested directories will be included as attachments with a path, for example: `deep/alt-attachment.txt` is the attachment name for the document with an id of `doc-attachments`.
 
 
-The result of using `${cmd_docs_long} ${cmd_ls_long}` on this layout is:
+The result of using `${cmd_bulk_long} ${cmd_ls_long}` on this layout is:
 
 ```json
 {
@@ -578,7 +578,7 @@ You may disable the automatic id injection with `${opt_auto_id_no}` or setting t
 
 ```
 rlx_docs_id_auto=false \
-  $0 ${cmd_docs_long} ${cmd_ls_short} ${opt_long_short} <dir>
+  $0 ${cmd_bulk_long} ${cmd_ls_short} ${opt_long_short} <dir>
 ```
 
 Note that the identifiers are generated and assigned to the `id` field of the file object but they are not assigned to the document's `_id` property.
@@ -591,7 +591,7 @@ The default collation matches the `LAYOUT` but you may change this behaviour if 
 
 ```
 rlx_docs_flat=true \
-  $0 ${cmd_docs_long} ${cmd_ls_short} ${opt_long_short} <dir>
+  $0 ${cmd_bulk_long} ${cmd_ls_short} ${opt_long_short} <dir>
 ```
 
 Flat collation includes all files of known file extensions recursively and generates an identifier using the path relative to `<dir>`, no files found are treated as attachments.
@@ -609,7 +609,7 @@ Specify the `${opt_strict_long}` option and if any error occurs while fetching d
 Use the `${cmd_revs_long}` command to fetch revisions for multiple document identifiers:
 
 ```
-$0 ${cmd_docs_long} ${cmd_revs_short} -s {server} -d {db} <id...>
+$0 ${cmd_bulk_long} ${cmd_revs_short} -s {server} -d {db} <id...>
 ```
 
 By default the listing is a map of identifiers to revisions:
