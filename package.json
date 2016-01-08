@@ -64,7 +64,7 @@
     "readme": "mdp --force -v",
     "pretest": "rm -rf ./target && mkdir -p ./target/qt ./target/usr ./target/docs/pull && ./bin/rlx alias init 2> /dev/null || true",
     "test": "NODE_ENV=test mocha ${SPEC:-test/spec}",
-    "cover": "NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}",
+    "cover": "npm run pretest && NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}",
     "qt": "npm run pretest && ./test/bin/qt"
   },
   "mdp": {
