@@ -8,6 +8,7 @@ Table of Contents
   * [Developer](#developer)
     * [Test](#test)
       * [Environment](#environment)
+    * [Coverage](#coverage)
     * [Documentation](#documentation-1)
     * [Manual](#manual)
     * [Readme](#readme)
@@ -47,7 +48,7 @@ rlx --help <cmd>         quick help on <cmd>
 rlx help <cmd>           documentation for <cmd>
 rlx i                    launch interactive console
 
-rlx@0.1.413 /usr/local/xpm/pkg/node-0.10.29/lib/node_modules/rlx
+rlx@0.1.420 /home/muji/git/rlx
 ```
 
 ## Developer
@@ -73,6 +74,14 @@ npm run qt
 #### Environment
 
 * `rlx_test_server` - Specify the server to run tests against, default is `http://localhost:5984`.
+
+### Coverage
+
+To run test specs and generate code coverage:
+
+```
+npm run cover
+```
 
 ### Documentation
 

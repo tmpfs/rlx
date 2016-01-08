@@ -22,6 +22,14 @@ npm run qt
 
 * `rlx_test_server` - Specify the server to run tests against, default is `http://localhost:5984`.
 
+### Coverage
+
+To run test specs and generate code coverage:
+
+```
+npm run cover
+```
+
 ### Documentation
 
 To generate all documentation (manual, readme, cheatsheet etc):
