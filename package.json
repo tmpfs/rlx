@@ -4,14 +4,14 @@
   "description": "Command line interface for couchdb",
   "author": "muji <noop@xpm.io>",
   "preferGlobal": true,
-  "homepage": "https://github.com/freeformsystems/rlx",
+  "homepage": "https://github.com/tmpfs/rlx",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeformsystems/rlx"
+    "url": "https://github.com/tmpfs/rlx"
   },
   "bugs": {
-    "url": "https://github.com/freeformsystems/rlx/issues"
+    "url": "https://github.com/tmpfs/rlx/issues"
   },
   "directories": {
     "bin": "./bin",
@@ -74,12 +74,13 @@
     "require": "lib",
     "links": "links.md",
     "toc": "Table of Contents",
-    "base": "https://github.com/freeformsystems/rlx",
+    "base": "https://github.com/tmpfs/rlx",
     "partial": [
       {
         "inc": [
           "introduction.md",
           "install.md",
+          "quick-start.md",
           "documentation.md"
         ]
       },
