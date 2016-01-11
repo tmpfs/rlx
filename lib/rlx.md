@@ -1298,7 +1298,7 @@ The `\$HOME` environment variable must be set in order for user configuration da
 
 ## History
 
-This program was originally implemented in bash shell script, see https://github.com/freeformsystems/rlx-shell.
+This program was originally implemented in bash shell script.
 
 Bash was chosen for ease of readline integration and the ability to concisely pipe between programs amongst other features. However implementing a complex program in shell script is non-trivial and it needed to rely on external languages for JSON support.
 
