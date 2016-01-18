@@ -20,8 +20,8 @@
   "dependencies": {
     "archy": "~1.0.0",
     "async": "~1.4.2",
-    "async-validate": "~0.7.6",
-    "cdb": "~0.1.2",
+    "async-validate": "~0.13.0",
+    "cdb": "~0.2.0",
     "circular": "~1.0.5",
     "cli-command": "~0.8.300",
     "cli-converter-util": "~1.0.1",
