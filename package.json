@@ -52,9 +52,10 @@
     "which": "~1.1.2"
   },
   "devDependencies": {
-    "chai": "~3.2.0",
-    "istanbul": "~0.3.19",
-    "mocha": "~2.3.2"
+    "chai": "~3.4.1",
+    "coveralls": "~2.11.6",
+    "istanbul": "~0.4.2",
+    "mocha": "~2.3.4"
   },
   "scripts": {
     "docs": "npm run manual && npm run readme && npm run cheatsheet",
@@ -65,7 +66,8 @@
     "pretest": "rm -rf ./target && mkdir -p ./target/qt ./target/usr ./target/docs/pull && ./bin/rlx alias init 2> /dev/null || true",
     "test": "NODE_ENV=test mocha ${SPEC:-test/spec}",
     "cover": "npm run pretest && NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}",
-    "qt": "npm run pretest && ./test/bin/qt"
+    "qt": "npm run pretest && ./test/bin/qt",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "mdp": {
     "title": "rlx",
