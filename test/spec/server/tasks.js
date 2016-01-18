@@ -6,7 +6,6 @@ var program = config.program;
 var assert = config.assert.server.tasks;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve active tasks', function(done){
     var mock = config.file('server-tasks.json');
     var args = qt.getArguments('tasks', {output: mock});

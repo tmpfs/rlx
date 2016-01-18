@@ -6,7 +6,6 @@ var program = config.program;
 var assert = config.assert.conf;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should get config', function(done){
     var mock = config.file('server-config.json');
     var args = qt.getArguments('conf/get', {output: mock});

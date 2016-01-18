@@ -3,7 +3,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   var mock;
   before(function(done) {
     mock = config.file('force-option.json', '{}');

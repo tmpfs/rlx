@@ -8,7 +8,6 @@ var program = config.program;
 var database = config.database.default;
 
 describe('rlx:', function() {
-  this.timeout(5000);
 
   before(function(done) {
     setup.db.add(done);

@@ -6,7 +6,6 @@ var program = config.program;
 var server = config.server.default;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should error on admin/add (server required)', function(done){
     var args = qt.getArguments('admin/add', {
       clear: true,

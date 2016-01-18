@@ -7,7 +7,6 @@ var database = config.database.default;
 var assert = config.assert.db;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve database list', function(done){
     var mock = config.file('database-ls.json');
     var args = qt.getArguments('db/ls', {output: mock});

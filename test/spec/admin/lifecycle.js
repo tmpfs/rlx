@@ -8,7 +8,6 @@ var database = config.database.default;
 var assert = config.assert.admin;
 
 describe('rlx:', function() {
-  this.timeout(5000);
 
   it('should list admins', function(done){
     var mock = config.file('admin-ls.json');

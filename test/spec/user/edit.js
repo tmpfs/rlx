@@ -9,7 +9,6 @@ var database = config.database.default;
 var assert = config.assert.user.edit;
 
 describe('rlx:', function() {
-  this.timeout(10000);
   before(function(done) {
     setup.edit.mock(function() {
       setup.db.add(function() {

@@ -13,7 +13,6 @@ var database = config.database.default;
 var qt = require('../../fixtures/qt');
 
 describe('rlx:', function() {
-  this.timeout(5000);
 
   before(function(done) {
     setup.alias.init(done);

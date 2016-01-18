@@ -7,7 +7,6 @@ var database = config.database.default;
 var assert = config.assert.user;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should list users', function(done){
     var mock = config.file('user-ls.json');
     var args = qt.getArguments('user', {output: mock});

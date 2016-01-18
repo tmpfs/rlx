@@ -4,7 +4,6 @@ var program = config.program;
 var database = config.database.default;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should error on no document', function(done){
     var args = [
       'edit',

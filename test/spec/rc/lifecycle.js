@@ -8,8 +8,6 @@ var program = config.program;
 var qt = require('../../fixtures/qt');
 
 describe('rlx:', function() {
-  this.timeout(5000);
-
   before(function(done) {
     setup.home.mock(done);
   })

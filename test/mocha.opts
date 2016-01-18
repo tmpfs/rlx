@@ -2,5 +2,6 @@
 --recursive
 --bail
 --check-leaks
---reporter list 
+--reporter list
+--timeout 10000
 -A

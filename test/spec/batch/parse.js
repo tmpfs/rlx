@@ -5,7 +5,6 @@ var fsutil = require('../../util/fsutil');
 var parse = require('../../../lib/util/batch').parse;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should parse batch file', function(done){
     var file = fsutil.batchfile('info.js');
     parse({file: file}, function(err, batch) {

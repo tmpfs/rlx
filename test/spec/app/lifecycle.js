@@ -10,8 +10,6 @@ var database = config.database.default
   , ddoc = config.app.ddoc;
 
 describe('rlx:', function() {
-  this.timeout(5000);
-
   before(function(done) {
     setup.db.add(function(){
       setup.bulk.add(done);

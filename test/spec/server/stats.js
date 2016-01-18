@@ -6,7 +6,6 @@ var program = config.program;
 var assert = config.assert.server.stats;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve server statistics', function(done){
     var mock = config.file('server-stats.json');
     var args = qt.getArguments('stats', {output: mock});

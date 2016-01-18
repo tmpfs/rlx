@@ -9,7 +9,6 @@ var program = config.program;
 var server = config.server.default;
 
 describe('rlx:', function() {
-  this.timeout(5000);
 
   before(function(done) {
     setup.home.mock(done);

@@ -3,7 +3,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(10000);
   it('should lint remote file (json)', function(done){
     var mock = config.file('lint-remote.json');
     var args = [

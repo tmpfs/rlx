@@ -4,7 +4,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should error on template/parse (template name required)', function(done){
     var args = [
       'tpl',

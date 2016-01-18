@@ -8,7 +8,6 @@ var program = config.program;
 var qt = require('../../fixtures/qt');
 
 describe('rlx:', function() {
-  this.timeout(5000);
 
   it('should parse batch file (command)', function(done){
     var mock = config.file('batch-parse.json');

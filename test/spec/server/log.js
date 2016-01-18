@@ -4,7 +4,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve raw log data', function(done){
     var mock = config.file('server-log.txt');
     var args = qt.getArguments('log/raw', {output: mock});

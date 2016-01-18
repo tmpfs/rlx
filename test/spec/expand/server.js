@@ -10,7 +10,6 @@ var server = config.server.default
   , escaped = config.database.escaped;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should expand server argument (database)', function(done){
     var mock = config.file('expand-server-database.json');
     var args = qt.getArguments('info', {

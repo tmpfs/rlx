@@ -6,7 +6,6 @@ var program = config.program;
 var assert = config.assert.generic.ok;
 
 describe('rlx:', function() {
-  this.timeout(10000);
   it('should restart server', function(done){
     var mock = config.file('server-restart.json');
     var args = qt.getArguments('restart', {output: mock});

@@ -6,7 +6,6 @@ var levels = require('cdb').log.levels;
 var assert = config.assert.level;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve log level', function(done){
     var mock = config.file('server-log-level-get.txt');
     var args = [

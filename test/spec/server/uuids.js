@@ -6,7 +6,6 @@ var program = config.program;
 var assert = config.assert.server.uuids;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should retrieve uuids', function(done){
     var mock = config.file('server-uuids.json');
     var args = qt.getArguments('uuids', {output: mock});

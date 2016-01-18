@@ -3,7 +3,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should logout session', function(done){
     var mock = config.file('session-logout.json');
     var args = [

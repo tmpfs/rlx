@@ -3,7 +3,6 @@ var pkg = config.paths.pkg;
 var program = config.program;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   it('should get session document (whoami)', function(done){
     var mock = config.file('whoami.json');
     var args = [

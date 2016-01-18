@@ -10,7 +10,6 @@ var database = config.database.default;
 var assert = config.assert.db;
 
 describe('rlx:', function() {
-  this.timeout(5000);
   var revs = [];
   beforeEach(function(done) {
     setup.db.add(function() {

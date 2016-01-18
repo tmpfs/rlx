@@ -7,7 +7,6 @@ var program = config.program;
 var database = config.database.default;
 
 describe('rlx:', function() {
-  this.timeout(10000);
   before(function(done) {
     setup.edit.mock(function() {
       setup.db.add(done);
