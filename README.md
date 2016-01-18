@@ -18,6 +18,10 @@ Table of Contents
 rlx
 ===
 
+[<img src="https://travis-ci.org/tmpfs/rlx.svg" alt="Build Status">](https://travis-ci.org/tmpfs/rlx)
+[<img src="http://img.shields.io/npm/v/rlx.svg" alt="npm version">](https://npmjs.org/package/rlx)
+[<img src="https://coveralls.io/repos/tmpfs/rlx/badge.svg?branch=master&service=github&v=1" alt="Coverage Status">](https://coveralls.io/github/tmpfs/rlx?branch=master).
+
 Command line interface for [couchdb](http://couchdb.apache.org) designed for POSIX systems.
 
 Requires [node](http://nodejs.org) and [npm](http://www.npmjs.org).
