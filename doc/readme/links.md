@@ -4,3 +4,5 @@
 [man]: /doc/man
 [mdp]: https://github.com/tmpfs/mdp
 [manpage]: https://github.com/cli-kit/cli-manpage
+[jshint]: http://jshint.com
+[jscs]: http://jscs.info

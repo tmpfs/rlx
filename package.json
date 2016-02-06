@@ -58,6 +58,7 @@
     "mocha": "~2.3.4"
   },
   "scripts": {
+    "lint": "jshint . && jscs .",
     "docs": "npm run manual && npm run readme && npm run cheatsheet",
     "clean-man": "rm -fv ./doc/man/*.1",
     "manual": "npm run clean-man && manpage --output ./doc/man ./bin/rlx",

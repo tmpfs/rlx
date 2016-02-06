@@ -52,6 +52,14 @@ Generated man pages are in the [man][man] directory, to dynamically generate man
 NODE_ENV=devel ./bin/rlx help db
 ```
 
+### Lint
+
+Run the source tree through [jshint][] and [jscs][]:
+
+```
+npm run lint
+```
+
 ### Readme
 
 To build the readme file from the partial definitions (requires [mdp][]):
