@@ -7,6 +7,7 @@ describe('rlx:', function() {
   it('should retrieve raw log data', function(done){
     var mock = config.file('server-log.txt');
     var args = qt.getArguments('log/raw', {output: mock});
+    console.log(args);
     var def = program(require(pkg), config.name)
     def.program.on('complete', function(req) {
       var doc = config.text(mock);
