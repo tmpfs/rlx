@@ -1,4 +1,3 @@
-var mock = require('../mock');
 var setup = require('../setup/home');
 
 var home = {
