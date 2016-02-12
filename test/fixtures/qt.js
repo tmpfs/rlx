@@ -1369,8 +1369,11 @@ function getArguments(id, opts) {
       args.push(force);
     }
     args.push('--no-color');
-    args.push('--log-level', 'fatal');
-    //args.push('--log-level', 'debug', '--log-http');
+    if(!process.env.DEBUG) {
+      args.push('--log-level', 'fatal');
+    }else{
+      args.push('--log-level', 'debug', '--log-http');
+    }
   }
   args.push('--no-interactive');
   return args;
