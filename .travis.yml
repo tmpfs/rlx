@@ -1,7 +1,7 @@
 services:
   - couchdb
 language: node_js
-pre_script: couchdb -V
+before_script: couchdb -V
 script: npm run cover
 node_js:
   - "4.1"
