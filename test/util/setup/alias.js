@@ -11,7 +11,7 @@ var alias = {
       var file = mock.file('setup-alias-init.json');
       var args = ['as', 'init', '-o', file, '--force', '--no-color'];
       var def = program(require(pkg), mock.name)
-      def.program.on('complete', function(req) {
+      def.program.on('complete', function(/*req*/) {
         ht.restore(done);
       })
       def.parse(args);
