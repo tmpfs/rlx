@@ -5,7 +5,9 @@ var fs = require('fs')
 var fsutil = {};
 fsutil.file = function(name, content) {
   var file = path.join(mock.paths.target, name);
-  if(content) fs.writeFileSync(file, content);
+  if(content) {
+    fs.writeFileSync(file, content);
+  }
   return file;
 }
 
