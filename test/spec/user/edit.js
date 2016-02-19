@@ -4,7 +4,6 @@ var teardown = require('../../util/teardown');
 var config = require('../../util/config');
 var pkg = config.paths.pkg;
 var program = config.program;
-var database = config.database.default;
 
 var assert = config.assert.user.edit;
 
