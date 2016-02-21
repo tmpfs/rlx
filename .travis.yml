@@ -1,5 +1,8 @@
 services:
   - couchdb
+branches:
+  except:
+    - develop
 language: node_js
 before_script:
   - couchdb -V | grep 1.6.1
