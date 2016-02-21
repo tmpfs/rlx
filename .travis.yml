@@ -15,3 +15,12 @@ node_js:
   - "stable"
 after_success:
   - npm run coveralls
+deploy:
+  provider: npm
+  email: freeformsystems@gmail.com
+  api_key:
+    secure: Rt5CcJgcO0J7uEJxCPCI867EEIhqTNxnViF/dhfC1HTYuWp4hUXvmf3LlP6BMQOmMRQEisT7PuxQqrSHZEYsz4Xt1Fcw65+9j5qU/pWKsP3b7A6y8CiuMkMyZnrnA2jOVTHzfdd++QRHgHjDyaYNcVZQQYwKgtXlcJ9OWqFF0ikThaHtqfrebXgO+Dsp3qNAL17Sdqv4Rqu4FMVB7Yv7Lr4OHffXLzhQhJIxLaAFKnBaQgTuHSikZ+Vw6Jy+I0eQW+zNfYidbGyEx/MdKtnyaA49Wdbaiu5eZWDDAUbhQqOO28YVxd0BEVstxLRdeDW3wlNDkpHOcEdZlASGvPuB9BSKQS6ssXKd93a9AKZwkTVQfadR3XeAAoHm19lElyVlbunPOkupkN4wYRiBUnKEGsk6rplP/UFUjSE8BQGe2eMSxSKTc79kbyG1TUcziOdqwHvbtBddjjmi7Akn/Y+4CF5/Y28Wx0z6EjFUyt8rzMxO5BwJix9fsnjT3Yws9Qx4+CHgP7b9EV6hRGV6ym1HfnRA+sF2nZBVHBcyMEKMSx3CWFjzQiihwzaSkl0PRFLdls/1EoO+8/QjL6dEPIOfZkg9hBaeLRe3p+bHdI+b5LfCr6iuD0Y9uzNUOBnxnMUUx0SgnOSmFbzLJ6EyeWdlkWN/Vp754mVTNURw/KaTmR4=
+  on:
+    tags: true
+    repo: tmpfs/rlx
+    node: '4.1'
