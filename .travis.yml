@@ -1,7 +1,9 @@
 services:
   - couchdb
 language: node_js
-before_script: couchdb -V
+before_script:
+  - couchdb -V | grep 1.6.1
+  - ./sbin/timeout.sh
 script: npm run cover
 node_js:
   - "4.1"
