@@ -12,7 +12,7 @@ describe('rlx:', function() {
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
+    def.program.on('complete', function() {
       var doc = config.json(mock);
       config.assert.generic.ok(doc);
       done();
