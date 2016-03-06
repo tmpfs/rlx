@@ -27,7 +27,7 @@ describe('rlx:', function() {
       '--no-interactive'
     ];
     var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
+    def.program.on('complete', function() {
       var doc = config.json(mock);
       config.assert.security.ctx(doc);
       done();
