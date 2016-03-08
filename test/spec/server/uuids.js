@@ -8,7 +8,7 @@ var assert = config.assert.server.uuids;
 describe('rlx:', function() {
   it('should retrieve uuids', function(done){
     var mock = config.file('server-uuids.json');
-    var args = qt.getArguments('uuids', {output: mock});
+    //var args = qt.getArguments('uuids', {output: mock});
     var args = [
       'uuids',
       '--no-color',
@@ -16,7 +16,7 @@ describe('rlx:', function() {
       '-o', mock
     ];
     var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
+    def.program.on('complete', function() {
       var doc = config.json(mock);
       assert(doc);
       done();
@@ -28,7 +28,7 @@ describe('rlx:', function() {
     var count = 10;
     var args = qt.getArguments('uuids', {output: mock, args: ['--count', count]});
     var def = program(require(pkg), config.name)
-    def.program.on('complete', function(req) {
+    def.program.on('complete', function() {
       var doc = config.json(mock);
       assert(doc, count);
       done();
